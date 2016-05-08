@@ -10,13 +10,17 @@ using System.Windows.Forms;
 
 namespace GYM
 {
-    public partial class Form1 : Form
+    public partial class Login : Form
     {
-        public Form1()
+
+        public Login()
         {
             InitializeComponent();
             radioButton_Personal.Checked = false;
             radioButton_Cliente.Checked = false;
+            Personal_Recepcion PR = new Personal_Recepcion();
+            //Lineas de Prueba
+            PR.Show();
         }
 
         private void radioButton_Personal_CheckedChanged(object sender, EventArgs e)
@@ -33,7 +37,7 @@ namespace GYM
 
         private void button_login_Click(object sender, EventArgs e)
         {
-
+            
         }
     }
 }

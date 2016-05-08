@@ -1,6 +1,6 @@
 ﻿namespace GYM
 {
-    partial class Form1
+    partial class Login
     {
         /// <summary>
         /// Required designer variable.
@@ -28,8 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.pictureBox_logo = new System.Windows.Forms.PictureBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.radioButton_Personal = new System.Windows.Forms.RadioButton();
             this.radioButton_Cliente = new System.Windows.Forms.RadioButton();
             this.button_login = new System.Windows.Forms.Button();
@@ -37,18 +36,9 @@
             this.textBox_password = new System.Windows.Forms.TextBox();
             this.label_user = new System.Windows.Forms.Label();
             this.label_password = new System.Windows.Forms.Label();
+            this.pictureBox_logo = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_logo)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictureBox_logo
-            // 
-            this.pictureBox_logo.Image = global::GYM.Properties.Resources.Logo;
-            this.pictureBox_logo.Location = new System.Drawing.Point(51, 12);
-            this.pictureBox_logo.Name = "pictureBox_logo";
-            this.pictureBox_logo.Size = new System.Drawing.Size(188, 79);
-            this.pictureBox_logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox_logo.TabIndex = 0;
-            this.pictureBox_logo.TabStop = false;
             // 
             // radioButton_Personal
             // 
@@ -91,7 +81,7 @@
             // 
             this.textBox_user.Location = new System.Drawing.Point(111, 169);
             this.textBox_user.Name = "textBox_user";
-            this.textBox_user.Size = new System.Drawing.Size(141, 20);
+            this.textBox_user.Size = new System.Drawing.Size(141, 22);
             this.textBox_user.TabIndex = 4;
             // 
             // textBox_password
@@ -99,7 +89,7 @@
             this.textBox_password.Location = new System.Drawing.Point(111, 207);
             this.textBox_password.Name = "textBox_password";
             this.textBox_password.PasswordChar = '•';
-            this.textBox_password.Size = new System.Drawing.Size(141, 20);
+            this.textBox_password.Size = new System.Drawing.Size(141, 22);
             this.textBox_password.TabIndex = 5;
             // 
             // label_user
@@ -122,7 +112,17 @@
             this.label_password.TabIndex = 7;
             this.label_password.Text = "Contraseña";
             // 
-            // Form1
+            // pictureBox_logo
+            // 
+            this.pictureBox_logo.Image = global::GYM.Properties.Resources.Logo;
+            this.pictureBox_logo.Location = new System.Drawing.Point(51, 12);
+            this.pictureBox_logo.Name = "pictureBox_logo";
+            this.pictureBox_logo.Size = new System.Drawing.Size(188, 79);
+            this.pictureBox_logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox_logo.TabIndex = 0;
+            this.pictureBox_logo.TabStop = false;
+            // 
+            // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -136,8 +136,9 @@
             this.Controls.Add(this.radioButton_Cliente);
             this.Controls.Add(this.radioButton_Personal);
             this.Controls.Add(this.pictureBox_logo);
+            this.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Form1";
+            this.Name = "Login";
             this.Text = "Smart GYM";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_logo)).EndInit();
             this.ResumeLayout(false);

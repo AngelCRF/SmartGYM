@@ -8,22 +8,22 @@ namespace GYM
 {
     class Consultas
     {
-        private void inserta()
+        public void inserta()
         {
 
         }
 
-        private void Selecciona()
+        public void Selecciona()
         {
 
         }
 
-        private void Elimina()
+        public void Elimina()
         {
 
         }
 
-        private void Modifica()
+        public void Modifica()
         {
 
         }
