@@ -26,40 +26,28 @@ namespace GYM
                     p.Visible = false;
                 }
             }
-            catch (Exception e)
-            {
-            }
+            catch (Exception e){}
         }
 
-        private void RevisaDatos()
+        private void RevisaDatos(Panel PanelActual)
         {
-            if (textBox_Nombre.Text.Equals("") || textBox_Nombre== null ||
-                textBox_ApellidoP.Text.Equals("") || textBox_ApellidoP == null ||
-                textBox_ApellidoM.Text.Equals("") || textBox_ApellidoM == null ||
-                textBox_Telefono.Text.Equals("") || textBox_Telefono == null ||
-                textBox_Calle.Text.Equals("") || textBox_Calle == null ||
-                textBox_Numero.Text.Equals("") || textBox_Numero == null ||
-                textBox_Interior.Text.Equals("") || textBox_Interior == null ||
-                textBox_Colonia.Text.Equals("") || textBox_Colonia == null ||
-                textBox_Ciudad.Text.Equals("") || textBox_Ciudad == null)
+            TextBox t = new TextBox();
+            foreach (Object o in PanelActual.Controls)
             {
-                Completo = false;
-            }
-            if (textBox_Interior.Text.Equals("Opcional"))
-            {
-                textBox_Interior.Text = null;
-            }
-            /*foreach (TextBox t in this.Controls)
-            {
-                if (t.Text.Equals("") || t.Text == null)
+                try
                 {
-                    Completo = false;
+                    t = (TextBox) o;
+                    if (t.Text.Equals("") || t.Text == null)
+                    {
+                        Completo = false;
+                    }
+                    if (t.Text.Equals("Opcional"))
+                    {
+                        t.Text = null;
+                    }
                 }
-                if (t.Text.Equals("Opcional"))
-                {
-                    t.Text = null;
-                }
-            }*/
+                catch(Exception e){}
+            }
         }
 
         //Acciones
@@ -89,7 +77,7 @@ namespace GYM
 
         private void button_Save_User_Click(object sender, EventArgs e)
         {
-            RevisaDatos();
+            RevisaDatos(panel_user_new);
             if (Completo)
             {
                 //C.inserta();
