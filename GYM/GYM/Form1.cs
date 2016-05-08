@@ -15,6 +15,21 @@ namespace GYM
         public Form1()
         {
             InitializeComponent();
+            radioButton_Personal.Checked = false;
+            radioButton_Cliente.Checked = false;
         }
+
+        private void radioButton_Personal_CheckedChanged(object sender, EventArgs e)
+        {
+            radioButton_Cliente.Checked = false;
+            textBox_user.Focus();
+        }
+
+        private void radioButton_Cliente_CheckedChanged(object sender, EventArgs e)
+        {
+            radioButton_Personal.Checked = false;
+            textBox_user.Focus();
+        }
+
     }
 }
