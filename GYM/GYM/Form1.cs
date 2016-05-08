@@ -31,5 +31,9 @@ namespace GYM
             textBox_user.Focus();
         }
 
+        private void button_login_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
