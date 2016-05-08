@@ -53,9 +53,10 @@
             // radioButton_Personal
             // 
             this.radioButton_Personal.AutoSize = true;
+            this.radioButton_Personal.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton_Personal.Location = new System.Drawing.Point(104, 110);
             this.radioButton_Personal.Name = "radioButton_Personal";
-            this.radioButton_Personal.Size = new System.Drawing.Size(66, 17);
+            this.radioButton_Personal.Size = new System.Drawing.Size(68, 17);
             this.radioButton_Personal.TabIndex = 1;
             this.radioButton_Personal.TabStop = true;
             this.radioButton_Personal.Text = "Personal";
@@ -65,9 +66,10 @@
             // radioButton_Cliente
             // 
             this.radioButton_Cliente.AutoSize = true;
+            this.radioButton_Cliente.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton_Cliente.Location = new System.Drawing.Point(104, 133);
             this.radioButton_Cliente.Name = "radioButton_Cliente";
-            this.radioButton_Cliente.Size = new System.Drawing.Size(57, 17);
+            this.radioButton_Cliente.Size = new System.Drawing.Size(60, 17);
             this.radioButton_Cliente.TabIndex = 2;
             this.radioButton_Cliente.TabStop = true;
             this.radioButton_Cliente.Text = "Cliente";
@@ -76,6 +78,7 @@
             // 
             // button_login
             // 
+            this.button_login.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_login.Location = new System.Drawing.Point(104, 278);
             this.button_login.Name = "button_login";
             this.button_login.Size = new System.Drawing.Size(75, 23);
@@ -100,18 +103,20 @@
             // label_user
             // 
             this.label_user.AutoSize = true;
+            this.label_user.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_user.Location = new System.Drawing.Point(43, 172);
             this.label_user.Name = "label_user";
-            this.label_user.Size = new System.Drawing.Size(43, 13);
+            this.label_user.Size = new System.Drawing.Size(46, 13);
             this.label_user.TabIndex = 6;
             this.label_user.Text = "Usuario";
             // 
             // label_password
             // 
             this.label_password.AutoSize = true;
+            this.label_password.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_password.Location = new System.Drawing.Point(43, 210);
             this.label_password.Name = "label_password";
-            this.label_password.Size = new System.Drawing.Size(61, 13);
+            this.label_password.Size = new System.Drawing.Size(64, 13);
             this.label_password.TabIndex = 7;
             this.label_password.Text = "Contraseña";
             // 
