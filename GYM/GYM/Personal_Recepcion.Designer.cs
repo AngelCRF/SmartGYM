@@ -53,7 +53,7 @@
             this.panel_equip_new = new System.Windows.Forms.Panel();
             this.panel_equip_edit = new System.Windows.Forms.Panel();
             this.panel_equip_show_all = new System.Windows.Forms.Panel();
-            this.panel_equpi_show_one = new System.Windows.Forms.Panel();
+            this.panel_equip_show_one = new System.Windows.Forms.Panel();
             this.panel_inform = new System.Windows.Forms.Panel();
             this.textBox_Nombre = new System.Windows.Forms.TextBox();
             this.textBox_ApellidoP = new System.Windows.Forms.TextBox();
@@ -177,12 +177,14 @@
             this.nuevoToolStripMenuItem1.Name = "nuevoToolStripMenuItem1";
             this.nuevoToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.nuevoToolStripMenuItem1.Text = "Nuevo";
+            this.nuevoToolStripMenuItem1.Click += new System.EventHandler(this.nuevoToolStripMenuItem1_Click);
             // 
             // editarToolStripMenuItem1
             // 
             this.editarToolStripMenuItem1.Name = "editarToolStripMenuItem1";
             this.editarToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.editarToolStripMenuItem1.Text = "Editar";
+            this.editarToolStripMenuItem1.Click += new System.EventHandler(this.editarToolStripMenuItem1_Click);
             // 
             // mostrarToolStripMenuItem1
             // 
@@ -198,12 +200,14 @@
             this.todosToolStripMenuItem1.Name = "todosToolStripMenuItem1";
             this.todosToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.todosToolStripMenuItem1.Text = "Todos";
+            this.todosToolStripMenuItem1.Click += new System.EventHandler(this.todosToolStripMenuItem1_Click);
             // 
             // buscarToolStripMenuItem1
             // 
             this.buscarToolStripMenuItem1.Name = "buscarToolStripMenuItem1";
             this.buscarToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.buscarToolStripMenuItem1.Text = "Buscar";
+            this.buscarToolStripMenuItem1.Click += new System.EventHandler(this.buscarToolStripMenuItem1_Click);
             // 
             // informesToolStripMenuItem
             // 
@@ -318,13 +322,13 @@
             this.panel_equip_show_all.Size = new System.Drawing.Size(504, 404);
             this.panel_equip_show_all.TabIndex = 4;
             // 
-            // panel_equpi_show_one
+            // panel_equip_show_one
             // 
-            this.panel_equpi_show_one.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_equpi_show_one.Location = new System.Drawing.Point(0, 24);
-            this.panel_equpi_show_one.Name = "panel_equpi_show_one";
-            this.panel_equpi_show_one.Size = new System.Drawing.Size(504, 404);
-            this.panel_equpi_show_one.TabIndex = 5;
+            this.panel_equip_show_one.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_equip_show_one.Location = new System.Drawing.Point(0, 24);
+            this.panel_equip_show_one.Name = "panel_equip_show_one";
+            this.panel_equip_show_one.Size = new System.Drawing.Size(504, 404);
+            this.panel_equip_show_one.TabIndex = 5;
             // 
             // panel_inform
             // 
@@ -594,6 +598,8 @@
             // comboBox_Tipo
             // 
             this.comboBox_Tipo.FormattingEnabled = true;
+            this.comboBox_Tipo.Items.AddRange(new object[] {
+            "Cardio"});
             this.comboBox_Tipo.Location = new System.Drawing.Point(291, 35);
             this.comboBox_Tipo.Name = "comboBox_Tipo";
             this.comboBox_Tipo.Size = new System.Drawing.Size(183, 21);
@@ -623,6 +629,7 @@
             this.button_Save_Equip.TabIndex = 4;
             this.button_Save_Equip.Text = "Agregar";
             this.button_Save_Equip.UseVisualStyleBackColor = true;
+            this.button_Save_Equip.Click += new System.EventHandler(this.button_Save_Equip_Click);
             // 
             // label14
             // 
@@ -673,7 +680,7 @@
             this.Controls.Add(this.panel_equip_new);
             this.Controls.Add(this.panel_user_new);
             this.Controls.Add(this.panel_equip_show_all);
-            this.Controls.Add(this.panel_equpi_show_one);
+            this.Controls.Add(this.panel_equip_show_one);
             this.Controls.Add(this.panel_user_show_one);
             this.Controls.Add(this.panel_equip_edit);
             this.Controls.Add(this.panel_inform);
@@ -733,7 +740,7 @@
         private System.Windows.Forms.Panel panel_equip_new;
         private System.Windows.Forms.Panel panel_equip_edit;
         private System.Windows.Forms.Panel panel_equip_show_all;
-        private System.Windows.Forms.Panel panel_equpi_show_one;
+        private System.Windows.Forms.Panel panel_equip_show_one;
         private System.Windows.Forms.Panel panel_inform;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;

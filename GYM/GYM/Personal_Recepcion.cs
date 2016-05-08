@@ -89,5 +89,44 @@ namespace GYM
                 MessageBox.Show("Error", "Datos Incompletos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void nuevoToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            OcultaPaneles();
+            panel_equip_new.Visible = true;
+        }
+
+        private void editarToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            OcultaPaneles();
+            panel_equip_edit.Visible = true;
+        }
+
+        private void todosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            OcultaPaneles();
+            panel_equip_show_all .Visible = true;
+        }
+
+        private void buscarToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            OcultaPaneles();
+            panel_equip_show_one.Visible = true;
+        }
+
+        private void button_Save_Equip_Click(object sender, EventArgs e)
+        {
+            RevisaDatos(panel_equip_new);
+            if (Completo)
+            {
+                //C.inserta();
+                MessageBox.Show("Datos Guardados", "Aparato Agregado", MessageBoxButtons.OK);
+                OcultaPaneles();
+            }
+            else
+            {
+                MessageBox.Show("Error", "Datos Incompletos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
