@@ -15,7 +15,6 @@ namespace GYM
             OcultaPaneles();
             dateTimePicker_FPago.Value = DateTime.Now;
         }
-
         //Funciones
         private void OcultaPaneles()
         {
@@ -49,7 +48,6 @@ namespace GYM
                 catch(Exception e){}
             }
         }
-
         //Acciones
         private void nuevoToolStripMenuItem_Click(object sender, EventArgs e)
         {
