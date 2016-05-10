@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Personal_Recepcion));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mostrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,7 +46,7 @@
             this.informesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pagosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aparatosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel_user_new = new System.Windows.Forms.Panel();
+            this.panel_client_new = new System.Windows.Forms.Panel();
             this.button_Save_User = new System.Windows.Forms.Button();
             this.dateTimePicker_FPago = new System.Windows.Forms.DateTimePicker();
             this.comboBox_TPago = new System.Windows.Forms.ComboBox();
@@ -74,9 +74,9 @@
             this.textBox_ApellidoM = new System.Windows.Forms.TextBox();
             this.textBox_ApellidoP = new System.Windows.Forms.TextBox();
             this.textBox_Nombre = new System.Windows.Forms.TextBox();
-            this.panel_user_edit = new System.Windows.Forms.Panel();
-            this.panel_user_show_all = new System.Windows.Forms.Panel();
-            this.panel_user_show_one = new System.Windows.Forms.Panel();
+            this.panel_client_edit = new System.Windows.Forms.Panel();
+            this.panel_client_show_all = new System.Windows.Forms.Panel();
+            this.panel_client_show_one = new System.Windows.Forms.Panel();
             this.panel_equip_new = new System.Windows.Forms.Panel();
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
@@ -91,9 +91,14 @@
             this.panel_equip_show_all = new System.Windows.Forms.Panel();
             this.panel_equip_show_one = new System.Windows.Forms.Panel();
             this.panel_inform = new System.Windows.Forms.Panel();
+            this.label18 = new System.Windows.Forms.Label();
+            this.textBox_password = new System.Windows.Forms.TextBox();
+            this.dataGridView_client = new System.Windows.Forms.DataGridView();
             this.menuStrip1.SuspendLayout();
-            this.panel_user_new.SuspendLayout();
+            this.panel_client_new.SuspendLayout();
+            this.panel_client_show_all.SuspendLayout();
             this.panel_equip_new.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_client)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -101,7 +106,7 @@
             this.menuStrip1.Font = new System.Drawing.Font("Malgun Gothic", 9F);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1,
-            this.usuariosToolStripMenuItem,
+            this.ClientesToolStripMenuItem,
             this.aparatosToolStripMenuItem,
             this.informesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -115,15 +120,15 @@
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(12, 20);
             // 
-            // usuariosToolStripMenuItem
+            // ClientesToolStripMenuItem
             // 
-            this.usuariosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ClientesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.nuevoToolStripMenuItem,
             this.editarToolStripMenuItem,
             this.mostrarToolStripMenuItem});
-            this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
-            this.usuariosToolStripMenuItem.Text = "Usuarios";
+            this.ClientesToolStripMenuItem.Name = "ClientesToolStripMenuItem";
+            this.ClientesToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.ClientesToolStripMenuItem.Text = "Clientes";
             // 
             // nuevoToolStripMenuItem
             // 
@@ -221,64 +226,67 @@
             // pagosToolStripMenuItem
             // 
             this.pagosToolStripMenuItem.Name = "pagosToolStripMenuItem";
-            this.pagosToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.pagosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.pagosToolStripMenuItem.Text = "Pagos";
             // 
             // aparatosToolStripMenuItem1
             // 
             this.aparatosToolStripMenuItem1.Name = "aparatosToolStripMenuItem1";
-            this.aparatosToolStripMenuItem1.Size = new System.Drawing.Size(121, 22);
+            this.aparatosToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.aparatosToolStripMenuItem1.Text = "Aparatos";
             // 
-            // panel_user_new
+            // panel_client_new
             // 
-            this.panel_user_new.Controls.Add(this.button_Save_User);
-            this.panel_user_new.Controls.Add(this.dateTimePicker_FPago);
-            this.panel_user_new.Controls.Add(this.comboBox_TPago);
-            this.panel_user_new.Controls.Add(this.label12);
-            this.panel_user_new.Controls.Add(this.label13);
-            this.panel_user_new.Controls.Add(this.label10);
-            this.panel_user_new.Controls.Add(this.label11);
-            this.panel_user_new.Controls.Add(this.label9);
-            this.panel_user_new.Controls.Add(this.label8);
-            this.panel_user_new.Controls.Add(this.label7);
-            this.panel_user_new.Controls.Add(this.label6);
-            this.panel_user_new.Controls.Add(this.label5);
-            this.panel_user_new.Controls.Add(this.label4);
-            this.panel_user_new.Controls.Add(this.label3);
-            this.panel_user_new.Controls.Add(this.label2);
-            this.panel_user_new.Controls.Add(this.label1);
-            this.panel_user_new.Controls.Add(this.comboBox_TSangre);
-            this.panel_user_new.Controls.Add(this.textBox_Ciudad);
-            this.panel_user_new.Controls.Add(this.textBox_Colonia);
-            this.panel_user_new.Controls.Add(this.textBox_Interior);
-            this.panel_user_new.Controls.Add(this.textBox_Numero);
-            this.panel_user_new.Controls.Add(this.textBox_Calle);
-            this.panel_user_new.Controls.Add(this.textBox_Email);
-            this.panel_user_new.Controls.Add(this.textBox_Telefono);
-            this.panel_user_new.Controls.Add(this.textBox_ApellidoM);
-            this.panel_user_new.Controls.Add(this.textBox_ApellidoP);
-            this.panel_user_new.Controls.Add(this.textBox_Nombre);
-            this.panel_user_new.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_user_new.Location = new System.Drawing.Point(0, 24);
-            this.panel_user_new.Name = "panel_user_new";
-            this.panel_user_new.Size = new System.Drawing.Size(504, 404);
-            this.panel_user_new.TabIndex = 1;
+            this.panel_client_new.Controls.Add(this.label18);
+            this.panel_client_new.Controls.Add(this.textBox_password);
+            this.panel_client_new.Controls.Add(this.button_Save_User);
+            this.panel_client_new.Controls.Add(this.dateTimePicker_FPago);
+            this.panel_client_new.Controls.Add(this.comboBox_TPago);
+            this.panel_client_new.Controls.Add(this.label12);
+            this.panel_client_new.Controls.Add(this.label13);
+            this.panel_client_new.Controls.Add(this.label10);
+            this.panel_client_new.Controls.Add(this.label11);
+            this.panel_client_new.Controls.Add(this.label9);
+            this.panel_client_new.Controls.Add(this.label8);
+            this.panel_client_new.Controls.Add(this.label7);
+            this.panel_client_new.Controls.Add(this.label6);
+            this.panel_client_new.Controls.Add(this.label5);
+            this.panel_client_new.Controls.Add(this.label4);
+            this.panel_client_new.Controls.Add(this.label3);
+            this.panel_client_new.Controls.Add(this.label2);
+            this.panel_client_new.Controls.Add(this.label1);
+            this.panel_client_new.Controls.Add(this.comboBox_TSangre);
+            this.panel_client_new.Controls.Add(this.textBox_Ciudad);
+            this.panel_client_new.Controls.Add(this.textBox_Colonia);
+            this.panel_client_new.Controls.Add(this.textBox_Interior);
+            this.panel_client_new.Controls.Add(this.textBox_Numero);
+            this.panel_client_new.Controls.Add(this.textBox_Calle);
+            this.panel_client_new.Controls.Add(this.textBox_Email);
+            this.panel_client_new.Controls.Add(this.textBox_Telefono);
+            this.panel_client_new.Controls.Add(this.textBox_ApellidoM);
+            this.panel_client_new.Controls.Add(this.textBox_ApellidoP);
+            this.panel_client_new.Controls.Add(this.textBox_Nombre);
+            this.panel_client_new.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_client_new.Location = new System.Drawing.Point(0, 24);
+            this.panel_client_new.Name = "panel_client_new";
+            this.panel_client_new.Size = new System.Drawing.Size(504, 404);
+            this.panel_client_new.TabIndex = 1;
             // 
             // button_Save_User
             // 
-            this.button_Save_User.Location = new System.Drawing.Point(209, 351);
+            this.button_Save_User.Font = new System.Drawing.Font("Malgun Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_Save_User.Location = new System.Drawing.Point(408, 329);
             this.button_Save_User.Name = "button_Save_User";
-            this.button_Save_User.Size = new System.Drawing.Size(75, 23);
+            this.button_Save_User.Size = new System.Drawing.Size(44, 44);
             this.button_Save_User.TabIndex = 28;
-            this.button_Save_User.Text = "Guardar";
+            this.button_Save_User.Text = "+";
             this.button_Save_User.UseVisualStyleBackColor = true;
             this.button_Save_User.Click += new System.EventHandler(this.button_Save_User_Click);
             // 
             // dateTimePicker_FPago
             // 
             this.dateTimePicker_FPago.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker_FPago.Location = new System.Drawing.Point(211, 286);
+            this.dateTimePicker_FPago.Location = new System.Drawing.Point(211, 271);
             this.dateTimePicker_FPago.Name = "dateTimePicker_FPago";
             this.dateTimePicker_FPago.Size = new System.Drawing.Size(118, 22);
             this.dateTimePicker_FPago.TabIndex = 27;
@@ -289,7 +297,7 @@
             this.comboBox_TPago.Items.AddRange(new object[] {
             "Efectivo",
             "Tarjeta"});
-            this.comboBox_TPago.Location = new System.Drawing.Point(56, 286);
+            this.comboBox_TPago.Location = new System.Drawing.Point(56, 271);
             this.comboBox_TPago.Name = "comboBox_TPago";
             this.comboBox_TPago.Size = new System.Drawing.Size(132, 21);
             this.comboBox_TPago.TabIndex = 26;
@@ -299,7 +307,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(230, 319);
+            this.label12.Location = new System.Drawing.Point(230, 304);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(85, 13);
             this.label12.TabIndex = 25;
@@ -309,7 +317,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(359, 319);
+            this.label13.Location = new System.Drawing.Point(359, 304);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(87, 13);
             this.label13.TabIndex = 24;
@@ -319,7 +327,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(346, 260);
+            this.label10.Location = new System.Drawing.Point(346, 245);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(44, 13);
             this.label10.TabIndex = 22;
@@ -329,7 +337,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(87, 319);
+            this.label11.Location = new System.Drawing.Point(87, 304);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(78, 13);
             this.label11.TabIndex = 21;
@@ -339,7 +347,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(141, 260);
+            this.label9.Location = new System.Drawing.Point(141, 245);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(47, 13);
             this.label9.TabIndex = 23;
@@ -349,7 +357,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(397, 201);
+            this.label8.Location = new System.Drawing.Point(397, 186);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(45, 13);
             this.label8.TabIndex = 20;
@@ -359,7 +367,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(307, 201);
+            this.label7.Location = new System.Drawing.Point(307, 186);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(50, 13);
             this.label7.TabIndex = 19;
@@ -369,7 +377,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(147, 201);
+            this.label6.Location = new System.Drawing.Point(147, 186);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(32, 13);
             this.label6.TabIndex = 18;
@@ -437,7 +445,7 @@
             "B-",
             "AB+",
             "AB-"});
-            this.comboBox_TSangre.Location = new System.Drawing.Point(352, 286);
+            this.comboBox_TSangre.Location = new System.Drawing.Point(352, 271);
             this.comboBox_TSangre.Name = "comboBox_TSangre";
             this.comboBox_TSangre.Size = new System.Drawing.Size(100, 21);
             this.comboBox_TSangre.TabIndex = 12;
@@ -445,21 +453,21 @@
             // 
             // textBox_Ciudad
             // 
-            this.textBox_Ciudad.Location = new System.Drawing.Point(291, 226);
+            this.textBox_Ciudad.Location = new System.Drawing.Point(291, 211);
             this.textBox_Ciudad.Name = "textBox_Ciudad";
             this.textBox_Ciudad.Size = new System.Drawing.Size(161, 22);
             this.textBox_Ciudad.TabIndex = 9;
             // 
             // textBox_Colonia
             // 
-            this.textBox_Colonia.Location = new System.Drawing.Point(56, 226);
+            this.textBox_Colonia.Location = new System.Drawing.Point(56, 211);
             this.textBox_Colonia.Name = "textBox_Colonia";
             this.textBox_Colonia.Size = new System.Drawing.Size(216, 22);
             this.textBox_Colonia.TabIndex = 8;
             // 
             // textBox_Interior
             // 
-            this.textBox_Interior.Location = new System.Drawing.Point(385, 167);
+            this.textBox_Interior.Location = new System.Drawing.Point(385, 152);
             this.textBox_Interior.Name = "textBox_Interior";
             this.textBox_Interior.Size = new System.Drawing.Size(67, 22);
             this.textBox_Interior.TabIndex = 7;
@@ -468,14 +476,14 @@
             // 
             // textBox_Numero
             // 
-            this.textBox_Numero.Location = new System.Drawing.Point(291, 167);
+            this.textBox_Numero.Location = new System.Drawing.Point(291, 152);
             this.textBox_Numero.Name = "textBox_Numero";
             this.textBox_Numero.Size = new System.Drawing.Size(77, 22);
             this.textBox_Numero.TabIndex = 6;
             // 
             // textBox_Calle
             // 
-            this.textBox_Calle.Location = new System.Drawing.Point(56, 167);
+            this.textBox_Calle.Location = new System.Drawing.Point(56, 152);
             this.textBox_Calle.Name = "textBox_Calle";
             this.textBox_Calle.Size = new System.Drawing.Size(216, 22);
             this.textBox_Calle.TabIndex = 5;
@@ -515,29 +523,30 @@
             this.textBox_Nombre.Size = new System.Drawing.Size(153, 22);
             this.textBox_Nombre.TabIndex = 0;
             // 
-            // panel_user_edit
+            // panel_client_edit
             // 
-            this.panel_user_edit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_user_edit.Location = new System.Drawing.Point(0, 24);
-            this.panel_user_edit.Name = "panel_user_edit";
-            this.panel_user_edit.Size = new System.Drawing.Size(504, 404);
-            this.panel_user_edit.TabIndex = 2;
+            this.panel_client_edit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_client_edit.Location = new System.Drawing.Point(0, 24);
+            this.panel_client_edit.Name = "panel_client_edit";
+            this.panel_client_edit.Size = new System.Drawing.Size(504, 404);
+            this.panel_client_edit.TabIndex = 2;
             // 
-            // panel_user_show_all
+            // panel_client_show_all
             // 
-            this.panel_user_show_all.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_user_show_all.Location = new System.Drawing.Point(0, 24);
-            this.panel_user_show_all.Name = "panel_user_show_all";
-            this.panel_user_show_all.Size = new System.Drawing.Size(504, 404);
-            this.panel_user_show_all.TabIndex = 2;
+            this.panel_client_show_all.Controls.Add(this.dataGridView_client);
+            this.panel_client_show_all.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_client_show_all.Location = new System.Drawing.Point(0, 24);
+            this.panel_client_show_all.Name = "panel_client_show_all";
+            this.panel_client_show_all.Size = new System.Drawing.Size(504, 404);
+            this.panel_client_show_all.TabIndex = 2;
             // 
-            // panel_user_show_one
+            // panel_client_show_one
             // 
-            this.panel_user_show_one.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_user_show_one.Location = new System.Drawing.Point(0, 24);
-            this.panel_user_show_one.Name = "panel_user_show_one";
-            this.panel_user_show_one.Size = new System.Drawing.Size(504, 404);
-            this.panel_user_show_one.TabIndex = 2;
+            this.panel_client_show_one.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_client_show_one.Location = new System.Drawing.Point(0, 24);
+            this.panel_client_show_one.Name = "panel_client_show_one";
+            this.panel_client_show_one.Size = new System.Drawing.Size(504, 404);
+            this.panel_client_show_one.TabIndex = 2;
             // 
             // panel_equip_new
             // 
@@ -672,21 +681,50 @@
             this.panel_inform.Size = new System.Drawing.Size(504, 404);
             this.panel_inform.TabIndex = 6;
             // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(165, 361);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(66, 13);
+            this.label18.TabIndex = 30;
+            this.label18.Text = "Contraseña";
+            // 
+            // textBox_password
+            // 
+            this.textBox_password.Location = new System.Drawing.Point(56, 329);
+            this.textBox_password.Name = "textBox_password";
+            this.textBox_password.Size = new System.Drawing.Size(274, 22);
+            this.textBox_password.TabIndex = 29;
+            // 
+            // dataGridView_client
+            // 
+            this.dataGridView_client.AllowUserToAddRows = false;
+            this.dataGridView_client.AllowUserToDeleteRows = false;
+            this.dataGridView_client.BackgroundColor = System.Drawing.Color.LightSlateGray;
+            this.dataGridView_client.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_client.Location = new System.Drawing.Point(12, 50);
+            this.dataGridView_client.Name = "dataGridView_client";
+            this.dataGridView_client.ReadOnly = true;
+            this.dataGridView_client.Size = new System.Drawing.Size(480, 342);
+            this.dataGridView_client.TabIndex = 0;
+            // 
             // Personal_Recepcion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(504, 428);
+            this.Controls.Add(this.panel_client_show_all);
+            this.Controls.Add(this.panel_client_new);
             this.Controls.Add(this.panel_equip_new);
-            this.Controls.Add(this.panel_user_new);
             this.Controls.Add(this.panel_equip_show_all);
             this.Controls.Add(this.panel_equip_show_one);
-            this.Controls.Add(this.panel_user_show_one);
+            this.Controls.Add(this.panel_client_show_one);
             this.Controls.Add(this.panel_equip_edit);
             this.Controls.Add(this.panel_inform);
-            this.Controls.Add(this.panel_user_show_all);
-            this.Controls.Add(this.panel_user_edit);
+            this.Controls.Add(this.panel_client_edit);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -695,10 +733,12 @@
             this.Text = "Smart GYM";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.panel_user_new.ResumeLayout(false);
-            this.panel_user_new.PerformLayout();
+            this.panel_client_new.ResumeLayout(false);
+            this.panel_client_new.PerformLayout();
+            this.panel_client_show_all.ResumeLayout(false);
             this.panel_equip_new.ResumeLayout(false);
             this.panel_equip_new.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_client)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -708,7 +748,7 @@
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ClientesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nuevoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mostrarToolStripMenuItem;
@@ -723,7 +763,7 @@
         private System.Windows.Forms.ToolStripMenuItem informesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pagosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aparatosToolStripMenuItem1;
-        private System.Windows.Forms.Panel panel_user_new;
+        private System.Windows.Forms.Panel panel_client_new;
         private System.Windows.Forms.ComboBox comboBox_TSangre;
         private System.Windows.Forms.TextBox textBox_Ciudad;
         private System.Windows.Forms.TextBox textBox_Colonia;
@@ -735,9 +775,9 @@
         private System.Windows.Forms.TextBox textBox_ApellidoM;
         private System.Windows.Forms.TextBox textBox_ApellidoP;
         private System.Windows.Forms.TextBox textBox_Nombre;
-        private System.Windows.Forms.Panel panel_user_edit;
-        private System.Windows.Forms.Panel panel_user_show_all;
-        private System.Windows.Forms.Panel panel_user_show_one;
+        private System.Windows.Forms.Panel panel_client_edit;
+        private System.Windows.Forms.Panel panel_client_show_all;
+        private System.Windows.Forms.Panel panel_client_show_one;
         private System.Windows.Forms.Panel panel_equip_new;
         private System.Windows.Forms.Panel panel_equip_edit;
         private System.Windows.Forms.Panel panel_equip_show_all;
@@ -768,5 +808,8 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker_FCompra;
         private System.Windows.Forms.ComboBox comboBox_Tipo;
         private System.Windows.Forms.TextBox textBox_NSerie;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox textBox_password;
+        private System.Windows.Forms.DataGridView dataGridView_client;
     }
 }
