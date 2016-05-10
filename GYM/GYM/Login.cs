@@ -40,7 +40,7 @@ namespace GYM
         private void button_login_Click(object sender, EventArgs e)
         {
             con = new Conexion(data);
-            con.Open();
+            con.Open();//abrir conexión con la base de datos
             con.Close();
         }
     }
