@@ -15,6 +15,7 @@ namespace GYM
             OcultaPaneles();
             dateTimePicker_FPago.Value = DateTime.Now;
         }
+        
         //Funciones
         private void OcultaPaneles()
         {
@@ -48,44 +49,30 @@ namespace GYM
                 catch(Exception e){}
             }
         }
-        //Acciones
+        
+        //MenuStrip Click
         private void nuevoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OcultaPaneles();
-            panel_user_new.Visible = true;
+            panel_client_new.Visible = true;
         }
 
         private void editarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OcultaPaneles();
-            panel_user_edit.Visible = true;
+            panel_client_edit.Visible = true;
         }
 
         private void todosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OcultaPaneles();
-            panel_user_show_all.Visible = true;
+            panel_client_show_all.Visible = true;
         }
 
         private void buscarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OcultaPaneles();
-            panel_user_show_one.Visible = true;
-        }
-
-        private void button_Save_User_Click(object sender, EventArgs e)
-        {
-            RevisaDatos(panel_user_new);
-            if (Completo)
-            {
-                //C.inserta();
-                MessageBox.Show("Datos Guardados", "Cliente Agregado", MessageBoxButtons.OK);
-                OcultaPaneles();
-            }
-            else
-            {
-                MessageBox.Show("Error", "Datos Incompletos", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            panel_client_show_one.Visible = true;
         }
 
         private void nuevoToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -112,6 +99,7 @@ namespace GYM
             panel_equip_show_one.Visible = true;
         }
 
+        //Botones Click
         private void button_Save_Equip_Click(object sender, EventArgs e)
         {
             RevisaDatos(panel_equip_new);
@@ -119,6 +107,22 @@ namespace GYM
             {
                 //C.inserta();
                 MessageBox.Show("Datos Guardados", "Aparato Agregado", MessageBoxButtons.OK);
+                OcultaPaneles();
+            }
+            else
+            {
+                MessageBox.Show("Error", "Datos Incompletos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void button_Save_User_Click(object sender, EventArgs e)
+        {
+            RevisaDatos(panel_client_new);
+            if (Completo)
+            {
+                //C.inserta();
+                // Regresar el id del cliente para que pueda ingresar posteriormente en este mensaje
+                MessageBox.Show("Datos Guardados", "Cliente Agregado", MessageBoxButtons.OK);
                 OcultaPaneles();
             }
             else
