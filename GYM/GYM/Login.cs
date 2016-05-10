@@ -12,6 +12,8 @@ namespace GYM
 {
     public partial class Login : Form
     {
+        private Conexion con;
+        private String data = "Server=www.johnny.heliohost.org;Port=5432;User Id=itmoreli_user;Password=12345678;Database=itmoreli_smartgym";
 
         public Login()
         {
@@ -37,7 +39,9 @@ namespace GYM
 
         private void button_login_Click(object sender, EventArgs e)
         {
-            
+            con = new Conexion(data);
+            con.Open();
+            con.Close();
         }
     }
 }
