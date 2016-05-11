@@ -68,9 +68,7 @@ namespace GYM
         {
             con.Open();
             NpgsqlCommand cmd = new NpgsqlCommand("Insert into rut_ejer values( '"+idrutina+"' , '"+idejercicio+"')", con.Conn);
-            NpgsqlDataReader lector = cmd.Read();
-            lector.Read();
-            lector.close();
+           
              con.Close(); 
         }
 

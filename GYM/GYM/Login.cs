@@ -45,5 +45,10 @@ namespace GYM
             con.Open();//abrir conexión con la base de datos
             con.Close();
         }
+
+        private void label_user_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
