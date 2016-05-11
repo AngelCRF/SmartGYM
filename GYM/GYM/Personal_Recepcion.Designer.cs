@@ -47,6 +47,8 @@
             this.pagosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aparatosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.panel_client_new = new System.Windows.Forms.Panel();
+            this.label18 = new System.Windows.Forms.Label();
+            this.textBox_password = new System.Windows.Forms.TextBox();
             this.button_Save_User = new System.Windows.Forms.Button();
             this.dateTimePicker_FPago = new System.Windows.Forms.DateTimePicker();
             this.comboBox_TPago = new System.Windows.Forms.ComboBox();
@@ -76,6 +78,7 @@
             this.textBox_Nombre = new System.Windows.Forms.TextBox();
             this.panel_client_edit = new System.Windows.Forms.Panel();
             this.panel_client_show_all = new System.Windows.Forms.Panel();
+            this.dataGridView_client = new System.Windows.Forms.DataGridView();
             this.panel_client_show_one = new System.Windows.Forms.Panel();
             this.panel_equip_new = new System.Windows.Forms.Panel();
             this.label17 = new System.Windows.Forms.Label();
@@ -91,14 +94,12 @@
             this.panel_equip_show_all = new System.Windows.Forms.Panel();
             this.panel_equip_show_one = new System.Windows.Forms.Panel();
             this.panel_inform = new System.Windows.Forms.Panel();
-            this.label18 = new System.Windows.Forms.Label();
-            this.textBox_password = new System.Windows.Forms.TextBox();
-            this.dataGridView_client = new System.Windows.Forms.DataGridView();
+            this.label19 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.panel_client_new.SuspendLayout();
             this.panel_client_show_all.SuspendLayout();
-            this.panel_equip_new.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_client)).BeginInit();
+            this.panel_equip_new.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -111,7 +112,7 @@
             this.informesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(504, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(509, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -180,14 +181,14 @@
             // nuevoToolStripMenuItem1
             // 
             this.nuevoToolStripMenuItem1.Name = "nuevoToolStripMenuItem1";
-            this.nuevoToolStripMenuItem1.Size = new System.Drawing.Size(115, 22);
+            this.nuevoToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.nuevoToolStripMenuItem1.Text = "Nuevo";
             this.nuevoToolStripMenuItem1.Click += new System.EventHandler(this.nuevoToolStripMenuItem1_Click);
             // 
             // editarToolStripMenuItem1
             // 
             this.editarToolStripMenuItem1.Name = "editarToolStripMenuItem1";
-            this.editarToolStripMenuItem1.Size = new System.Drawing.Size(115, 22);
+            this.editarToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.editarToolStripMenuItem1.Text = "Editar";
             this.editarToolStripMenuItem1.Click += new System.EventHandler(this.editarToolStripMenuItem1_Click);
             // 
@@ -197,20 +198,20 @@
             this.todosToolStripMenuItem1,
             this.buscarToolStripMenuItem1});
             this.mostrarToolStripMenuItem1.Name = "mostrarToolStripMenuItem1";
-            this.mostrarToolStripMenuItem1.Size = new System.Drawing.Size(115, 22);
+            this.mostrarToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.mostrarToolStripMenuItem1.Text = "Mostrar";
             // 
             // todosToolStripMenuItem1
             // 
             this.todosToolStripMenuItem1.Name = "todosToolStripMenuItem1";
-            this.todosToolStripMenuItem1.Size = new System.Drawing.Size(109, 22);
+            this.todosToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.todosToolStripMenuItem1.Text = "Todos";
             this.todosToolStripMenuItem1.Click += new System.EventHandler(this.todosToolStripMenuItem1_Click);
             // 
             // buscarToolStripMenuItem1
             // 
             this.buscarToolStripMenuItem1.Name = "buscarToolStripMenuItem1";
-            this.buscarToolStripMenuItem1.Size = new System.Drawing.Size(109, 22);
+            this.buscarToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.buscarToolStripMenuItem1.Text = "Buscar";
             this.buscarToolStripMenuItem1.Click += new System.EventHandler(this.buscarToolStripMenuItem1_Click);
             // 
@@ -226,14 +227,14 @@
             // pagosToolStripMenuItem
             // 
             this.pagosToolStripMenuItem.Name = "pagosToolStripMenuItem";
-            this.pagosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.pagosToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.pagosToolStripMenuItem.Text = "Pagos";
             // 
             // aparatosToolStripMenuItem1
             // 
             this.aparatosToolStripMenuItem1.Name = "aparatosToolStripMenuItem1";
-            this.aparatosToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.aparatosToolStripMenuItem1.Text = "Aparatos";
+            this.aparatosToolStripMenuItem1.Size = new System.Drawing.Size(156, 22);
+            this.aparatosToolStripMenuItem1.Text = "Mantenimiento";
             // 
             // panel_client_new
             // 
@@ -269,8 +270,25 @@
             this.panel_client_new.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_client_new.Location = new System.Drawing.Point(0, 24);
             this.panel_client_new.Name = "panel_client_new";
-            this.panel_client_new.Size = new System.Drawing.Size(504, 404);
+            this.panel_client_new.Size = new System.Drawing.Size(509, 404);
             this.panel_client_new.TabIndex = 1;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(165, 361);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(66, 13);
+            this.label18.TabIndex = 30;
+            this.label18.Text = "Contraseña";
+            // 
+            // textBox_password
+            // 
+            this.textBox_password.Location = new System.Drawing.Point(56, 329);
+            this.textBox_password.Name = "textBox_password";
+            this.textBox_password.Size = new System.Drawing.Size(274, 22);
+            this.textBox_password.TabIndex = 29;
             // 
             // button_Save_User
             // 
@@ -528,24 +546,37 @@
             this.panel_client_edit.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_client_edit.Location = new System.Drawing.Point(0, 24);
             this.panel_client_edit.Name = "panel_client_edit";
-            this.panel_client_edit.Size = new System.Drawing.Size(504, 404);
+            this.panel_client_edit.Size = new System.Drawing.Size(509, 404);
             this.panel_client_edit.TabIndex = 2;
             // 
             // panel_client_show_all
             // 
+            this.panel_client_show_all.Controls.Add(this.label19);
             this.panel_client_show_all.Controls.Add(this.dataGridView_client);
             this.panel_client_show_all.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_client_show_all.Location = new System.Drawing.Point(0, 24);
             this.panel_client_show_all.Name = "panel_client_show_all";
-            this.panel_client_show_all.Size = new System.Drawing.Size(504, 404);
+            this.panel_client_show_all.Size = new System.Drawing.Size(509, 404);
             this.panel_client_show_all.TabIndex = 2;
+            // 
+            // dataGridView_client
+            // 
+            this.dataGridView_client.AllowUserToAddRows = false;
+            this.dataGridView_client.AllowUserToDeleteRows = false;
+            this.dataGridView_client.BackgroundColor = System.Drawing.Color.LightSlateGray;
+            this.dataGridView_client.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_client.Location = new System.Drawing.Point(12, 50);
+            this.dataGridView_client.Name = "dataGridView_client";
+            this.dataGridView_client.ReadOnly = true;
+            this.dataGridView_client.Size = new System.Drawing.Size(480, 342);
+            this.dataGridView_client.TabIndex = 0;
             // 
             // panel_client_show_one
             // 
             this.panel_client_show_one.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_client_show_one.Location = new System.Drawing.Point(0, 24);
             this.panel_client_show_one.Name = "panel_client_show_one";
-            this.panel_client_show_one.Size = new System.Drawing.Size(504, 404);
+            this.panel_client_show_one.Size = new System.Drawing.Size(509, 404);
             this.panel_client_show_one.TabIndex = 2;
             // 
             // panel_equip_new
@@ -563,7 +594,7 @@
             this.panel_equip_new.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_equip_new.Location = new System.Drawing.Point(0, 24);
             this.panel_equip_new.Name = "panel_equip_new";
-            this.panel_equip_new.Size = new System.Drawing.Size(504, 404);
+            this.panel_equip_new.Size = new System.Drawing.Size(509, 404);
             this.panel_equip_new.TabIndex = 3;
             // 
             // label17
@@ -654,7 +685,7 @@
             this.panel_equip_edit.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_equip_edit.Location = new System.Drawing.Point(0, 24);
             this.panel_equip_edit.Name = "panel_equip_edit";
-            this.panel_equip_edit.Size = new System.Drawing.Size(504, 404);
+            this.panel_equip_edit.Size = new System.Drawing.Size(509, 404);
             this.panel_equip_edit.TabIndex = 3;
             // 
             // panel_equip_show_all
@@ -662,7 +693,7 @@
             this.panel_equip_show_all.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_equip_show_all.Location = new System.Drawing.Point(0, 24);
             this.panel_equip_show_all.Name = "panel_equip_show_all";
-            this.panel_equip_show_all.Size = new System.Drawing.Size(504, 404);
+            this.panel_equip_show_all.Size = new System.Drawing.Size(509, 404);
             this.panel_equip_show_all.TabIndex = 4;
             // 
             // panel_equip_show_one
@@ -670,7 +701,7 @@
             this.panel_equip_show_one.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_equip_show_one.Location = new System.Drawing.Point(0, 24);
             this.panel_equip_show_one.Name = "panel_equip_show_one";
-            this.panel_equip_show_one.Size = new System.Drawing.Size(504, 404);
+            this.panel_equip_show_one.Size = new System.Drawing.Size(509, 404);
             this.panel_equip_show_one.TabIndex = 5;
             // 
             // panel_inform
@@ -678,44 +709,25 @@
             this.panel_inform.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_inform.Location = new System.Drawing.Point(0, 24);
             this.panel_inform.Name = "panel_inform";
-            this.panel_inform.Size = new System.Drawing.Size(504, 404);
+            this.panel_inform.Size = new System.Drawing.Size(509, 404);
             this.panel_inform.TabIndex = 6;
             // 
-            // label18
+            // label19
             // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(165, 361);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(66, 13);
-            this.label18.TabIndex = 30;
-            this.label18.Text = "Contraseña";
-            // 
-            // textBox_password
-            // 
-            this.textBox_password.Location = new System.Drawing.Point(56, 329);
-            this.textBox_password.Name = "textBox_password";
-            this.textBox_password.Size = new System.Drawing.Size(274, 22);
-            this.textBox_password.TabIndex = 29;
-            // 
-            // dataGridView_client
-            // 
-            this.dataGridView_client.AllowUserToAddRows = false;
-            this.dataGridView_client.AllowUserToDeleteRows = false;
-            this.dataGridView_client.BackgroundColor = System.Drawing.Color.LightSlateGray;
-            this.dataGridView_client.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_client.Location = new System.Drawing.Point(12, 50);
-            this.dataGridView_client.Name = "dataGridView_client";
-            this.dataGridView_client.ReadOnly = true;
-            this.dataGridView_client.Size = new System.Drawing.Size(480, 342);
-            this.dataGridView_client.TabIndex = 0;
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Malgun Gothic", 15.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(12, 10);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(105, 30);
+            this.label19.TabIndex = 1;
+            this.label19.Text = "Clientes: ";
             // 
             // Personal_Recepcion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
-            this.ClientSize = new System.Drawing.Size(504, 428);
+            this.ClientSize = new System.Drawing.Size(509, 428);
             this.Controls.Add(this.panel_client_show_all);
             this.Controls.Add(this.panel_client_new);
             this.Controls.Add(this.panel_equip_new);
@@ -736,9 +748,10 @@
             this.panel_client_new.ResumeLayout(false);
             this.panel_client_new.PerformLayout();
             this.panel_client_show_all.ResumeLayout(false);
+            this.panel_client_show_all.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_client)).EndInit();
             this.panel_equip_new.ResumeLayout(false);
             this.panel_equip_new.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_client)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -811,5 +824,6 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox textBox_password;
         private System.Windows.Forms.DataGridView dataGridView_client;
+        private System.Windows.Forms.Label label19;
     }
 }
