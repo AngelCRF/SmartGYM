@@ -71,9 +71,7 @@ namespace GYM
             NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(cmd);
             DataSet datos = new DataSet();
             adapter.Fill(datos);
-            con.Close();
-            
-
+             con.Close(); 
         }
 
 

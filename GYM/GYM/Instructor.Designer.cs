@@ -50,6 +50,9 @@
             this.dataGridView_AgregarEjercicios = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.crearEjercicioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.textBox_ModificarrutinaId = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_logo)).BeginInit();
             this.panel_MostrarRutinas.SuspendLayout();
@@ -181,6 +184,9 @@
             // 
             // panel_CrearRutina
             // 
+            this.panel_CrearRutina.Controls.Add(this.button2);
+            this.panel_CrearRutina.Controls.Add(this.label6);
+            this.panel_CrearRutina.Controls.Add(this.textBox_ModificarrutinaId);
             this.panel_CrearRutina.Controls.Add(this.button1);
             this.panel_CrearRutina.Controls.Add(this.dataGridView_AgregarEjercicios);
             this.panel_CrearRutina.Controls.Add(this.label5);
@@ -195,7 +201,7 @@
             // 
             // textBox_CrearIdRutina
             // 
-            this.textBox_CrearIdRutina.Location = new System.Drawing.Point(275, 60);
+            this.textBox_CrearIdRutina.Location = new System.Drawing.Point(275, 66);
             this.textBox_CrearIdRutina.Name = "textBox_CrearIdRutina";
             this.textBox_CrearIdRutina.Size = new System.Drawing.Size(213, 20);
             this.textBox_CrearIdRutina.TabIndex = 0;
@@ -248,6 +254,32 @@
             this.crearEjercicioToolStripMenuItem.Name = "crearEjercicioToolStripMenuItem";
             this.crearEjercicioToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.crearEjercicioToolStripMenuItem.Text = "Crear ejercicio";
+            // 
+            // textBox_ModificarrutinaId
+            // 
+            this.textBox_ModificarrutinaId.Location = new System.Drawing.Point(275, 27);
+            this.textBox_ModificarrutinaId.Name = "textBox_ModificarrutinaId";
+            this.textBox_ModificarrutinaId.Size = new System.Drawing.Size(100, 20);
+            this.textBox_ModificarrutinaId.TabIndex = 6;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(166, 30);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(16, 13);
+            this.label6.TabIndex = 7;
+            this.label6.Text = "Id";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(389, 24);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 8;
+            this.button2.Text = "Buscar";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Instructor
             // 
@@ -303,5 +335,8 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox_CrearHorasRutina;
         private System.Windows.Forms.ToolStripMenuItem crearEjercicioToolStripMenuItem;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox textBox_ModificarrutinaId;
     }
 }

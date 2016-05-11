@@ -59,6 +59,8 @@ namespace GYM
         private void crearRutinaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             panel_CrearRutina.BringToFront();
+            textBox_ModificarrutinaId.Visible = false;
+            label6.Visible = false;
             //HABILITAR CUANDO ESTÉ LA BASE DE DATOS
 
            /* DataSet dato = con.dataGridView("ejercicio", "idejercicio");
@@ -88,6 +90,15 @@ namespace GYM
 
         private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            panel_CrearRutina.BringToFront();
+            textBox_ModificarrutinaId.Visible = false;
+            label6.Visible = false;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(textBox_ModificarrutinaId.Text);
+
 
         }
     }
