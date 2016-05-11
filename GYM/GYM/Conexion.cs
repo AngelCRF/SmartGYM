@@ -24,7 +24,7 @@ namespace GYM
         public Conexion(String Data)
         {
             this.Data = Data;
-            conn = new NpgsqlConnection(Data);
+            conn = new NpgsqlConnection(D0ata);
 
         }
 
