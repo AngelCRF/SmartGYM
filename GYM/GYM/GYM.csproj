@@ -51,6 +51,12 @@
   <ItemGroup>
     <Compile Include="Conexion.cs" />
     <Compile Include="Consultas.cs" />
+    <Compile Include="Instructor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Instructor.Designer.cs">
+      <DependentUpon>Instructor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,6 +71,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Instructor.resx">
+      <DependentUpon>Instructor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>

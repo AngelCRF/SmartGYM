@@ -23,6 +23,8 @@ namespace GYM
             Personal_Recepcion PR = new Personal_Recepcion();
             //Lineas de Prueba
             PR.Show();
+            Instructor MrSatan = new Instructor();
+            MrSatan.Show();
         }
 
         private void radioButton_Personal_CheckedChanged(object sender, EventArgs e)
