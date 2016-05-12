@@ -210,9 +210,10 @@ namespace GYM
             return datos;
         }
 
-        internal void ActualizarRutina(string text1, string text2, string text3)
+        internal void ActualizarRutina(string id, string nombre, string horas)
         {
-            
+            String cmd= ("update rutina set nombre= '"+nombre+"', horas= '"+horas+"' where idrutina = '"+id+"'");
+            ejecutarConsulta(cmd);
         }
 
         public void AgregarEjercicios(String idrutina, String idejercicio)
@@ -242,17 +243,31 @@ namespace GYM
         {
             int id = -1;
             con.Open();
-            NpgsqlCommand cmd2 = new NpgsqlCommand("select * from trabajadores order by idtrabajador desc limit 1;", conn.Conn);
-            NpgsqlDataReader reader2 = cmd2.ExecuteReader();
-            reader2.Read();
-            id = Convert.ToInt32(reader2.GetInt32(0)) + 1;
-
-            reader2.Close();
-            if (id > -1)
+            try
             {
-                NpgsqlCommand cmd = new NpgsqlCommand("insert into ejercicio (idejercicio,idparato, repeticiones, descripcion) values('"+id+"','"+idaparato+"','"+nombre+"','"+desc+"') ", con.Conn);
+                NpgsqlCommand cmd2 = new NpgsqlCommand("select * from ejercicio order by idejercicio desc limit 1;", con.Conn);
+                NpgsqlDataReader reader2 = cmd2.ExecuteReader();
+               
+                if (reader2.Read())
+                {
+                    id = Convert.ToInt32(reader2.GetInt32(0)) + 1;
+                }
+                else
+                {
+                    id = 1;
+                }
 
+                reader2.Close();
+                if (id > -1)
+                {
+                    NpgsqlCommand cmd = new NpgsqlCommand("insert into ejercicio (idejercicio,idparato, repeticiones, descripcion) values('" + id + "','" + idaparato + "','" + nombre + "','" + desc + "') ", con.Conn);
+                    NpgsqlDataReader reader = cmd.ExecuteReader();
+                    reader.Read();
+                    reader.Close();
+                }
             }
+            catch (Exception) { con.Close(); MessageBox.Show("Error al agregar ejercicio"); }
+            con.Close();
         }
 
         public string CrearRutina(string nombre, string horas)
