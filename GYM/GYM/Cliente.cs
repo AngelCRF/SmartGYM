@@ -19,7 +19,7 @@ namespace GYM
             InitializeComponent();
             this.id = id;
             label3.Text = con.fechaDePagoCliente(id);
-            con.MostrarRutinaCliente(dataGridView1);
+            con.MostrarRutinaCliente(dataGridView1, id);
         }
 
         private void label3_Click(object sender, EventArgs e)

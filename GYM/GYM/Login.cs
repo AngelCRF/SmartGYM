@@ -12,7 +12,7 @@ namespace GYM
 {
     public partial class Login : Form
     {
-        private Conexion con;
+        private Consultas con = new Consultas();
         private String data = "Server=www.johnny.heliohost.org;Port=5432;User Id=itmoreli_user;Password=12345678;Database=itmoreli_smartgym";
 
         public Login()
@@ -20,11 +20,7 @@ namespace GYM
             InitializeComponent();
             radioButton_Personal.Checked = false;
             radioButton_Cliente.Checked = false;
-            Personal_Recepcion PR = new Personal_Recepcion();
-            //Lineas de Prueba
-            PR.Show();
-            Instructor MrSatan = new Instructor();
-            MrSatan.Show();
+            
         }
 
         private void radioButton_Personal_CheckedChanged(object sender, EventArgs e)
@@ -41,9 +37,48 @@ namespace GYM
 
         private void button_login_Click(object sender, EventArgs e)
         {
-            con = new Conexion(data);
-            con.Open();//abrir conexión con la base de datos
-            con.Close();
+            if (radioButton_Cliente.Checked)
+            {
+                if (con.BuscarContraseña("cliente", Convert.ToInt32(textBox_user.Text), Convert.ToInt32(textBox_password.Text))) {
+                    Cliente aux = new Cliente(Convert.ToInt32(textBox_user.Text));
+                    aux.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Usuario o contraseña incorrectos, vuelva a intentar");
+                }
+            }
+            else
+            {
+                if (radioButton_Personal.Checked)
+                {
+                    if (con.BuscarContraseña("trabajador", Convert.ToInt32(textBox_user.Text), Convert.ToInt32(textBox_password.Text)))
+                    {
+                        Personal_Recepcion PR = new Personal_Recepcion();
+                        PR.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Usuario o contraseña incorrectos, vuelva a intentar");
+                    }
+                }
+                else
+                {
+                    if (radioButton_Instructor.Checked)
+                    {
+                        if (con.BuscarContraseña("instructor", Convert.ToInt32(textBox_user.Text), Convert.ToInt32(textBox_password.Text)))
+                        {
+                            Cliente tres = new Cliente(Convert.ToInt32(textBox_user.Text));
+                            tres.Show();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Usuario o contraseña incorrectos, vuelva a intentar");
+                        }
+
+                    }
+                }
+            }
         }
 
         private void label_user_Click(object sender, EventArgs e)

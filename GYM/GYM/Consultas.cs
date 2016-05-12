@@ -13,6 +13,7 @@ namespace GYM
     {
         private String datosCarlos = "Server=localhost; Port=5432; User Id=postgres; Password=23c17m; Database=smartgym";
         private String data = "Server=www.johnny.heliohost.org;Port=5432;User Id=itmoreli_user;Password=12345678;Database=itmoreli_smartgym";
+        private Conexion con = new Conexion("Server=www.johnny.heliohost.org;Port=5432;User Id=itmoreli_user;Password=12345678;Database=itmoreli_smartgym");
 
         internal string fechaDePagoCliente(int id)
         {
@@ -20,13 +21,13 @@ namespace GYM
             con.Open();
             try
             {
-                NpgsqlCommand cmd = new NpgsqlCommand(("select fecha_de_corte from cliente where idcliente= '"+id+"' "), con.Conn);
+                NpgsqlCommand cmd = new NpgsqlCommand(("select fecha_de_corte from cliente where idcliente = '"+id+"' "), con.Conn);
                 NpgsqlDataReader reader = cmd.ExecuteReader();
                 reader.Read();
-                fecha = reader.GetString(0);
+                fecha = Convert.ToString(reader.GetDateTime(0));
                 reader.Close();
             }
-            catch (Exception) { MessageBox.Show("error de consulta en fecha de corte"); }
+            catch (Exception ex) { MessageBox.Show("error de consulta en fecha de corte"+ex.Message); con.Close(); }
             con.Close();
             return fecha;
         }
@@ -42,6 +43,7 @@ namespace GYM
                 NpgsqlDataReader reader1 = cmd1.ExecuteReader();
                 reader1.Read();
                 rutina = reader1.GetInt32(0);
+                reader1.Close();
                 NpgsqlCommand cmd2 = new NpgsqlCommand(("select (ejercicio.repeticiones, ejercicio.descripcion, ejercicio.idaparato) from rut_eje, ejercicio where idrut= '" + rutina + "' and idejer = idejercicio "), con.Conn);
                 NpgsqlDataReader reader2 = cmd1.ExecuteReader();               
                 NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(cmd2);
@@ -51,11 +53,41 @@ namespace GYM
                 reader2.Close();
                 aux.DataSource = datos.Tables[0];
             }
-            catch (Exception) { MessageBox.Show("error de consulta en fecha de corte"); }         
+            catch (Exception ex) { MessageBox.Show("error de consulta en rutina de usuario: "+ex.Message); con.Close(); }         
             con.Close();
         }
 
-        private Conexion con = new Conexion("Server=www.johnny.heliohost.org;Port=5432;User Id=itmoreli_user;Password=12345678;Database=itmoreli_smartgym");
+        internal bool BuscarContraseña(string tabla, int id, int password )
+        {
+            tabla = tabla.ToLower();
+            con.Open();
+            string consulta = "";
+            switch (tabla)
+            {
+                case "cliente":
+                    consulta = "select * from cliente where idcliente= '" + id + "' and contraseña = '" + password + "'";
+                    break;
+                case "trabajador":
+                    consulta = "select * from trabajador where idtrabajador= '" + id + "' and contraseña = '" + password + "'";
+                    break;
+                case "instructor":
+                    consulta = "select * from trabajador where idtrabajador= '" + id + "' and contraseña = '" + password + "' and puesto= 'instructor' ";
+                    break;
+            }
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(consulta, con.Conn);
+                NpgsqlDataReader reader = cmd.ExecuteReader();
+                reader.Read();
+                reader.Close();
+                con.Close();
+                return true;
+
+            }
+            catch (Exception) { MessageBox.Show("error de consulta"); con.Close(); return false; }
+            con.Close();
+            return false;
+        }
 
         public Consultas()
         {
