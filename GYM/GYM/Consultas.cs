@@ -65,7 +65,7 @@ namespace GYM
 
         }
 
-        public DataSet dataGridView(String tabla, String nombreId)
+        public DataSet dataGridView(String tabla, String nombreId, DataGridView aux)
         {
             tabla = tabla.ToLower();
             nombreId = nombreId.ToLower();
@@ -92,6 +92,7 @@ namespace GYM
             NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(cmd);
             DataSet datos = new DataSet();
             adapter.Fill(datos);
+            aux.DataSource = datos.Tables[0];
             con.Close();
             return datos;
 
@@ -108,16 +109,37 @@ namespace GYM
                 { }
                 else
                 {
-                    MessageBox.Show("Error de consulta");
+                    MessageBox.Show("Error de consulta en agregar ejercicios a rutinas");
                 }
                 reader.Close();
             }
             catch (Exception )
             {
-                MessageBox.Show("No se pudo realizar la consulta", "Error");
+                MessageBox.Show("No se pudo realizar la consulta de agregar ejercicio", "Error");
 
             }
             con.Close(); 
+        }
+
+        public string CrearRutina(string nombre, string horas)
+        {
+            int id = -1;
+            con.Open();
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand("select * from rutina order by idrutina desc limit 1;", con.Conn);
+                NpgsqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read()) { id = Convert.ToInt32(reader.GetInt32(0)) + 1; } else { id = 1; }
+                reader.Close();
+                NpgsqlCommand cmd2 = new NpgsqlCommand("insert into rutina(idrutina, nombre, horas) values ('" + id + "', '" + nombre + "', '" + horas + "');", con.Conn);
+                NpgsqlDataReader reader2 = cmd.ExecuteReader();
+                if (reader.Read()) { } else { MessageBox.Show("Error de consulta"); }
+                reader.Close();
+                MessageBox.Show("Rutina agregada exitosamente");
+            }
+            catch (Exception) { MessageBox.Show("Error al crear rutina"); }
+            con.Close();
+            return Convert.ToString(id);
         }
 
         public void eliminarEjercicios(String idrutina, String idejercicio)
