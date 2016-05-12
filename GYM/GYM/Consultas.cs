@@ -14,7 +14,7 @@ namespace GYM
         private String data = "Server=www.johnny.heliohost.org;Port=5432;User Id=itmoreli_user;Password=12345678;Database=itmoreli_smartgym";
         private Conexion con = new Conexion("Server=www.johnny.heliohost.org;Port=5432;User Id=itmoreli_user;Password=12345678;Database=itmoreli_smartgym");
 
-        public void inserta(String table, String val, String val2, String val3, String val4, String val5, String val6)
+        public void inserta(String table, String val, String val2, String val3, String val4, String val5, String val6, String val7, String val8, String val9, String val10, String val11)
         {
             table = table.ToLower();
             string consulta = "";
@@ -24,7 +24,6 @@ namespace GYM
                     con.Open();             
                     NpgsqlCommand cmd = new NpgsqlCommand("select * from ejercicio order by idejercicio desc limit 1;", con.Conn);
                     NpgsqlDataReader reader = cmd.ExecuteReader();
-                    reader.Read();
                     int id = -1;
                     if (reader.Read()) { id = Convert.ToInt32(reader.GetInt32(0)) + 1; } else { id = 1; }                  
                     reader.Close();
@@ -35,7 +34,7 @@ namespace GYM
                     break;
 
             }
-
+            ejecutarConsulta(consulta);
         }
 
         public void Selecciona()
@@ -43,9 +42,22 @@ namespace GYM
 
         }
 
-        public void Elimina()
+        public void Elimina(String tabla, String id) 
         {
+            tabla = tabla.ToLower();
+            string consulta = "";
+            switch (tabla)
+            {
+                case "rutina":
+                    string consulta2= ("delete from rut_ejer where idrut= '" + id + "'");
+                    ejecutarConsulta(consulta2);
+                    consulta = ("delete from rutina where idrutina= '"+id+"'");
+                    break;
+                default:
+                    break;
+            }
 
+            ejecutarConsulta(consulta);
         }
 
         public void Modifica()
@@ -61,14 +73,15 @@ namespace GYM
             String consulta = "";
             switch (tabla)
             {
-                case "rutinas":
+                case "rutina":
                     consulta = ("select * from " + tabla + " order by " + nombreId + "");
                     break;
-                case "rut_ejer":
-                    
-                        consulta = ("select (idaparato, repeticiones, descripcion) from  Rut_Ejer, ejercicios where idrut= '" + nombreId + " and "
-                + " Rut_Ejer.idejer = ejercicios.idejercicio");
-                    
+                case "rut_ejer":               
+                        consulta = ("select (ejercicios.idejercicio, ejercicios.idaparato, ejercicios.repeticiones, ejercicios.descripcion) from  Rut_Ejer, ejercicios where idrut= '" + nombreId + " and "
+                + " Rut_Ejer.idejer = ejercicios.idejercicio");                  
+                    break;
+                case "ejercicio":
+                    consulta = ("select * from " + tabla + " order by " + nombreId + "");
                     break;
 
 
@@ -130,11 +143,36 @@ namespace GYM
             con.Close();
         }
 
+        private void ejecutarConsulta(String consulta)
+        {
+            con.Open();
+            try
+            {
+                NpgsqlCommand comando = new NpgsqlCommand(consulta, con.Conn);
+                if (comando.ExecuteNonQuery() > 0)
+                {
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudo realizar la operacion \n\n" + ex.Message);
+            }
+            con.Close();
+        }
 
-
-        
-
-
+        internal void ActualizarRutina(string id, string nombre, string hora)
+        {
+            con.Open();
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand("update rutina set nombre ='"+nombre+"', hora '"+ hora+"' where idrutina = '"+id+"'", con.Conn);
+                NpgsqlDataReader reader = cmd.ExecuteReader();
+                reader.Read();
+                reader.Close();    
+            }
+            catch (Exception) { MessageBox.Show("Error en la consulta"); }
+            con.Close();
+        }
     }
 }
 

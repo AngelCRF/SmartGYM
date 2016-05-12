@@ -51,11 +51,11 @@
             this.label6 = new System.Windows.Forms.Label();
             this.textBox_ModificarrutinaId = new System.Windows.Forms.TextBox();
             this.button_agregarEjercicios = new System.Windows.Forms.Button();
-            this.dataGridView_AgregarEjercicios = new System.Windows.Forms.DataGridView();
+            this.dataGridView_crearRutina = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
             this.textBox_CrearHorasRutina = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox_CrearIdRutina = new System.Windows.Forms.TextBox();
+            this.textBox_CrearNombre = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.textBox_Descricpcion = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -63,15 +63,26 @@
             this.label7 = new System.Windows.Forms.Label();
             this.textBox_Repeticiones = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.eliminarRutinaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel_EliminarRutina = new System.Windows.Forms.Panel();
+            this.textBox_eliminarId = new System.Windows.Forms.TextBox();
+            this.button_EliminarRutina = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.asignarRutinaAClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dataGridView_AgregarEjercicios = new System.Windows.Forms.DataGridView();
+            this.dataGridView_Eliminarejercicios = new System.Windows.Forms.DataGridView();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_logo)).BeginInit();
             this.panel_MostrarRutinas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEjercicio)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRutina)).BeginInit();
             this.panel_CrearRutina.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_AgregarEjercicios)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_crearRutina)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_aparatos)).BeginInit();
+            this.panel_EliminarRutina.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_AgregarEjercicios)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Eliminarejercicios)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -90,7 +101,9 @@
             this.rutinaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.crearRutinaToolStripMenuItem,
             this.modificarToolStripMenuItem,
-            this.mostrarToolStripMenuItem});
+            this.mostrarToolStripMenuItem,
+            this.eliminarRutinaToolStripMenuItem,
+            this.asignarRutinaAClienteToolStripMenuItem});
             this.rutinaToolStripMenuItem.Name = "rutinaToolStripMenuItem";
             this.rutinaToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
             this.rutinaToolStripMenuItem.Text = "Rutina";
@@ -98,22 +111,22 @@
             // crearRutinaToolStripMenuItem
             // 
             this.crearRutinaToolStripMenuItem.Name = "crearRutinaToolStripMenuItem";
-            this.crearRutinaToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
-            this.crearRutinaToolStripMenuItem.Text = "Crear Rutina";
+            this.crearRutinaToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.crearRutinaToolStripMenuItem.Text = "Crear";
             this.crearRutinaToolStripMenuItem.Click += new System.EventHandler(this.crearRutinaToolStripMenuItem_Click);
             // 
             // modificarToolStripMenuItem
             // 
             this.modificarToolStripMenuItem.Name = "modificarToolStripMenuItem";
-            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
             this.modificarToolStripMenuItem.Text = " Modificar";
             this.modificarToolStripMenuItem.Click += new System.EventHandler(this.modificarToolStripMenuItem_Click);
             // 
             // mostrarToolStripMenuItem
             // 
             this.mostrarToolStripMenuItem.Name = "mostrarToolStripMenuItem";
-            this.mostrarToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
-            this.mostrarToolStripMenuItem.Text = "Mostrar";
+            this.mostrarToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.mostrarToolStripMenuItem.Text = "Mostrar ";
             this.mostrarToolStripMenuItem.Click += new System.EventHandler(this.mostrarToolStripMenuItem_Click);
             // 
             // ejercicioToolStripMenuItem
@@ -127,7 +140,7 @@
             // crearEjercicioToolStripMenuItem
             // 
             this.crearEjercicioToolStripMenuItem.Name = "crearEjercicioToolStripMenuItem";
-            this.crearEjercicioToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.crearEjercicioToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.crearEjercicioToolStripMenuItem.Text = "Crear ejercicio";
             this.crearEjercicioToolStripMenuItem.Click += new System.EventHandler(this.crearEjercicioToolStripMenuItem_Click);
             // 
@@ -203,6 +216,8 @@
             // 
             // panel_CrearRutina
             // 
+            this.panel_CrearRutina.Controls.Add(this.dataGridView_AgregarEjercicios);
+            this.panel_CrearRutina.Controls.Add(this.dataGridView_Eliminarejercicios);
             this.panel_CrearRutina.Controls.Add(this.button_CambiarHora);
             this.panel_CrearRutina.Controls.Add(this.button_EliminarEjercicio);
             this.panel_CrearRutina.Controls.Add(this.button_AgrerarEjercicio2);
@@ -210,30 +225,30 @@
             this.panel_CrearRutina.Controls.Add(this.label6);
             this.panel_CrearRutina.Controls.Add(this.textBox_ModificarrutinaId);
             this.panel_CrearRutina.Controls.Add(this.button_agregarEjercicios);
-            this.panel_CrearRutina.Controls.Add(this.dataGridView_AgregarEjercicios);
+            this.panel_CrearRutina.Controls.Add(this.dataGridView_crearRutina);
             this.panel_CrearRutina.Controls.Add(this.label5);
             this.panel_CrearRutina.Controls.Add(this.textBox_CrearHorasRutina);
             this.panel_CrearRutina.Controls.Add(this.label4);
-            this.panel_CrearRutina.Controls.Add(this.textBox_CrearIdRutina);
+            this.panel_CrearRutina.Controls.Add(this.textBox_CrearNombre);
             this.panel_CrearRutina.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_CrearRutina.Location = new System.Drawing.Point(0, 24);
+            this.panel_CrearRutina.Location = new System.Drawing.Point(0, 0);
             this.panel_CrearRutina.Name = "panel_CrearRutina";
-            this.panel_CrearRutina.Size = new System.Drawing.Size(702, 432);
+            this.panel_CrearRutina.Size = new System.Drawing.Size(702, 456);
             this.panel_CrearRutina.TabIndex = 4;
             // 
             // button_CambiarHora
             // 
             this.button_CambiarHora.Location = new System.Drawing.Point(389, 104);
             this.button_CambiarHora.Name = "button_CambiarHora";
-            this.button_CambiarHora.Size = new System.Drawing.Size(99, 23);
+            this.button_CambiarHora.Size = new System.Drawing.Size(135, 23);
             this.button_CambiarHora.TabIndex = 11;
-            this.button_CambiarHora.Text = "Cambiar hora";
+            this.button_CambiarHora.Text = "Cambiar hora y nombre";
             this.button_CambiarHora.UseVisualStyleBackColor = true;
             this.button_CambiarHora.Click += new System.EventHandler(this.button_CambiarHora_Click);
             // 
             // button_EliminarEjercicio
             // 
-            this.button_EliminarEjercicio.Location = new System.Drawing.Point(425, 386);
+            this.button_EliminarEjercicio.Location = new System.Drawing.Point(115, 386);
             this.button_EliminarEjercicio.Name = "button_EliminarEjercicio";
             this.button_EliminarEjercicio.Size = new System.Drawing.Size(75, 23);
             this.button_EliminarEjercicio.TabIndex = 10;
@@ -243,7 +258,7 @@
             // 
             // button_AgrerarEjercicio2
             // 
-            this.button_AgrerarEjercicio2.Location = new System.Drawing.Point(196, 386);
+            this.button_AgrerarEjercicio2.Location = new System.Drawing.Point(542, 386);
             this.button_AgrerarEjercicio2.Name = "button_AgrerarEjercicio2";
             this.button_AgrerarEjercicio2.Size = new System.Drawing.Size(75, 23);
             this.button_AgrerarEjercicio2.TabIndex = 9;
@@ -255,7 +270,7 @@
             // 
             this.button_BuscarRutina.Location = new System.Drawing.Point(389, 24);
             this.button_BuscarRutina.Name = "button_BuscarRutina";
-            this.button_BuscarRutina.Size = new System.Drawing.Size(99, 23);
+            this.button_BuscarRutina.Size = new System.Drawing.Size(135, 23);
             this.button_BuscarRutina.TabIndex = 8;
             this.button_BuscarRutina.Text = "Buscar";
             this.button_BuscarRutina.UseVisualStyleBackColor = true;
@@ -276,10 +291,11 @@
             this.textBox_ModificarrutinaId.Name = "textBox_ModificarrutinaId";
             this.textBox_ModificarrutinaId.Size = new System.Drawing.Size(100, 20);
             this.textBox_ModificarrutinaId.TabIndex = 6;
+            this.textBox_ModificarrutinaId.Leave += new System.EventHandler(this.textBox_Repeticiones_Leave);
             // 
             // button_agregarEjercicios
             // 
-            this.button_agregarEjercicios.Location = new System.Drawing.Point(308, 386);
+            this.button_agregarEjercicios.Location = new System.Drawing.Point(325, 386);
             this.button_agregarEjercicios.Name = "button_agregarEjercicios";
             this.button_agregarEjercicios.Size = new System.Drawing.Size(75, 23);
             this.button_agregarEjercicios.TabIndex = 5;
@@ -287,13 +303,13 @@
             this.button_agregarEjercicios.UseVisualStyleBackColor = true;
             this.button_agregarEjercicios.Click += new System.EventHandler(this.button1_Click);
             // 
-            // dataGridView_AgregarEjercicios
+            // dataGridView_crearRutina
             // 
-            this.dataGridView_AgregarEjercicios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_AgregarEjercicios.Location = new System.Drawing.Point(158, 137);
-            this.dataGridView_AgregarEjercicios.Name = "dataGridView_AgregarEjercicios";
-            this.dataGridView_AgregarEjercicios.Size = new System.Drawing.Size(376, 233);
-            this.dataGridView_AgregarEjercicios.TabIndex = 4;
+            this.dataGridView_crearRutina.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_crearRutina.Location = new System.Drawing.Point(158, 137);
+            this.dataGridView_crearRutina.Name = "dataGridView_crearRutina";
+            this.dataGridView_crearRutina.Size = new System.Drawing.Size(376, 233);
+            this.dataGridView_crearRutina.TabIndex = 4;
             // 
             // label5
             // 
@@ -320,12 +336,12 @@
             this.label4.TabIndex = 1;
             this.label4.Text = "Nombre de rutina";
             // 
-            // textBox_CrearIdRutina
+            // textBox_CrearNombre
             // 
-            this.textBox_CrearIdRutina.Location = new System.Drawing.Point(275, 66);
-            this.textBox_CrearIdRutina.Name = "textBox_CrearIdRutina";
-            this.textBox_CrearIdRutina.Size = new System.Drawing.Size(213, 20);
-            this.textBox_CrearIdRutina.TabIndex = 0;
+            this.textBox_CrearNombre.Location = new System.Drawing.Point(275, 66);
+            this.textBox_CrearNombre.Name = "textBox_CrearNombre";
+            this.textBox_CrearNombre.Size = new System.Drawing.Size(249, 20);
+            this.textBox_CrearNombre.TabIndex = 0;
             // 
             // panel1
             // 
@@ -336,14 +352,14 @@
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.textBox_Repeticiones);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 24);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(702, 432);
+            this.panel1.Size = new System.Drawing.Size(702, 456);
             this.panel1.TabIndex = 12;
             // 
             // textBox_Descricpcion
             // 
-            this.textBox_Descricpcion.Location = new System.Drawing.Point(132, 175);
+            this.textBox_Descricpcion.Location = new System.Drawing.Point(132, 137);
             this.textBox_Descricpcion.MaxLength = 199;
             this.textBox_Descricpcion.Multiline = true;
             this.textBox_Descricpcion.Name = "textBox_Descricpcion";
@@ -353,7 +369,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(63, 175);
+            this.label10.Location = new System.Drawing.Point(63, 137);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(63, 13);
             this.label10.TabIndex = 8;
@@ -371,7 +387,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(57, 140);
+            this.label7.Location = new System.Drawing.Point(57, 95);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(69, 13);
             this.label7.TabIndex = 2;
@@ -379,7 +395,7 @@
             // 
             // textBox_Repeticiones
             // 
-            this.textBox_Repeticiones.Location = new System.Drawing.Point(132, 137);
+            this.textBox_Repeticiones.Location = new System.Drawing.Point(132, 92);
             this.textBox_Repeticiones.MaxLength = 4;
             this.textBox_Repeticiones.Name = "textBox_Repeticiones";
             this.textBox_Repeticiones.Size = new System.Drawing.Size(198, 20);
@@ -388,13 +404,80 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(336, 376);
+            this.button1.Location = new System.Drawing.Point(308, 376);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 10;
-            this.button1.Text = "button1";
+            this.button1.Text = "Agregar";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // eliminarRutinaToolStripMenuItem
+            // 
+            this.eliminarRutinaToolStripMenuItem.Name = "eliminarRutinaToolStripMenuItem";
+            this.eliminarRutinaToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.eliminarRutinaToolStripMenuItem.Text = "Eliminar";
+            this.eliminarRutinaToolStripMenuItem.Click += new System.EventHandler(this.eliminarRutinaToolStripMenuItem_Click);
+            // 
+            // panel_EliminarRutina
+            // 
+            this.panel_EliminarRutina.Controls.Add(this.label8);
+            this.panel_EliminarRutina.Controls.Add(this.button_EliminarRutina);
+            this.panel_EliminarRutina.Controls.Add(this.textBox_eliminarId);
+            this.panel_EliminarRutina.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_EliminarRutina.Location = new System.Drawing.Point(0, 0);
+            this.panel_EliminarRutina.Name = "panel_EliminarRutina";
+            this.panel_EliminarRutina.Size = new System.Drawing.Size(702, 456);
+            this.panel_EliminarRutina.TabIndex = 11;
+            // 
+            // textBox_eliminarId
+            // 
+            this.textBox_eliminarId.Location = new System.Drawing.Point(308, 156);
+            this.textBox_eliminarId.Name = "textBox_eliminarId";
+            this.textBox_eliminarId.Size = new System.Drawing.Size(75, 20);
+            this.textBox_eliminarId.TabIndex = 0;
+            this.textBox_eliminarId.Leave += new System.EventHandler(this.textBox_Repeticiones_Leave);
+            // 
+            // button_EliminarRutina
+            // 
+            this.button_EliminarRutina.Location = new System.Drawing.Point(306, 182);
+            this.button_EliminarRutina.Name = "button_EliminarRutina";
+            this.button_EliminarRutina.Size = new System.Drawing.Size(75, 23);
+            this.button_EliminarRutina.TabIndex = 1;
+            this.button_EliminarRutina.Text = "Eliminar";
+            this.button_EliminarRutina.UseVisualStyleBackColor = true;
+            this.button_EliminarRutina.Click += new System.EventHandler(this.button_EliminarRutina_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(244, 133);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(210, 13);
+            this.label8.TabIndex = 2;
+            this.label8.Text = "Ingrese el id de la rutina que desea eliminar";
+            // 
+            // asignarRutinaAClienteToolStripMenuItem
+            // 
+            this.asignarRutinaAClienteToolStripMenuItem.Name = "asignarRutinaAClienteToolStripMenuItem";
+            this.asignarRutinaAClienteToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.asignarRutinaAClienteToolStripMenuItem.Text = "Asignar rutina a cliente";
+            // 
+            // dataGridView_AgregarEjercicios
+            // 
+            this.dataGridView_AgregarEjercicios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_AgregarEjercicios.Location = new System.Drawing.Point(389, 137);
+            this.dataGridView_AgregarEjercicios.Name = "dataGridView_AgregarEjercicios";
+            this.dataGridView_AgregarEjercicios.Size = new System.Drawing.Size(301, 233);
+            this.dataGridView_AgregarEjercicios.TabIndex = 13;
+            // 
+            // dataGridView_Eliminarejercicios
+            // 
+            this.dataGridView_Eliminarejercicios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_Eliminarejercicios.Location = new System.Drawing.Point(19, 137);
+            this.dataGridView_Eliminarejercicios.Name = "dataGridView_Eliminarejercicios";
+            this.dataGridView_Eliminarejercicios.Size = new System.Drawing.Size(326, 233);
+            this.dataGridView_Eliminarejercicios.TabIndex = 12;
             // 
             // Instructor
             // 
@@ -402,12 +485,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(702, 456);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panel_CrearRutina);
             this.Controls.Add(this.panel_MostrarRutinas);
             this.Controls.Add(this.pictureBox_logo);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.panel_EliminarRutina);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel_CrearRutina);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Instructor";
@@ -422,10 +506,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRutina)).EndInit();
             this.panel_CrearRutina.ResumeLayout(false);
             this.panel_CrearRutina.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_AgregarEjercicios)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_crearRutina)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_aparatos)).EndInit();
+            this.panel_EliminarRutina.ResumeLayout(false);
+            this.panel_EliminarRutina.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_AgregarEjercicios)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Eliminarejercicios)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -447,10 +535,10 @@
         private System.Windows.Forms.DataGridView dataGridViewEjercicio;
         private System.Windows.Forms.DataGridView dataGridViewRutina;
         private System.Windows.Forms.Panel panel_CrearRutina;
-        private System.Windows.Forms.TextBox textBox_CrearIdRutina;
+        private System.Windows.Forms.TextBox textBox_CrearNombre;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button_agregarEjercicios;
-        private System.Windows.Forms.DataGridView dataGridView_AgregarEjercicios;
+        private System.Windows.Forms.DataGridView dataGridView_crearRutina;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox_CrearHorasRutina;
         private System.Windows.Forms.ToolStripMenuItem crearEjercicioToolStripMenuItem;
@@ -467,5 +555,13 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBox_Repeticiones;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ToolStripMenuItem eliminarRutinaToolStripMenuItem;
+        private System.Windows.Forms.Panel panel_EliminarRutina;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button button_EliminarRutina;
+        private System.Windows.Forms.TextBox textBox_eliminarId;
+        private System.Windows.Forms.ToolStripMenuItem asignarRutinaAClienteToolStripMenuItem;
+        private System.Windows.Forms.DataGridView dataGridView_AgregarEjercicios;
+        private System.Windows.Forms.DataGridView dataGridView_Eliminarejercicios;
     }
 }
