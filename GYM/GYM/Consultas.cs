@@ -12,6 +12,7 @@ namespace GYM
     class Consultas
     {
         private String datosCarlos = "Server=localhost; Port=5432; User Id=postgres; Password=23c17m; Database=smartgym";
+        private String datosKevin = "Server=localhost; Port=5432; User Id=postgres; Password=123456; Database=smartgym";
         private String data = "Server=www.johnny.heliohost.org;Port=5432;User Id=itmoreli_user;Password=12345678;Database=itmoreli_smartgym";
         private Conexion con = new Conexion("Server=www.johnny.heliohost.org;Port=5432;User Id=itmoreli_user;Password=12345678;Database=itmoreli_smartgym");
 
@@ -26,6 +27,7 @@ namespace GYM
                 reader.Read();
                 fecha = Convert.ToString(reader.GetDateTime(0));
                 reader.Close();
+                con.Close();
             }
             catch (Exception ex) { MessageBox.Show("error de consulta en fecha de corte"+ex.Message); con.Close(); }
             con.Close();
@@ -91,7 +93,8 @@ namespace GYM
         public Consultas()
         {
             //colocar su ruta
-            con = new Conexion(datosCarlos);
+            //con = new Conexion(datosCarlos);
+            con = new Conexion(datosKevin);
         }
 
         public void inserta()
@@ -123,7 +126,40 @@ namespace GYM
                 String consultaC = "INSERT INTO clientes (idcliente, nombres, apellido_1, apellido_2, telefono_movil, correo_electronico, iddireccion, tipo_de_pago, fecha_de_corte, tipo_de_sangre, contraseña, idrutina) Values('" +
                     IDC + "','" + DatosC[0] + "','" + DatosC[1] + "','" + DatosC[2] +
                     "','" + DatosC[3] + "','" + DatosC[4] + "','" + IDD + "','" + DatosC[5] +
-                    "','" + DatosC[6] + "','" + DatosC[7] + 1 + "');";
+                    "','" + DatosC[6] + "','" + DatosC[7] + "','" + DatosC[8] + 1 + "');";
+                NpgsqlCommand cmdC = new NpgsqlCommand(consultaC, con.Conn);
+                MessageBox.Show("Cliente guardado ", ("Id= " + IDC + "\n Contraseña= " + DatosC[7]), MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                con.Close();
+                return true;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error", e.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                con.Close();
+                return false;
+            }
+        }
+
+        public bool updateC(String IDC,String[] DatosC, String[] DatosD)//Clientes
+        {
+            try
+            {
+                int IDD;
+                NpgsqlDataReader reader;
+                con.Open();
+                String consultaIDD = "SELECT * FROM direcciones ORDER BY iddireccion DESC LIMIT 1;";
+                NpgsqlCommand cmdIDD = new NpgsqlCommand(consultaIDD, con.Conn);
+                reader = cmdIDD.ExecuteReader();
+                reader.Read();
+                IDD = Convert.ToInt32(reader.GetInt32(0)) + 1;
+                String consultaD = "INSERT INTO direcciones (iddireccion, calle, numero, interior, colonia, ciudad) Values('" +
+                     IDD + "','" + DatosD[0] + "','" + DatosD[1] + "','" + DatosD[2]
+                     + "','" + DatosC[3] + "','" + DatosC[4] + "');";
+                NpgsqlCommand cmdD = new NpgsqlCommand(consultaD, con.Conn);
+                String consultaC = "UPDATE clientes  WHERE idcliente = " + IDC + " SET nombres='" + DatosC[0] + "', apellido_1='" + DatosC[1] +
+                    "', apellido_2 ='" + DatosC[2] + "', telefono_movil='" + DatosC[3] + "', correo_electronico='" + DatosC[4] +
+                    "', iddireccion='" + IDD + "', tipo_de_pago='" + DatosC[5] + "', fecha_de_corte='" + DatosC[6] +
+                    "', tipo_de_sangre='" + DatosC[7] + "', contraseña='" + DatosC[8] + "';";
                 NpgsqlCommand cmdC = new NpgsqlCommand(consultaC, con.Conn);
                 MessageBox.Show("Cliente guardado ", ("Id= " + IDC + "\n Contraseña= " + DatosC[7]), MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 con.Close();
@@ -160,6 +196,7 @@ namespace GYM
             catch (Exception e)
             {
                 MessageBox.Show("Error", e.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                con.Close();
                 return false;
             }
         }
@@ -201,6 +238,7 @@ namespace GYM
                     catch (Exception e)
                     {
                         MessageBox.Show("Error", e.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        con.Close();
                     }
                     break;
                 case "aparatos":
@@ -215,6 +253,7 @@ namespace GYM
                     catch (Exception e)
                     {
                         MessageBox.Show("Error", e.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        con.Close();
                     }
                     break;
                 case "rutina":
@@ -225,7 +264,6 @@ namespace GYM
                 default:
                     break;
             }
-
             ejecutarConsulta(consulta);
         }
 
@@ -295,6 +333,42 @@ namespace GYM
             return datos;
         }
 
+        public DataSet consultaClientes(DataGridView aux)
+        {
+            con.Open();
+            NpgsqlCommand cmd = new NpgsqlCommand(("select  Nombre, Apellido_1, Apellido_2, Telefono, Email, Tipo_de_Pago, Fecha_de _corte, Tipo de Sangre from " + "clientes" + " order by " + "idcliente" + ""), con.Conn);
+            NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(cmd);
+            DataSet datos = new DataSet();
+            adapter.Fill(datos);
+            aux.DataSource = datos.Tables[0];
+            con.Close();
+            return datos;
+        }
+
+        public DataSet consultapagos(DataGridView aux)
+        {
+            con.Open();
+            NpgsqlCommand cmd = new NpgsqlCommand(("select  Nombre, Fecha_de _corte from " + "clientes" + " order by " + "idcliente" + ""), con.Conn);
+            NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(cmd);
+            DataSet datos = new DataSet();
+            adapter.Fill(datos);
+            aux.DataSource = datos.Tables[0];
+            con.Close();
+            return datos;
+        }
+
+        public DataSet consultamant(DataGridView aux)
+        {
+            con.Open();
+            NpgsqlCommand cmd = new NpgsqlCommand(("select  Nombre, numero_serie, fecha_de_mantenimiento from " + "Aparatos" + " order by " + "idaparato" + ""), con.Conn);
+            NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(cmd);
+            DataSet datos = new DataSet();
+            adapter.Fill(datos);
+            aux.DataSource = datos.Tables[0];
+            con.Close();
+            return datos;
+        }
+
         public DataSet consultaEjercicios(DataGridView aux)
         {
             con.Open();
@@ -326,7 +400,6 @@ namespace GYM
             con.Close();
             return datos;
         }
-
 
         public void ActualizarRutina(string id, string nombre, string horas)
         {
@@ -423,8 +496,6 @@ namespace GYM
             catch (Exception) { MessageBox.Show("Error al elminar el ejercicio de la rutina"); }
             con.Close(); 
         }
-
-
     }
 }
 
