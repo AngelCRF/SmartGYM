@@ -144,5 +144,15 @@ namespace GYM
                 MessageBox.Show("Error", "Datos Incompletos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void button_eliminaclie_Click(object sender, EventArgs e)
+        {
+            C.Elimina("clientes", n);
+        }
+
+        private void button_regpago_Click(object sender, EventArgs e)
+        {
+            C.Modifica();
+        }
     }
 }

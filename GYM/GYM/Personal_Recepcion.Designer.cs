@@ -1140,6 +1140,7 @@
             this.button_regpago.TabIndex = 57;
             this.button_regpago.Text = "Pago";
             this.button_regpago.UseVisualStyleBackColor = true;
+            this.button_regpago.Click += new System.EventHandler(this.button_regpago_Click);
             // 
             // dateTimePicker1_FP
             // 
@@ -1311,6 +1312,7 @@
             this.button_eliminaclie.TabIndex = 60;
             this.button_eliminaclie.Text = "Eliminar";
             this.button_eliminaclie.UseVisualStyleBackColor = true;
+            this.button_eliminaclie.Click += new System.EventHandler(this.button_eliminaclie_Click);
             // 
             // Personal_Recepcion
             // 

@@ -106,19 +106,47 @@ namespace GYM
         public void Elimina(String tabla, String id) 
         {
             tabla = tabla.ToLower();
-            string consulta = "";
+            String consulta = "";
             switch (tabla)
             {
+                case "clientes":
+                    try
+                    {
+                        consulta = ("delete from clientes where idcliente= '" + id + "';");
+                        con.Open();
+                        NpgsqlCommand cmd = new NpgsqlCommand(consulta, con.Conn);
+                        con.Close();
+                        MessageBox.Show("Cliente eliminado ", "Se elimino con exito", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                    catch(Exception e)
+                    {
+                        MessageBox.Show("Error", e.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    break;
+                case "aparatos":
+                    try
+                    {
+                        consulta = ("delete from aparatos where idaparato= '" + id + "';");
+                        con.Open();
+                        NpgsqlCommand cmd = new NpgsqlCommand(consulta, con.Conn);
+                        con.Close();
+                        MessageBox.Show("Aparato eliminado ", "Se elimino con exito", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBox.Show("Error", e.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    break;
                 case "rutina":
-                    string consulta2= ("delete from rut_ejer where idrut= '" + id + "'");
-                    ejecutarConsulta(consulta2);
-                    consulta = ("delete from rutina where idrutina= '"+id+"'");
+                    string consulta2= ("delete from rut_ejer where idrut= '" + id + "';");
+                    //ejecutarConsulta(consulta2);
+                    consulta = ("delete from rutina where idrutina= '"+id+"';");
                     break;
                 default:
                     break;
             }
 
-            ejecutarConsulta(consulta);
+            //ejecutarConsulta(consulta);
         }
 
         public void Modifica()
@@ -187,9 +215,9 @@ namespace GYM
         {
             con.Open();
             NpgsqlCommand cmd = new NpgsqlCommand("Insert into rut_ejer values( '"+idrutina+"' , '"+idejercicio+"')", con.Conn);
-            NpgsqlDataReader lector = cmd.Read();
-            lector.Read();
-            lector.close();
+            //NpgsqlDataReader lector = cmd.Read();
+            //lector.Read();
+            //lector.close();
              con.Close(); 
         }
 
