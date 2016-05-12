@@ -1,0 +1,6 @@
+﻿body {
+    height: 100%;
+    background: white;
+    background:radial-gradient(circle,#ffff 20%,#0fc);
+    background-size:cover;
+}

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Data;
 using System.Windows.Forms;
 
 namespace GYM
@@ -7,6 +9,7 @@ namespace GYM
     {
         //Variables
         bool Completo = true;
+        String n;
         Consultas C = new Consultas();
 
         public Personal_Recepcion()
@@ -59,20 +62,28 @@ namespace GYM
 
         private void editarToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            String Linea;
             OcultaPaneles();
+            n = Microsoft.VisualBasic.Interaction.InputBox("Cliente a buscar: ");
             panel_client_edit.Visible = true;
+            Linea = C.Selecciona("clientes", "idcliente", n);
         }
 
         private void todosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OcultaPaneles();
             panel_client_show_all.Visible = true;
+            DataSet datos = C.dataGridView("clientes","idcliente");
+            dataGridView_client.DataSource = datos.Tables[0];
         }
 
         private void buscarToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            String Linea;
             OcultaPaneles();
+            n = Microsoft.VisualBasic.Interaction.InputBox("Cliente a buscar: ");
             panel_client_show_one.Visible = true;
+            Linea = C.Selecciona("clientes", "idcliente", n);
         }
 
         private void nuevoToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -91,6 +102,8 @@ namespace GYM
         {
             OcultaPaneles();
             panel_equip_show_all .Visible = true;
+            DataSet datos = C.dataGridView("Aparatos", "idaparato");
+            dataGridView_client.DataSource = datos.Tables[0];
         }
 
         private void buscarToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -105,8 +118,8 @@ namespace GYM
             RevisaDatos(panel_equip_new);
             if (Completo)
             {
-                //C.inserta();
-                MessageBox.Show("Datos Guardados", "Aparato Agregado", MessageBoxButtons.OK);
+                String[] DatosA = {textBox_NombreE.Text,textBox_NSerie.Text,comboBox_Tipo.Text,dateTimePicker_FCompra.Text,dateTimePicker_FMantenimiento.Text};
+                C.insertaA(DatosA);
                 OcultaPaneles();
             }
             else
@@ -120,15 +133,26 @@ namespace GYM
             RevisaDatos(panel_client_new);
             if (Completo)
             {
-                //C.inserta();
-                // Regresar el id del cliente para que pueda ingresar posteriormente en este mensaje
-                MessageBox.Show("Datos Guardados", "Cliente Agregado", MessageBoxButtons.OK);
+                String[] DatosC = {textBox_Nombre.Text,textBox_ApellidoP.Text,textBox_ApellidoM.Text,textBox_Telefono.Text,
+                    textBox_Email.Text,comboBox_TPago.Text,dateTimePicker_FPago.Text,comboBox_TSangre.Text,textBox_password.Text};
+                String[] DatosD = { textBox_Calle.Text, textBox_Numero.Text, textBox_Interior.Text,textBox_Colonia.Text,textBox_Ciudad.Text};
+                C.insertaC(DatosC, DatosD);
                 OcultaPaneles();
             }
             else
             {
                 MessageBox.Show("Error", "Datos Incompletos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void button_eliminaclie_Click(object sender, EventArgs e)
+        {
+            C.Elimina("clientes", n);
+        }
+
+        private void button_regpago_Click(object sender, EventArgs e)
+        {
+            C.Modifica();
         }
     }
 }
