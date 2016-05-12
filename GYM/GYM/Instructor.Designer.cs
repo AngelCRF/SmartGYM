@@ -167,7 +167,7 @@
             // crearEjercicioToolStripMenuItem
             // 
             this.crearEjercicioToolStripMenuItem.Name = "crearEjercicioToolStripMenuItem";
-            this.crearEjercicioToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.crearEjercicioToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.crearEjercicioToolStripMenuItem.Text = "Crear ejercicio";
             this.crearEjercicioToolStripMenuItem.Click += new System.EventHandler(this.crearEjercicioToolStripMenuItem_Click);
             // 

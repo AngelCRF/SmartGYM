@@ -77,7 +77,7 @@ namespace GYM
             button_agregarEjercicios.Visible = true;
             //HABILITAR CUANDO ESTÉ LA BASE DE DATOS
 
-            DataSet dato = con.dataGridView("ejercicio", "idejercicio");
+            DataSet dato = con.consultaEjercicios(dataGridView_AgregarEjercicios);
              dataGridView_AgregarEjercicios.DataSource = dato.Tables[0];
              dataGridView_AgregarEjercicios.Columns[0].HeaderCell.Value = "Clave del ejercicio";
              dataGridView_AgregarEjercicios.Columns[1].HeaderCell.Value = "clave del aparato";
@@ -203,14 +203,14 @@ namespace GYM
         private void crearEjercicioToolStripMenuItem_Click(object sender, EventArgs e)
         {
             panel_CrearEjercicio.BringToFront();
-            DataSet dato2 = con.dataGridView("aparato", "idaparato");
-            dataGridView_AgregarEjercicios.DataSource = dato2.Tables[0];
-            dataGridViewEjercicio.Columns[0].HeaderCell.Value = "Clave de aparato";
-            dataGridViewEjercicio.Columns[1].HeaderCell.Value = "Clave de nombre";
-            dataGridViewEjercicio.Columns[2].HeaderCell.Value = "Numero de serie";
-            dataGridViewEjercicio.Columns[3].HeaderCell.Value = "tipo";
-            dataGridViewEjercicio.Columns[4].HeaderCell.Value = "fecha de compra";
-            dataGridViewEjercicio.Columns[5].HeaderCell.Value = "fecha de matenimiento";
+            DataSet dato2 = con.consultaaparatos(dataGridView_aparatos);
+            //dataGridView_aparatos.DataSource = dato2.Tables[0];
+            dataGridView_aparatos.Columns[0].HeaderCell.Value = "Clave de aparato";
+            dataGridView_aparatos.Columns[1].HeaderCell.Value = "Clave de nombre";
+            dataGridView_aparatos.Columns[2].HeaderCell.Value = "Numero de serie";
+            dataGridView_aparatos.Columns[3].HeaderCell.Value = "tipo";
+            dataGridView_aparatos.Columns[4].HeaderCell.Value = "fecha de compra";
+            dataGridView_aparatos.Columns[5].HeaderCell.Value = "fecha de matenimiento";
 
 
         }

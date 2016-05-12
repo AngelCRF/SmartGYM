@@ -39,9 +39,9 @@ namespace GYM
                 reader = cmdIDD.ExecuteReader();
                 reader.Read();
                 IDD = Convert.ToInt32(reader.GetInt32(0)) + 1;
-                String consultaD = "INSERT INTO direcciones (iddireccion, calle, numero, interior, colonia, ciudad) Values('"+
-                     IDD + "','" + DatosD[0] + "','" + DatosD[1] + "','" + DatosD[2] 
-                     + "','" + DatosC[3] + "','" + DatosC[4]+"');";
+                String consultaD = "INSERT INTO direcciones (iddireccion, calle, numero, interior, colonia, ciudad) Values('" +
+                     IDD + "','" + DatosD[0] + "','" + DatosD[1] + "','" + DatosD[2]
+                     + "','" + DatosC[3] + "','" + DatosC[4] + "');";
                 NpgsqlCommand cmdD = new NpgsqlCommand(consultaD, con.Conn);
                 NpgsqlCommand cmdIDC = new NpgsqlCommand(consultaIDC, con.Conn);
                 reader = cmdIDC.ExecuteReader();
@@ -64,7 +64,7 @@ namespace GYM
             }
         }
 
-        public bool insertaA(String [] DatosA)//Aparatos
+        public bool insertaA(String[] DatosA)//Aparatos
         {
             try
             {
@@ -78,9 +78,9 @@ namespace GYM
                 IDA = Convert.ToInt32(reader.GetInt32(0)) + 1;
                 String consulta = "INSERT INTO Aparatos (idaparato, nombre, numero_serie, tipo, fecha_de_compra, fecha_de_mantenimiento) Values('" +
                     IDA + "','" + DatosA[0] + "','" + DatosA[1] + "','" + DatosA[2] +
-                    "','" + DatosA[3] + "','" + DatosA[4]+ "');";
+                    "','" + DatosA[3] + "','" + DatosA[4] + "');";
                 NpgsqlCommand cmd = new NpgsqlCommand(consulta, con.Conn);
-                MessageBox.Show("Aparato guardado ","Se guardo con exito", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Aparato guardado ", "Se guardo con exito", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 con.Close();
                 return true;
             }
@@ -95,22 +95,22 @@ namespace GYM
         {
             try
             {
-            NpgsqlDataReader reader;
-            con.Open();
-            String consulta = "SELECT * FROM" + tabla+ "WEHERE "+idt+" = "+id+";";
-            NpgsqlCommand cmd = new NpgsqlCommand(consulta, con.Conn);
-            reader = cmd.ExecuteReader();
-            reader.Read();
-            con.Close();
+                NpgsqlDataReader reader;
+                con.Open();
+                String consulta = "SELECT * FROM" + tabla + "WEHERE " + idt + " = " + id + ";";
+                NpgsqlCommand cmd = new NpgsqlCommand(consulta, con.Conn);
+                reader = cmd.ExecuteReader();
+                reader.Read();
+                con.Close();
                 return reader.ToString();
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return null;
             }
         }
 
-        public void Elimina(String tabla, String id) 
+        public void Elimina(String tabla, String id)
         {
             tabla = tabla.ToLower();
             String consulta = "";
@@ -125,7 +125,7 @@ namespace GYM
                         con.Close();
                         MessageBox.Show("Cliente eliminado ", "Se elimino con exito", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
-                    catch(Exception e)
+                    catch (Exception e)
                     {
                         MessageBox.Show("Error", e.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
@@ -145,9 +145,9 @@ namespace GYM
                     }
                     break;
                 case "rutina":
-                    string consulta2= ("delete from rut_ejer where idrut= '" + id + "';");
+                    string consulta2 = ("delete from rut_ejer where idrut= '" + id + "';");
                     ejecutarConsulta(consulta2);
-                    consulta = ("delete from rutina where idrutina= '"+id+"';");
+                    consulta = ("delete from rutina where idrutina= '" + id + "';");
                     break;
                 default:
                     break;
@@ -160,14 +160,14 @@ namespace GYM
         {
             con.Open();
             try
-            {              
+            {
                 NpgsqlCommand cmd = new NpgsqlCommand(consulta, con.Conn);
                 NpgsqlDataReader reader = cmd.ExecuteReader();
                 reader.Read();
                 reader.Close();
-                
+
             }
-            catch(Exception){ MessageBox.Show("error de consulta"); }
+            catch (Exception) { MessageBox.Show("error de consulta"); }
             con.Close();
         }
 
@@ -194,10 +194,10 @@ namespace GYM
                     consulta = ("select * from " + tabla + " order by " + nombreId + "");
                     break;
                 case "rut_ejer":
-                    
-                        consulta = ("select (idaparato, repeticiones, descripcion) from  Rut_Ejer, ejercicios where idrut= '" + nombreId + " and "
-                + " Rut_Ejer.idejer = ejercicios.idejercicio");
-                    
+
+                    consulta = ("select (idaparato, repeticiones, descripcion) from  Rut_Ejer, ejercicios where idrut= '" + nombreId + " and "
+            + " Rut_Ejer.idejer = ejercicios.idejercicio");
+
                     break;
                 default:
                     break;
@@ -209,6 +209,31 @@ namespace GYM
             con.Close();
             return datos;
         }
+
+        public DataSet consultaaparatos(DataGridView aux)
+        {
+            con.Open();
+            NpgsqlCommand cmd = new NpgsqlCommand(("select * from " + "aparatos" + " order by " + "idaparato" + ""), con.Conn);
+            NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(cmd);
+            DataSet datos = new DataSet();
+            adapter.Fill(datos);
+            aux.DataSource = datos.Tables[0];
+            con.Close();
+            return datos;
+        }
+
+        public DataSet consultaEjercicios(DataGridView aux)
+        {
+            con.Open();
+            NpgsqlCommand cmd = new NpgsqlCommand(("select * from " + "ejercicio" + " order by " + "idejercicio" + ""), con.Conn);
+            NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(cmd);
+            DataSet datos = new DataSet();
+            adapter.Fill(datos);
+            aux.DataSource = datos.Tables[0];
+            con.Close();
+            return datos;
+        }
+
 
         internal void ActualizarRutina(string id, string nombre, string horas)
         {
@@ -239,7 +264,7 @@ namespace GYM
             con.Close(); 
         }
 
-        public void insertaEjercicio(string idaparato, string nombre, string desc)
+        public void insertaEjercicio(string idaparato, string repeticiones, string desc)
         {
             int id = -1;
             con.Open();
@@ -251,22 +276,24 @@ namespace GYM
                 if (reader2.Read())
                 {
                     id = Convert.ToInt32(reader2.GetInt32(0)) + 1;
+                    MessageBox.Show("se cumnple el read y El valor de id es " + id);
                 }
                 else
                 {
                     id = 1;
+                    MessageBox.Show("NO cumnple el read y El valor de id es " + id+"id aparato: "+ idaparato);
                 }
 
                 reader2.Close();
                 if (id > -1)
                 {
-                    NpgsqlCommand cmd = new NpgsqlCommand("insert into ejercicio (idejercicio,idparato, repeticiones, descripcion) values('" + id + "','" + idaparato + "','" + nombre + "','" + desc + "') ", con.Conn);
+                    NpgsqlCommand cmd = new NpgsqlCommand("insert into ejercicio (idejercicio,idaparato, repeticiones, descripcion) values ('" + id + "','" + idaparato + "', " + repeticiones + " ,'" + desc + "') ", con.Conn);
                     NpgsqlDataReader reader = cmd.ExecuteReader();
                     reader.Read();
                     reader.Close();
                 }
             }
-            catch (Exception) { con.Close(); MessageBox.Show("Error al agregar ejercicio"); }
+            catch (Exception ex) { con.Close(); MessageBox.Show("Error al agregar ejercicio"+ ex.Message); }
             con.Close();
         }
 
