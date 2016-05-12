@@ -203,6 +203,16 @@ namespace GYM
         private void crearEjercicioToolStripMenuItem_Click(object sender, EventArgs e)
         {
             panel_CrearEjercicio.BringToFront();
+            DataSet dato2 = con.dataGridView("aparato", "idaparato");
+            dataGridView_AgregarEjercicios.DataSource = dato2.Tables[0];
+            dataGridViewEjercicio.Columns[0].HeaderCell.Value = "Clave de aparato";
+            dataGridViewEjercicio.Columns[1].HeaderCell.Value = "Clave de nombre";
+            dataGridViewEjercicio.Columns[2].HeaderCell.Value = "Numero de serie";
+            dataGridViewEjercicio.Columns[3].HeaderCell.Value = "tipo";
+            dataGridViewEjercicio.Columns[4].HeaderCell.Value = "fecha de compra";
+            dataGridViewEjercicio.Columns[5].HeaderCell.Value = "fecha de matenimiento";
+
+
         }
 
         private void textBox_Repeticiones_Leave(object sender, EventArgs e)
