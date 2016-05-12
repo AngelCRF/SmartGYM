@@ -124,6 +124,8 @@
             this.panel_equip_show_all = new System.Windows.Forms.Panel();
             this.panel_equip_show_one = new System.Windows.Forms.Panel();
             this.panel_inform = new System.Windows.Forms.Panel();
+            this.textBox_NombreE = new System.Windows.Forms.TextBox();
+            this.label34 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.panel_client_new.SuspendLayout();
             this.panel_client_edit.SuspendLayout();
@@ -164,14 +166,14 @@
             // nuevoToolStripMenuItem
             // 
             this.nuevoToolStripMenuItem.Name = "nuevoToolStripMenuItem";
-            this.nuevoToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.nuevoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.nuevoToolStripMenuItem.Text = "Nuevo";
             this.nuevoToolStripMenuItem.Click += new System.EventHandler(this.nuevoToolStripMenuItem_Click);
             // 
             // editarToolStripMenuItem
             // 
             this.editarToolStripMenuItem.Name = "editarToolStripMenuItem";
-            this.editarToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.editarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.editarToolStripMenuItem.Text = "Editar";
             this.editarToolStripMenuItem.Click += new System.EventHandler(this.editarToolStripMenuItem_Click);
             // 
@@ -181,20 +183,20 @@
             this.todosToolStripMenuItem,
             this.buscarToolStripMenuItem});
             this.mostrarToolStripMenuItem.Name = "mostrarToolStripMenuItem";
-            this.mostrarToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.mostrarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.mostrarToolStripMenuItem.Text = "Mostrar";
             // 
             // todosToolStripMenuItem
             // 
             this.todosToolStripMenuItem.Name = "todosToolStripMenuItem";
-            this.todosToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
+            this.todosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.todosToolStripMenuItem.Text = "Todos";
             this.todosToolStripMenuItem.Click += new System.EventHandler(this.todosToolStripMenuItem_Click);
             // 
             // buscarToolStripMenuItem
             // 
             this.buscarToolStripMenuItem.Name = "buscarToolStripMenuItem";
-            this.buscarToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
+            this.buscarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.buscarToolStripMenuItem.Text = "Buscar";
             this.buscarToolStripMenuItem.Click += new System.EventHandler(this.buscarToolStripMenuItem_Click);
             // 
@@ -918,6 +920,8 @@
             // panel_equip_new
             // 
             this.panel_equip_new.BackColor = System.Drawing.Color.SteelBlue;
+            this.panel_equip_new.Controls.Add(this.label34);
+            this.panel_equip_new.Controls.Add(this.textBox_NombreE);
             this.panel_equip_new.Controls.Add(this.label17);
             this.panel_equip_new.Controls.Add(this.label16);
             this.panel_equip_new.Controls.Add(this.label15);
@@ -937,7 +941,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(167, 137);
+            this.label17.Location = new System.Drawing.Point(168, 184);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(139, 13);
             this.label17.TabIndex = 8;
@@ -947,7 +951,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(28, 137);
+            this.label16.Location = new System.Drawing.Point(33, 183);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(99, 13);
             this.label16.TabIndex = 7;
@@ -957,7 +961,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(371, 69);
+            this.label15.Location = new System.Drawing.Point(371, 124);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(30, 13);
             this.label15.TabIndex = 6;
@@ -967,7 +971,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(87, 69);
+            this.label14.Location = new System.Drawing.Point(87, 124);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(96, 13);
             this.label14.TabIndex = 5;
@@ -986,7 +990,7 @@
             // dateTimePicker_FMantenimiento
             // 
             this.dateTimePicker_FMantenimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker_FMantenimiento.Location = new System.Drawing.Point(183, 103);
+            this.dateTimePicker_FMantenimiento.Location = new System.Drawing.Point(184, 150);
             this.dateTimePicker_FMantenimiento.Name = "dateTimePicker_FMantenimiento";
             this.dateTimePicker_FMantenimiento.Size = new System.Drawing.Size(108, 22);
             this.dateTimePicker_FMantenimiento.TabIndex = 3;
@@ -994,7 +998,7 @@
             // dateTimePicker_FCompra
             // 
             this.dateTimePicker_FCompra.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker_FCompra.Location = new System.Drawing.Point(24, 103);
+            this.dateTimePicker_FCompra.Location = new System.Drawing.Point(24, 150);
             this.dateTimePicker_FCompra.Name = "dateTimePicker_FCompra";
             this.dateTimePicker_FCompra.Size = new System.Drawing.Size(108, 22);
             this.dateTimePicker_FCompra.TabIndex = 2;
@@ -1004,14 +1008,14 @@
             this.comboBox_Tipo.FormattingEnabled = true;
             this.comboBox_Tipo.Items.AddRange(new object[] {
             "Cardio"});
-            this.comboBox_Tipo.Location = new System.Drawing.Point(291, 35);
+            this.comboBox_Tipo.Location = new System.Drawing.Point(291, 90);
             this.comboBox_Tipo.Name = "comboBox_Tipo";
             this.comboBox_Tipo.Size = new System.Drawing.Size(183, 21);
             this.comboBox_Tipo.TabIndex = 1;
             // 
             // textBox_NSerie
             // 
-            this.textBox_NSerie.Location = new System.Drawing.Point(24, 35);
+            this.textBox_NSerie.Location = new System.Drawing.Point(24, 90);
             this.textBox_NSerie.Name = "textBox_NSerie";
             this.textBox_NSerie.Size = new System.Drawing.Size(248, 22);
             this.textBox_NSerie.TabIndex = 0;
@@ -1048,16 +1052,33 @@
             this.panel_inform.Size = new System.Drawing.Size(509, 404);
             this.panel_inform.TabIndex = 6;
             // 
+            // textBox_NombreE
+            // 
+            this.textBox_NombreE.Location = new System.Drawing.Point(24, 33);
+            this.textBox_NombreE.Name = "textBox_NombreE";
+            this.textBox_NombreE.Size = new System.Drawing.Size(450, 22);
+            this.textBox_NombreE.TabIndex = 9;
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label34.Location = new System.Drawing.Point(221, 67);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(50, 13);
+            this.label34.TabIndex = 10;
+            this.label34.Text = "Nombre";
+            // 
             // Personal_Recepcion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(509, 428);
-            this.Controls.Add(this.panel_client_new);
-            this.Controls.Add(this.panel_client_edit);
             this.Controls.Add(this.panel_client_show_all);
             this.Controls.Add(this.panel_equip_new);
+            this.Controls.Add(this.panel_client_new);
+            this.Controls.Add(this.panel_client_edit);
             this.Controls.Add(this.panel_equip_show_all);
             this.Controls.Add(this.panel_equip_show_one);
             this.Controls.Add(this.panel_client_show_one);
@@ -1182,5 +1203,7 @@
         private System.Windows.Forms.TextBox textBoxE_ApellidoM;
         private System.Windows.Forms.TextBox textBoxE_ApellidoP;
         private System.Windows.Forms.TextBox textBoxE_Nombre;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.TextBox textBox_NombreE;
     }
 }

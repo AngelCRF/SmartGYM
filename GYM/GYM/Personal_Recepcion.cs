@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Windows.Forms;
 
 namespace GYM
@@ -68,6 +69,8 @@ namespace GYM
         {
             OcultaPaneles();
             panel_client_show_all.Visible = true;
+            DataSet datos = C.dataGridView("Clientes","idcliente");
+            dataGridView_client.DataSource = datos.Tables[0];
         }
 
         private void buscarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -106,8 +109,8 @@ namespace GYM
             RevisaDatos(panel_equip_new);
             if (Completo)
             {
-                //C.inserta();
-                MessageBox.Show("Datos Guardados", "Aparato Agregado", MessageBoxButtons.OK);
+                String[] DatosA = {textBox_NombreE.Text,textBox_NSerie.Text,comboBox_Tipo.Text,dateTimePicker_FCompra.Text,dateTimePicker_FMantenimiento.Text};
+                C.insertaA(DatosA);
                 OcultaPaneles();
             }
             else

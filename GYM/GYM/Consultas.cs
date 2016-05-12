@@ -19,6 +19,71 @@ namespace GYM
 
         }
 
+        public bool insertaC(String[] DatosC, String[] DatosD)//Clientes
+        {
+            try
+            {
+                int IDD, IDC;
+                NpgsqlDataReader reader;
+                con.Open();
+                String consultaIDC = "SELECT * FROM clientes ORDER BY idcliente DESC LIMIT 1;";
+                String consultaIDD = "SELECT * FROM direcciones ORDER BY iddireccion DESC LIMIT 1;";
+                NpgsqlCommand cmdIDD = new NpgsqlCommand(consultaIDD, con.Conn);
+                reader = cmdIDD.ExecuteReader();
+                reader.Read();
+                IDD = Convert.ToInt32(reader.GetInt32(0)) + 1;
+                String consultaD = "INSERT INTO direcciones (iddireccion, calle, numero, interior, colonia, ciudad) Values('"+
+                     IDD + "','" + DatosD[0] + "','" + DatosD[1] + "','" + DatosD[2] 
+                     + "','" + DatosC[3] + "','" + DatosC[4]+"');";
+                NpgsqlCommand cmdD = new NpgsqlCommand(consultaD, con.Conn);
+                NpgsqlCommand cmdIDC = new NpgsqlCommand(consultaIDC, con.Conn);
+                reader = cmdIDC.ExecuteReader();
+                reader.Read();
+                IDC = Convert.ToInt32(reader.GetInt32(0)) + 1;
+                String consultaC = "INSERT INTO clientes (idcliente, nombres, apellido_1, apellido_2, telefono_movil, correo_electronico, iddireccion, tipo_de_pago, fecha_de_corte, tipo_de_sangre, contraseña, idrutina) Values('" +
+                    IDC + "','" + DatosC[0] + "','" + DatosC[1] + "','" + DatosC[2] +
+                    "','" + DatosC[3] + "','" + DatosC[4] + "','" + IDD + "','" + DatosC[5] +
+                    "','" + DatosC[6] + "','" + DatosC[7] + 1 + "');";
+                NpgsqlCommand cmdC = new NpgsqlCommand(consultaC, con.Conn);
+                MessageBox.Show("Cliente guardado ", ("Id= " + IDC + "\n Contraseña= " + DatosC[7]), MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                con.Close();
+                return true;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error", e.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                con.Close();
+                return false;
+            }
+        }
+
+        public bool insertaA(String [] DatosA)//Aparatos
+        {
+            try
+            {
+                NpgsqlDataReader reader;
+                int IDA;
+                con.Open();
+                String consultaIDA = "SELECT * FROM aparatos ORDER BY idaparato DESC LIMIT 1;";
+                NpgsqlCommand cmdIDA = new NpgsqlCommand(consultaIDA, con.Conn);
+                reader = cmdIDA.ExecuteReader();
+                reader.Read();
+                IDA = Convert.ToInt32(reader.GetInt32(0)) + 1;
+                String consulta = "INSERT INTO Aparatos (idaparato, nombre, numero_serie, tipo, fecha_de_compra, fecha_de_mantenimiento) Values('" +
+                    IDA + "','" + DatosA[0] + "','" + DatosA[1] + "','" + DatosA[2] +
+                    "','" + DatosA[3] + "','" + DatosA[4]+ "');";
+                NpgsqlCommand cmd = new NpgsqlCommand(consulta, con.Conn);
+                MessageBox.Show("Aparato guardado ","Se guardo con exito", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                con.Close();
+                return true;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error", e.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
         public void Selecciona()
         {
 
@@ -55,6 +120,12 @@ namespace GYM
             String consulta = "";
             switch (tabla)
             {
+                case "clientes":
+                    consulta = ("select * from " + tabla + " order by " + nombreId + "");
+                    break;
+                case "aparatos":
+                    consulta = ("select * from " + tabla + " order by " + nombreId + "");
+                    break;
                 case "rutina":
                     consulta = ("select * from " + tabla + " order by " + nombreId + "");
                     break;
