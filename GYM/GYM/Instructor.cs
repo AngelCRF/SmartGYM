@@ -38,25 +38,6 @@ namespace GYM
             
         }
 
-        private void dataGridViewRutina_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            string clave = "";
-            try
-            {
-                foreach (DataGridViewRow row in dataGridViewRutina.SelectedRows)
-                {
-                    clave = row.Cells[0].Value.ToString();
-                }
-                DataSet dato = con.dataGridView("rut_ejer", clave);
-                dataGridViewEjercicio.DataSource = dato.Tables[0];
-                dataGridViewEjercicio.Columns[0].HeaderCell.Value = "Clave de ejercicio";
-                dataGridViewEjercicio.Columns[1].HeaderCell.Value = "Clave de aparato";
-                dataGridViewEjercicio.Columns[2].HeaderCell.Value = "Repeticiones";
-                dataGridViewEjercicio.Columns[3].HeaderCell.Value = "Descripción";
-            }
-            catch (Exception) { }
-        }
-
         private void crearRutinaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             panel_CrearRutina.BringToFront();
@@ -123,7 +104,7 @@ namespace GYM
             button_EliminarEjercicio.Visible = true;
             dataGridView_Eliminarejercicios.Rows.Clear();
             dataGridView_Eliminarejercicios.Refresh();
-            dataGridView_AgregarEjercicios.Rows.Clear();
+            //dataGridView_AgregarEjercicios.Rows.Clear();
             dataGridView_AgregarEjercicios.Refresh();
 
         }
@@ -282,6 +263,26 @@ namespace GYM
 
 
 
+        }
+
+        private void dataGridViewRutina_MouseClick(object sender, MouseEventArgs e)
+        {
+            string clave = "";
+            try
+            {
+                foreach (DataGridViewRow row in dataGridViewRutina.SelectedRows)
+                {
+                    clave = row.Cells[0].Value.ToString();
+                    
+                }
+                DataSet dato = con.consultaRutinaEjercicios(dataGridViewEjercicio, Convert.ToInt32(clave));
+                //dataGridViewEjercicio.DataSource = dato.Tables[0];
+                dataGridViewEjercicio.Columns[0].HeaderCell.Value = "Clave de ejercicio";
+                dataGridViewEjercicio.Columns[1].HeaderCell.Value = "Clave de aparato";
+                dataGridViewEjercicio.Columns[2].HeaderCell.Value = "Repeticiones";
+                dataGridViewEjercicio.Columns[3].HeaderCell.Value = "Descripción";
+            }
+            catch (Exception) { }
         }
     }
 }

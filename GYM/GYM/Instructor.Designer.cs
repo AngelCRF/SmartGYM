@@ -239,7 +239,7 @@
             this.dataGridViewRutina.Name = "dataGridViewRutina";
             this.dataGridViewRutina.Size = new System.Drawing.Size(306, 349);
             this.dataGridViewRutina.TabIndex = 0;
-            this.dataGridViewRutina.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dataGridViewRutina_KeyPress);
+            this.dataGridViewRutina.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataGridViewRutina_MouseClick);
             // 
             // panel_CrearRutina
             // 

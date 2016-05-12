@@ -68,7 +68,7 @@ namespace GYM
                     {
                         if (con.BuscarContraseña("instructor", Convert.ToInt32(textBox_user.Text), Convert.ToInt32(textBox_password.Text)))
                         {
-                            Cliente tres = new Cliente(Convert.ToInt32(textBox_user.Text));
+                            Instructor tres = new Instructor();
                             tres.Show();
                         }
                         else

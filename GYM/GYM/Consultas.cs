@@ -268,7 +268,7 @@ namespace GYM
                     break;
                 case "rut_ejer":
 
-                    consulta = ("select (idaparato, repeticiones, descripcion) from  Rut_Ejer, ejercicios where idrut= '" + nombreId + " and "
+                    consulta = ("select idaparato, repeticiones, descripcion from  Rut_Eje, ejercicios where idrut= '" + nombreId + " and "
             + " Rut_Ejer.idejer = ejercicios.idejercicio");
 
                     break;
@@ -303,6 +303,26 @@ namespace GYM
             DataSet datos = new DataSet();
             adapter.Fill(datos);
             aux.DataSource = datos.Tables[0];
+            con.Close();
+            return datos;
+        }
+
+        public DataSet consultaRutinaEjercicios(DataGridView aux, int id)
+        {
+            con.Open();
+            DataSet datos = new DataSet();
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(("select idaparato, repeticiones, descripcion from  Rut_Eje, ejercicio where idrut= '" + id + "' and "
+                + " Rut_Eje.idejer = ejercicio.idejercicio"), con.Conn);
+                NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(cmd);
+                datos = new DataSet();
+                adapter.Fill(datos);
+                aux.DataSource = datos.Tables[0];
+                con.Close();
+                return datos;
+            }
+            catch(Exception ex) { MessageBox.Show("Error en consulta de ejercicios de rutina " + ex.Message); con.Close(); }
             con.Close();
             return datos;
         }
