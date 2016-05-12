@@ -58,12 +58,12 @@ namespace GYM
             button_agregarEjercicios.Visible = true;
             //HABILITAR CUANDO ESTÉ LA BASE DE DATOS
 
-            DataSet dato = con.consultaEjercicios(dataGridView_AgregarEjercicios);
-             dataGridView_AgregarEjercicios.DataSource = dato.Tables[0];
-             dataGridView_AgregarEjercicios.Columns[0].HeaderCell.Value = "Clave del ejercicio";
-             dataGridView_AgregarEjercicios.Columns[1].HeaderCell.Value = "clave del aparato";
-             dataGridView_AgregarEjercicios.Columns[2].HeaderCell.Value = "repeticiones";
-             dataGridView_AgregarEjercicios.Columns[3].HeaderCell.Value = "descripción";
+            DataSet dato = con.consultaEjercicios(dataGridView_crearRutina);
+            dataGridView_crearRutina.DataSource = dato.Tables[0];
+            dataGridView_crearRutina.Columns[0].HeaderCell.Value = "Clave del ejercicio";
+            dataGridView_crearRutina.Columns[1].HeaderCell.Value = "clave del aparato";
+            dataGridView_crearRutina.Columns[2].HeaderCell.Value = "repeticiones";
+            dataGridView_crearRutina.Columns[3].HeaderCell.Value = "descripción";
              
 
         }
@@ -115,21 +115,19 @@ namespace GYM
             textBox_ModificarrutinaId.Enabled = false;
             try
             {
-                DataSet dato = con.dataGridView("rut_ejer", id);
-                dataGridView_Eliminarejercicios.DataSource = dato.Tables[0];
+                DataSet dato = con.consultaejerciciosContenidos(dataGridView_Eliminarejercicios, Convert.ToInt32(id));
                 dataGridViewEjercicio.Columns[0].HeaderCell.Value = "Clave de ejercicio";
                 dataGridViewEjercicio.Columns[1].HeaderCell.Value = "Clave de aparato";
                 dataGridViewEjercicio.Columns[2].HeaderCell.Value = "Repeticiones";
                 dataGridViewEjercicio.Columns[3].HeaderCell.Value = "Descripción";
 
-                DataSet dato2 = con.dataGridView("ejercicio", "idejercicio");
-                dataGridView_AgregarEjercicios.DataSource = dato2.Tables[0];
+                DataSet dato2 = con.consultaEjercicios(dataGridView_AgregarEjercicios);
                 dataGridViewEjercicio.Columns[0].HeaderCell.Value = "Clave de ejercicio";
                 dataGridViewEjercicio.Columns[1].HeaderCell.Value = "Clave de aparato";
                 dataGridViewEjercicio.Columns[2].HeaderCell.Value = "Repeticiones";
                 dataGridViewEjercicio.Columns[3].HeaderCell.Value = "Descripción";
             }
-            catch (Exception) { }
+            catch (Exception ex) { MessageBox.Show("Error de consulta en buscar id:" + ex.Message); }
         }
 
         private void button_AgrerarEjercicio2_Click(object sender, EventArgs e)
