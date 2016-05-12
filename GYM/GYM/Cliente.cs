@@ -12,14 +12,24 @@ namespace GYM
 {
     public partial class Cliente : Form
     {
-        public Cliente()
+        int id;
+        private Consultas con = new Consultas();
+        public Cliente(int id)
         {
             InitializeComponent();
+            this.id = id;
+            label3.Text = con.fechaDePagoCliente(id);
+            con.MostrarRutinaCliente(dataGridView1);
         }
 
         private void label3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Cliente_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }

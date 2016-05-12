@@ -55,7 +55,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(132, 12);
+            this.textBox1.Location = new System.Drawing.Point(136, 12);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(220, 20);
             this.textBox1.TabIndex = 2;
@@ -83,6 +83,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Cliente";
             this.Text = "Cliente";
+            this.Load += new System.EventHandler(this.Cliente_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

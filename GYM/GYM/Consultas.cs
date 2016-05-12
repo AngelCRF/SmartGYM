@@ -13,6 +13,48 @@ namespace GYM
     {
         private String datosCarlos = "Server=localhost; Port=5432; User Id=postgres; Password=23c17m; Database=smartgym";
         private String data = "Server=www.johnny.heliohost.org;Port=5432;User Id=itmoreli_user;Password=12345678;Database=itmoreli_smartgym";
+
+        internal string fechaDePagoCliente(int id)
+        {
+            string fecha="";
+            con.Open();
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(("select fecha_de_corte from cliente where idcliente= '"+id+"' "), con.Conn);
+                NpgsqlDataReader reader = cmd.ExecuteReader();
+                reader.Read();
+                fecha = reader.GetString(0);
+                reader.Close();
+            }
+            catch (Exception) { MessageBox.Show("error de consulta en fecha de corte"); }
+            con.Close();
+            return fecha;
+        }
+
+        internal void MostrarRutinaCliente(DataGridView aux , int id)
+        {
+            int rutina = -1;
+           
+            con.Open();
+            try
+            {
+                NpgsqlCommand cmd1 = new NpgsqlCommand(("select idrutina from cliente where idcliente= '" + id + "' "), con.Conn);
+                NpgsqlDataReader reader1 = cmd1.ExecuteReader();
+                reader1.Read();
+                rutina = reader1.GetInt32(0);
+                NpgsqlCommand cmd2 = new NpgsqlCommand(("select (ejercicio.repeticiones, ejercicio.descripcion, ejercicio.idaparato) from rut_eje, ejercicio where idrut= '" + rutina + "' and idejer = idejercicio "), con.Conn);
+                NpgsqlDataReader reader2 = cmd1.ExecuteReader();               
+                NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(cmd2);
+                DataSet datos = new DataSet();
+                adapter.Fill(datos);
+                reader2.Read();
+                reader2.Close();
+                aux.DataSource = datos.Tables[0];
+            }
+            catch (Exception) { MessageBox.Show("error de consulta en fecha de corte"); }         
+            con.Close();
+        }
+
         private Conexion con = new Conexion("Server=www.johnny.heliohost.org;Port=5432;User Id=itmoreli_user;Password=12345678;Database=itmoreli_smartgym");
 
         public Consultas()
@@ -235,7 +277,7 @@ namespace GYM
         }
 
 
-        internal void ActualizarRutina(string id, string nombre, string horas)
+        public void ActualizarRutina(string id, string nombre, string horas)
         {
             String cmd= ("update rutina set nombre= '"+nombre+"', horas= '"+horas+"' where idrutina = '"+id+"'");
             ejecutarConsulta(cmd);
