@@ -35,7 +35,7 @@ namespace GYM
             try
             {
                 conn.Open();
-                MessageBox.Show("Conexión exitosa");//quitar este mensaje cuando lean esto
+                //MessageBox.Show("Conexión exitosa");//quitar este mensaje cuando lean esto
                 return true;
 
             }

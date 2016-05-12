@@ -188,15 +188,19 @@ namespace GYM
 
         private void pagosToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            panel_inform.Visible = true;
+            panel_inform.BringToFront();
             dataGridView_Pagos.Visible = true;
             dataGridView_Mantenimiento.Visible = false;
             label36.Text = "Cortes: ";
             DataSet datos = C.consultapagos(dataGridView_Pagos);
-            dataGridView_Pagos.DataSource = datos.Tables[0];
+            
         }
 
         private void aparatosToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            panel_inform.Visible = true;
+            panel_inform.BringToFront();
             dataGridView_Pagos.Visible = false;
             dataGridView_Mantenimiento.Visible = true;
             label36.Text = "Mantenimiento: ";
