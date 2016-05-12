@@ -236,7 +236,7 @@ namespace GYM
                     }
                     if (id > 0)
                     {
-                        //con.inserta("ejercicio", Convert.ToString(id), textBox_Repeticiones.Text, textBox_Descricpcion.Text,"", "", "", "", "", "", "", "");
+                        con.insertaEjercicio(Convert.ToString(id), textBox_Repeticiones.Text, textBox_Descricpcion.Text);
                     }
                 }
                 catch (Exception) { MessageBox.Show("debe seleccionar un aparato"); }

@@ -160,8 +160,7 @@ namespace GYM
         {
             con.Open();
             try
-            {
-                
+            {              
                 NpgsqlCommand cmd = new NpgsqlCommand(consulta, con.Conn);
                 NpgsqlDataReader reader = cmd.ExecuteReader();
                 reader.Read();
@@ -237,6 +236,23 @@ namespace GYM
 
             }
             con.Close(); 
+        }
+
+        public void insertaEjercicio(string idaparato, string nombre, string desc)
+        {
+            int id = -1;
+            con.Open();
+            NpgsqlCommand cmd2 = new NpgsqlCommand("select * from trabajadores order by idtrabajador desc limit 1;", conn.Conn);
+            NpgsqlDataReader reader2 = cmd2.ExecuteReader();
+            reader2.Read();
+            id = Convert.ToInt32(reader2.GetInt32(0)) + 1;
+
+            reader2.Close();
+            if (id > -1)
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand("insert into ejercicio (idejercicio,idparato, repeticiones, descripcion) values('"+id+"','"+idaparato+"','"+nombre+"','"+desc+"') ", con.Conn);
+
+            }
         }
 
         public string CrearRutina(string nombre, string horas)
