@@ -11,8 +11,15 @@ namespace GYM
 {
     class Consultas
     {
+        private String datosCarlos = "Server=localhost; Port=5432; User Id=postgres; Password=23c17m; Database=smartgym";
         private String data = "Server=www.johnny.heliohost.org;Port=5432;User Id=itmoreli_user;Password=12345678;Database=itmoreli_smartgym";
         private Conexion con = new Conexion("Server=www.johnny.heliohost.org;Port=5432;User Id=itmoreli_user;Password=12345678;Database=itmoreli_smartgym");
+
+        public Consultas()
+        {
+            //colocar su ruta
+            con = new Conexion(datosCarlos);
+        }
 
         public void inserta()
         {
@@ -139,14 +146,30 @@ namespace GYM
                     break;
                 case "rutina":
                     string consulta2= ("delete from rut_ejer where idrut= '" + id + "';");
-                    //ejecutarConsulta(consulta2);
+                    ejecutarConsulta(consulta2);
                     consulta = ("delete from rutina where idrutina= '"+id+"';");
                     break;
                 default:
                     break;
             }
 
-            //ejecutarConsulta(consulta);
+            ejecutarConsulta(consulta);
+        }
+
+        private void ejecutarConsulta(string consulta)
+        {
+            con.Open();
+            try
+            {
+                
+                NpgsqlCommand cmd = new NpgsqlCommand(consulta, con.Conn);
+                NpgsqlDataReader reader = cmd.ExecuteReader();
+                reader.Read();
+                reader.Close();
+                
+            }
+            catch(Exception){ MessageBox.Show("error de consulta"); }
+            con.Close();
         }
 
         public void Modifica()
@@ -154,7 +177,7 @@ namespace GYM
 
         }
 
-        public DataSet dataGridView(String tabla, String nombreId, DataGridView aux)
+        public DataSet dataGridView(String tabla, String nombreId)
         {
             tabla = tabla.ToLower();
             nombreId = nombreId.ToLower();
@@ -184,9 +207,13 @@ namespace GYM
             NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(cmd);
             DataSet datos = new DataSet();
             adapter.Fill(datos);
-            aux.DataSource = datos.Tables[0];
             con.Close();
             return datos;
+        }
+
+        internal void ActualizarRutina(string text1, string text2, string text3)
+        {
+            
         }
 
         public void AgregarEjercicios(String idrutina, String idejercicio)

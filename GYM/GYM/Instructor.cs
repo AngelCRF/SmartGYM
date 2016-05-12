@@ -30,8 +30,8 @@ namespace GYM
             panel_MostrarRutinas.BringToFront();
             //HABILITAR CUANDO ESTÉ LA BASE DE DATOS
 
-            DataSet dato = con.dataGridView("rutina", "idrutina", dataGridViewRutina);
-            //dataGridViewRutina.DataSource = dato.Tables[0];
+            DataSet dato = con.dataGridView("rutina", "idrutina");
+            dataGridViewRutina.DataSource = dato.Tables[0];
             dataGridViewRutina.Columns[0].HeaderCell.Value = "Clave de rutina";
             dataGridViewRutina.Columns[1].HeaderCell.Value = "Nombre";
             dataGridViewRutina.Columns[2].HeaderCell.Value = "Duración de rutina";
@@ -47,8 +47,8 @@ namespace GYM
                 {
                     clave = row.Cells[0].Value.ToString();
                 }
-               // DataSet dato = con.dataGridView("rut_ejer", clave);
-               // dataGridViewEjercicio.DataSource = dato.Tables[0];
+                DataSet dato = con.dataGridView("rut_ejer", clave);
+                dataGridViewEjercicio.DataSource = dato.Tables[0];
                 dataGridViewEjercicio.Columns[0].HeaderCell.Value = "Clave de ejercicio";
                 dataGridViewEjercicio.Columns[1].HeaderCell.Value = "Clave de aparato";
                 dataGridViewEjercicio.Columns[2].HeaderCell.Value = "Repeticiones";
@@ -77,13 +77,13 @@ namespace GYM
             button_agregarEjercicios.Visible = true;
             //HABILITAR CUANDO ESTÉ LA BASE DE DATOS
 
-            /* DataSet dato = con.dataGridView("ejercicio", "idejercicio");
+            DataSet dato = con.dataGridView("ejercicio", "idejercicio");
              dataGridView_AgregarEjercicios.DataSource = dato.Tables[0];
              dataGridView_AgregarEjercicios.Columns[0].HeaderCell.Value = "Clave del ejercicio";
              dataGridView_AgregarEjercicios.Columns[1].HeaderCell.Value = "clave del aparato";
              dataGridView_AgregarEjercicios.Columns[2].HeaderCell.Value = "repeticiones";
              dataGridView_AgregarEjercicios.Columns[3].HeaderCell.Value = "descripción";
-             */
+             
 
         }
 
@@ -134,15 +134,15 @@ namespace GYM
             textBox_ModificarrutinaId.Enabled = false;
             try
             {
-               // DataSet dato = con.dataGridView("rut_ejer", id);
-                //dataGridView_Eliminarejercicios.DataSource = dato.Tables[0];
+                DataSet dato = con.dataGridView("rut_ejer", id);
+                dataGridView_Eliminarejercicios.DataSource = dato.Tables[0];
                 dataGridViewEjercicio.Columns[0].HeaderCell.Value = "Clave de ejercicio";
                 dataGridViewEjercicio.Columns[1].HeaderCell.Value = "Clave de aparato";
                 dataGridViewEjercicio.Columns[2].HeaderCell.Value = "Repeticiones";
                 dataGridViewEjercicio.Columns[3].HeaderCell.Value = "Descripción";
 
-             //   DataSet dato2 = con.dataGridView("ejercicio", "idejercicio");
-               // dataGridView_AgregarEjercicios.DataSource = dato2.Tables[0];
+                DataSet dato2 = con.dataGridView("ejercicio", "idejercicio");
+                dataGridView_AgregarEjercicios.DataSource = dato2.Tables[0];
                 dataGridViewEjercicio.Columns[0].HeaderCell.Value = "Clave de ejercicio";
                 dataGridViewEjercicio.Columns[1].HeaderCell.Value = "Clave de aparato";
                 dataGridViewEjercicio.Columns[2].HeaderCell.Value = "Repeticiones";
@@ -174,7 +174,7 @@ namespace GYM
                 }
                 else
                 {
-                    //con.ActualizarRutina(textBox_ModificarrutinaId.Text, textBox_CrearNombre.Text, textBox_CrearHorasRutina.Text);
+                    con.ActualizarRutina(textBox_ModificarrutinaId.Text, textBox_CrearNombre.Text, textBox_CrearHorasRutina.Text);
                 }
             }
             else
@@ -263,6 +263,14 @@ namespace GYM
 
         private void label11_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void asignarRutinaAClienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panel_AsignarRutinas.BringToFront();
+
+
 
         }
     }
