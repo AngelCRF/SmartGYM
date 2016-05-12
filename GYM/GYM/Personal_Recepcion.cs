@@ -9,6 +9,7 @@ namespace GYM
     {
         //Variables
         bool Completo = true;
+        String n;
         Consultas C = new Consultas();
 
         public Personal_Recepcion()
@@ -61,22 +62,28 @@ namespace GYM
 
         private void editarToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            String Linea;
             OcultaPaneles();
+            n = Microsoft.VisualBasic.Interaction.InputBox("Cliente a buscar: ");
             panel_client_edit.Visible = true;
+            Linea = C.Selecciona("clientes", "idcliente", n);
         }
 
         private void todosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OcultaPaneles();
             panel_client_show_all.Visible = true;
-            DataSet datos = C.dataGridView("Clientes","idcliente");
+            DataSet datos = C.dataGridView("clientes","idcliente");
             dataGridView_client.DataSource = datos.Tables[0];
         }
 
         private void buscarToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            String Linea;
             OcultaPaneles();
+            n = Microsoft.VisualBasic.Interaction.InputBox("Cliente a buscar: ");
             panel_client_show_one.Visible = true;
+            Linea = C.Selecciona("clientes", "idcliente", n);
         }
 
         private void nuevoToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -95,6 +102,8 @@ namespace GYM
         {
             OcultaPaneles();
             panel_equip_show_all .Visible = true;
+            DataSet datos = C.dataGridView("Aparatos", "idaparato");
+            dataGridView_client.DataSource = datos.Tables[0];
         }
 
         private void buscarToolStripMenuItem1_Click(object sender, EventArgs e)

@@ -158,7 +158,7 @@ namespace GYM
                 }
                 else
                 {
-                    con.ActualizarRutina(textBox_ModificarrutinaId.Text, textBox_CrearNombre.Text, textBox_CrearHorasRutina.Text);
+                    //con.ActualizarRutina(textBox_ModificarrutinaId.Text, textBox_CrearNombre.Text, textBox_CrearHorasRutina.Text);
                 }
             }
             else
@@ -214,7 +214,7 @@ namespace GYM
                     }
                     if (id > 0)
                     {
-                        con.inserta("ejercicio", Convert.ToString(id), textBox_Repeticiones.Text, textBox_Descricpcion.Text,"", "", "", "", "", "", "", "");
+                        //con.inserta("ejercicio", Convert.ToString(id), textBox_Repeticiones.Text, textBox_Descricpcion.Text,"", "", "", "", "", "", "", "");
                     }
                 }
                 catch (Exception) { MessageBox.Show("debe seleccionar un aparato"); }

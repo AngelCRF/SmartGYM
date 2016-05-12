@@ -33,6 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Npgsql">
       <HintPath>..\..\..\..\..\Documents\Nueva carpeta\Npgsql.dll</HintPath>
     </Reference>

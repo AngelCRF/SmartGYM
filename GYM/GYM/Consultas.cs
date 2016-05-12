@@ -84,9 +84,23 @@ namespace GYM
             }
         }
 
-        public void Selecciona()
+        public String Selecciona(String tabla, String idt, String id)
         {
-
+            try
+            {
+            NpgsqlDataReader reader;
+            con.Open();
+            String consulta = "SELECT * FROM" + tabla+ "WEHERE "+idt+" = "+id+";";
+            NpgsqlCommand cmd = new NpgsqlCommand(consulta, con.Conn);
+            reader = cmd.ExecuteReader();
+            reader.Read();
+            con.Close();
+                return reader.ToString();
+            }
+            catch(Exception e)
+            {
+                return null;
+            }
         }
 
         public void Elimina(String tabla, String id) 
