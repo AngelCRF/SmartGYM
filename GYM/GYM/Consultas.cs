@@ -44,14 +44,13 @@ namespace GYM
                 reader1.Read();
                 rutina = reader1.GetInt32(0);
                 reader1.Close();
-                NpgsqlCommand cmd2 = new NpgsqlCommand(("select (ejercicio.repeticiones, ejercicio.descripcion, ejercicio.idaparato) from rut_eje, ejercicio where idrut= '" + rutina + "' and idejer = idejercicio "), con.Conn);
-                NpgsqlDataReader reader2 = cmd1.ExecuteReader();               
+                MessageBox.Show("despues del 1er reader no hay problema");
+                NpgsqlCommand cmd2 = new NpgsqlCommand(("select ejercicio.repeticiones, ejercicio.descripcion, ejercicio.idaparato from rut_eje, ejercicio where idrut= '" + rutina + "' and idejer = idejercicio "), con.Conn);
                 NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(cmd2);
                 DataSet datos = new DataSet();
                 adapter.Fill(datos);
-                reader2.Read();
-                reader2.Close();
                 aux.DataSource = datos.Tables[0];
+                MessageBox.Show("despues de llenar la tabla no hay problema");
             }
             catch (Exception ex) { MessageBox.Show("error de consulta en rutina de usuario: "+ex.Message); con.Close(); }         
             con.Close();
