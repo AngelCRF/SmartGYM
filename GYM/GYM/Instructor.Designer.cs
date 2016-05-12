@@ -75,12 +75,12 @@
             this.button2 = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxIdRutina = new System.Windows.Forms.TextBox();
+            this.textBox_cliente = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridView_RutinaParaCliente = new System.Windows.Forms.DataGridView();
+            this.dataGridView_Cliente = new System.Windows.Forms.DataGridView();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_logo)).BeginInit();
             this.panel_MostrarRutinas.SuspendLayout();
@@ -94,8 +94,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_aparatos)).BeginInit();
             this.panel_EliminarRutina.SuspendLayout();
             this.panel_AsignarRutinas.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_RutinaParaCliente)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Cliente)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -498,12 +498,12 @@
             this.panel_AsignarRutinas.Controls.Add(this.button2);
             this.panel_AsignarRutinas.Controls.Add(this.label13);
             this.panel_AsignarRutinas.Controls.Add(this.label12);
-            this.panel_AsignarRutinas.Controls.Add(this.textBox2);
-            this.panel_AsignarRutinas.Controls.Add(this.textBox1);
+            this.panel_AsignarRutinas.Controls.Add(this.textBoxIdRutina);
+            this.panel_AsignarRutinas.Controls.Add(this.textBox_cliente);
             this.panel_AsignarRutinas.Controls.Add(this.label11);
             this.panel_AsignarRutinas.Controls.Add(this.label9);
-            this.panel_AsignarRutinas.Controls.Add(this.dataGridView2);
-            this.panel_AsignarRutinas.Controls.Add(this.dataGridView1);
+            this.panel_AsignarRutinas.Controls.Add(this.dataGridView_RutinaParaCliente);
+            this.panel_AsignarRutinas.Controls.Add(this.dataGridView_Cliente);
             this.panel_AsignarRutinas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_AsignarRutinas.Location = new System.Drawing.Point(0, 24);
             this.panel_AsignarRutinas.Name = "panel_AsignarRutinas";
@@ -518,6 +518,7 @@
             this.button2.TabIndex = 8;
             this.button2.Text = "Asignar";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // label13
             // 
@@ -537,19 +538,21 @@
             this.label12.TabIndex = 6;
             this.label12.Text = "Id Cliente";
             // 
-            // textBox2
+            // textBoxIdRutina
             // 
-            this.textBox2.Location = new System.Drawing.Point(447, 281);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 5;
+            this.textBoxIdRutina.Location = new System.Drawing.Point(447, 281);
+            this.textBoxIdRutina.Name = "textBoxIdRutina";
+            this.textBoxIdRutina.Size = new System.Drawing.Size(100, 20);
+            this.textBoxIdRutina.TabIndex = 5;
+            this.textBoxIdRutina.Leave += new System.EventHandler(this.textBox_Repeticiones_Leave);
             // 
-            // textBox1
+            // textBox_cliente
             // 
-            this.textBox1.Location = new System.Drawing.Point(90, 281);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 4;
+            this.textBox_cliente.Location = new System.Drawing.Point(90, 281);
+            this.textBox_cliente.Name = "textBox_cliente";
+            this.textBox_cliente.Size = new System.Drawing.Size(100, 20);
+            this.textBox_cliente.TabIndex = 4;
+            this.textBox_cliente.Leave += new System.EventHandler(this.textBox_Repeticiones_Leave);
             // 
             // label11
             // 
@@ -570,21 +573,21 @@
             this.label9.TabIndex = 2;
             this.label9.Text = "Clientes";
             // 
-            // dataGridView2
+            // dataGridView_RutinaParaCliente
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(387, 49);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(240, 150);
-            this.dataGridView2.TabIndex = 1;
+            this.dataGridView_RutinaParaCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_RutinaParaCliente.Location = new System.Drawing.Point(387, 49);
+            this.dataGridView_RutinaParaCliente.Name = "dataGridView_RutinaParaCliente";
+            this.dataGridView_RutinaParaCliente.Size = new System.Drawing.Size(240, 150);
+            this.dataGridView_RutinaParaCliente.TabIndex = 1;
             // 
-            // dataGridView1
+            // dataGridView_Cliente
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(29, 49);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(240, 150);
-            this.dataGridView1.TabIndex = 0;
+            this.dataGridView_Cliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_Cliente.Location = new System.Drawing.Point(29, 49);
+            this.dataGridView_Cliente.Name = "dataGridView_Cliente";
+            this.dataGridView_Cliente.Size = new System.Drawing.Size(240, 150);
+            this.dataGridView_Cliente.TabIndex = 0;
             // 
             // Instructor
             // 
@@ -624,8 +627,8 @@
             this.panel_EliminarRutina.PerformLayout();
             this.panel_AsignarRutinas.ResumeLayout(false);
             this.panel_AsignarRutinas.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_RutinaParaCliente)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Cliente)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -678,12 +681,12 @@
         private System.Windows.Forms.Panel panel_AsignarRutinas;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridView_RutinaParaCliente;
+        private System.Windows.Forms.DataGridView dataGridView_Cliente;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxIdRutina;
+        private System.Windows.Forms.TextBox textBox_cliente;
     }
 }
