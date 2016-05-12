@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace GYM
@@ -120,9 +121,10 @@ namespace GYM
             RevisaDatos(panel_client_new);
             if (Completo)
             {
-                //C.inserta();
-                // Regresar el id del cliente para que pueda ingresar posteriormente en este mensaje
-                MessageBox.Show("Datos Guardados", "Cliente Agregado", MessageBoxButtons.OK);
+                String[] DatosC = {textBox_Nombre.Text,textBox_ApellidoP.Text,textBox_ApellidoM.Text,textBox_Telefono.Text,
+                    textBox_Email.Text,comboBox_TPago.Text,dateTimePicker_FPago.Text,comboBox_TSangre.Text,textBox_password.Text};
+                String[] DatosD = { textBox_Calle.Text, textBox_Numero.Text, textBox_Interior.Text,textBox_Colonia.Text,textBox_Ciudad.Text};
+                C.insertaC(DatosC, DatosD);
                 OcultaPaneles();
             }
             else

@@ -77,24 +77,6 @@
             this.textBox_ApellidoP = new System.Windows.Forms.TextBox();
             this.textBox_Nombre = new System.Windows.Forms.TextBox();
             this.panel_client_edit = new System.Windows.Forms.Panel();
-            this.panel_client_show_all = new System.Windows.Forms.Panel();
-            this.label19 = new System.Windows.Forms.Label();
-            this.dataGridView_client = new System.Windows.Forms.DataGridView();
-            this.panel_client_show_one = new System.Windows.Forms.Panel();
-            this.panel_equip_new = new System.Windows.Forms.Panel();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.button_Save_Equip = new System.Windows.Forms.Button();
-            this.dateTimePicker_FMantenimiento = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker_FCompra = new System.Windows.Forms.DateTimePicker();
-            this.comboBox_Tipo = new System.Windows.Forms.ComboBox();
-            this.textBox_NSerie = new System.Windows.Forms.TextBox();
-            this.panel_equip_edit = new System.Windows.Forms.Panel();
-            this.panel_equip_show_all = new System.Windows.Forms.Panel();
-            this.panel_equip_show_one = new System.Windows.Forms.Panel();
-            this.panel_inform = new System.Windows.Forms.Panel();
             this.label20 = new System.Windows.Forms.Label();
             this.textBoxE_Pass = new System.Windows.Forms.TextBox();
             this.buttonE_Save = new System.Windows.Forms.Button();
@@ -124,6 +106,24 @@
             this.textBoxE_ApellidoM = new System.Windows.Forms.TextBox();
             this.textBoxE_ApellidoP = new System.Windows.Forms.TextBox();
             this.textBoxE_Nombre = new System.Windows.Forms.TextBox();
+            this.panel_client_show_all = new System.Windows.Forms.Panel();
+            this.label19 = new System.Windows.Forms.Label();
+            this.dataGridView_client = new System.Windows.Forms.DataGridView();
+            this.panel_client_show_one = new System.Windows.Forms.Panel();
+            this.panel_equip_new = new System.Windows.Forms.Panel();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.button_Save_Equip = new System.Windows.Forms.Button();
+            this.dateTimePicker_FMantenimiento = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker_FCompra = new System.Windows.Forms.DateTimePicker();
+            this.comboBox_Tipo = new System.Windows.Forms.ComboBox();
+            this.textBox_NSerie = new System.Windows.Forms.TextBox();
+            this.panel_equip_edit = new System.Windows.Forms.Panel();
+            this.panel_equip_show_all = new System.Windows.Forms.Panel();
+            this.panel_equip_show_one = new System.Windows.Forms.Panel();
+            this.panel_inform = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
             this.panel_client_new.SuspendLayout();
             this.panel_client_edit.SuspendLayout();
@@ -164,14 +164,14 @@
             // nuevoToolStripMenuItem
             // 
             this.nuevoToolStripMenuItem.Name = "nuevoToolStripMenuItem";
-            this.nuevoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.nuevoToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
             this.nuevoToolStripMenuItem.Text = "Nuevo";
             this.nuevoToolStripMenuItem.Click += new System.EventHandler(this.nuevoToolStripMenuItem_Click);
             // 
             // editarToolStripMenuItem
             // 
             this.editarToolStripMenuItem.Name = "editarToolStripMenuItem";
-            this.editarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.editarToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
             this.editarToolStripMenuItem.Text = "Editar";
             this.editarToolStripMenuItem.Click += new System.EventHandler(this.editarToolStripMenuItem_Click);
             // 
@@ -181,7 +181,7 @@
             this.todosToolStripMenuItem,
             this.buscarToolStripMenuItem});
             this.mostrarToolStripMenuItem.Name = "mostrarToolStripMenuItem";
-            this.mostrarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.mostrarToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
             this.mostrarToolStripMenuItem.Text = "Mostrar";
             // 
             // todosToolStripMenuItem
@@ -211,14 +211,14 @@
             // nuevoToolStripMenuItem1
             // 
             this.nuevoToolStripMenuItem1.Name = "nuevoToolStripMenuItem1";
-            this.nuevoToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.nuevoToolStripMenuItem1.Size = new System.Drawing.Size(115, 22);
             this.nuevoToolStripMenuItem1.Text = "Nuevo";
             this.nuevoToolStripMenuItem1.Click += new System.EventHandler(this.nuevoToolStripMenuItem1_Click);
             // 
             // editarToolStripMenuItem1
             // 
             this.editarToolStripMenuItem1.Name = "editarToolStripMenuItem1";
-            this.editarToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.editarToolStripMenuItem1.Size = new System.Drawing.Size(115, 22);
             this.editarToolStripMenuItem1.Text = "Editar";
             this.editarToolStripMenuItem1.Click += new System.EventHandler(this.editarToolStripMenuItem1_Click);
             // 
@@ -228,7 +228,7 @@
             this.todosToolStripMenuItem1,
             this.buscarToolStripMenuItem1});
             this.mostrarToolStripMenuItem1.Name = "mostrarToolStripMenuItem1";
-            this.mostrarToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.mostrarToolStripMenuItem1.Size = new System.Drawing.Size(115, 22);
             this.mostrarToolStripMenuItem1.Text = "Mostrar";
             // 
             // todosToolStripMenuItem1
@@ -608,179 +608,6 @@
             this.panel_client_edit.Size = new System.Drawing.Size(509, 404);
             this.panel_client_edit.TabIndex = 2;
             // 
-            // panel_client_show_all
-            // 
-            this.panel_client_show_all.Controls.Add(this.label19);
-            this.panel_client_show_all.Controls.Add(this.dataGridView_client);
-            this.panel_client_show_all.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_client_show_all.Location = new System.Drawing.Point(0, 24);
-            this.panel_client_show_all.Name = "panel_client_show_all";
-            this.panel_client_show_all.Size = new System.Drawing.Size(509, 404);
-            this.panel_client_show_all.TabIndex = 2;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Malgun Gothic", 15.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(12, 10);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(105, 30);
-            this.label19.TabIndex = 1;
-            this.label19.Text = "Clientes: ";
-            // 
-            // dataGridView_client
-            // 
-            this.dataGridView_client.AllowUserToAddRows = false;
-            this.dataGridView_client.AllowUserToDeleteRows = false;
-            this.dataGridView_client.BackgroundColor = System.Drawing.Color.LightSlateGray;
-            this.dataGridView_client.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_client.Location = new System.Drawing.Point(12, 50);
-            this.dataGridView_client.Name = "dataGridView_client";
-            this.dataGridView_client.ReadOnly = true;
-            this.dataGridView_client.Size = new System.Drawing.Size(480, 342);
-            this.dataGridView_client.TabIndex = 0;
-            // 
-            // panel_client_show_one
-            // 
-            this.panel_client_show_one.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_client_show_one.Location = new System.Drawing.Point(0, 24);
-            this.panel_client_show_one.Name = "panel_client_show_one";
-            this.panel_client_show_one.Size = new System.Drawing.Size(509, 404);
-            this.panel_client_show_one.TabIndex = 2;
-            // 
-            // panel_equip_new
-            // 
-            this.panel_equip_new.BackColor = System.Drawing.Color.SteelBlue;
-            this.panel_equip_new.Controls.Add(this.label17);
-            this.panel_equip_new.Controls.Add(this.label16);
-            this.panel_equip_new.Controls.Add(this.label15);
-            this.panel_equip_new.Controls.Add(this.label14);
-            this.panel_equip_new.Controls.Add(this.button_Save_Equip);
-            this.panel_equip_new.Controls.Add(this.dateTimePicker_FMantenimiento);
-            this.panel_equip_new.Controls.Add(this.dateTimePicker_FCompra);
-            this.panel_equip_new.Controls.Add(this.comboBox_Tipo);
-            this.panel_equip_new.Controls.Add(this.textBox_NSerie);
-            this.panel_equip_new.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_equip_new.Location = new System.Drawing.Point(0, 24);
-            this.panel_equip_new.Name = "panel_equip_new";
-            this.panel_equip_new.Size = new System.Drawing.Size(509, 404);
-            this.panel_equip_new.TabIndex = 3;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(167, 137);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(139, 13);
-            this.label17.TabIndex = 8;
-            this.label17.Text = "Fecha de Mantenimiento";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(28, 137);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(99, 13);
-            this.label16.TabIndex = 7;
-            this.label16.Text = "Fecha de Compra";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(371, 69);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(30, 13);
-            this.label15.TabIndex = 6;
-            this.label15.Text = "Tipo";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(87, 69);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(96, 13);
-            this.label14.TabIndex = 5;
-            this.label14.Text = "Numero de Serie";
-            // 
-            // button_Save_Equip
-            // 
-            this.button_Save_Equip.Location = new System.Drawing.Point(217, 351);
-            this.button_Save_Equip.Name = "button_Save_Equip";
-            this.button_Save_Equip.Size = new System.Drawing.Size(75, 23);
-            this.button_Save_Equip.TabIndex = 4;
-            this.button_Save_Equip.Text = "Agregar";
-            this.button_Save_Equip.UseVisualStyleBackColor = true;
-            this.button_Save_Equip.Click += new System.EventHandler(this.button_Save_Equip_Click);
-            // 
-            // dateTimePicker_FMantenimiento
-            // 
-            this.dateTimePicker_FMantenimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker_FMantenimiento.Location = new System.Drawing.Point(183, 103);
-            this.dateTimePicker_FMantenimiento.Name = "dateTimePicker_FMantenimiento";
-            this.dateTimePicker_FMantenimiento.Size = new System.Drawing.Size(108, 22);
-            this.dateTimePicker_FMantenimiento.TabIndex = 3;
-            // 
-            // dateTimePicker_FCompra
-            // 
-            this.dateTimePicker_FCompra.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker_FCompra.Location = new System.Drawing.Point(24, 103);
-            this.dateTimePicker_FCompra.Name = "dateTimePicker_FCompra";
-            this.dateTimePicker_FCompra.Size = new System.Drawing.Size(108, 22);
-            this.dateTimePicker_FCompra.TabIndex = 2;
-            // 
-            // comboBox_Tipo
-            // 
-            this.comboBox_Tipo.FormattingEnabled = true;
-            this.comboBox_Tipo.Items.AddRange(new object[] {
-            "Cardio"});
-            this.comboBox_Tipo.Location = new System.Drawing.Point(291, 35);
-            this.comboBox_Tipo.Name = "comboBox_Tipo";
-            this.comboBox_Tipo.Size = new System.Drawing.Size(183, 21);
-            this.comboBox_Tipo.TabIndex = 1;
-            // 
-            // textBox_NSerie
-            // 
-            this.textBox_NSerie.Location = new System.Drawing.Point(24, 35);
-            this.textBox_NSerie.Name = "textBox_NSerie";
-            this.textBox_NSerie.Size = new System.Drawing.Size(248, 22);
-            this.textBox_NSerie.TabIndex = 0;
-            // 
-            // panel_equip_edit
-            // 
-            this.panel_equip_edit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_equip_edit.Location = new System.Drawing.Point(0, 24);
-            this.panel_equip_edit.Name = "panel_equip_edit";
-            this.panel_equip_edit.Size = new System.Drawing.Size(509, 404);
-            this.panel_equip_edit.TabIndex = 3;
-            // 
-            // panel_equip_show_all
-            // 
-            this.panel_equip_show_all.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_equip_show_all.Location = new System.Drawing.Point(0, 24);
-            this.panel_equip_show_all.Name = "panel_equip_show_all";
-            this.panel_equip_show_all.Size = new System.Drawing.Size(509, 404);
-            this.panel_equip_show_all.TabIndex = 4;
-            // 
-            // panel_equip_show_one
-            // 
-            this.panel_equip_show_one.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_equip_show_one.Location = new System.Drawing.Point(0, 24);
-            this.panel_equip_show_one.Name = "panel_equip_show_one";
-            this.panel_equip_show_one.Size = new System.Drawing.Size(509, 404);
-            this.panel_equip_show_one.TabIndex = 5;
-            // 
-            // panel_inform
-            // 
-            this.panel_inform.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_inform.Location = new System.Drawing.Point(0, 24);
-            this.panel_inform.Name = "panel_inform";
-            this.panel_inform.Size = new System.Drawing.Size(509, 404);
-            this.panel_inform.TabIndex = 6;
-            // 
             // label20
             // 
             this.label20.AutoSize = true;
@@ -1048,14 +875,187 @@
             this.textBoxE_Nombre.Size = new System.Drawing.Size(153, 22);
             this.textBoxE_Nombre.TabIndex = 31;
             // 
+            // panel_client_show_all
+            // 
+            this.panel_client_show_all.Controls.Add(this.label19);
+            this.panel_client_show_all.Controls.Add(this.dataGridView_client);
+            this.panel_client_show_all.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_client_show_all.Location = new System.Drawing.Point(0, 24);
+            this.panel_client_show_all.Name = "panel_client_show_all";
+            this.panel_client_show_all.Size = new System.Drawing.Size(509, 404);
+            this.panel_client_show_all.TabIndex = 2;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Malgun Gothic", 15.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(12, 10);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(105, 30);
+            this.label19.TabIndex = 1;
+            this.label19.Text = "Clientes: ";
+            // 
+            // dataGridView_client
+            // 
+            this.dataGridView_client.AllowUserToAddRows = false;
+            this.dataGridView_client.AllowUserToDeleteRows = false;
+            this.dataGridView_client.BackgroundColor = System.Drawing.Color.LightSlateGray;
+            this.dataGridView_client.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_client.Location = new System.Drawing.Point(12, 50);
+            this.dataGridView_client.Name = "dataGridView_client";
+            this.dataGridView_client.ReadOnly = true;
+            this.dataGridView_client.Size = new System.Drawing.Size(480, 342);
+            this.dataGridView_client.TabIndex = 0;
+            // 
+            // panel_client_show_one
+            // 
+            this.panel_client_show_one.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_client_show_one.Location = new System.Drawing.Point(0, 24);
+            this.panel_client_show_one.Name = "panel_client_show_one";
+            this.panel_client_show_one.Size = new System.Drawing.Size(509, 404);
+            this.panel_client_show_one.TabIndex = 2;
+            // 
+            // panel_equip_new
+            // 
+            this.panel_equip_new.BackColor = System.Drawing.Color.SteelBlue;
+            this.panel_equip_new.Controls.Add(this.label17);
+            this.panel_equip_new.Controls.Add(this.label16);
+            this.panel_equip_new.Controls.Add(this.label15);
+            this.panel_equip_new.Controls.Add(this.label14);
+            this.panel_equip_new.Controls.Add(this.button_Save_Equip);
+            this.panel_equip_new.Controls.Add(this.dateTimePicker_FMantenimiento);
+            this.panel_equip_new.Controls.Add(this.dateTimePicker_FCompra);
+            this.panel_equip_new.Controls.Add(this.comboBox_Tipo);
+            this.panel_equip_new.Controls.Add(this.textBox_NSerie);
+            this.panel_equip_new.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_equip_new.Location = new System.Drawing.Point(0, 24);
+            this.panel_equip_new.Name = "panel_equip_new";
+            this.panel_equip_new.Size = new System.Drawing.Size(509, 404);
+            this.panel_equip_new.TabIndex = 3;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(167, 137);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(139, 13);
+            this.label17.TabIndex = 8;
+            this.label17.Text = "Fecha de Mantenimiento";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(28, 137);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(99, 13);
+            this.label16.TabIndex = 7;
+            this.label16.Text = "Fecha de Compra";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(371, 69);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(30, 13);
+            this.label15.TabIndex = 6;
+            this.label15.Text = "Tipo";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(87, 69);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(96, 13);
+            this.label14.TabIndex = 5;
+            this.label14.Text = "Numero de Serie";
+            // 
+            // button_Save_Equip
+            // 
+            this.button_Save_Equip.Location = new System.Drawing.Point(217, 351);
+            this.button_Save_Equip.Name = "button_Save_Equip";
+            this.button_Save_Equip.Size = new System.Drawing.Size(75, 23);
+            this.button_Save_Equip.TabIndex = 4;
+            this.button_Save_Equip.Text = "Agregar";
+            this.button_Save_Equip.UseVisualStyleBackColor = true;
+            this.button_Save_Equip.Click += new System.EventHandler(this.button_Save_Equip_Click);
+            // 
+            // dateTimePicker_FMantenimiento
+            // 
+            this.dateTimePicker_FMantenimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker_FMantenimiento.Location = new System.Drawing.Point(183, 103);
+            this.dateTimePicker_FMantenimiento.Name = "dateTimePicker_FMantenimiento";
+            this.dateTimePicker_FMantenimiento.Size = new System.Drawing.Size(108, 22);
+            this.dateTimePicker_FMantenimiento.TabIndex = 3;
+            // 
+            // dateTimePicker_FCompra
+            // 
+            this.dateTimePicker_FCompra.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker_FCompra.Location = new System.Drawing.Point(24, 103);
+            this.dateTimePicker_FCompra.Name = "dateTimePicker_FCompra";
+            this.dateTimePicker_FCompra.Size = new System.Drawing.Size(108, 22);
+            this.dateTimePicker_FCompra.TabIndex = 2;
+            // 
+            // comboBox_Tipo
+            // 
+            this.comboBox_Tipo.FormattingEnabled = true;
+            this.comboBox_Tipo.Items.AddRange(new object[] {
+            "Cardio"});
+            this.comboBox_Tipo.Location = new System.Drawing.Point(291, 35);
+            this.comboBox_Tipo.Name = "comboBox_Tipo";
+            this.comboBox_Tipo.Size = new System.Drawing.Size(183, 21);
+            this.comboBox_Tipo.TabIndex = 1;
+            // 
+            // textBox_NSerie
+            // 
+            this.textBox_NSerie.Location = new System.Drawing.Point(24, 35);
+            this.textBox_NSerie.Name = "textBox_NSerie";
+            this.textBox_NSerie.Size = new System.Drawing.Size(248, 22);
+            this.textBox_NSerie.TabIndex = 0;
+            // 
+            // panel_equip_edit
+            // 
+            this.panel_equip_edit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_equip_edit.Location = new System.Drawing.Point(0, 24);
+            this.panel_equip_edit.Name = "panel_equip_edit";
+            this.panel_equip_edit.Size = new System.Drawing.Size(509, 404);
+            this.panel_equip_edit.TabIndex = 3;
+            // 
+            // panel_equip_show_all
+            // 
+            this.panel_equip_show_all.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_equip_show_all.Location = new System.Drawing.Point(0, 24);
+            this.panel_equip_show_all.Name = "panel_equip_show_all";
+            this.panel_equip_show_all.Size = new System.Drawing.Size(509, 404);
+            this.panel_equip_show_all.TabIndex = 4;
+            // 
+            // panel_equip_show_one
+            // 
+            this.panel_equip_show_one.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_equip_show_one.Location = new System.Drawing.Point(0, 24);
+            this.panel_equip_show_one.Name = "panel_equip_show_one";
+            this.panel_equip_show_one.Size = new System.Drawing.Size(509, 404);
+            this.panel_equip_show_one.TabIndex = 5;
+            // 
+            // panel_inform
+            // 
+            this.panel_inform.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_inform.Location = new System.Drawing.Point(0, 24);
+            this.panel_inform.Name = "panel_inform";
+            this.panel_inform.Size = new System.Drawing.Size(509, 404);
+            this.panel_inform.TabIndex = 6;
+            // 
             // Personal_Recepcion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(509, 428);
-            this.Controls.Add(this.panel_client_edit);
             this.Controls.Add(this.panel_client_new);
+            this.Controls.Add(this.panel_client_edit);
             this.Controls.Add(this.panel_client_show_all);
             this.Controls.Add(this.panel_equip_new);
             this.Controls.Add(this.panel_equip_show_all);
