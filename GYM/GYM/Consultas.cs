@@ -294,11 +294,14 @@ namespace GYM
         public void eliminarEjercicios(String idrutina, String idejercicio)
         {
             con.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("Insert into rut_ejer values( '"+idrutina+"' , '"+idejercicio+"')", con.Conn);
-            //NpgsqlDataReader lector = cmd.Read();
-            //lector.Read();
-            //lector.close();
-             con.Close(); 
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand("delete from rut_ejer where idrut='" + idrutina + "' and idejer = '" + idejercicio + "')", con.Conn);
+                NpgsqlDataReader reader2 = cmd.ExecuteReader();
+                reader2.Read();
+            }
+            catch (Exception) { MessageBox.Show("Error al elminar el ejercicio de la rutina"); }
+            con.Close(); 
         }
 
 
