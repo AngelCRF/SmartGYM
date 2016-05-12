@@ -41,7 +41,7 @@ namespace GYM
         {
             if (radioButton_Cliente.Checked)
             {
-                if (con.BuscarContraseña("cliente", Convert.ToInt32(textBox_user.Text), Convert.ToInt32(textBox_password.Text))) {
+                if (con.BuscarContraseña("cliente", Convert.ToInt32(textBox_user.Text), textBox_password.Text)) {
                     Cliente aux = new Cliente(Convert.ToInt32(textBox_user.Text));
                     aux.Show();
                 }
@@ -54,7 +54,7 @@ namespace GYM
             {
                 if (radioButton_Personal.Checked)
                 {
-                    if (con.BuscarContraseña("trabajador", Convert.ToInt32(textBox_user.Text), Convert.ToInt32(textBox_password.Text)))
+                    if (con.BuscarContraseña("trabajador", Convert.ToInt32(textBox_user.Text), textBox_password.Text))
                     {
                         Personal_Recepcion PR = new Personal_Recepcion();
                         PR.Show();
@@ -68,7 +68,7 @@ namespace GYM
                 {
                     if (radioButton_Instructor.Checked)
                     {
-                        if (con.BuscarContraseña("instructor", Convert.ToInt32(textBox_user.Text), Convert.ToInt32(textBox_password.Text)))
+                        if (con.BuscarContraseña("instructor", Convert.ToInt32(textBox_user.Text),textBox_password.Text))
                         {
                             Instructor tres = new Instructor();
                             tres.Show();
@@ -86,6 +86,20 @@ namespace GYM
         private void label_user_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void textBox_user_Leave(object sender, EventArgs e)
+        {
+            TextBox aux = (TextBox)sender;
+            try
+            {
+                int a = Convert.ToInt32(aux.Text);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ingrese un numero correcto", "numero entero");
+                aux.Focus();
+            }
         }
     }
 }

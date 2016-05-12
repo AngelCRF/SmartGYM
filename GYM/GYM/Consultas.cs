@@ -58,7 +58,7 @@ namespace GYM
             con.Close();
         }
 
-        internal bool BuscarContraseña(string tabla, int id, int password )
+        internal bool BuscarContraseña(string tabla, int id, string password )
         {
             tabla = tabla.ToLower();
             con.Open();
@@ -79,11 +79,18 @@ namespace GYM
             {
                 NpgsqlCommand cmd = new NpgsqlCommand(consulta, con.Conn);
                 NpgsqlDataReader reader = cmd.ExecuteReader();
-                reader.Read();
-                reader.Close();
-                con.Close();
-                return true;
-
+                if (reader.Read())
+                {
+                    reader.Close();
+                    con.Close();
+                    return true;
+                }
+               else
+                {
+                    reader.Close();
+                    con.Close();
+                    return false;
+                }
             }
             catch (Exception) { MessageBox.Show("error de consulta"); con.Close(); return false; }
             con.Close();
@@ -257,7 +264,7 @@ namespace GYM
                     }
                     break;
                 case "rutina":
-                    string consulta2 = ("delete from rut_ejer where idrut= '" + id + "';");
+                    string consulta2 = ("delete from rut_eje where idrut= '" + id + "';");
                     ejecutarConsulta(consulta2);
                     consulta = ("delete from rutina where idrutina= '" + id + "';");
                     break;
@@ -265,6 +272,21 @@ namespace GYM
                     break;
             }
             ejecutarConsulta(consulta);
+        }
+
+        public void consultaClienteInst(DataGridView aux)
+        {
+            con.Open();
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(("select idcliente, nombres, apellido_1, apellido_2, idrutina from cliente order by idcliente"), con.Conn);
+                NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(cmd);
+                DataSet datos = new DataSet();
+                adapter.Fill(datos);
+                aux.DataSource = datos.Tables[0];
+            }
+            catch(Exception ex) { MessageBox.Show("Error en consulta clientes: " + ex.Message); }
+            con.Close();
         }
 
         private void ejecutarConsulta(string consulta)
@@ -321,6 +343,12 @@ namespace GYM
             return datos;
         }
 
+        internal void updateRutinaCliente(string idcliente, string idrutina)
+        {
+            string consulta= "update cliente set idrutina= '"+idrutina+"' where idcliente= '"+idcliente+"'";
+            ejecutarConsulta(consulta);
+        }
+
         public DataSet consultaaparatos(DataGridView aux)
         {
             con.Open();
@@ -371,13 +399,16 @@ namespace GYM
 
         public DataSet consultaEjercicios(DataGridView aux)
         {
-            con.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand(("select * from " + "ejercicio" + " order by " + "idejercicio" + ""), con.Conn);
-            NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(cmd);
             DataSet datos = new DataSet();
-            adapter.Fill(datos);
-            aux.DataSource = datos.Tables[0];
-            con.Close();
+            con.Open();
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(("select * from ejercicio order by idejercicio" ), con.Conn);
+                NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(cmd);                
+                adapter.Fill(datos);
+                aux.DataSource = datos.Tables[0];
+                con.Close();
+            }catch(Exception ex) { MessageBox.Show("Error al mostrar ejercicios: "+ex.Message); }
             return datos;
         }
 
@@ -401,6 +432,26 @@ namespace GYM
             return datos;
         }
 
+        public DataSet consultaejerciciosContenidos(DataGridView aux, int id)
+        {
+            con.Open();
+            DataSet datos = new DataSet();
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(("select ejercicio.idejercicio, ejercicio.idaparato, ejercicio.repeticiones, ejercicio.descripcion  from  Rut_Eje, ejercicio where idrut= '" + id + "' and "
+                + " Rut_Eje.idejer = ejercicio.idejercicio"), con.Conn);
+                NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(cmd);
+                datos = new DataSet();
+                adapter.Fill(datos);
+                aux.DataSource = datos.Tables[0];
+                con.Close();
+                return datos;
+            }
+            catch (Exception ex) { MessageBox.Show("Error en consulta de ejercicios de rutina " + ex.Message); con.Close(); }
+            con.Close();
+            return datos;
+        }
+
         public void ActualizarRutina(string id, string nombre, string horas)
         {
             String cmd= ("update rutina set nombre= '"+nombre+"', horas= '"+horas+"' where idrutina = '"+id+"'");
@@ -412,19 +463,14 @@ namespace GYM
             con.Open();
             try
             {
-                NpgsqlCommand cmd = new NpgsqlCommand("Insert into rut_ejer (idrut, idejer)values( '" + idrutina + "' , '" + idejercicio + "')", con.Conn);
+                NpgsqlCommand cmd = new NpgsqlCommand("Insert into rut_eje (idrut, idejer) values( '" + idrutina + "' , '" + idejercicio + "')", con.Conn);
                 NpgsqlDataReader reader = cmd.ExecuteReader();
-                if (reader.Read())
-                { }
-                else
-                {
-                    MessageBox.Show("Error de consulta en agregar ejercicios a rutinas");
-                }
+                reader.Read();
                 reader.Close();
             }
-            catch (Exception )
+            catch (Exception ex )
             {
-                MessageBox.Show("No se pudo realizar la consulta de agregar ejercicio", "Error");
+                MessageBox.Show("No se pudo realizar la consulta de agregar ejercicio"+ ex.Message);
 
             }
             con.Close(); 
@@ -442,12 +488,10 @@ namespace GYM
                 if (reader2.Read())
                 {
                     id = Convert.ToInt32(reader2.GetInt32(0)) + 1;
-                    MessageBox.Show("se cumnple el read y El valor de id es " + id);
                 }
                 else
                 {
                     id = 1;
-                    MessageBox.Show("NO cumnple el read y El valor de id es " + id+"id aparato: "+ idaparato);
                 }
 
                 reader2.Close();
@@ -469,17 +513,17 @@ namespace GYM
             con.Open();
             try
             {
-                NpgsqlCommand cmd = new NpgsqlCommand("select * from rutina order by idrutina desc limit 1;", con.Conn);
+                NpgsqlCommand cmd = new NpgsqlCommand("select * from rutina order by idrutina desc limit 1", con.Conn);
                 NpgsqlDataReader reader = cmd.ExecuteReader();
                 if (reader.Read()) { id = Convert.ToInt32(reader.GetInt32(0)) + 1; } else { id = 1; }
                 reader.Close();
-                NpgsqlCommand cmd2 = new NpgsqlCommand("insert into rutina(idrutina, nombre, horas) values ('" + id + "', '" + nombre + "', '" + horas + "');", con.Conn);
-                NpgsqlDataReader reader2 = cmd.ExecuteReader();
-                if (reader.Read()) { } else { MessageBox.Show("Error de consulta"); }
+                NpgsqlCommand cmd2 = new NpgsqlCommand("insert into rutina(idrutina, nombre, hora) values ('" + id + "', '" + nombre + "', '" + horas + "');", con.Conn);
+                NpgsqlDataReader reader2 = cmd2.ExecuteReader();
+                reader2.Read();
                 reader.Close();
                 MessageBox.Show("Rutina agregada exitosamente");
             }
-            catch (Exception) { MessageBox.Show("Error al crear rutina"); }
+            catch (Exception ex) { MessageBox.Show("Error al crear rutina"+ ex.Message); }
             con.Close();
             return Convert.ToString(id);
         }
@@ -489,11 +533,11 @@ namespace GYM
             con.Open();
             try
             {
-                NpgsqlCommand cmd = new NpgsqlCommand("delete from rut_ejer where idrut='" + idrutina + "' and idejer = '" + idejercicio + "')", con.Conn);
+                NpgsqlCommand cmd = new NpgsqlCommand("delete from rut_eje where idrut='" + idrutina + "' and idejer = '" + idejercicio + "'", con.Conn);
                 NpgsqlDataReader reader2 = cmd.ExecuteReader();
                 reader2.Read();
             }
-            catch (Exception) { MessageBox.Show("Error al elminar el ejercicio de la rutina"); }
+            catch (Exception ex) { MessageBox.Show("Error al elminar el ejercicio de la rutina"+ex.Message); }
             con.Close(); 
         }
     }

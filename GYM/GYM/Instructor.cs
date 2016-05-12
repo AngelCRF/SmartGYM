@@ -58,12 +58,12 @@ namespace GYM
             button_agregarEjercicios.Visible = true;
             //HABILITAR CUANDO ESTÉ LA BASE DE DATOS
 
-            DataSet dato = con.consultaEjercicios(dataGridView_AgregarEjercicios);
-             dataGridView_AgregarEjercicios.DataSource = dato.Tables[0];
-             dataGridView_AgregarEjercicios.Columns[0].HeaderCell.Value = "Clave del ejercicio";
-             dataGridView_AgregarEjercicios.Columns[1].HeaderCell.Value = "clave del aparato";
-             dataGridView_AgregarEjercicios.Columns[2].HeaderCell.Value = "repeticiones";
-             dataGridView_AgregarEjercicios.Columns[3].HeaderCell.Value = "descripción";
+            DataSet dato = con.consultaEjercicios(dataGridView_crearRutina);
+            dataGridView_crearRutina.DataSource = dato.Tables[0];
+            dataGridView_crearRutina.Columns[0].HeaderCell.Value = "Clave del ejercicio";
+            dataGridView_crearRutina.Columns[1].HeaderCell.Value = "clave del aparato";
+            dataGridView_crearRutina.Columns[2].HeaderCell.Value = "repeticiones";
+            dataGridView_crearRutina.Columns[3].HeaderCell.Value = "descripción";
              
 
         }
@@ -102,9 +102,9 @@ namespace GYM
             dataGridView_AgregarEjercicios.Visible = true;
             button_AgrerarEjercicio2.Visible = true;
             button_EliminarEjercicio.Visible = true;
-            dataGridView_Eliminarejercicios.Rows.Clear();
+           
             dataGridView_Eliminarejercicios.Refresh();
-            //dataGridView_AgregarEjercicios.Rows.Clear();
+            
             dataGridView_AgregarEjercicios.Refresh();
 
         }
@@ -115,21 +115,19 @@ namespace GYM
             textBox_ModificarrutinaId.Enabled = false;
             try
             {
-                DataSet dato = con.dataGridView("rut_ejer", id);
-                dataGridView_Eliminarejercicios.DataSource = dato.Tables[0];
-                dataGridViewEjercicio.Columns[0].HeaderCell.Value = "Clave de ejercicio";
-                dataGridViewEjercicio.Columns[1].HeaderCell.Value = "Clave de aparato";
-                dataGridViewEjercicio.Columns[2].HeaderCell.Value = "Repeticiones";
-                dataGridViewEjercicio.Columns[3].HeaderCell.Value = "Descripción";
+                DataSet dato = con.consultaejerciciosContenidos(dataGridView_Eliminarejercicios, Convert.ToInt32(id));
+                dataGridView_Eliminarejercicios.Columns[0].HeaderCell.Value = "Clave de ejercicio";
+                dataGridView_Eliminarejercicios.Columns[1].HeaderCell.Value = "Clave de aparato";
+                dataGridView_Eliminarejercicios.Columns[2].HeaderCell.Value = "Repeticiones";
+                dataGridView_Eliminarejercicios.Columns[3].HeaderCell.Value = "Descripción";
 
-                DataSet dato2 = con.dataGridView("ejercicio", "idejercicio");
-                dataGridView_AgregarEjercicios.DataSource = dato2.Tables[0];
-                dataGridViewEjercicio.Columns[0].HeaderCell.Value = "Clave de ejercicio";
-                dataGridViewEjercicio.Columns[1].HeaderCell.Value = "Clave de aparato";
-                dataGridViewEjercicio.Columns[2].HeaderCell.Value = "Repeticiones";
-                dataGridViewEjercicio.Columns[3].HeaderCell.Value = "Descripción";
+                DataSet dato2 = con.consultaEjercicios(dataGridView_AgregarEjercicios);
+                dataGridView_AgregarEjercicios.Columns[0].HeaderCell.Value = "Clave de ejercicio";
+                dataGridView_AgregarEjercicios.Columns[1].HeaderCell.Value = "Clave de aparato";
+                dataGridView_AgregarEjercicios.Columns[2].HeaderCell.Value = "Repeticiones";
+                dataGridView_AgregarEjercicios.Columns[3].HeaderCell.Value = "Descripción";
             }
-            catch (Exception) { }
+            catch (Exception ex) { MessageBox.Show("Error de consulta en buscar id:" + ex.Message); }
         }
 
         private void button_AgrerarEjercicio2_Click(object sender, EventArgs e)
@@ -260,6 +258,18 @@ namespace GYM
         private void asignarRutinaAClienteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             panel_AsignarRutinas.BringToFront();
+            con.consultaClienteInst(dataGridView_Cliente);
+            dataGridView_Cliente.Columns[0].HeaderCell.Value = "Id Cliente";
+            dataGridView_Cliente.Columns[1].HeaderCell.Value = "Nombre";
+            dataGridView_Cliente.Columns[2].HeaderCell.Value = "Apellido paterno";
+            dataGridView_Cliente.Columns[3].HeaderCell.Value = "Apellido materno";
+            dataGridView_Cliente.Columns[4].HeaderCell.Value = "id rutina";
+            DataSet dato = con.dataGridView("rutina", "idrutina");
+            dataGridView_RutinaParaCliente.DataSource = dato.Tables[0];
+            dataGridView_RutinaParaCliente.Columns[0].HeaderCell.Value = "Clave de rutina";
+            dataGridView_RutinaParaCliente.Columns[1].HeaderCell.Value = "Nombre";
+            dataGridView_RutinaParaCliente.Columns[2].HeaderCell.Value = "Duración de rutina";
+
 
 
 
@@ -283,6 +293,19 @@ namespace GYM
                 dataGridViewEjercicio.Columns[3].HeaderCell.Value = "Descripción";
             }
             catch (Exception) { }
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            if(textBox_cliente.Text=="" || textBoxIdRutina.Text == "")
+            {
+                MessageBox.Show("Llenar todos los campos");
+
+            }
+            else
+            {
+                con.updateRutinaCliente(textBox_cliente.Text, textBoxIdRutina.Text);
+            }
         }
     }
 }

@@ -85,6 +85,7 @@
             this.textBox_user.Name = "textBox_user";
             this.textBox_user.Size = new System.Drawing.Size(141, 22);
             this.textBox_user.TabIndex = 4;
+            this.textBox_user.Leave += new System.EventHandler(this.textBox_user_Leave);
             // 
             // textBox_password
             // 
