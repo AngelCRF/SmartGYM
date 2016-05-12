@@ -49,9 +49,10 @@ namespace GYM
                 }
                 DataSet dato = con.dataGridView("rut_ejer", clave);
                 dataGridViewEjercicio.DataSource = dato.Tables[0];
-                dataGridViewEjercicio.Columns[0].HeaderCell.Value = "Clave de aparato";
-                dataGridViewEjercicio.Columns[1].HeaderCell.Value = "Repeticiones";
-                dataGridViewEjercicio.Columns[2].HeaderCell.Value = "Descripción";
+                dataGridViewEjercicio.Columns[0].HeaderCell.Value = "Clave de ejercicio";
+                dataGridViewEjercicio.Columns[1].HeaderCell.Value = "Clave de aparato";
+                dataGridViewEjercicio.Columns[2].HeaderCell.Value = "Repeticiones";
+                dataGridViewEjercicio.Columns[3].HeaderCell.Value = "Descripción";
             }
             catch (Exception) { }
         }
@@ -59,47 +60,183 @@ namespace GYM
         private void crearRutinaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             panel_CrearRutina.BringToFront();
+            textBox_CrearHorasRutina.Enabled = true;
+            textBox_CrearNombre.Enabled = true;
+            dataGridView_crearRutina.Visible = true;
+            dataGridView_Eliminarejercicios.Visible = false;
+            dataGridView_AgregarEjercicios.Visible = false;
             textBox_ModificarrutinaId.Visible = false;
             label6.Visible = false;
+            button_CambiarHora.Visible = false;
+            button_BuscarRutina.Visible = false;
+            button_AgrerarEjercicio2.Visible = false;
+            button_EliminarEjercicio.Visible = false;
+            button_agregarEjercicios.Visible = true;
             //HABILITAR CUANDO ESTÉ LA BASE DE DATOS
 
-           /* DataSet dato = con.dataGridView("ejercicio", "idejercicio");
-            dataGridView_AgregarEjercicios.DataSource = dato.Tables[0];
-            dataGridView_AgregarEjercicios.Columns[0].HeaderCell.Value = "Clave del ejercicio";
-            dataGridView_AgregarEjercicios.Columns[1].HeaderCell.Value = "clave del aparato";
-            dataGridView_AgregarEjercicios.Columns[2].HeaderCell.Value = "repeticiones";
-            dataGridView_AgregarEjercicios.Columns[3].HeaderCell.Value = "descripción";
-            */
+            /* DataSet dato = con.dataGridView("ejercicio", "idejercicio");
+             dataGridView_AgregarEjercicios.DataSource = dato.Tables[0];
+             dataGridView_AgregarEjercicios.Columns[0].HeaderCell.Value = "Clave del ejercicio";
+             dataGridView_AgregarEjercicios.Columns[1].HeaderCell.Value = "clave del aparato";
+             dataGridView_AgregarEjercicios.Columns[2].HeaderCell.Value = "repeticiones";
+             dataGridView_AgregarEjercicios.Columns[3].HeaderCell.Value = "descripción";
+             */
 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            try
+            foreach (DataGridViewRow row in dataGridView_crearRutina.SelectedRows)
             {
-                foreach (DataGridViewRow row in dataGridView_AgregarEjercicios.SelectedRows)
-                {
-                    con.AgregarEjercicios(textBox_CrearIdRutina.Text, row.Cells[0].Value.ToString());
-                }
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Ya existe el ejercicio en la rutina", "Error de consulta");
-            }
+                con.AgregarEjercicios(textBox_CrearNombre.Text, row.Cells[0].Value.ToString());
+            }              
         }
 
         private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             panel_CrearRutina.BringToFront();
-            textBox_ModificarrutinaId.Visible = false;
-            label6.Visible = false;
+            textBox_ModificarrutinaId.Enabled = true;
+            textBox_ModificarrutinaId.Visible = true;
+            label6.Visible = true;
+            button_BuscarRutina.Visible = true;
+            button_agregarEjercicios.Visible = false;
+            dataGridView_crearRutina.Visible = false;
+            dataGridView_crearRutina.Rows.Clear();
+            dataGridView_crearRutina.Refresh();
+
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            int id = Convert.ToInt32(textBox_ModificarrutinaId.Text);
+            String id = textBox_ModificarrutinaId.Text;
+            textBox_ModificarrutinaId.Enabled = false;
+            try
+            {
+                DataSet dato = con.dataGridView("rut_ejer", id);
+                dataGridView_Eliminarejercicios.DataSource = dato.Tables[0];
+                dataGridViewEjercicio.Columns[0].HeaderCell.Value = "Clave de ejercicio";
+                dataGridViewEjercicio.Columns[1].HeaderCell.Value = "Clave de aparato";
+                dataGridViewEjercicio.Columns[2].HeaderCell.Value = "Repeticiones";
+                dataGridViewEjercicio.Columns[3].HeaderCell.Value = "Descripción";
+
+                DataSet dato2 = con.dataGridView("ejercicio", "idejercicio");
+                dataGridView_AgregarEjercicios.DataSource = dato2.Tables[0];
+                dataGridViewEjercicio.Columns[0].HeaderCell.Value = "Clave de ejercicio";
+                dataGridViewEjercicio.Columns[1].HeaderCell.Value = "Clave de aparato";
+                dataGridViewEjercicio.Columns[2].HeaderCell.Value = "Repeticiones";
+                dataGridViewEjercicio.Columns[3].HeaderCell.Value = "Descripción";
 
 
+
+            }
+            catch (Exception) { }
+
+
+
+
+
+        }
+
+        private void button_AgrerarEjercicio2_Click(object sender, EventArgs e)
+        {
+            
+                foreach (DataGridViewRow row in dataGridView_AgregarEjercicios.SelectedRows)
+                {
+                    con.AgregarEjercicios(textBox_ModificarrutinaId.Text, row.Cells[0].Value.ToString());
+                }
+            
+           
+        }
+
+        private void button_CambiarHora_Click(object sender, EventArgs e)
+        {
+            if (!textBox_ModificarrutinaId.Enabled)
+            {
+                if (textBox_CrearHorasRutina.Text == "" || textBox_CrearNombre.Text == "")
+                {
+                    MessageBox.Show("Campos incompletos");
+                }
+                else
+                {
+                    con.ActualizarRutina(textBox_ModificarrutinaId.Text, textBox_CrearNombre.Text, textBox_CrearHorasRutina.Text);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Ingrese un id para buscar");
+            }
+        }
+
+        private void button_EliminarEjercicio_Click(object sender, EventArgs e)
+        {
+           
+                foreach (DataGridViewRow row in dataGridView_Eliminarejercicios.SelectedRows)
+                {
+                    con.eliminarEjercicios(textBox_ModificarrutinaId.Text, row.Cells[0].Value.ToString());
+                }
+            
+          
+        }
+
+        private void crearEjercicioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox_Repeticiones_Leave(object sender, EventArgs e)
+        {
+            TextBox aux = (TextBox)sender;
+            try
+            {
+                int a = Convert.ToInt32(aux.Text);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ingrese un numero correcto", "numero entero");
+                aux.Focus();
+            }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            int id = -1;
+            if(textBox_Repeticiones.Text=="" || textBox_Descricpcion.Text == "")
+            {
+                MessageBox.Show("Llene todos los campos", "verifique la información");
+            }
+            else
+            {
+                try
+                {
+                    foreach (DataGridViewRow row in dataGridView_aparatos.SelectedRows)
+                    {
+                       id = Convert.ToInt32(row.Cells[0].Value.ToString());
+                    }
+                    if (id > 0)
+                    {
+                        con.inserta("ejercicio", Convert.ToString(id), textBox_Repeticiones.Text, textBox_Descricpcion.Text,"", "", "", "", "", "", "", "");
+                    }
+                }
+                catch (Exception) { MessageBox.Show("debe seleccionar un aparato"); }
+            }
+
+        }
+
+        private void eliminarRutinaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panel_EliminarRutina.BringToFront();
+        }
+
+        private void button_EliminarRutina_Click(object sender, EventArgs e)
+        {
+            if (textBox_eliminarId.Text == "")
+            {
+                MessageBox.Show("ingrese un id");
+            }
+            else
+            {
+                con.Elimina("rutina", textBox_eliminarId.Text);
+            }
         }
     }
 }

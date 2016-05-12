@@ -37,6 +37,7 @@
             this.label_user = new System.Windows.Forms.Label();
             this.label_password = new System.Windows.Forms.Label();
             this.pictureBox_logo = new System.Windows.Forms.PictureBox();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_logo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -101,6 +102,7 @@
             this.label_user.Size = new System.Drawing.Size(47, 13);
             this.label_user.TabIndex = 6;
             this.label_user.Text = "Usuario";
+            this.label_user.Click += new System.EventHandler(this.label_user_Click);
             // 
             // label_password
             // 
@@ -156,6 +158,7 @@
         private System.Windows.Forms.TextBox textBox_password;
         private System.Windows.Forms.Label label_user;
         private System.Windows.Forms.Label label_password;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }
 

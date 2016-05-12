@@ -14,55 +14,9 @@ namespace GYM
         private String data = "Server=www.johnny.heliohost.org;Port=5432;User Id=itmoreli_user;Password=12345678;Database=itmoreli_smartgym";
         private Conexion con = new Conexion("Server=www.johnny.heliohost.org;Port=5432;User Id=itmoreli_user;Password=12345678;Database=itmoreli_smartgym");
 
-        public bool insertaC(String[] DatosC, String[] DatosD)//Clientes
+        public void inserta()
         {
-            try
-            {
-                int IDD, IDC;
-                NpgsqlDataReader reader;
-                con.Open();
-                String consultaIDC = "SELECT * FROM clientes ORDER BY idcliente DESC LIMIT 1;";
-                String consultaIDD = "SELECT * FROM direcciones ORDER BY iddireccion DESC LIMIT 1;";
-                NpgsqlCommand cmdIDD = new NpgsqlCommand(consultaIDD, con.Conn);
-                reader = cmdIDD.ExecuteReader();
-                reader.Read();
-                IDD = Convert.ToInt32(reader.GetInt32(0)) + 1;
-                String consultaD = "INSERT INTO direcciones () Values('";
-                NpgsqlCommand cmdD = new NpgsqlCommand(consultaD, con.Conn);
-                NpgsqlCommand cmdIDC= new NpgsqlCommand(consultaIDC, con.Conn);
-                reader = cmdIDC.ExecuteReader();
-                reader.Read();
-                IDC = Convert.ToInt32(reader.GetInt32(0)) + 1;
-                String consultaC = "INSERT INTO clientes (idcliente, nombre, apellidop, apellidom, telefono, email, iddireccion, tipodepago, fechadepago, tipodesangre, contraseña) Values('"+
-                    IDC+"','"+DatosC[0]+ "','" + DatosC[1]+ "','" + DatosC[2]+
-                    "','" + DatosC[3]+ "','" + DatosC[4]+ "','" +IDD+ "','" + DatosC[5]+ 
-                    "','" + DatosC[6]+ "','" + DatosC[7];
-                NpgsqlCommand cmdC = new NpgsqlCommand(consultaC, con.Conn);
-                MessageBox.Show("Cliente guardado ",("Id= "+IDC+"\n Contraseña= "+DatosC[7]),MessageBoxButtons.OK, MessageBoxIcon.Error);
-                con.Close();
-                return true;
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("Error", e.ToString() , MessageBoxButtons.OK, MessageBoxIcon.Error);
-                con.Close();
-                return false;
-            }
-        }
 
-        public void insertaA()//Aparatos
-        {
-            try
-            {
-                con.Open();
-                String consulta = "";
-                NpgsqlCommand cmd = new NpgsqlCommand(consulta, con.Conn);
-                con.Close();
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("Error", e.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
 
         public void Selecciona()
@@ -70,9 +24,22 @@ namespace GYM
 
         }
 
-        public void Elimina()
+        public void Elimina(String tabla, String id) 
         {
+            tabla = tabla.ToLower();
+            string consulta = "";
+            switch (tabla)
+            {
+                case "rutina":
+                    string consulta2= ("delete from rut_ejer where idrut= '" + id + "'");
+                    ejecutarConsulta(consulta2);
+                    consulta = ("delete from rutina where idrutina= '"+id+"'");
+                    break;
+                default:
+                    break;
+            }
 
+            ejecutarConsulta(consulta);
         }
 
         public void Modifica()
@@ -88,18 +55,14 @@ namespace GYM
             String consulta = "";
             switch (tabla)
             {
-                case "rutinas":
-                    consulta = ("select * from " + tabla + " order by " + nombreId + "");
-                    break;
-                case "clientes":
-                    consulta = ("select * from " + tabla + " order by " + nombreId + "");
-                    break;
-                case "aparatos":
+                case "rutina":
                     consulta = ("select * from " + tabla + " order by " + nombreId + "");
                     break;
                 case "rut_ejer":
+                    
                         consulta = ("select (idaparato, repeticiones, descripcion) from  Rut_Ejer, ejercicios where idrut= '" + nombreId + " and "
                 + " Rut_Ejer.idejer = ejercicios.idejercicio");
+                    
                     break;
                 default:
                     break;
@@ -115,9 +78,37 @@ namespace GYM
         public void AgregarEjercicios(String idrutina, String idejercicio)
         {
             con.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("Insert into rut_ejer values( '"+idrutina+"' , '"+idejercicio+"')", con.Conn);
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand("Insert into rut_ejer (idrut, idejer)values( '" + idrutina + "' , '" + idejercicio + "')", con.Conn);
+                NpgsqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                { }
+                else
+                {
+                    MessageBox.Show("Error de consulta");
+                }
+                reader.Close();
+            }
+            catch (Exception )
+            {
+                MessageBox.Show("No se pudo realizar la consulta", "Error");
+
+            }
             con.Close(); 
         }
+
+        public void eliminarEjercicios(String idrutina, String idejercicio)
+        {
+            con.Open();
+            NpgsqlCommand cmd = new NpgsqlCommand("Insert into rut_ejer values( '"+idrutina+"' , '"+idejercicio+"')", con.Conn);
+            NpgsqlDataReader lector = cmd.Read();
+            lector.Read();
+            lector.close();
+             con.Close(); 
+        }
+
+
     }
 }
 
