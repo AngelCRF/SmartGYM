@@ -120,7 +120,7 @@ namespace GYM
                 NpgsqlCommand cmdIDD = new NpgsqlCommand(consultaIDD, con.Conn);
                 reader = cmdIDD.ExecuteReader();
                 reader.Read();               
-               IDD = Convert.ToInt32(reader.GetInt32(0)) + 1;
+                IDD = Convert.ToInt32(reader.GetInt32(0)) + 1;
                 reader.Close();
                 String consultaD = "INSERT INTO direccion (iddireccion, calle, numero, interior, colonia, ciudad) Values ('" +
                      IDD + "','" + DatosD[0] + "','" + DatosD[1] + "','" + DatosD[2]
@@ -131,18 +131,18 @@ namespace GYM
                 reader2.Read();
                 reader2.Close();
                 NpgsqlDataReader reader4 = cmdIDC.ExecuteReader();
-                 reader4.Read();
+                reader4.Read();
+                IDC = Convert.ToInt32(reader4.GetInt32(0)) + 1;
                 reader4.Close();
-                IDC = Convert.ToInt32(reader.GetInt32(0)) + 1;
                 String consultaC = "INSERT INTO cliente (idcliente, nombres, apellido_1, apellido_2, telefono_movil, correo_electronico, iddireccion, tipo_de_pago, fecha_de_corte, tipo_de_sangre, contraseña, idrutina) Values('" +
                     IDC + "','" + DatosC[0] + "','" + DatosC[1] + "','" + DatosC[2] +
                     "','" + DatosC[3] + "','" + DatosC[4] + "','" + IDD + "','" + DatosC[5] +
-                    "','" + DatosC[6] + "','" + DatosC[7] + "','" + DatosC[8] + 1 + "');";
+                    "','" + DatosC[6] + "','" + DatosC[7] + "','" + DatosC[8] +"','" +1 + "');";
                 NpgsqlCommand cmdC = new NpgsqlCommand(consultaC, con.Conn);
                 NpgsqlDataReader reader3 = cmdC.ExecuteReader();
                 reader3.Read();
                 reader3.Close();
-                MessageBox.Show("Cliente guardado ", ("Id= " + IDC + "\n Contraseña= " + DatosC[7]), MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Cliente guardado ", ("Id= " + IDC + "\n Contraseña= " + DatosC[8]), MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 con.Close();
                 return true;
             }
@@ -181,7 +181,7 @@ namespace GYM
                 NpgsqlDataReader reader3 = cmdC.ExecuteReader();
                 reader3.Read();
                 reader3.Close();
-                MessageBox.Show("Cliente guardado ", ("Id= " + IDC + "\n Contraseña= " + DatosC[7]), MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Cliente guardado ", ("Id= " + IDC + "\n Contraseña= " + DatosC[8]), MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 con.Close();
                 return true;
             }
@@ -228,21 +228,50 @@ namespace GYM
 
         public String Selecciona(String tabla, String idt, String id)
         {
+            tabla.ToLower();
+            idt.ToLower();
             try
             {
+                String Cons, consulta;
+                String [] Data;
                 NpgsqlDataReader reader;
-                con.Open();
-                String consulta = "SELECT * FROM" + tabla + "WEHERE " + idt + " = " + id + ";";
-                NpgsqlCommand cmd = new NpgsqlCommand(consulta, con.Conn);
-                reader = cmd.ExecuteReader();
-                reader.Read();
-                con.Close();
-                return reader.ToString();
+                NpgsqlCommand cmd;
+                switch (tabla)
+                {
+                    case "cliente":
+                        con.Open();
+                        consulta = "SELECT * FROM cliente WHERE idcliente = '" + id + "';";
+                        cmd = new NpgsqlCommand(consulta, con.Conn);
+                        reader = cmd.ExecuteReader();
+                        reader.Read();
+                        Cons = reader.ToString();
+                        Cons = ""+reader.GetInt32(0)+"."+reader.GetString(1)+"."+reader.GetString(2)+"."+reader.GetString(3);
+                        reader.Close();
+                        con.Close();
+                        MessageBox.Show(Cons,"Consulta");
+                        return Cons;
+                        break;
+                    case "aparatos":
+                        con.Open();
+                        consulta = "SELECT * FROM aparatos WHERE idaparato = '" + id + "';";
+                        cmd = new NpgsqlCommand(consulta, con.Conn);
+                        reader = cmd.ExecuteReader();
+                        reader.Read();
+                        Cons = reader.ToString();
+                        reader.Close();
+                        con.Close();
+                        MessageBox.Show("Consulta", Cons);
+                        return Cons;
+                        break;
+                }
             }
+           
             catch (Exception e)
             {
+                MessageBox.Show("Error" + e.Message);
                 return null;
             }
+            return null;
         }
 
         public void Elimina(String tabla, String id)
@@ -316,7 +345,6 @@ namespace GYM
                 NpgsqlDataReader reader = cmd.ExecuteReader();
                 reader.Read();
                 reader.Close();
-
             }
             catch (Exception) { MessageBox.Show("error de consulta"); }
             con.Close();
@@ -324,7 +352,6 @@ namespace GYM
 
         public void Modifica()
         {
-
         }
 
         public DataSet dataGridView(String tabla, String nombreId)
@@ -345,10 +372,8 @@ namespace GYM
                     consulta = ("select * from " + tabla + " order by " + nombreId + "");
                     break;
                 case "rut_ejer":
-
                     consulta = ("select idaparato, repeticiones, descripcion from  Rut_Eje, ejercicios where idrut= '" + nombreId + " and "
             + " Rut_Ejer.idejer = ejercicios.idejercicio");
-
                     break;
                 default:
                     break;
@@ -489,7 +514,6 @@ namespace GYM
             catch (Exception ex )
             {
                 MessageBox.Show("No se pudo realizar la consulta de agregar ejercicio"+ ex.Message);
-
             }
             con.Close(); 
         }
@@ -502,7 +526,6 @@ namespace GYM
             {
                 NpgsqlCommand cmd2 = new NpgsqlCommand("select * from ejercicio order by idejercicio desc limit 1;", con.Conn);
                 NpgsqlDataReader reader2 = cmd2.ExecuteReader();
-               
                 if (reader2.Read())
                 {
                     id = Convert.ToInt32(reader2.GetInt32(0)) + 1;
@@ -511,7 +534,6 @@ namespace GYM
                 {
                     id = 1;
                 }
-
                 reader2.Close();
                 if (id > -1)
                 {

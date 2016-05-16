@@ -46,7 +46,7 @@ namespace GYM
                     }
                     if (t.Text.Equals("Opcional"))
                     {
-                        t.Text = null;
+                        t.Text = ""+0;
                     }
                 }
                 catch(Exception e){}
@@ -66,7 +66,7 @@ namespace GYM
             OcultaPaneles();
             n = Microsoft.VisualBasic.Interaction.InputBox("Cliente a buscar: ");
             panel_client_edit.Visible = true;
-            Linea = C.Selecciona("clientes", "idcliente", n);
+            Linea = C.Selecciona("Aparatos", "idaparato", n);
 
         }
 
@@ -93,8 +93,7 @@ namespace GYM
             OcultaPaneles();
             n = Microsoft.VisualBasic.Interaction.InputBox("Cliente a buscar: ");
             panel_client_show_one.Visible = true;
-            Linea = C.Selecciona("clientes", "idcliente", n);
-            label49.Text = Linea;
+            Linea = C.Selecciona("cliente", "idcliente", n);
         }
 
         private void nuevoToolStripMenuItem1_Click(object sender, EventArgs e)

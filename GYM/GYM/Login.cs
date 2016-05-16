@@ -20,9 +20,6 @@ namespace GYM
             InitializeComponent();
             radioButton_Personal.Checked = false;
             radioButton_Cliente.Checked = false;
-            //
-            Personal_Recepcion A = new Personal_Recepcion();
-            A.Show(); 
         }
 
         private void radioButton_Personal_CheckedChanged(object sender, EventArgs e)
