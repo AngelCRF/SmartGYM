@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace GYM
 {
-    public partial class Personal_Recepcion : Form
+    public partial class Personal_Recepcion  : Form
     {
         //Variables
         bool Completo = true;
@@ -18,7 +18,7 @@ namespace GYM
             OcultaPaneles();
             dateTimePicker_FPago.Value = DateTime.Now;
         }
-        
+  
         //Funciones
         private void OcultaPaneles()
         {
@@ -43,10 +43,11 @@ namespace GYM
                     if (t.Text.Equals("") || t.Text == null)
                     {
                         Completo = false;
+
                     }
-                    if (t.Text.Equals("Opcional"))
+                    if (textBoxE_Int.Text.Equals("Opcional"))
                     {
-                        t.Text = ""+0;
+                        textBoxE_Int.Text = ""+0;
                     }
                 }
                 catch(Exception e){}
@@ -62,12 +63,39 @@ namespace GYM
 
         private void editarToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            int idd;
             String Linea;
             OcultaPaneles();
             n = Microsoft.VisualBasic.Interaction.InputBox("Cliente a buscar: ");
-            panel_client_edit.Visible = true;
-            Linea = C.Selecciona("Aparatos", "idaparato", n);
+            if (Convert.ToInt32(n) > 0)
+            {
+                panel_client_edit.Visible = true;
+                Linea = C.Selecciona("cliente", "idcliente", n);
+                if (Linea != null)
+                {
+                    textBoxE_Nombre.Text = Linea.Split(',')[1];
+                    textBoxE_ApellidoP.Text = Linea.Split(',')[2];
+                    textBoxE_ApellidoM.Text = Linea.Split(',')[3];
+                    textBoxE_Pass.Text = Linea.Split(',')[4];
+                    textBoxE_Tel.Text = Linea.Split(',')[5];
+                    textBoxE_mail.Text = Linea.Split(',')[6];
+                    comboBoxE_TSangre.Text = Linea.Split(',')[7];
+                    dateTimePickerE_FPago.Text = Linea.Split(',')[8];
+                    comboBoxE_TPago.Text = Linea.Split(',')[9];
+                    idd = Convert.ToInt32(Linea.Split(',')[10]);
 
+
+                    MessageBox.Show(Linea, "Consulta");
+                }
+                else
+                {
+                    MessageBox.Show("No existe el cliente", "Error");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Ingresa un numero valido", "Error");
+            }
         }
 
         private void todosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -76,15 +104,21 @@ namespace GYM
             panel_client_show_all.Visible = true;
             DataSet datos = C.consultaClientes(dataGridView_client);
             dataGridView_client.DataSource = datos.Tables[0];
-            dataGridView_client.Columns[0].HeaderCell.Value = "Clave del cliente";
+            dataGridView_client.Columns[0].HeaderCell.Value = "Id";
             dataGridView_client.Columns[1].HeaderCell.Value = "Nombre";
             dataGridView_client.Columns[2].HeaderCell.Value = "Apellido Paterno";
             dataGridView_client.Columns[3].HeaderCell.Value = "Apellido Materno";
-            dataGridView_client.Columns[3].HeaderCell.Value = "Telefono";
-            dataGridView_client.Columns[3].HeaderCell.Value = "Email";
-            dataGridView_client.Columns[3].HeaderCell.Value = "Tipo de Pago";
-            dataGridView_client.Columns[3].HeaderCell.Value = "Fecha de Pago";
-            dataGridView_client.Columns[3].HeaderCell.Value = "Tipo de Sangre";
+            dataGridView_client.Columns[4].HeaderCell.Value = "Telefono";
+            dataGridView_client.Columns[5].HeaderCell.Value = "Email";
+            dataGridView_client.Columns[6].Visible = false;
+            dataGridView_client.Columns[7].HeaderCell.Value = "Tipo de Sangre";
+            dataGridView_client.Columns[8].HeaderCell.Value = "Fecha de corte";
+            dataGridView_client.Columns[9].HeaderCell.Value = "Tipo de pago";
+            dataGridView_client.Columns[10].HeaderCell.Value = "Calle";
+            dataGridView_client.Columns[11].HeaderCell.Value = "Numero";
+            dataGridView_client.Columns[12].HeaderCell.Value = "Interior";
+            dataGridView_client.Columns[13].HeaderCell.Value = "Colonia";
+            dataGridView_client.Columns[14].HeaderCell.Value = "Ciudad";
         }
 
         private void buscarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -107,7 +141,7 @@ namespace GYM
             OcultaPaneles();
             String Linea;
             n = Microsoft.VisualBasic.Interaction.InputBox("Aparato a buscar: ");
-            Linea = C.Selecciona("Aparatos", "idaparato", n);
+            Linea = C.Selecciona("aparatos", "idaparato", n);
             panel_equip_edit.Visible = true;
         }
 
@@ -117,6 +151,12 @@ namespace GYM
             panel_equip_show_all .Visible = true;
             DataSet datos = C.dataGridView("Aparatos", "idaparato");
             dataGridView_equip.DataSource = datos.Tables[0];
+            dataGridView_equip.Columns[0].HeaderCell.Value = "Id";
+            dataGridView_equip.Columns[1].HeaderCell.Value = "Nombre";
+            dataGridView_equip.Columns[2].HeaderCell.Value = "Numero de serie";
+            dataGridView_equip.Columns[3].HeaderCell.Value = "Tipo";
+            dataGridView_equip.Columns[4].HeaderCell.Value = "Fecha de compra";
+            dataGridView_equip.Columns[5].HeaderCell.Value = "Fecha de mantenimiento";
         }
 
         private void buscarToolStripMenuItem1_Click(object sender, EventArgs e)

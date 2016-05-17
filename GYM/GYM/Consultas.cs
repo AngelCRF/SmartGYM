@@ -11,9 +11,9 @@ namespace GYM
 {
     class Consultas
     {
-        private String datosCarlos = "Server=localhost; Port=5432; User Id=postgres; Password=23c17m; Database=smartgym";
-        private String datosKevin = "Server=localhost; Port=5432; User Id=postgres; Password=123456; Database=smartgym";
-        private String data = "Server=www.johnny.heliohost.org;Port=5432;User Id=itmoreli_user;Password=12345678;Database=itmoreli_smartgym";
+        private string datosCarlos = "Server=localhost; Port=5432; User Id=postgres; Password=23c17m; Database=smartgym";
+        private string datosKevin = "Server=localhost; Port=5434; User Id=postgres; Password=23c17m; Database=smartgym";
+        private string data = "Server=www.johnny.heliohost.org;Port=5432;User Id=itmoreli_user;Password=12345678;Database=itmoreli_smartgym";
         private Conexion con = new Conexion("Server=www.johnny.heliohost.org;Port=5432;User Id=itmoreli_user;Password=12345678;Database=itmoreli_smartgym");
 
         internal string fechaDePagoCliente(int id)
@@ -98,8 +98,8 @@ namespace GYM
         public Consultas()
         {
             //colocar su ruta
-            con = new Conexion(datosCarlos);
-           // con = new Conexion(datosKevin);
+            //con = new Conexion(datosCarlos);
+            con = new Conexion(datosKevin);
         }
 
         public void inserta()
@@ -107,7 +107,7 @@ namespace GYM
 
         }
 
-        public bool insertaC(String[] DatosC, String[] DatosD)//Clientes
+        public bool insertaC(string[] DatosC, string[] DatosD)//Clientes
         {
             con.Open();
             try
@@ -154,7 +154,7 @@ namespace GYM
             }
         }
 
-        public bool updateC(String IDC,String[] DatosC, String[] DatosD)//Clientes
+        public bool updateC(string IDC,string[] DatosC, string[] DatosD)//Clientes
         {
             try
             {
@@ -193,7 +193,7 @@ namespace GYM
             }
         }
 
-        public bool insertaA(String[] DatosA)//Aparatos
+        public bool insertaA(string[] DatosA)//Aparatos
         {
             con.Open();
             try
@@ -226,16 +226,17 @@ namespace GYM
             }
         }
 
-        public String Selecciona(String tabla, String idt, String id)
+        public string Selecciona(string tabla, string idt, string id)
         {
-            tabla.ToLower();
-            idt.ToLower();
+            tabla=tabla.ToLower();
+            idt=idt.ToLower();
             try
             {
                 String Cons, consulta;
                 String [] Data;
                 NpgsqlDataReader reader;
                 NpgsqlCommand cmd;
+                int idd;
                 switch (tabla)
                 {
                     case "cliente":
@@ -244,11 +245,16 @@ namespace GYM
                         cmd = new NpgsqlCommand(consulta, con.Conn);
                         reader = cmd.ExecuteReader();
                         reader.Read();
-                        Cons = reader.ToString();
-                        Cons = ""+reader.GetInt32(0)+"."+reader.GetString(1)+"."+reader.GetString(2)+"."+reader.GetString(3);
+                        Cons = ""+reader.GetInt32(0)+","+reader.GetString(1)+","+reader.GetString(2)+","+reader.GetString(3)+","+reader.GetString(4)+","+reader.GetString(5)+","+reader.GetString(6)+"," + reader.GetString(9)+","+reader.GetTimeStamp(10)+","+reader.GetString(11)+","+ reader.GetInt32(7)+",";
+                        idd = reader.GetInt32(7);
+                        consulta = "SELECT * FROM direccion WHERE iddireccion = '" + idd + "';";
+                        reader.Close();
+                        cmd = new NpgsqlCommand(consulta, con.Conn);
+                        reader = cmd.ExecuteReader();
+                        reader.Read();
+                        Cons += reader.GetString(1) + "," + reader.GetInt32(2) + "," + reader.GetInt32(3) + "," + reader.GetString(4) + "," + reader.GetString(5);
                         reader.Close();
                         con.Close();
-                        MessageBox.Show(Cons,"Consulta");
                         return Cons;
                         break;
                     case "aparatos":
@@ -257,10 +263,10 @@ namespace GYM
                         cmd = new NpgsqlCommand(consulta, con.Conn);
                         reader = cmd.ExecuteReader();
                         reader.Read();
-                        Cons = reader.ToString();
+                        Cons = ""+reader.GetInt32(0)+","+reader.GetString(1)+","+ reader.GetInt32(2) + ","+reader.GetString(3) + "," + reader.GetTimeStamp(4) + "," + reader.GetTimeStamp(5);
                         reader.Close();
                         con.Close();
-                        MessageBox.Show("Consulta", Cons);
+                        MessageBox.Show(Cons,"Consulta");
                         return Cons;
                         break;
                 }
@@ -274,7 +280,7 @@ namespace GYM
             return null;
         }
 
-        public void Elimina(String tabla, String id)
+        public void Elimina(string tabla, string id)
         {
             tabla = tabla.ToLower();
             String consulta = "";
@@ -354,7 +360,7 @@ namespace GYM
         {
         }
 
-        public DataSet dataGridView(String tabla, String nombreId)
+        public DataSet dataGridView(string tabla, string nombreId)
         {
             tabla = tabla.ToLower();
             nombreId = nombreId.ToLower();
@@ -407,7 +413,7 @@ namespace GYM
         public DataSet consultaClientes(DataGridView aux)
         {
             con.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand(("select  Nombres, Apellido_1, Apellido_2, Telefono_movil, correo_electronico, Tipo_de_Pago, Fecha_de_corte, Tipo_de_Sangre from " + "cliente" + " order by " + "idcliente" + ""), con.Conn);
+            NpgsqlCommand cmd = new NpgsqlCommand(("Select idcliente, nombres, apellido_1, apellido_2, telefono_movil, correo_electronico, cliente.iddireccion, tipo_de_sangre, fecha_de_corte, tipo_de_pago, calle, numero, interior, colonia, ciudad From cliente, direccion where cliente.iddireccion = direccion.iddireccion order by idcliente;"), con.Conn);
             NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(cmd);
             DataSet datos = new DataSet();
             adapter.Fill(datos);
@@ -501,7 +507,7 @@ namespace GYM
             ejecutarConsulta(cmd);
         }
 
-        public void AgregarEjercicios(String idrutina, String idejercicio)
+        public void AgregarEjercicios(string idrutina, string idejercicio)
         {
             con.Open();
             try
@@ -568,7 +574,7 @@ namespace GYM
             return Convert.ToString(id);
         }
 
-        public void eliminarEjercicios(String idrutina, String idejercicio)
+        public void eliminarEjercicios(string idrutina, string idejercicio)
         {
             con.Open();
             try

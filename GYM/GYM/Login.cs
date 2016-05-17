@@ -13,13 +13,11 @@ namespace GYM
     public partial class Login : Form
     {
         private Consultas con = new Consultas();
-        private String data = "Server=www.johnny.heliohost.org;Port=5432;User Id=itmoreli_user;Password=12345678;Database=itmoreli_smartgym";
+        //private String data = "Server=www.johnny.heliohost.org;Port=5432;User Id=itmoreli_user;Password=12345678;Database=itmoreli_smartgym";
 
         public Login()
         {
             InitializeComponent();
-            radioButton_Personal.Checked = false;
-            radioButton_Cliente.Checked = false;
         }
 
         private void radioButton_Personal_CheckedChanged(object sender, EventArgs e)
@@ -74,7 +72,6 @@ namespace GYM
                         {
                             MessageBox.Show("Usuario o contraseña incorrectos, vuelva a intentar");
                         }
-
                     }
                 }
             }
@@ -82,7 +79,6 @@ namespace GYM
 
         private void label_user_Click(object sender, EventArgs e)
         {
-
         }
 
         private void textBox_user_Leave(object sender, EventArgs e)

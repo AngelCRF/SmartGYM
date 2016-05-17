@@ -46,7 +46,7 @@
             // 
             this.radioButton_Personal.AutoSize = true;
             this.radioButton_Personal.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton_Personal.Location = new System.Drawing.Point(104, 110);
+            this.radioButton_Personal.Location = new System.Drawing.Point(107, 201);
             this.radioButton_Personal.Name = "radioButton_Personal";
             this.radioButton_Personal.Size = new System.Drawing.Size(70, 17);
             this.radioButton_Personal.TabIndex = 1;
@@ -59,7 +59,7 @@
             // 
             this.radioButton_Cliente.AutoSize = true;
             this.radioButton_Cliente.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton_Cliente.Location = new System.Drawing.Point(104, 133);
+            this.radioButton_Cliente.Location = new System.Drawing.Point(107, 247);
             this.radioButton_Cliente.Name = "radioButton_Cliente";
             this.radioButton_Cliente.Size = new System.Drawing.Size(61, 17);
             this.radioButton_Cliente.TabIndex = 2;
@@ -81,25 +81,25 @@
             // 
             // textBox_user
             // 
-            this.textBox_user.Location = new System.Drawing.Point(111, 169);
+            this.textBox_user.Location = new System.Drawing.Point(107, 117);
             this.textBox_user.Name = "textBox_user";
             this.textBox_user.Size = new System.Drawing.Size(141, 22);
-            this.textBox_user.TabIndex = 4;
+            this.textBox_user.TabIndex = 0;
             this.textBox_user.Leave += new System.EventHandler(this.textBox_user_Leave);
             // 
             // textBox_password
             // 
-            this.textBox_password.Location = new System.Drawing.Point(111, 207);
+            this.textBox_password.Location = new System.Drawing.Point(107, 155);
             this.textBox_password.Name = "textBox_password";
             this.textBox_password.PasswordChar = '•';
             this.textBox_password.Size = new System.Drawing.Size(141, 22);
-            this.textBox_password.TabIndex = 5;
+            this.textBox_password.TabIndex = 1;
             // 
             // label_user
             // 
             this.label_user.AutoSize = true;
             this.label_user.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_user.Location = new System.Drawing.Point(43, 172);
+            this.label_user.Location = new System.Drawing.Point(39, 120);
             this.label_user.Name = "label_user";
             this.label_user.Size = new System.Drawing.Size(47, 13);
             this.label_user.TabIndex = 6;
@@ -110,7 +110,7 @@
             // 
             this.label_password.AutoSize = true;
             this.label_password.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_password.Location = new System.Drawing.Point(43, 210);
+            this.label_password.Location = new System.Drawing.Point(39, 158);
             this.label_password.Name = "label_password";
             this.label_password.Size = new System.Drawing.Size(66, 13);
             this.label_password.TabIndex = 7;
@@ -130,7 +130,7 @@
             // 
             this.radioButton_Instructor.AutoSize = true;
             this.radioButton_Instructor.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton_Instructor.Location = new System.Drawing.Point(180, 110);
+            this.radioButton_Instructor.Location = new System.Drawing.Point(107, 224);
             this.radioButton_Instructor.Name = "radioButton_Instructor";
             this.radioButton_Instructor.Size = new System.Drawing.Size(75, 17);
             this.radioButton_Instructor.TabIndex = 8;
