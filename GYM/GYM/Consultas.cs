@@ -219,6 +219,29 @@ namespace GYM
             }
         }
 
+        public bool updateA(string[] D, int id)
+        {
+            con.Open();
+            try
+            {
+                String consulta = "UPDATE aparatos SET nombre ='" + D[0] + "', numero_serie =" + D[1] + ", tipo ='" + D[2] + "', fecha_de_compra ='" + D[3]
+                    + "', fecha_de_mantenimiento ='" + D[4] + "' WHERE idaparato =" + id + ";";
+                NpgsqlCommand cmd = new NpgsqlCommand(consulta, con.Conn);
+                NpgsqlDataReader reader1 = cmd.ExecuteReader();
+                reader1.Read();
+                reader1.Close();
+                MessageBox.Show("Aparato guardado ", "Se guardo con exito", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                con.Close();
+                return true;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error" + e.Message);
+                con.Close();
+                return false;
+            }
+        }
+
         public string Selecciona(string tabla, string idt, string id)
         {
             tabla=tabla.ToLower();

@@ -102,7 +102,7 @@ namespace GYM
             OcultaPaneles();
             LimpiaDatos(panel_client_edit);
             n = Microsoft.VisualBasic.Interaction.InputBox("Cliente a buscar: ");
-            if (Convert.ToInt32(n) > 0)
+            if (Convert.ToInt32(n) > 0 || n != null)
             {
                 Linea = C.Selecciona("cliente", "idcliente", n);
                 if (Linea != null)
@@ -164,7 +164,7 @@ namespace GYM
             OcultaPaneles();
             LimpiaDatos(panel_client_show_one);
             n = Microsoft.VisualBasic.Interaction.InputBox("Cliente a buscar: ");
-            if (Convert.ToInt32(n) > 0)
+            if (Convert.ToInt32(n) > 0 || n != null)
             {
                 Linea = C.Selecciona("cliente", "idcliente", n);
                 if (Linea != null)
@@ -206,12 +206,31 @@ namespace GYM
 
         private void editarToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            String Linea;
             OcultaPaneles();
             LimpiaDatos(panel_equip_edit);
-            String Linea;
             n = Microsoft.VisualBasic.Interaction.InputBox("Aparato a buscar: ");
-            Linea = C.Selecciona("aparatos", "idaparato", n);
-            panel_equip_edit.Visible = true;
+            if (Convert.ToInt32(n) > 0 || n!=null)
+            {
+                Linea = C.Selecciona("aparatos", "idaparato", n);
+                if (Linea != null)
+                {
+                    panel_equip_edit.Visible = true;
+                    textBoxee_nombre.Text = Linea.Split(',')[1];
+                    textBoxee_numserie.Text = Linea.Split(',')[2];
+                    comboBoxee_tipo.Text = Linea.Split(',')[3];
+                    dateTimePickeree_fcompra.Text = Linea.Split(',')[4];
+                    dateTimePickeree_fmant.Text = Linea.Split(',')[5];
+                }
+                else
+                {
+                    MessageBox.Show("No existe el aparato", "Error");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Ingresa un numero valido", "Error");
+            }
         }
 
         private void todosToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -234,7 +253,7 @@ namespace GYM
             OcultaPaneles();
             LimpiaDatos(panel_equip_show_one);
             n = Microsoft.VisualBasic.Interaction.InputBox("Aparato a buscar: ");
-            if (Convert.ToInt32(n) > 0)
+            if (Convert.ToInt32(n) > 0 || n != null)
             {
                 Linea = C.Selecciona("aparatos", "idaparato", n);
                 if (Linea != null)
@@ -345,8 +364,8 @@ namespace GYM
             RevisaDatos(panel_equip_new);
             if (Completo)
             {
-                String[] DatosA = { textBox_NombreE.Text, textBox_NSerie.Text, comboBox_Tipo.Text, dateTimePicker_FCompra.Text, dateTimePicker_FMantenimiento.Text };
-                C.insertaA(DatosA);
+                string[] DatosA = { textBoxee_nombre.Text, textBoxee_numserie.Text, comboBoxee_tipo.Text, dateTimePickeree_fcompra.Text, dateTimePickeree_fmant.Text };
+                C.updateA(DatosA , Convert.ToInt32(n));
                 OcultaPaneles();
             }
             else

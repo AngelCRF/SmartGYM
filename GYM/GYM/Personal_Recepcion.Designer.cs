@@ -1772,8 +1772,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(509, 428);
-            this.Controls.Add(this.panel_equip_show_one);
             this.Controls.Add(this.panel_equip_edit);
+            this.Controls.Add(this.panel_equip_show_one);
             this.Controls.Add(this.panel_client_show_one);
             this.Controls.Add(this.panel_client_edit);
             this.Controls.Add(this.panel_equip_new);
