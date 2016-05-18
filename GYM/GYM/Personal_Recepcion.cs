@@ -10,6 +10,7 @@ namespace GYM
         //Variables
         bool Completo = true;
         String n;
+        int idd;
         Consultas C = new Consultas();
 
         public Personal_Recepcion()
@@ -32,6 +33,33 @@ namespace GYM
             catch (Exception e){}
         }
 
+        private void LimpiaDatos(Panel Actual)
+        {
+            TextBox t = new TextBox();
+            foreach (Object o in Actual.Controls)
+            {
+                try
+                {
+                    try
+                    {
+                        t = (TextBox)o;
+                        if (t.Text.Equals("0"))
+                        {
+                            textBoxE_Int.Text = "Opcional";
+                        }
+                        else
+                        {
+                            t.Text = "";
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                    }
+                }
+                catch (Exception e) { }
+            }
+        }
+
         private void RevisaDatos(Panel PanelActual)
         {
             TextBox t = new TextBox();
@@ -39,13 +67,19 @@ namespace GYM
             {
                 try
                 {
-                    t = (TextBox) o;
-                    if (t.Text.Equals("") || t.Text == null)
+                    try
+                    {
+                        t = (TextBox)o;
+                    }
+                    catch (Exception e)
+                    {
+                    }
+                    if (t.Text == null)
                     {
                         Completo = false;
 
                     }
-                    if (textBoxE_Int.Text.Equals("Opcional"))
+                    if (t.Text.Equals("Opcional"))
                     {
                         textBoxE_Int.Text = ""+0;
                     }
@@ -58,21 +92,22 @@ namespace GYM
         private void nuevoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OcultaPaneles();
+            LimpiaDatos(panel_client_new);
             panel_client_new.Visible = true;
         }
 
         private void editarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int idd;
             String Linea;
             OcultaPaneles();
+            LimpiaDatos(panel_client_edit);
             n = Microsoft.VisualBasic.Interaction.InputBox("Cliente a buscar: ");
             if (Convert.ToInt32(n) > 0)
             {
-                panel_client_edit.Visible = true;
                 Linea = C.Selecciona("cliente", "idcliente", n);
                 if (Linea != null)
                 {
+                    panel_client_edit.Visible = true;
                     textBoxE_Nombre.Text = Linea.Split(',')[1];
                     textBoxE_ApellidoP.Text = Linea.Split(',')[2];
                     textBoxE_ApellidoM.Text = Linea.Split(',')[3];
@@ -83,9 +118,11 @@ namespace GYM
                     dateTimePickerE_FPago.Text = Linea.Split(',')[8];
                     comboBoxE_TPago.Text = Linea.Split(',')[9];
                     idd = Convert.ToInt32(Linea.Split(',')[10]);
-
-
-                    MessageBox.Show(Linea, "Consulta");
+                    textBoxE_Calle.Text= Linea.Split(',')[11];
+                    textBoxE_Num.Text = Linea.Split(',')[12];
+                    textBoxE_Int.Text = Linea.Split(',')[13];
+                    textBoxE_Col.Text = Linea.Split(',')[14];
+                    textBoxE_Ciudad.Text= Linea.Split(',')[15];
                 }
                 else
                 {
@@ -125,20 +162,52 @@ namespace GYM
         {
             String Linea;
             OcultaPaneles();
+            LimpiaDatos(panel_client_show_one);
             n = Microsoft.VisualBasic.Interaction.InputBox("Cliente a buscar: ");
-            panel_client_show_one.Visible = true;
-            Linea = C.Selecciona("cliente", "idcliente", n);
-        }
+            if (Convert.ToInt32(n) > 0)
+            {
+                Linea = C.Selecciona("cliente", "idcliente", n);
+                if (Linea != null)
+                {
+                    panel_client_show_one.Visible = true;
+                    textBoxM_Nom.Text = Linea.Split(',')[1];
+                    textBoxM_AP.Text = Linea.Split(',')[2];
+                    textBoxM_AM.Text = Linea.Split(',')[3];
+                    textBoxM_P.Text = Linea.Split(',')[4];
+                    textBoxM_T.Text = Linea.Split(',')[5];
+                    textBoxM_EM.Text = Linea.Split(',')[6];
+                    comboBoxM_TS.Text = Linea.Split(',')[7];
+                    dateTimePickerM_FP.Text = Linea.Split(',')[8];
+                    comboBoxM_TP.Text = Linea.Split(',')[9];
+                    idd = Convert.ToInt32(Linea.Split(',')[10]);
+                    textBoxM_C.Text = Linea.Split(',')[11];
+                    textBoxM_Num.Text = Linea.Split(',')[12];
+                    textBoxM_Int.Text = Linea.Split(',')[13];
+                    textBoxM_Col.Text = Linea.Split(',')[14];
+                    textBoxM_Ciu.Text = Linea.Split(',')[15];
+                }
+                else
+                {
+                    MessageBox.Show("No existe el cliente", "Error");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Ingresa un numero valido", "Error");
+            }
+            }
 
         private void nuevoToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             OcultaPaneles();
+            LimpiaDatos(panel_equip_new);
             panel_equip_new.Visible = true;
         }
 
         private void editarToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             OcultaPaneles();
+            LimpiaDatos(panel_equip_edit);
             String Linea;
             n = Microsoft.VisualBasic.Interaction.InputBox("Aparato a buscar: ");
             Linea = C.Selecciona("aparatos", "idaparato", n);
@@ -161,8 +230,31 @@ namespace GYM
 
         private void buscarToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            String Linea;
             OcultaPaneles();
-            panel_equip_show_one.Visible = true;
+            LimpiaDatos(panel_equip_show_one);
+            n = Microsoft.VisualBasic.Interaction.InputBox("Aparato a buscar: ");
+            if (Convert.ToInt32(n) > 0)
+            {
+                Linea = C.Selecciona("aparatos", "idaparato", n);
+                if (Linea != null)
+                {
+                    panel_equip_show_one.Visible = true;
+                    textBoxME_Nom.Text = Linea.Split(',')[1];
+                    textBoxME_NS.Text = Linea.Split(',')[2];
+                    comboBoxME_T.Text = Linea.Split(',')[3];
+                    dateTimePickerME_FC.Text = Linea.Split(',')[4];
+                    dateTimePickerME_FM.Text = Linea.Split(',')[5];
+                }
+                else
+                {
+                    MessageBox.Show("No existe el aparato", "Error");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Ingresa un numero valido", "Error");
+            }
         }
 
         //Botones Click
@@ -183,7 +275,7 @@ namespace GYM
 
         private void button_Save_User_Click(object sender, EventArgs e)
         {
-            RevisaDatos(panel_client_new);
+            RevisaDatos(panel_client_edit);
             if (Completo)
             {
                 String[] DatosC = {textBox_Nombre.Text,textBox_ApellidoP.Text,textBox_ApellidoM.Text,textBox_Telefono.Text,
@@ -213,11 +305,12 @@ namespace GYM
             RevisaDatos(panel_client_new);
             if (Completo)
             {
-                String[] DatosC = {textBox_Nombre.Text,textBox_ApellidoP.Text,textBox_ApellidoM.Text,textBox_Telefono.Text,
-                    textBox_Email.Text,comboBox_TPago.Text,dateTimePicker_FPago.Text,comboBox_TSangre.Text,textBox_password.Text};
-                String[] DatosD = { textBox_Calle.Text, textBox_Numero.Text, textBox_Interior.Text, textBox_Colonia.Text, textBox_Ciudad.Text };
-                C.updateC(n,DatosC, DatosD);
+                String[] DatosC = {textBoxE_Nombre.Text,textBoxE_ApellidoP.Text,textBoxE_ApellidoM.Text,textBoxE_Tel.Text,
+                    textBoxE_mail.Text,comboBoxE_TPago.Text,dateTimePickerE_FPago.Text,comboBoxE_TSangre.Text,textBoxE_Pass.Text};
+                String[] DatosD = { textBoxE_Calle.Text, textBoxE_Num.Text, textBoxE_Int.Text, textBoxE_Col.Text, textBoxE_Ciudad.Text };
+                C.updateC(idd,n,DatosC, DatosD);
                 OcultaPaneles();
+                
             }
             else
             {

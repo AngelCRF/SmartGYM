@@ -154,29 +154,22 @@ namespace GYM
             }
         }
 
-        public bool updateC(string IDC,string[] DatosC, string[] DatosD)//Clientes
+        public bool updateC(int idd, string IDC,string[] DatosC, string[] DatosD)//Clientes
         {
             try
             {
-                int IDD;
-                NpgsqlDataReader reader;
                 con.Open();
-                String consultaIDD = "SELECT * FROM direcciones ORDER BY iddireccion DESC LIMIT 1;";
-                NpgsqlCommand cmdIDD = new NpgsqlCommand(consultaIDD, con.Conn);
-                reader = cmdIDD.ExecuteReader();
-                reader.Read();
-                IDD = Convert.ToInt32(reader.GetInt32(0)) + 1;
-                String consultaD = "INSERT INTO direcciones (iddireccion, calle, numero, interior, colonia, ciudad) Values('" +
-                     IDD + "','" + DatosD[0] + "','" + DatosD[1] + "','" + DatosD[2]
-                     + "','" + DatosC[3] + "','" + DatosC[4] + "');";
+                String consultaD = "UPDATE direccion SET calle='" + DatosD[0] + "', numero=" + DatosD[1] + ", interior=" + DatosD[2]
+                     + ", colonia='" + DatosD[3] + "', ciudad='" + DatosD[4] + "' WHERE iddireccion=" + idd + ";";
                 NpgsqlCommand cmdD = new NpgsqlCommand(consultaD, con.Conn);
                 NpgsqlDataReader reader2 = cmdD.ExecuteReader();
                 reader2.Read();
                 reader2.Close();
-                String consultaC = "UPDATE clientes  WHERE idcliente = " + IDC + " SET nombres='" + DatosC[0] + "', apellido_1='" + DatosC[1] +
+                String consultaC = "UPDATE cliente SET nombres='" + DatosC[0] + "', apellido_1='" + DatosC[1] +
                     "', apellido_2 ='" + DatosC[2] + "', telefono_movil='" + DatosC[3] + "', correo_electronico='" + DatosC[4] +
-                    "', iddireccion='" + IDD + "', tipo_de_pago='" + DatosC[5] + "', fecha_de_corte='" + DatosC[6] +
-                    "', tipo_de_sangre='" + DatosC[7] + "', contraseña='" + DatosC[8] + "';";
+                    "', iddireccion='" + idd + "', tipo_de_pago='" + DatosC[5] + "', fecha_de_corte='" + DatosC[6] +
+                    "', tipo_de_sangre='" + DatosC[7] + "', contraseña='" + DatosC[8] + "' WHERE idcliente = " + IDC + ";";
+                MessageBox.Show(consultaC, "");
                 NpgsqlCommand cmdC = new NpgsqlCommand(consultaC, con.Conn);
                 NpgsqlDataReader reader3 = cmdC.ExecuteReader();
                 reader3.Read();
@@ -266,7 +259,6 @@ namespace GYM
                         Cons = ""+reader.GetInt32(0)+","+reader.GetString(1)+","+ reader.GetInt32(2) + ","+reader.GetString(3) + "," + reader.GetTimeStamp(4) + "," + reader.GetTimeStamp(5);
                         reader.Close();
                         con.Close();
-                        MessageBox.Show(Cons,"Consulta");
                         return Cons;
                         break;
                 }
@@ -275,6 +267,7 @@ namespace GYM
             catch (Exception e)
             {
                 MessageBox.Show("Error" + e.Message);
+                con.Close();
                 return null;
             }
             return null;
