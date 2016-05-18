@@ -36,9 +36,10 @@
             this.textBox_password = new System.Windows.Forms.TextBox();
             this.label_user = new System.Windows.Forms.Label();
             this.label_password = new System.Windows.Forms.Label();
-            this.pictureBox_logo = new System.Windows.Forms.PictureBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.radioButton_Instructor = new System.Windows.Forms.RadioButton();
+            this.pictureBox_logo = new System.Windows.Forms.PictureBox();
+            this.radioButton_administrador = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_logo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,7 +72,7 @@
             // button_login
             // 
             this.button_login.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_login.Location = new System.Drawing.Point(104, 278);
+            this.button_login.Location = new System.Drawing.Point(107, 314);
             this.button_login.Name = "button_login";
             this.button_login.Size = new System.Drawing.Size(75, 23);
             this.button_login.TabIndex = 3;
@@ -116,16 +117,6 @@
             this.label_password.TabIndex = 7;
             this.label_password.Text = "Contraseña";
             // 
-            // pictureBox_logo
-            // 
-            this.pictureBox_logo.Image = global::GYM.Properties.Resources.Logo;
-            this.pictureBox_logo.Location = new System.Drawing.Point(51, 12);
-            this.pictureBox_logo.Name = "pictureBox_logo";
-            this.pictureBox_logo.Size = new System.Drawing.Size(188, 79);
-            this.pictureBox_logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox_logo.TabIndex = 0;
-            this.pictureBox_logo.TabStop = false;
-            // 
             // radioButton_Instructor
             // 
             this.radioButton_Instructor.AutoSize = true;
@@ -138,12 +129,35 @@
             this.radioButton_Instructor.Text = "Instructor";
             this.radioButton_Instructor.UseVisualStyleBackColor = true;
             // 
+            // pictureBox_logo
+            // 
+            this.pictureBox_logo.Image = global::GYM.Properties.Resources.Logo;
+            this.pictureBox_logo.Location = new System.Drawing.Point(51, 12);
+            this.pictureBox_logo.Name = "pictureBox_logo";
+            this.pictureBox_logo.Size = new System.Drawing.Size(188, 79);
+            this.pictureBox_logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox_logo.TabIndex = 0;
+            this.pictureBox_logo.TabStop = false;
+            // 
+            // radioButton_administrador
+            // 
+            this.radioButton_administrador.AutoSize = true;
+            this.radioButton_administrador.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton_administrador.Location = new System.Drawing.Point(107, 270);
+            this.radioButton_administrador.Name = "radioButton_administrador";
+            this.radioButton_administrador.Size = new System.Drawing.Size(100, 17);
+            this.radioButton_administrador.TabIndex = 9;
+            this.radioButton_administrador.TabStop = true;
+            this.radioButton_administrador.Text = "Administrador";
+            this.radioButton_administrador.UseVisualStyleBackColor = true;
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
-            this.ClientSize = new System.Drawing.Size(284, 313);
+            this.ClientSize = new System.Drawing.Size(284, 349);
+            this.Controls.Add(this.radioButton_administrador);
             this.Controls.Add(this.radioButton_Instructor);
             this.Controls.Add(this.label_password);
             this.Controls.Add(this.label_user);
@@ -175,6 +189,7 @@
         private System.Windows.Forms.Label label_password;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.RadioButton radioButton_Instructor;
+        private System.Windows.Forms.RadioButton radioButton_administrador;
     }
 }
 

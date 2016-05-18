@@ -36,7 +36,8 @@ namespace GYM
         {
             if (radioButton_Cliente.Checked)
             {
-                if (con.BuscarContraseña("cliente", Convert.ToInt32(textBox_user.Text), textBox_password.Text)) {
+                if (con.BuscarContraseña("cliente", Convert.ToInt32(textBox_user.Text), textBox_password.Text))
+                {
                     Cliente aux = new Cliente(Convert.ToInt32(textBox_user.Text));
                     aux.Show();
                 }
@@ -63,7 +64,7 @@ namespace GYM
                 {
                     if (radioButton_Instructor.Checked)
                     {
-                        if (con.BuscarContraseña("instructor", Convert.ToInt32(textBox_user.Text),textBox_password.Text))
+                        if (con.BuscarContraseña("instructor", Convert.ToInt32(textBox_user.Text), textBox_password.Text))
                         {
                             Instructor tres = new Instructor();
                             tres.Show();
@@ -71,6 +72,22 @@ namespace GYM
                         else
                         {
                             MessageBox.Show("Usuario o contraseña incorrectos, vuelva a intentar");
+                        }
+                    }
+
+                    else
+                    {
+                        if (radioButton_administrador.Checked)
+                        {
+                            if (con.BuscarContraseña("trabajador", Convert.ToInt32(textBox_user.Text), textBox_password.Text))
+                            {
+                                Administrador aux = new Administrador();
+                                aux.Show();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Usuario o contraseña incorrectos, vuelva a intentar");
+                            }
                         }
                     }
                 }

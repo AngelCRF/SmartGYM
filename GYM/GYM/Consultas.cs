@@ -56,6 +56,102 @@ namespace GYM
             con.Close();
         }
 
+        internal bool InsertTrabajador(string nombre, string ap1, string ap2, string calle, string numero, string interior, string colonia, string ciudad, string contraseña, string sueldo, string puesto)
+        {
+            int idtrab = -1;
+            int iddir = -1;
+            con.Open();
+            try
+            {
+                NpgsqlCommand cmd2 = new NpgsqlCommand("select * from trabajador order by idtrabajador desc limit 1;", con.Conn);
+                NpgsqlDataReader reader2 = cmd2.ExecuteReader();
+                if (reader2.Read())
+                {
+                    idtrab = Convert.ToInt32(reader2.GetInt32(0)) + 1;
+                }
+                else
+                {
+                    idtrab = 1;
+                }
+                reader2.Close();
+                NpgsqlCommand cmd3 = new NpgsqlCommand("select iddireccion from direccion order by iddireccion desc limit 1;", con.Conn);
+                NpgsqlDataReader reader3= cmd3.ExecuteReader();
+                if (reader3.Read())
+                {
+                    iddir = Convert.ToInt32(reader3.GetInt32(0)) + 1;
+                }
+                else
+                {
+                    iddir = 1;
+                }
+                MessageBox.Show("id direcc   " + iddir);
+                reader3.Close();
+                if (idtrab > -1 && iddir>-1)
+                {
+                    try
+                    {
+                        NpgsqlCommand cmd = new NpgsqlCommand("insert into direccion (iddireccion,calle, numero, interior, colonia, ciudad) values ('" + iddir + "','" + calle + "', '" + numero + "' ,'" + interior + "', '"+colonia+"', '"+ciudad+"') ", con.Conn);
+                        NpgsqlDataReader reader = cmd.ExecuteReader();
+                        reader.Read();
+                        reader.Close();
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Error con la dirección del trabajador");
+                        return false;
+                    }
+                    try
+                    {
+                        NpgsqlCommand cmd = new NpgsqlCommand("insert into trabajador (idtrabajador,nombre, apellido1, apellido2, contraseña, iddireccion, sueldo, puesto) values ('" + idtrab + "','" + nombre + "', '" + ap1 + "' ,'" + ap2 + "', '" + contraseña + "', '" + iddir + "', '"+sueldo+"', '"+puesto+"') ", con.Conn);
+                        NpgsqlDataReader reader = cmd.ExecuteReader();
+                        reader.Read();
+                        MessageBox.Show("Consulta realizada");
+                        reader.Close();
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Error del trabajador");
+                        NpgsqlCommand cmd = new NpgsqlCommand("delete from  direccion where iddireccion = '" + iddir + "' ", con.Conn);
+                        NpgsqlDataReader reader = cmd.ExecuteReader();
+                        reader.Read();
+                        reader.Close();
+                        return false;
+                    }
+                    
+                }
+            }
+            catch (Exception ex) { con.Close(); MessageBox.Show("Error al consultar trabajadores y direcciones" + ex.Message); return false; }
+            con.Close();
+            return true;
+        
+    }
+
+        public int  obtenerTrabajador(int id, List<TextBox> aux)
+        {
+            int dir = -1;
+            con.Open();
+            try
+            {
+                NpgsqlCommand cmd2 = new NpgsqlCommand("select * from trabajador where idtrabajador = '" + id + "'", con.Conn);
+                NpgsqlDataReader reader2 = cmd2.ExecuteReader();
+                reader2.Read();
+                aux.ElementAt(0).Text = reader2.GetString(1);
+                aux.ElementAt(1).Text = reader2.GetString(2);
+                aux.ElementAt(1).Text = reader2.GetString(3);
+                aux.ElementAt(8).Text = reader2.GetString(4);
+                aux.ElementAt(9).Text = reader2.GetString(6);
+                int a = reader2.GetInt32(5);
+                reader2.Close();
+                return a;
+            
+
+            }
+            catch (Exception)
+            {
+                return -1;
+            }
+            }
+
         internal bool BuscarContraseña(string tabla, int id, string password )
         {
             tabla = tabla.ToLower();
@@ -72,6 +168,9 @@ namespace GYM
                 case "instructor":
                     consulta = "select * from trabajador where idtrabajador= '" + id + "' and contraseña = '" + password + "' and puesto= 'instructor' ";
                     break;
+                case "administrador":
+                    consulta = "select * from trabajador where idtrabajador= '" + id + "' and contraseña = '" + password + "' and puesto= 'administrador' ";
+                    break;
             }
             try
             {
@@ -79,6 +178,7 @@ namespace GYM
                 NpgsqlDataReader reader = cmd.ExecuteReader();
                 if (reader.Read())
                 {
+
                     reader.Close();
                     con.Close();
                     return true;
@@ -95,11 +195,12 @@ namespace GYM
             return false;
         }
 
+
         public Consultas()
         {
             //colocar su ruta
-            //con = new Conexion(datosCarlos);
-            con = new Conexion(datosKevin);
+            con = new Conexion(datosCarlos);
+            //con = new Conexion(datosKevin);
         }
 
         public void inserta()
