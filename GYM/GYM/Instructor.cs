@@ -25,6 +25,17 @@ namespace GYM
 
         }
 
+        private void textboxCheck(object sender, EventArgs e)
+        {
+            TextBox t = (TextBox)sender;
+            string a = t.Text.ToLower();
+            if(a.Contains("select") || a.Contains("update") || a.Contains("where") || a.Contains("alter") || a.Contains("insert") || a.Contains("create") || a.Contains("constraint"))
+            {
+                MessageBox.Show("Valor invalido");
+                t.Text = "";
+            }
+        }
+
         private void mostrarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             panel_MostrarRutinas.BringToFront();
