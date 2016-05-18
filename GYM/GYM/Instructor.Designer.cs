@@ -385,6 +385,7 @@
             this.textBox_CrearNombre.Name = "textBox_CrearNombre";
             this.textBox_CrearNombre.Size = new System.Drawing.Size(249, 20);
             this.textBox_CrearNombre.TabIndex = 0;
+            this.textBox_CrearNombre.Leave += new System.EventHandler(this.textboxCheck);
             // 
             // panel_CrearEjercicio
             // 
