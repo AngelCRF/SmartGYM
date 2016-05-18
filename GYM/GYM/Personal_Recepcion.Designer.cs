@@ -110,6 +110,34 @@
             this.label19 = new System.Windows.Forms.Label();
             this.dataGridView_client = new System.Windows.Forms.DataGridView();
             this.panel_client_show_one = new System.Windows.Forms.Panel();
+            this.label37 = new System.Windows.Forms.Label();
+            this.textBoxM_P = new System.Windows.Forms.TextBox();
+            this.dateTimePickerM_FP = new System.Windows.Forms.DateTimePicker();
+            this.comboBoxM_TP = new System.Windows.Forms.ComboBox();
+            this.label38 = new System.Windows.Forms.Label();
+            this.label40 = new System.Windows.Forms.Label();
+            this.label45 = new System.Windows.Forms.Label();
+            this.label46 = new System.Windows.Forms.Label();
+            this.label47 = new System.Windows.Forms.Label();
+            this.label48 = new System.Windows.Forms.Label();
+            this.label49 = new System.Windows.Forms.Label();
+            this.label50 = new System.Windows.Forms.Label();
+            this.label51 = new System.Windows.Forms.Label();
+            this.label52 = new System.Windows.Forms.Label();
+            this.label53 = new System.Windows.Forms.Label();
+            this.label54 = new System.Windows.Forms.Label();
+            this.label55 = new System.Windows.Forms.Label();
+            this.comboBoxM_TS = new System.Windows.Forms.ComboBox();
+            this.textBoxM_Ciu = new System.Windows.Forms.TextBox();
+            this.textBoxM_Col = new System.Windows.Forms.TextBox();
+            this.textBoxM_Int = new System.Windows.Forms.TextBox();
+            this.textBoxM_Num = new System.Windows.Forms.TextBox();
+            this.textBoxM_C = new System.Windows.Forms.TextBox();
+            this.textBoxM_EM = new System.Windows.Forms.TextBox();
+            this.textBoxM_T = new System.Windows.Forms.TextBox();
+            this.textBoxM_AM = new System.Windows.Forms.TextBox();
+            this.textBoxM_AP = new System.Windows.Forms.TextBox();
+            this.textBoxM_Nom = new System.Windows.Forms.TextBox();
             this.button_eliminaclie = new System.Windows.Forms.Button();
             this.button_regpago = new System.Windows.Forms.Button();
             this.panel_equip_new = new System.Windows.Forms.Panel();
@@ -140,38 +168,7 @@
             this.label35 = new System.Windows.Forms.Label();
             this.dataGridView_equip = new System.Windows.Forms.DataGridView();
             this.panel_equip_show_one = new System.Windows.Forms.Panel();
-            this.panel_inform = new System.Windows.Forms.Panel();
-            this.label36 = new System.Windows.Forms.Label();
-            this.dataGridView_Pagos = new System.Windows.Forms.DataGridView();
-            this.dataGridView_Mantenimiento = new System.Windows.Forms.DataGridView();
-            this.label37 = new System.Windows.Forms.Label();
-            this.textBoxM_P = new System.Windows.Forms.TextBox();
-            this.dateTimePickerM_FP = new System.Windows.Forms.DateTimePicker();
-            this.comboBoxM_TP = new System.Windows.Forms.ComboBox();
-            this.label38 = new System.Windows.Forms.Label();
-            this.label40 = new System.Windows.Forms.Label();
-            this.label45 = new System.Windows.Forms.Label();
-            this.label46 = new System.Windows.Forms.Label();
-            this.label47 = new System.Windows.Forms.Label();
-            this.label48 = new System.Windows.Forms.Label();
-            this.label49 = new System.Windows.Forms.Label();
-            this.label50 = new System.Windows.Forms.Label();
-            this.label51 = new System.Windows.Forms.Label();
-            this.label52 = new System.Windows.Forms.Label();
-            this.label53 = new System.Windows.Forms.Label();
-            this.label54 = new System.Windows.Forms.Label();
-            this.label55 = new System.Windows.Forms.Label();
-            this.comboBoxM_TS = new System.Windows.Forms.ComboBox();
-            this.textBoxM_Ciu = new System.Windows.Forms.TextBox();
-            this.textBoxM_Col = new System.Windows.Forms.TextBox();
-            this.textBoxM_Int = new System.Windows.Forms.TextBox();
-            this.textBoxM_Num = new System.Windows.Forms.TextBox();
-            this.textBoxM_C = new System.Windows.Forms.TextBox();
-            this.textBoxM_EM = new System.Windows.Forms.TextBox();
-            this.textBoxM_T = new System.Windows.Forms.TextBox();
-            this.textBoxM_AM = new System.Windows.Forms.TextBox();
-            this.textBoxM_AP = new System.Windows.Forms.TextBox();
-            this.textBoxM_Nom = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.label56 = new System.Windows.Forms.Label();
             this.textBoxME_Nom = new System.Windows.Forms.TextBox();
             this.label57 = new System.Windows.Forms.Label();
@@ -182,7 +179,10 @@
             this.dateTimePickerME_FC = new System.Windows.Forms.DateTimePicker();
             this.comboBoxME_T = new System.Windows.Forms.ComboBox();
             this.textBoxME_NS = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.panel_inform = new System.Windows.Forms.Panel();
+            this.label36 = new System.Windows.Forms.Label();
+            this.dataGridView_Pagos = new System.Windows.Forms.DataGridView();
+            this.dataGridView_Mantenimiento = new System.Windows.Forms.DataGridView();
             this.menuStrip1.SuspendLayout();
             this.panel_client_new.SuspendLayout();
             this.panel_client_edit.SuspendLayout();
@@ -231,14 +231,14 @@
             // nuevoToolStripMenuItem
             // 
             this.nuevoToolStripMenuItem.Name = "nuevoToolStripMenuItem";
-            this.nuevoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.nuevoToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
             this.nuevoToolStripMenuItem.Text = "Nuevo";
             this.nuevoToolStripMenuItem.Click += new System.EventHandler(this.nuevoToolStripMenuItem_Click);
             // 
             // editarToolStripMenuItem
             // 
             this.editarToolStripMenuItem.Name = "editarToolStripMenuItem";
-            this.editarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.editarToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
             this.editarToolStripMenuItem.Text = "Editar";
             this.editarToolStripMenuItem.Click += new System.EventHandler(this.editarToolStripMenuItem_Click);
             // 
@@ -248,20 +248,20 @@
             this.todosToolStripMenuItem,
             this.buscarToolStripMenuItem});
             this.mostrarToolStripMenuItem.Name = "mostrarToolStripMenuItem";
-            this.mostrarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.mostrarToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
             this.mostrarToolStripMenuItem.Text = "Mostrar";
             // 
             // todosToolStripMenuItem
             // 
             this.todosToolStripMenuItem.Name = "todosToolStripMenuItem";
-            this.todosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.todosToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
             this.todosToolStripMenuItem.Text = "Todos";
             this.todosToolStripMenuItem.Click += new System.EventHandler(this.todosToolStripMenuItem_Click);
             // 
             // buscarToolStripMenuItem
             // 
             this.buscarToolStripMenuItem.Name = "buscarToolStripMenuItem";
-            this.buscarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.buscarToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
             this.buscarToolStripMenuItem.Text = "Buscar";
             this.buscarToolStripMenuItem.Click += new System.EventHandler(this.buscarToolStripMenuItem_Click);
             // 
@@ -278,14 +278,14 @@
             // nuevoToolStripMenuItem1
             // 
             this.nuevoToolStripMenuItem1.Name = "nuevoToolStripMenuItem1";
-            this.nuevoToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.nuevoToolStripMenuItem1.Size = new System.Drawing.Size(115, 22);
             this.nuevoToolStripMenuItem1.Text = "Nuevo";
             this.nuevoToolStripMenuItem1.Click += new System.EventHandler(this.nuevoToolStripMenuItem1_Click);
             // 
             // editarToolStripMenuItem1
             // 
             this.editarToolStripMenuItem1.Name = "editarToolStripMenuItem1";
-            this.editarToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.editarToolStripMenuItem1.Size = new System.Drawing.Size(115, 22);
             this.editarToolStripMenuItem1.Text = "Editar";
             this.editarToolStripMenuItem1.Click += new System.EventHandler(this.editarToolStripMenuItem1_Click);
             // 
@@ -295,20 +295,20 @@
             this.todosToolStripMenuItem1,
             this.buscarToolStripMenuItem1});
             this.mostrarToolStripMenuItem1.Name = "mostrarToolStripMenuItem1";
-            this.mostrarToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.mostrarToolStripMenuItem1.Size = new System.Drawing.Size(115, 22);
             this.mostrarToolStripMenuItem1.Text = "Mostrar";
             // 
             // todosToolStripMenuItem1
             // 
             this.todosToolStripMenuItem1.Name = "todosToolStripMenuItem1";
-            this.todosToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.todosToolStripMenuItem1.Size = new System.Drawing.Size(109, 22);
             this.todosToolStripMenuItem1.Text = "Todos";
             this.todosToolStripMenuItem1.Click += new System.EventHandler(this.todosToolStripMenuItem1_Click);
             // 
             // buscarToolStripMenuItem1
             // 
             this.buscarToolStripMenuItem1.Name = "buscarToolStripMenuItem1";
-            this.buscarToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.buscarToolStripMenuItem1.Size = new System.Drawing.Size(109, 22);
             this.buscarToolStripMenuItem1.Text = "Buscar";
             this.buscarToolStripMenuItem1.Click += new System.EventHandler(this.buscarToolStripMenuItem1_Click);
             // 
@@ -367,9 +367,9 @@
             this.panel_client_new.Controls.Add(this.textBox_ApellidoP);
             this.panel_client_new.Controls.Add(this.textBox_Nombre);
             this.panel_client_new.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_client_new.Location = new System.Drawing.Point(0, 24);
+            this.panel_client_new.Location = new System.Drawing.Point(0, 0);
             this.panel_client_new.Name = "panel_client_new";
-            this.panel_client_new.Size = new System.Drawing.Size(509, 404);
+            this.panel_client_new.Size = new System.Drawing.Size(509, 428);
             this.panel_client_new.TabIndex = 1;
             // 
             // label18
@@ -388,6 +388,7 @@
             this.textBox_password.Name = "textBox_password";
             this.textBox_password.Size = new System.Drawing.Size(274, 22);
             this.textBox_password.TabIndex = 29;
+            this.textBox_password.Leave += new System.EventHandler(this.textboxCheck);
             // 
             // button_Save_User
             // 
@@ -574,6 +575,7 @@
             this.textBox_Ciudad.Name = "textBox_Ciudad";
             this.textBox_Ciudad.Size = new System.Drawing.Size(161, 22);
             this.textBox_Ciudad.TabIndex = 9;
+            this.textBox_Ciudad.Leave += new System.EventHandler(this.textboxCheck);
             // 
             // textBox_Colonia
             // 
@@ -581,6 +583,7 @@
             this.textBox_Colonia.Name = "textBox_Colonia";
             this.textBox_Colonia.Size = new System.Drawing.Size(216, 22);
             this.textBox_Colonia.TabIndex = 8;
+            this.textBox_Colonia.Leave += new System.EventHandler(this.textboxCheck);
             // 
             // textBox_Interior
             // 
@@ -590,6 +593,7 @@
             this.textBox_Interior.TabIndex = 7;
             this.textBox_Interior.Text = "Opcional";
             this.textBox_Interior.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox_Interior.Leave += new System.EventHandler(this.textboxCheck);
             // 
             // textBox_Numero
             // 
@@ -597,6 +601,7 @@
             this.textBox_Numero.Name = "textBox_Numero";
             this.textBox_Numero.Size = new System.Drawing.Size(77, 22);
             this.textBox_Numero.TabIndex = 6;
+            this.textBox_Numero.Leave += new System.EventHandler(this.textboxCheck);
             // 
             // textBox_Calle
             // 
@@ -604,6 +609,7 @@
             this.textBox_Calle.Name = "textBox_Calle";
             this.textBox_Calle.Size = new System.Drawing.Size(216, 22);
             this.textBox_Calle.TabIndex = 5;
+            this.textBox_Calle.Leave += new System.EventHandler(this.textboxCheck);
             // 
             // textBox_Email
             // 
@@ -611,6 +617,7 @@
             this.textBox_Email.Name = "textBox_Email";
             this.textBox_Email.Size = new System.Drawing.Size(222, 22);
             this.textBox_Email.TabIndex = 4;
+            this.textBox_Email.Leave += new System.EventHandler(this.textboxCheck);
             // 
             // textBox_Telefono
             // 
@@ -618,6 +625,7 @@
             this.textBox_Telefono.Name = "textBox_Telefono";
             this.textBox_Telefono.Size = new System.Drawing.Size(153, 22);
             this.textBox_Telefono.TabIndex = 3;
+            this.textBox_Telefono.Leave += new System.EventHandler(this.textboxCheck);
             // 
             // textBox_ApellidoM
             // 
@@ -625,6 +633,7 @@
             this.textBox_ApellidoM.Name = "textBox_ApellidoM";
             this.textBox_ApellidoM.Size = new System.Drawing.Size(100, 22);
             this.textBox_ApellidoM.TabIndex = 2;
+            this.textBox_ApellidoM.Leave += new System.EventHandler(this.textboxCheck);
             // 
             // textBox_ApellidoP
             // 
@@ -632,6 +641,7 @@
             this.textBox_ApellidoP.Name = "textBox_ApellidoP";
             this.textBox_ApellidoP.Size = new System.Drawing.Size(100, 22);
             this.textBox_ApellidoP.TabIndex = 1;
+            this.textBox_ApellidoP.Leave += new System.EventHandler(this.textboxCheck);
             // 
             // textBox_Nombre
             // 
@@ -639,6 +649,7 @@
             this.textBox_Nombre.Name = "textBox_Nombre";
             this.textBox_Nombre.Size = new System.Drawing.Size(153, 22);
             this.textBox_Nombre.TabIndex = 0;
+            this.textBox_Nombre.Leave += new System.EventHandler(this.textboxCheck);
             // 
             // panel_client_edit
             // 
@@ -672,9 +683,9 @@
             this.panel_client_edit.Controls.Add(this.textBoxE_ApellidoP);
             this.panel_client_edit.Controls.Add(this.textBoxE_Nombre);
             this.panel_client_edit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_client_edit.Location = new System.Drawing.Point(0, 24);
+            this.panel_client_edit.Location = new System.Drawing.Point(0, 0);
             this.panel_client_edit.Name = "panel_client_edit";
-            this.panel_client_edit.Size = new System.Drawing.Size(509, 404);
+            this.panel_client_edit.Size = new System.Drawing.Size(509, 428);
             this.panel_client_edit.TabIndex = 2;
             // 
             // label20
@@ -694,6 +705,7 @@
             this.textBoxE_Pass.PasswordChar = '*';
             this.textBoxE_Pass.Size = new System.Drawing.Size(274, 22);
             this.textBoxE_Pass.TabIndex = 58;
+            this.textBoxE_Pass.Leave += new System.EventHandler(this.textboxCheck);
             // 
             // buttonE_Save
             // 
@@ -880,6 +892,7 @@
             this.textBoxE_Ciudad.Name = "textBoxE_Ciudad";
             this.textBoxE_Ciudad.Size = new System.Drawing.Size(161, 22);
             this.textBoxE_Ciudad.TabIndex = 40;
+            this.textBoxE_Ciudad.Leave += new System.EventHandler(this.textboxCheck);
             // 
             // textBoxE_Col
             // 
@@ -887,6 +900,7 @@
             this.textBoxE_Col.Name = "textBoxE_Col";
             this.textBoxE_Col.Size = new System.Drawing.Size(216, 22);
             this.textBoxE_Col.TabIndex = 39;
+            this.textBoxE_Col.Leave += new System.EventHandler(this.textboxCheck);
             // 
             // textBoxE_Int
             // 
@@ -896,6 +910,7 @@
             this.textBoxE_Int.TabIndex = 38;
             this.textBoxE_Int.Text = "Opcional";
             this.textBoxE_Int.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxE_Int.Leave += new System.EventHandler(this.textboxCheck);
             // 
             // textBoxE_Num
             // 
@@ -903,6 +918,7 @@
             this.textBoxE_Num.Name = "textBoxE_Num";
             this.textBoxE_Num.Size = new System.Drawing.Size(77, 22);
             this.textBoxE_Num.TabIndex = 37;
+            this.textBoxE_Num.Leave += new System.EventHandler(this.textboxCheck);
             // 
             // textBoxE_Calle
             // 
@@ -910,6 +926,7 @@
             this.textBoxE_Calle.Name = "textBoxE_Calle";
             this.textBoxE_Calle.Size = new System.Drawing.Size(216, 22);
             this.textBoxE_Calle.TabIndex = 36;
+            this.textBoxE_Calle.Leave += new System.EventHandler(this.textboxCheck);
             // 
             // textBoxE_mail
             // 
@@ -917,6 +934,7 @@
             this.textBoxE_mail.Name = "textBoxE_mail";
             this.textBoxE_mail.Size = new System.Drawing.Size(222, 22);
             this.textBoxE_mail.TabIndex = 35;
+            this.textBoxE_mail.Leave += new System.EventHandler(this.textboxCheck);
             // 
             // textBoxE_Tel
             // 
@@ -924,6 +942,7 @@
             this.textBoxE_Tel.Name = "textBoxE_Tel";
             this.textBoxE_Tel.Size = new System.Drawing.Size(153, 22);
             this.textBoxE_Tel.TabIndex = 34;
+            this.textBoxE_Tel.Leave += new System.EventHandler(this.textboxCheck);
             // 
             // textBoxE_ApellidoM
             // 
@@ -931,6 +950,7 @@
             this.textBoxE_ApellidoM.Name = "textBoxE_ApellidoM";
             this.textBoxE_ApellidoM.Size = new System.Drawing.Size(100, 22);
             this.textBoxE_ApellidoM.TabIndex = 33;
+            this.textBoxE_ApellidoM.Leave += new System.EventHandler(this.textboxCheck);
             // 
             // textBoxE_ApellidoP
             // 
@@ -938,6 +958,7 @@
             this.textBoxE_ApellidoP.Name = "textBoxE_ApellidoP";
             this.textBoxE_ApellidoP.Size = new System.Drawing.Size(100, 22);
             this.textBoxE_ApellidoP.TabIndex = 32;
+            this.textBoxE_ApellidoP.Leave += new System.EventHandler(this.textboxCheck);
             // 
             // textBoxE_Nombre
             // 
@@ -945,15 +966,16 @@
             this.textBoxE_Nombre.Name = "textBoxE_Nombre";
             this.textBoxE_Nombre.Size = new System.Drawing.Size(153, 22);
             this.textBoxE_Nombre.TabIndex = 31;
+            this.textBoxE_Nombre.Leave += new System.EventHandler(this.textboxCheck);
             // 
             // panel_client_show_all
             // 
             this.panel_client_show_all.Controls.Add(this.label19);
             this.panel_client_show_all.Controls.Add(this.dataGridView_client);
             this.panel_client_show_all.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_client_show_all.Location = new System.Drawing.Point(0, 24);
+            this.panel_client_show_all.Location = new System.Drawing.Point(0, 0);
             this.panel_client_show_all.Name = "panel_client_show_all";
-            this.panel_client_show_all.Size = new System.Drawing.Size(509, 404);
+            this.panel_client_show_all.Size = new System.Drawing.Size(509, 428);
             this.panel_client_show_all.TabIndex = 2;
             // 
             // label19
@@ -1011,364 +1033,10 @@
             this.panel_client_show_one.Controls.Add(this.button_eliminaclie);
             this.panel_client_show_one.Controls.Add(this.button_regpago);
             this.panel_client_show_one.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_client_show_one.Location = new System.Drawing.Point(0, 24);
+            this.panel_client_show_one.Location = new System.Drawing.Point(0, 0);
             this.panel_client_show_one.Name = "panel_client_show_one";
-            this.panel_client_show_one.Size = new System.Drawing.Size(509, 404);
+            this.panel_client_show_one.Size = new System.Drawing.Size(509, 428);
             this.panel_client_show_one.TabIndex = 2;
-            // 
-            // button_eliminaclie
-            // 
-            this.button_eliminaclie.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_eliminaclie.Location = new System.Drawing.Point(371, 361);
-            this.button_eliminaclie.Name = "button_eliminaclie";
-            this.button_eliminaclie.Size = new System.Drawing.Size(77, 29);
-            this.button_eliminaclie.TabIndex = 60;
-            this.button_eliminaclie.Text = "Eliminar";
-            this.button_eliminaclie.UseVisualStyleBackColor = true;
-            this.button_eliminaclie.Click += new System.EventHandler(this.button_eliminaclie_Click);
-            // 
-            // button_regpago
-            // 
-            this.button_regpago.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_regpago.Location = new System.Drawing.Point(276, 361);
-            this.button_regpago.Name = "button_regpago";
-            this.button_regpago.Size = new System.Drawing.Size(81, 31);
-            this.button_regpago.TabIndex = 57;
-            this.button_regpago.Text = "Pago";
-            this.button_regpago.UseVisualStyleBackColor = true;
-            this.button_regpago.Visible = false;
-            this.button_regpago.Click += new System.EventHandler(this.button_regpago_Click);
-            // 
-            // panel_equip_new
-            // 
-            this.panel_equip_new.BackColor = System.Drawing.Color.SteelBlue;
-            this.panel_equip_new.Controls.Add(this.label34);
-            this.panel_equip_new.Controls.Add(this.textBox_NombreE);
-            this.panel_equip_new.Controls.Add(this.label17);
-            this.panel_equip_new.Controls.Add(this.label16);
-            this.panel_equip_new.Controls.Add(this.label15);
-            this.panel_equip_new.Controls.Add(this.label14);
-            this.panel_equip_new.Controls.Add(this.button_Save_Equip);
-            this.panel_equip_new.Controls.Add(this.dateTimePicker_FMantenimiento);
-            this.panel_equip_new.Controls.Add(this.dateTimePicker_FCompra);
-            this.panel_equip_new.Controls.Add(this.comboBox_Tipo);
-            this.panel_equip_new.Controls.Add(this.textBox_NSerie);
-            this.panel_equip_new.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_equip_new.Location = new System.Drawing.Point(0, 24);
-            this.panel_equip_new.Name = "panel_equip_new";
-            this.panel_equip_new.Size = new System.Drawing.Size(509, 404);
-            this.panel_equip_new.TabIndex = 3;
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label34.Location = new System.Drawing.Point(221, 67);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(50, 13);
-            this.label34.TabIndex = 10;
-            this.label34.Text = "Nombre";
-            // 
-            // textBox_NombreE
-            // 
-            this.textBox_NombreE.Location = new System.Drawing.Point(24, 33);
-            this.textBox_NombreE.Name = "textBox_NombreE";
-            this.textBox_NombreE.Size = new System.Drawing.Size(450, 22);
-            this.textBox_NombreE.TabIndex = 9;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(168, 184);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(139, 13);
-            this.label17.TabIndex = 8;
-            this.label17.Text = "Fecha de Mantenimiento";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(33, 183);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(99, 13);
-            this.label16.TabIndex = 7;
-            this.label16.Text = "Fecha de Compra";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(371, 124);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(30, 13);
-            this.label15.TabIndex = 6;
-            this.label15.Text = "Tipo";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(87, 124);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(96, 13);
-            this.label14.TabIndex = 5;
-            this.label14.Text = "Numero de Serie";
-            // 
-            // button_Save_Equip
-            // 
-            this.button_Save_Equip.Location = new System.Drawing.Point(217, 351);
-            this.button_Save_Equip.Name = "button_Save_Equip";
-            this.button_Save_Equip.Size = new System.Drawing.Size(75, 23);
-            this.button_Save_Equip.TabIndex = 4;
-            this.button_Save_Equip.Text = "Agregar";
-            this.button_Save_Equip.UseVisualStyleBackColor = true;
-            this.button_Save_Equip.Click += new System.EventHandler(this.button_Save_Equip_Click);
-            // 
-            // dateTimePicker_FMantenimiento
-            // 
-            this.dateTimePicker_FMantenimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker_FMantenimiento.Location = new System.Drawing.Point(184, 150);
-            this.dateTimePicker_FMantenimiento.Name = "dateTimePicker_FMantenimiento";
-            this.dateTimePicker_FMantenimiento.Size = new System.Drawing.Size(108, 22);
-            this.dateTimePicker_FMantenimiento.TabIndex = 3;
-            // 
-            // dateTimePicker_FCompra
-            // 
-            this.dateTimePicker_FCompra.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker_FCompra.Location = new System.Drawing.Point(24, 150);
-            this.dateTimePicker_FCompra.Name = "dateTimePicker_FCompra";
-            this.dateTimePicker_FCompra.Size = new System.Drawing.Size(108, 22);
-            this.dateTimePicker_FCompra.TabIndex = 2;
-            // 
-            // comboBox_Tipo
-            // 
-            this.comboBox_Tipo.FormattingEnabled = true;
-            this.comboBox_Tipo.Items.AddRange(new object[] {
-            "Cardio"});
-            this.comboBox_Tipo.Location = new System.Drawing.Point(291, 90);
-            this.comboBox_Tipo.Name = "comboBox_Tipo";
-            this.comboBox_Tipo.Size = new System.Drawing.Size(183, 21);
-            this.comboBox_Tipo.TabIndex = 1;
-            // 
-            // textBox_NSerie
-            // 
-            this.textBox_NSerie.Location = new System.Drawing.Point(24, 90);
-            this.textBox_NSerie.Name = "textBox_NSerie";
-            this.textBox_NSerie.Size = new System.Drawing.Size(248, 22);
-            this.textBox_NSerie.TabIndex = 0;
-            // 
-            // panel_equip_edit
-            // 
-            this.panel_equip_edit.Controls.Add(this.label39);
-            this.panel_equip_edit.Controls.Add(this.textBoxee_nombre);
-            this.panel_equip_edit.Controls.Add(this.label41);
-            this.panel_equip_edit.Controls.Add(this.label42);
-            this.panel_equip_edit.Controls.Add(this.label43);
-            this.panel_equip_edit.Controls.Add(this.label44);
-            this.panel_equip_edit.Controls.Add(this.buttonee_save);
-            this.panel_equip_edit.Controls.Add(this.dateTimePickeree_fmant);
-            this.panel_equip_edit.Controls.Add(this.dateTimePickeree_fcompra);
-            this.panel_equip_edit.Controls.Add(this.comboBoxee_tipo);
-            this.panel_equip_edit.Controls.Add(this.textBoxee_numserie);
-            this.panel_equip_edit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_equip_edit.Location = new System.Drawing.Point(0, 24);
-            this.panel_equip_edit.Name = "panel_equip_edit";
-            this.panel_equip_edit.Size = new System.Drawing.Size(509, 404);
-            this.panel_equip_edit.TabIndex = 3;
-            // 
-            // label39
-            // 
-            this.label39.AutoSize = true;
-            this.label39.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label39.Location = new System.Drawing.Point(226, 66);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(50, 13);
-            this.label39.TabIndex = 21;
-            this.label39.Text = "Nombre";
-            // 
-            // textBoxee_nombre
-            // 
-            this.textBoxee_nombre.Location = new System.Drawing.Point(29, 32);
-            this.textBoxee_nombre.Name = "textBoxee_nombre";
-            this.textBoxee_nombre.Size = new System.Drawing.Size(450, 22);
-            this.textBoxee_nombre.TabIndex = 20;
-            // 
-            // label41
-            // 
-            this.label41.AutoSize = true;
-            this.label41.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label41.Location = new System.Drawing.Point(173, 183);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(139, 13);
-            this.label41.TabIndex = 19;
-            this.label41.Text = "Fecha de Mantenimiento";
-            // 
-            // label42
-            // 
-            this.label42.AutoSize = true;
-            this.label42.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label42.Location = new System.Drawing.Point(38, 182);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(99, 13);
-            this.label42.TabIndex = 18;
-            this.label42.Text = "Fecha de Compra";
-            // 
-            // label43
-            // 
-            this.label43.AutoSize = true;
-            this.label43.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label43.Location = new System.Drawing.Point(376, 123);
-            this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(30, 13);
-            this.label43.TabIndex = 17;
-            this.label43.Text = "Tipo";
-            // 
-            // label44
-            // 
-            this.label44.AutoSize = true;
-            this.label44.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label44.Location = new System.Drawing.Point(92, 123);
-            this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(96, 13);
-            this.label44.TabIndex = 16;
-            this.label44.Text = "Numero de Serie";
-            // 
-            // buttonee_save
-            // 
-            this.buttonee_save.Location = new System.Drawing.Point(222, 350);
-            this.buttonee_save.Name = "buttonee_save";
-            this.buttonee_save.Size = new System.Drawing.Size(75, 23);
-            this.buttonee_save.TabIndex = 15;
-            this.buttonee_save.Text = "Guardar";
-            this.buttonee_save.UseVisualStyleBackColor = true;
-            this.buttonee_save.Click += new System.EventHandler(this.buttonee_save_Click);
-            // 
-            // dateTimePickeree_fmant
-            // 
-            this.dateTimePickeree_fmant.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickeree_fmant.Location = new System.Drawing.Point(189, 149);
-            this.dateTimePickeree_fmant.Name = "dateTimePickeree_fmant";
-            this.dateTimePickeree_fmant.Size = new System.Drawing.Size(108, 22);
-            this.dateTimePickeree_fmant.TabIndex = 14;
-            // 
-            // dateTimePickeree_fcompra
-            // 
-            this.dateTimePickeree_fcompra.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickeree_fcompra.Location = new System.Drawing.Point(29, 149);
-            this.dateTimePickeree_fcompra.Name = "dateTimePickeree_fcompra";
-            this.dateTimePickeree_fcompra.Size = new System.Drawing.Size(108, 22);
-            this.dateTimePickeree_fcompra.TabIndex = 13;
-            // 
-            // comboBoxee_tipo
-            // 
-            this.comboBoxee_tipo.FormattingEnabled = true;
-            this.comboBoxee_tipo.Items.AddRange(new object[] {
-            "Cardio"});
-            this.comboBoxee_tipo.Location = new System.Drawing.Point(296, 89);
-            this.comboBoxee_tipo.Name = "comboBoxee_tipo";
-            this.comboBoxee_tipo.Size = new System.Drawing.Size(183, 21);
-            this.comboBoxee_tipo.TabIndex = 12;
-            // 
-            // textBoxee_numserie
-            // 
-            this.textBoxee_numserie.Location = new System.Drawing.Point(29, 89);
-            this.textBoxee_numserie.Name = "textBoxee_numserie";
-            this.textBoxee_numserie.Size = new System.Drawing.Size(248, 22);
-            this.textBoxee_numserie.TabIndex = 11;
-            // 
-            // panel_equip_show_all
-            // 
-            this.panel_equip_show_all.Controls.Add(this.label35);
-            this.panel_equip_show_all.Controls.Add(this.dataGridView_equip);
-            this.panel_equip_show_all.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_equip_show_all.Location = new System.Drawing.Point(0, 24);
-            this.panel_equip_show_all.Name = "panel_equip_show_all";
-            this.panel_equip_show_all.Size = new System.Drawing.Size(509, 404);
-            this.panel_equip_show_all.TabIndex = 4;
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Font = new System.Drawing.Font("Malgun Gothic", 15.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label35.Location = new System.Drawing.Point(19, 10);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(103, 30);
-            this.label35.TabIndex = 1;
-            this.label35.Text = "Aparatos:";
-            // 
-            // dataGridView_equip
-            // 
-            this.dataGridView_equip.BackgroundColor = System.Drawing.Color.LightSlateGray;
-            this.dataGridView_equip.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_equip.Location = new System.Drawing.Point(17, 50);
-            this.dataGridView_equip.Name = "dataGridView_equip";
-            this.dataGridView_equip.Size = new System.Drawing.Size(475, 342);
-            this.dataGridView_equip.TabIndex = 0;
-            // 
-            // panel_equip_show_one
-            // 
-            this.panel_equip_show_one.Controls.Add(this.button1);
-            this.panel_equip_show_one.Controls.Add(this.label56);
-            this.panel_equip_show_one.Controls.Add(this.textBoxME_Nom);
-            this.panel_equip_show_one.Controls.Add(this.label57);
-            this.panel_equip_show_one.Controls.Add(this.label58);
-            this.panel_equip_show_one.Controls.Add(this.label59);
-            this.panel_equip_show_one.Controls.Add(this.label60);
-            this.panel_equip_show_one.Controls.Add(this.dateTimePickerME_FM);
-            this.panel_equip_show_one.Controls.Add(this.dateTimePickerME_FC);
-            this.panel_equip_show_one.Controls.Add(this.comboBoxME_T);
-            this.panel_equip_show_one.Controls.Add(this.textBoxME_NS);
-            this.panel_equip_show_one.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_equip_show_one.Location = new System.Drawing.Point(0, 24);
-            this.panel_equip_show_one.Name = "panel_equip_show_one";
-            this.panel_equip_show_one.Size = new System.Drawing.Size(509, 404);
-            this.panel_equip_show_one.TabIndex = 5;
-            // 
-            // panel_inform
-            // 
-            this.panel_inform.Controls.Add(this.label36);
-            this.panel_inform.Controls.Add(this.dataGridView_Pagos);
-            this.panel_inform.Controls.Add(this.dataGridView_Mantenimiento);
-            this.panel_inform.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_inform.Location = new System.Drawing.Point(0, 24);
-            this.panel_inform.Name = "panel_inform";
-            this.panel_inform.Size = new System.Drawing.Size(509, 404);
-            this.panel_inform.TabIndex = 6;
-            // 
-            // label36
-            // 
-            this.label36.AutoSize = true;
-            this.label36.Font = new System.Drawing.Font("Malgun Gothic", 14.25F);
-            this.label36.Location = new System.Drawing.Point(21, 10);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(73, 25);
-            this.label36.TabIndex = 2;
-            this.label36.Text = "label36";
-            // 
-            // dataGridView_Pagos
-            // 
-            this.dataGridView_Pagos.AllowUserToAddRows = false;
-            this.dataGridView_Pagos.AllowUserToDeleteRows = false;
-            this.dataGridView_Pagos.BackgroundColor = System.Drawing.Color.LightSlateGray;
-            this.dataGridView_Pagos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_Pagos.Location = new System.Drawing.Point(17, 50);
-            this.dataGridView_Pagos.Name = "dataGridView_Pagos";
-            this.dataGridView_Pagos.ReadOnly = true;
-            this.dataGridView_Pagos.Size = new System.Drawing.Size(475, 342);
-            this.dataGridView_Pagos.TabIndex = 1;
-            this.dataGridView_Pagos.Visible = false;
-            // 
-            // dataGridView_Mantenimiento
-            // 
-            this.dataGridView_Mantenimiento.BackgroundColor = System.Drawing.Color.LightSlateGray;
-            this.dataGridView_Mantenimiento.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_Mantenimiento.Location = new System.Drawing.Point(17, 50);
-            this.dataGridView_Mantenimiento.Name = "dataGridView_Mantenimiento";
-            this.dataGridView_Mantenimiento.Size = new System.Drawing.Size(475, 342);
-            this.dataGridView_Mantenimiento.TabIndex = 0;
-            this.dataGridView_Mantenimiento.Visible = false;
             // 
             // label37
             // 
@@ -1389,6 +1057,7 @@
             this.textBoxM_P.Size = new System.Drawing.Size(274, 22);
             this.textBoxM_P.TabIndex = 88;
             this.textBoxM_P.Visible = false;
+            this.textBoxM_P.Leave += new System.EventHandler(this.textboxCheck);
             // 
             // dateTimePickerM_FP
             // 
@@ -1581,6 +1250,7 @@
             this.textBoxM_Ciu.Name = "textBoxM_Ciu";
             this.textBoxM_Ciu.Size = new System.Drawing.Size(161, 22);
             this.textBoxM_Ciu.TabIndex = 70;
+            this.textBoxM_Ciu.Leave += new System.EventHandler(this.textboxCheck);
             // 
             // textBoxM_Col
             // 
@@ -1589,6 +1259,7 @@
             this.textBoxM_Col.Name = "textBoxM_Col";
             this.textBoxM_Col.Size = new System.Drawing.Size(216, 22);
             this.textBoxM_Col.TabIndex = 69;
+            this.textBoxM_Col.Leave += new System.EventHandler(this.textboxCheck);
             // 
             // textBoxM_Int
             // 
@@ -1599,6 +1270,7 @@
             this.textBoxM_Int.TabIndex = 68;
             this.textBoxM_Int.Text = "Opcional";
             this.textBoxM_Int.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxM_Int.Leave += new System.EventHandler(this.textboxCheck);
             // 
             // textBoxM_Num
             // 
@@ -1607,6 +1279,7 @@
             this.textBoxM_Num.Name = "textBoxM_Num";
             this.textBoxM_Num.Size = new System.Drawing.Size(77, 22);
             this.textBoxM_Num.TabIndex = 67;
+            this.textBoxM_Num.Leave += new System.EventHandler(this.textboxCheck);
             // 
             // textBoxM_C
             // 
@@ -1615,6 +1288,7 @@
             this.textBoxM_C.Name = "textBoxM_C";
             this.textBoxM_C.Size = new System.Drawing.Size(216, 22);
             this.textBoxM_C.TabIndex = 66;
+            this.textBoxM_C.Leave += new System.EventHandler(this.textboxCheck);
             // 
             // textBoxM_EM
             // 
@@ -1623,6 +1297,7 @@
             this.textBoxM_EM.Name = "textBoxM_EM";
             this.textBoxM_EM.Size = new System.Drawing.Size(222, 22);
             this.textBoxM_EM.TabIndex = 65;
+            this.textBoxM_EM.Leave += new System.EventHandler(this.textboxCheck);
             // 
             // textBoxM_T
             // 
@@ -1631,6 +1306,7 @@
             this.textBoxM_T.Name = "textBoxM_T";
             this.textBoxM_T.Size = new System.Drawing.Size(153, 22);
             this.textBoxM_T.TabIndex = 64;
+            this.textBoxM_T.Leave += new System.EventHandler(this.textboxCheck);
             // 
             // textBoxM_AM
             // 
@@ -1639,6 +1315,7 @@
             this.textBoxM_AM.Name = "textBoxM_AM";
             this.textBoxM_AM.Size = new System.Drawing.Size(100, 22);
             this.textBoxM_AM.TabIndex = 63;
+            this.textBoxM_AM.Leave += new System.EventHandler(this.textboxCheck);
             // 
             // textBoxM_AP
             // 
@@ -1647,6 +1324,7 @@
             this.textBoxM_AP.Name = "textBoxM_AP";
             this.textBoxM_AP.Size = new System.Drawing.Size(100, 22);
             this.textBoxM_AP.TabIndex = 62;
+            this.textBoxM_AP.Leave += new System.EventHandler(this.textboxCheck);
             // 
             // textBoxM_Nom
             // 
@@ -1655,6 +1333,349 @@
             this.textBoxM_Nom.Name = "textBoxM_Nom";
             this.textBoxM_Nom.Size = new System.Drawing.Size(153, 22);
             this.textBoxM_Nom.TabIndex = 61;
+            this.textBoxM_Nom.Leave += new System.EventHandler(this.textboxCheck);
+            // 
+            // button_eliminaclie
+            // 
+            this.button_eliminaclie.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_eliminaclie.Location = new System.Drawing.Point(371, 361);
+            this.button_eliminaclie.Name = "button_eliminaclie";
+            this.button_eliminaclie.Size = new System.Drawing.Size(77, 29);
+            this.button_eliminaclie.TabIndex = 60;
+            this.button_eliminaclie.Text = "Eliminar";
+            this.button_eliminaclie.UseVisualStyleBackColor = true;
+            this.button_eliminaclie.Click += new System.EventHandler(this.button_eliminaclie_Click);
+            // 
+            // button_regpago
+            // 
+            this.button_regpago.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_regpago.Location = new System.Drawing.Point(276, 361);
+            this.button_regpago.Name = "button_regpago";
+            this.button_regpago.Size = new System.Drawing.Size(81, 31);
+            this.button_regpago.TabIndex = 57;
+            this.button_regpago.Text = "Pago";
+            this.button_regpago.UseVisualStyleBackColor = true;
+            this.button_regpago.Visible = false;
+            this.button_regpago.Click += new System.EventHandler(this.button_regpago_Click);
+            // 
+            // panel_equip_new
+            // 
+            this.panel_equip_new.BackColor = System.Drawing.Color.SteelBlue;
+            this.panel_equip_new.Controls.Add(this.label34);
+            this.panel_equip_new.Controls.Add(this.textBox_NombreE);
+            this.panel_equip_new.Controls.Add(this.label17);
+            this.panel_equip_new.Controls.Add(this.label16);
+            this.panel_equip_new.Controls.Add(this.label15);
+            this.panel_equip_new.Controls.Add(this.label14);
+            this.panel_equip_new.Controls.Add(this.button_Save_Equip);
+            this.panel_equip_new.Controls.Add(this.dateTimePicker_FMantenimiento);
+            this.panel_equip_new.Controls.Add(this.dateTimePicker_FCompra);
+            this.panel_equip_new.Controls.Add(this.comboBox_Tipo);
+            this.panel_equip_new.Controls.Add(this.textBox_NSerie);
+            this.panel_equip_new.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_equip_new.Location = new System.Drawing.Point(0, 0);
+            this.panel_equip_new.Name = "panel_equip_new";
+            this.panel_equip_new.Size = new System.Drawing.Size(509, 428);
+            this.panel_equip_new.TabIndex = 3;
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label34.Location = new System.Drawing.Point(221, 67);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(50, 13);
+            this.label34.TabIndex = 10;
+            this.label34.Text = "Nombre";
+            // 
+            // textBox_NombreE
+            // 
+            this.textBox_NombreE.Location = new System.Drawing.Point(24, 33);
+            this.textBox_NombreE.Name = "textBox_NombreE";
+            this.textBox_NombreE.Size = new System.Drawing.Size(450, 22);
+            this.textBox_NombreE.TabIndex = 9;
+            this.textBox_NombreE.Leave += new System.EventHandler(this.textboxCheck);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(168, 184);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(139, 13);
+            this.label17.TabIndex = 8;
+            this.label17.Text = "Fecha de Mantenimiento";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(33, 183);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(99, 13);
+            this.label16.TabIndex = 7;
+            this.label16.Text = "Fecha de Compra";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(371, 124);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(30, 13);
+            this.label15.TabIndex = 6;
+            this.label15.Text = "Tipo";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(87, 124);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(96, 13);
+            this.label14.TabIndex = 5;
+            this.label14.Text = "Numero de Serie";
+            // 
+            // button_Save_Equip
+            // 
+            this.button_Save_Equip.Location = new System.Drawing.Point(217, 351);
+            this.button_Save_Equip.Name = "button_Save_Equip";
+            this.button_Save_Equip.Size = new System.Drawing.Size(75, 23);
+            this.button_Save_Equip.TabIndex = 4;
+            this.button_Save_Equip.Text = "Agregar";
+            this.button_Save_Equip.UseVisualStyleBackColor = true;
+            this.button_Save_Equip.Click += new System.EventHandler(this.button_Save_Equip_Click);
+            // 
+            // dateTimePicker_FMantenimiento
+            // 
+            this.dateTimePicker_FMantenimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker_FMantenimiento.Location = new System.Drawing.Point(184, 150);
+            this.dateTimePicker_FMantenimiento.Name = "dateTimePicker_FMantenimiento";
+            this.dateTimePicker_FMantenimiento.Size = new System.Drawing.Size(108, 22);
+            this.dateTimePicker_FMantenimiento.TabIndex = 3;
+            // 
+            // dateTimePicker_FCompra
+            // 
+            this.dateTimePicker_FCompra.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker_FCompra.Location = new System.Drawing.Point(24, 150);
+            this.dateTimePicker_FCompra.Name = "dateTimePicker_FCompra";
+            this.dateTimePicker_FCompra.Size = new System.Drawing.Size(108, 22);
+            this.dateTimePicker_FCompra.TabIndex = 2;
+            // 
+            // comboBox_Tipo
+            // 
+            this.comboBox_Tipo.FormattingEnabled = true;
+            this.comboBox_Tipo.Items.AddRange(new object[] {
+            "Cardio",
+            "Pecho",
+            "Tricep",
+            "Bicep",
+            "Pierna",
+            "Espalda",
+            "Abdomen",
+            "Multi",
+            "Otro"});
+            this.comboBox_Tipo.Location = new System.Drawing.Point(291, 90);
+            this.comboBox_Tipo.Name = "comboBox_Tipo";
+            this.comboBox_Tipo.Size = new System.Drawing.Size(183, 21);
+            this.comboBox_Tipo.TabIndex = 1;
+            this.comboBox_Tipo.Leave += new System.EventHandler(this.textboxCheck);
+            // 
+            // textBox_NSerie
+            // 
+            this.textBox_NSerie.Location = new System.Drawing.Point(24, 90);
+            this.textBox_NSerie.Name = "textBox_NSerie";
+            this.textBox_NSerie.Size = new System.Drawing.Size(248, 22);
+            this.textBox_NSerie.TabIndex = 0;
+            this.textBox_NSerie.Leave += new System.EventHandler(this.textboxCheck);
+            // 
+            // panel_equip_edit
+            // 
+            this.panel_equip_edit.Controls.Add(this.label39);
+            this.panel_equip_edit.Controls.Add(this.textBoxee_nombre);
+            this.panel_equip_edit.Controls.Add(this.label41);
+            this.panel_equip_edit.Controls.Add(this.label42);
+            this.panel_equip_edit.Controls.Add(this.label43);
+            this.panel_equip_edit.Controls.Add(this.label44);
+            this.panel_equip_edit.Controls.Add(this.buttonee_save);
+            this.panel_equip_edit.Controls.Add(this.dateTimePickeree_fmant);
+            this.panel_equip_edit.Controls.Add(this.dateTimePickeree_fcompra);
+            this.panel_equip_edit.Controls.Add(this.comboBoxee_tipo);
+            this.panel_equip_edit.Controls.Add(this.textBoxee_numserie);
+            this.panel_equip_edit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_equip_edit.Location = new System.Drawing.Point(0, 0);
+            this.panel_equip_edit.Name = "panel_equip_edit";
+            this.panel_equip_edit.Size = new System.Drawing.Size(509, 428);
+            this.panel_equip_edit.TabIndex = 3;
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label39.Location = new System.Drawing.Point(226, 94);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(50, 13);
+            this.label39.TabIndex = 21;
+            this.label39.Text = "Nombre";
+            // 
+            // textBoxee_nombre
+            // 
+            this.textBoxee_nombre.Location = new System.Drawing.Point(29, 60);
+            this.textBoxee_nombre.Name = "textBoxee_nombre";
+            this.textBoxee_nombre.Size = new System.Drawing.Size(450, 22);
+            this.textBoxee_nombre.TabIndex = 20;
+            this.textBoxee_nombre.Leave += new System.EventHandler(this.textboxCheck);
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label41.Location = new System.Drawing.Point(173, 211);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(139, 13);
+            this.label41.TabIndex = 19;
+            this.label41.Text = "Fecha de Mantenimiento";
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label42.Location = new System.Drawing.Point(38, 210);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(99, 13);
+            this.label42.TabIndex = 18;
+            this.label42.Text = "Fecha de Compra";
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label43.Location = new System.Drawing.Point(376, 151);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(30, 13);
+            this.label43.TabIndex = 17;
+            this.label43.Text = "Tipo";
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label44.Location = new System.Drawing.Point(92, 151);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(96, 13);
+            this.label44.TabIndex = 16;
+            this.label44.Text = "Numero de Serie";
+            // 
+            // buttonee_save
+            // 
+            this.buttonee_save.Location = new System.Drawing.Point(222, 350);
+            this.buttonee_save.Name = "buttonee_save";
+            this.buttonee_save.Size = new System.Drawing.Size(75, 23);
+            this.buttonee_save.TabIndex = 15;
+            this.buttonee_save.Text = "Guardar";
+            this.buttonee_save.UseVisualStyleBackColor = true;
+            this.buttonee_save.Click += new System.EventHandler(this.buttonee_save_Click);
+            // 
+            // dateTimePickeree_fmant
+            // 
+            this.dateTimePickeree_fmant.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickeree_fmant.Location = new System.Drawing.Point(189, 177);
+            this.dateTimePickeree_fmant.Name = "dateTimePickeree_fmant";
+            this.dateTimePickeree_fmant.Size = new System.Drawing.Size(108, 22);
+            this.dateTimePickeree_fmant.TabIndex = 14;
+            // 
+            // dateTimePickeree_fcompra
+            // 
+            this.dateTimePickeree_fcompra.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickeree_fcompra.Location = new System.Drawing.Point(29, 177);
+            this.dateTimePickeree_fcompra.Name = "dateTimePickeree_fcompra";
+            this.dateTimePickeree_fcompra.Size = new System.Drawing.Size(108, 22);
+            this.dateTimePickeree_fcompra.TabIndex = 13;
+            // 
+            // comboBoxee_tipo
+            // 
+            this.comboBoxee_tipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
+            this.comboBoxee_tipo.FormattingEnabled = true;
+            this.comboBoxee_tipo.Items.AddRange(new object[] {
+            "Cardio",
+            "Pecho",
+            "Tricep",
+            "Bicep",
+            "Pierna",
+            "Espalda",
+            "Abdomen",
+            "Multi",
+            "Otro"});
+            this.comboBoxee_tipo.Location = new System.Drawing.Point(296, 117);
+            this.comboBoxee_tipo.Name = "comboBoxee_tipo";
+            this.comboBoxee_tipo.Size = new System.Drawing.Size(183, 21);
+            this.comboBoxee_tipo.TabIndex = 12;
+            // 
+            // textBoxee_numserie
+            // 
+            this.textBoxee_numserie.Location = new System.Drawing.Point(29, 117);
+            this.textBoxee_numserie.Name = "textBoxee_numserie";
+            this.textBoxee_numserie.Size = new System.Drawing.Size(248, 22);
+            this.textBoxee_numserie.TabIndex = 11;
+            this.textBoxee_numserie.Leave += new System.EventHandler(this.textboxCheck);
+            // 
+            // panel_equip_show_all
+            // 
+            this.panel_equip_show_all.Controls.Add(this.label35);
+            this.panel_equip_show_all.Controls.Add(this.dataGridView_equip);
+            this.panel_equip_show_all.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_equip_show_all.Location = new System.Drawing.Point(0, 0);
+            this.panel_equip_show_all.Name = "panel_equip_show_all";
+            this.panel_equip_show_all.Size = new System.Drawing.Size(509, 428);
+            this.panel_equip_show_all.TabIndex = 4;
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Font = new System.Drawing.Font("Malgun Gothic", 15.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label35.Location = new System.Drawing.Point(19, 10);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(103, 30);
+            this.label35.TabIndex = 1;
+            this.label35.Text = "Aparatos:";
+            // 
+            // dataGridView_equip
+            // 
+            this.dataGridView_equip.BackgroundColor = System.Drawing.Color.LightSlateGray;
+            this.dataGridView_equip.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_equip.Location = new System.Drawing.Point(17, 50);
+            this.dataGridView_equip.Name = "dataGridView_equip";
+            this.dataGridView_equip.Size = new System.Drawing.Size(475, 342);
+            this.dataGridView_equip.TabIndex = 0;
+            // 
+            // panel_equip_show_one
+            // 
+            this.panel_equip_show_one.Controls.Add(this.button1);
+            this.panel_equip_show_one.Controls.Add(this.label56);
+            this.panel_equip_show_one.Controls.Add(this.textBoxME_Nom);
+            this.panel_equip_show_one.Controls.Add(this.label57);
+            this.panel_equip_show_one.Controls.Add(this.label58);
+            this.panel_equip_show_one.Controls.Add(this.label59);
+            this.panel_equip_show_one.Controls.Add(this.label60);
+            this.panel_equip_show_one.Controls.Add(this.dateTimePickerME_FM);
+            this.panel_equip_show_one.Controls.Add(this.dateTimePickerME_FC);
+            this.panel_equip_show_one.Controls.Add(this.comboBoxME_T);
+            this.panel_equip_show_one.Controls.Add(this.textBoxME_NS);
+            this.panel_equip_show_one.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_equip_show_one.Location = new System.Drawing.Point(0, 0);
+            this.panel_equip_show_one.Name = "panel_equip_show_one";
+            this.panel_equip_show_one.Size = new System.Drawing.Size(509, 428);
+            this.panel_equip_show_one.TabIndex = 5;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(205, 308);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(109, 34);
+            this.button1.TabIndex = 32;
+            this.button1.Text = "Mantenimiento";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
             // 
             // label56
             // 
@@ -1674,6 +1695,7 @@
             this.textBoxME_Nom.Name = "textBoxME_Nom";
             this.textBoxME_Nom.Size = new System.Drawing.Size(450, 22);
             this.textBoxME_Nom.TabIndex = 30;
+            this.textBoxME_Nom.Leave += new System.EventHandler(this.textboxCheck);
             // 
             // label57
             // 
@@ -1742,11 +1764,20 @@
             this.comboBoxME_T.Enabled = false;
             this.comboBoxME_T.FormattingEnabled = true;
             this.comboBoxME_T.Items.AddRange(new object[] {
-            "Cardio"});
+            "Cardio",
+            "Pecho",
+            "Tricep",
+            "Bicep",
+            "Pierna",
+            "Espalda",
+            "Abdomen",
+            "Multi",
+            "Otro"});
             this.comboBoxME_T.Location = new System.Drawing.Point(296, 92);
             this.comboBoxME_T.Name = "comboBoxME_T";
             this.comboBoxME_T.Size = new System.Drawing.Size(183, 21);
             this.comboBoxME_T.TabIndex = 23;
+            this.comboBoxME_T.Leave += new System.EventHandler(this.textboxCheck);
             // 
             // textBoxME_NS
             // 
@@ -1755,16 +1786,51 @@
             this.textBoxME_NS.Name = "textBoxME_NS";
             this.textBoxME_NS.Size = new System.Drawing.Size(248, 22);
             this.textBoxME_NS.TabIndex = 22;
+            this.textBoxME_NS.Leave += new System.EventHandler(this.textboxCheck);
             // 
-            // button1
+            // panel_inform
             // 
-            this.button1.Location = new System.Drawing.Point(205, 308);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(109, 34);
-            this.button1.TabIndex = 32;
-            this.button1.Text = "Mantenimiento";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Visible = false;
+            this.panel_inform.Controls.Add(this.label36);
+            this.panel_inform.Controls.Add(this.dataGridView_Pagos);
+            this.panel_inform.Controls.Add(this.dataGridView_Mantenimiento);
+            this.panel_inform.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_inform.Location = new System.Drawing.Point(0, 0);
+            this.panel_inform.Name = "panel_inform";
+            this.panel_inform.Size = new System.Drawing.Size(509, 428);
+            this.panel_inform.TabIndex = 6;
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Font = new System.Drawing.Font("Malgun Gothic", 14.25F);
+            this.label36.Location = new System.Drawing.Point(21, 10);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(73, 25);
+            this.label36.TabIndex = 2;
+            this.label36.Text = "label36";
+            // 
+            // dataGridView_Pagos
+            // 
+            this.dataGridView_Pagos.AllowUserToAddRows = false;
+            this.dataGridView_Pagos.AllowUserToDeleteRows = false;
+            this.dataGridView_Pagos.BackgroundColor = System.Drawing.Color.LightSlateGray;
+            this.dataGridView_Pagos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_Pagos.Location = new System.Drawing.Point(17, 50);
+            this.dataGridView_Pagos.Name = "dataGridView_Pagos";
+            this.dataGridView_Pagos.ReadOnly = true;
+            this.dataGridView_Pagos.Size = new System.Drawing.Size(475, 342);
+            this.dataGridView_Pagos.TabIndex = 1;
+            this.dataGridView_Pagos.Visible = false;
+            // 
+            // dataGridView_Mantenimiento
+            // 
+            this.dataGridView_Mantenimiento.BackgroundColor = System.Drawing.Color.LightSlateGray;
+            this.dataGridView_Mantenimiento.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_Mantenimiento.Location = new System.Drawing.Point(17, 50);
+            this.dataGridView_Mantenimiento.Name = "dataGridView_Mantenimiento";
+            this.dataGridView_Mantenimiento.Size = new System.Drawing.Size(475, 342);
+            this.dataGridView_Mantenimiento.TabIndex = 0;
+            this.dataGridView_Mantenimiento.Visible = false;
             // 
             // Personal_Recepcion
             // 
@@ -1772,6 +1838,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(509, 428);
+            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.panel_equip_edit);
             this.Controls.Add(this.panel_equip_show_one);
             this.Controls.Add(this.panel_client_show_one);
@@ -1781,7 +1848,6 @@
             this.Controls.Add(this.panel_client_new);
             this.Controls.Add(this.panel_equip_show_all);
             this.Controls.Add(this.panel_client_show_all);
-            this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;

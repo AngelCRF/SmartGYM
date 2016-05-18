@@ -235,17 +235,31 @@ namespace GYM
                 reader4.Read();
                 IDC = Convert.ToInt32(reader4.GetInt32(0)) + 1;
                 reader4.Close();
-                String consultaC = "INSERT INTO cliente (idcliente, nombres, apellido_1, apellido_2, telefono_movil, correo_electronico, iddireccion, tipo_de_pago, fecha_de_corte, tipo_de_sangre, contraseña, idrutina) Values('" +
-                    IDC + "','" + DatosC[0] + "','" + DatosC[1] + "','" + DatosC[2] +
-                    "','" + DatosC[3] + "','" + DatosC[4] + "','" + IDD + "','" + DatosC[5] +
-                    "','" + DatosC[6] + "','" + DatosC[7] + "','" + DatosC[8] +"','" +1 + "');";
-                NpgsqlCommand cmdC = new NpgsqlCommand(consultaC, con.Conn);
-                NpgsqlDataReader reader3 = cmdC.ExecuteReader();
-                reader3.Read();
-                reader3.Close();
-                MessageBox.Show("Cliente guardado ", ("Id= " + IDC + "\n Contraseña= " + DatosC[8]), MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                con.Close();
-                return true;
+                try
+                {
+                    String consultaC = "INSERT INTO cliente (idcliente, nombres, apellido_1, apellido_2, telefono_movil, correo_electronico, iddireccion, tipo_de_pago, fecha_de_corte, tipo_de_sangre, contraseña, idrutina) Values('" +
+                        IDC + "','" + DatosC[0] + "','" + DatosC[1] + "','" + DatosC[2] +
+                        "','" + DatosC[3] + "','" + DatosC[4] + "','" + IDD + "','" + DatosC[5] +
+                        "','" + DatosC[6] + "','" + DatosC[7] + "','" + DatosC[8] + "','" + 1 + "');";
+                    NpgsqlCommand cmdC = new NpgsqlCommand(consultaC, con.Conn);
+                    NpgsqlDataReader reader3 = cmdC.ExecuteReader();
+                    reader3.Read();
+                    reader3.Close();
+                    MessageBox.Show("Cliente guardado ", ("Id= " + IDC + "\n Contraseña= " + DatosC[8]), MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    con.Close();
+                    return true;
+                }
+                catch (Exception e)
+                {
+                    String consultaE = "DELETE FROM direccion WHERE iddireccion="+IDD+";";
+                    NpgsqlCommand cmdE = new NpgsqlCommand(consultaE, con.Conn);
+                    reader = cmdE.ExecuteReader();
+                    reader.Read();
+                    reader.Close();
+                    MessageBox.Show("Error" + e.Message);
+                    con.Close();
+                    return false;
+                }
             }
             catch (Exception e)
             {
