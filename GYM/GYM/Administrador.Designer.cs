@@ -59,6 +59,8 @@
             this.textBox_NuevoApellido1 = new System.Windows.Forms.TextBox();
             this.textBox_NuevoNombre = new System.Windows.Forms.TextBox();
             this.panel_Editar = new System.Windows.Forms.Panel();
+            this.labeldir = new System.Windows.Forms.Label();
+            this.label_id = new System.Windows.Forms.Label();
             this.comboBox_EditarPuesto = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.textBox_8EditarContraseña = new System.Windows.Forms.TextBox();
@@ -82,12 +84,20 @@
             this.textBox_EditarAp2 = new System.Windows.Forms.TextBox();
             this.textBox_EditarApellido1 = new System.Windows.Forms.TextBox();
             this.textBox_EditarNombr0 = new System.Windows.Forms.TextBox();
-            this.label_id = new System.Windows.Forms.Label();
-            this.labeldir = new System.Windows.Forms.Label();
-            this.panel_VerTYrabajadores = new System.Windows.Forms.Panel();
+            this.panel_VerT5ranajadores = new System.Windows.Forms.Panel();
+            this.dataGridView_VerTrabajadores = new System.Windows.Forms.DataGridView();
+            this.label22 = new System.Windows.Forms.Label();
+            this.panel_inicio = new System.Windows.Forms.Panel();
+            this.panel_EliminarTrabajador = new System.Windows.Forms.Panel();
+            this.textBox_EliminarTrabajador = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.button_EliminarTrabajador = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.panel_NuevoTrabajadoir.SuspendLayout();
             this.panel_Editar.SuspendLayout();
+            this.panel_VerT5ranajadores.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_VerTrabajadores)).BeginInit();
+            this.panel_EliminarTrabajador.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -115,32 +125,30 @@
             // crearToolStripMenuItem
             // 
             this.crearToolStripMenuItem.Name = "crearToolStripMenuItem";
-            this.crearToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.crearToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.crearToolStripMenuItem.Text = "Nuevo";
             this.crearToolStripMenuItem.Click += new System.EventHandler(this.crearToolStripMenuItem_Click);
             // 
             // verTodosToolStripMenuItem
             // 
             this.verTodosToolStripMenuItem.Name = "verTodosToolStripMenuItem";
-            this.verTodosToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.verTodosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.verTodosToolStripMenuItem.Text = "Mostrar todos";
-            this.verTodosToolStripMenuItem.Visible = false;
             this.verTodosToolStripMenuItem.Click += new System.EventHandler(this.verTodosToolStripMenuItem_Click);
             // 
             // modificarToolStripMenuItem
             // 
             this.modificarToolStripMenuItem.Name = "modificarToolStripMenuItem";
-            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.modificarToolStripMenuItem.Text = "Editar";
-            this.modificarToolStripMenuItem.Visible = false;
             this.modificarToolStripMenuItem.Click += new System.EventHandler(this.modificarToolStripMenuItem_Click);
             // 
             // eliminarToolStripMenuItem
             // 
             this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
-            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.eliminarToolStripMenuItem.Text = "Eliminar";
-            this.eliminarToolStripMenuItem.Visible = false;
+            this.eliminarToolStripMenuItem.Click += new System.EventHandler(this.eliminarToolStripMenuItem_Click);
             // 
             // panel_NuevoTrabajadoir
             // 
@@ -417,6 +425,26 @@
             this.panel_Editar.Size = new System.Drawing.Size(603, 360);
             this.panel_Editar.TabIndex = 24;
             // 
+            // labeldir
+            // 
+            this.labeldir.AutoSize = true;
+            this.labeldir.Location = new System.Drawing.Point(292, 230);
+            this.labeldir.Name = "labeldir";
+            this.labeldir.Size = new System.Drawing.Size(18, 13);
+            this.labeldir.TabIndex = 48;
+            this.labeldir.Text = "dir";
+            this.labeldir.Visible = false;
+            // 
+            // label_id
+            // 
+            this.label_id.AutoSize = true;
+            this.label_id.Location = new System.Drawing.Point(266, 230);
+            this.label_id.Name = "label_id";
+            this.label_id.Size = new System.Drawing.Size(15, 13);
+            this.label_id.TabIndex = 47;
+            this.label_id.Text = "id";
+            this.label_id.Visible = false;
+            // 
             // comboBox_EditarPuesto
             // 
             this.comboBox_EditarPuesto.FormattingEnabled = true;
@@ -631,33 +659,85 @@
             this.textBox_EditarNombr0.TabIndex = 24;
             this.textBox_EditarNombr0.Leave += new System.EventHandler(this.textboxCheck);
             // 
-            // label_id
+            // panel_VerT5ranajadores
             // 
-            this.label_id.AutoSize = true;
-            this.label_id.Location = new System.Drawing.Point(266, 230);
-            this.label_id.Name = "label_id";
-            this.label_id.Size = new System.Drawing.Size(15, 13);
-            this.label_id.TabIndex = 47;
-            this.label_id.Text = "id";
-            this.label_id.Visible = false;
+            this.panel_VerT5ranajadores.Controls.Add(this.label22);
+            this.panel_VerT5ranajadores.Controls.Add(this.dataGridView_VerTrabajadores);
+            this.panel_VerT5ranajadores.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_VerT5ranajadores.Location = new System.Drawing.Point(0, 24);
+            this.panel_VerT5ranajadores.Name = "panel_VerT5ranajadores";
+            this.panel_VerT5ranajadores.Size = new System.Drawing.Size(603, 360);
+            this.panel_VerT5ranajadores.TabIndex = 49;
             // 
-            // labeldir
+            // dataGridView_VerTrabajadores
             // 
-            this.labeldir.AutoSize = true;
-            this.labeldir.Location = new System.Drawing.Point(292, 230);
-            this.labeldir.Name = "labeldir";
-            this.labeldir.Size = new System.Drawing.Size(18, 13);
-            this.labeldir.TabIndex = 48;
-            this.labeldir.Text = "dir";
-            this.labeldir.Visible = false;
+            this.dataGridView_VerTrabajadores.AllowUserToAddRows = false;
+            this.dataGridView_VerTrabajadores.AllowUserToDeleteRows = false;
+            this.dataGridView_VerTrabajadores.BackgroundColor = System.Drawing.Color.SteelBlue;
+            this.dataGridView_VerTrabajadores.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridView_VerTrabajadores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_VerTrabajadores.Location = new System.Drawing.Point(15, 80);
+            this.dataGridView_VerTrabajadores.Name = "dataGridView_VerTrabajadores";
+            this.dataGridView_VerTrabajadores.ReadOnly = true;
+            this.dataGridView_VerTrabajadores.Size = new System.Drawing.Size(576, 233);
+            this.dataGridView_VerTrabajadores.TabIndex = 0;
             // 
-            // panel_VerTYrabajadores
+            // label22
             // 
-            this.panel_VerTYrabajadores.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_VerTYrabajadores.Location = new System.Drawing.Point(0, 24);
-            this.panel_VerTYrabajadores.Name = "panel_VerTYrabajadores";
-            this.panel_VerTYrabajadores.Size = new System.Drawing.Size(603, 360);
-            this.panel_VerTYrabajadores.TabIndex = 49;
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(15, 57);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(69, 13);
+            this.label22.TabIndex = 1;
+            this.label22.Text = "Trabajadores";
+            // 
+            // panel_inicio
+            // 
+            this.panel_inicio.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_inicio.Location = new System.Drawing.Point(0, 24);
+            this.panel_inicio.Name = "panel_inicio";
+            this.panel_inicio.Size = new System.Drawing.Size(603, 360);
+            this.panel_inicio.TabIndex = 2;
+            // 
+            // panel_EliminarTrabajador
+            // 
+            this.panel_EliminarTrabajador.Controls.Add(this.button_EliminarTrabajador);
+            this.panel_EliminarTrabajador.Controls.Add(this.label23);
+            this.panel_EliminarTrabajador.Controls.Add(this.textBox_EliminarTrabajador);
+            this.panel_EliminarTrabajador.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_EliminarTrabajador.Location = new System.Drawing.Point(0, 24);
+            this.panel_EliminarTrabajador.Name = "panel_EliminarTrabajador";
+            this.panel_EliminarTrabajador.Size = new System.Drawing.Size(603, 360);
+            this.panel_EliminarTrabajador.TabIndex = 50;
+            this.panel_EliminarTrabajador.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_EliminarTrabajador_Paint);
+            // 
+            // textBox_EliminarTrabajador
+            // 
+            this.textBox_EliminarTrabajador.Location = new System.Drawing.Point(229, 93);
+            this.textBox_EliminarTrabajador.Name = "textBox_EliminarTrabajador";
+            this.textBox_EliminarTrabajador.Size = new System.Drawing.Size(100, 20);
+            this.textBox_EliminarTrabajador.TabIndex = 0;
+            this.textBox_EliminarTrabajador.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.textBox_EliminarTrabajador.Leave += new System.EventHandler(this.textBoxInt);
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(197, 67);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(176, 13);
+            this.label23.TabIndex = 1;
+            this.label23.Text = "Ingrese el id del trabajador a elimnar";
+            // 
+            // button_EliminarTrabajador
+            // 
+            this.button_EliminarTrabajador.Location = new System.Drawing.Point(244, 142);
+            this.button_EliminarTrabajador.Name = "button_EliminarTrabajador";
+            this.button_EliminarTrabajador.Size = new System.Drawing.Size(75, 23);
+            this.button_EliminarTrabajador.TabIndex = 2;
+            this.button_EliminarTrabajador.Text = "Eliminar";
+            this.button_EliminarTrabajador.UseVisualStyleBackColor = true;
+            this.button_EliminarTrabajador.Click += new System.EventHandler(this.button_EliminarTrabajador_Click);
             // 
             // Administrador
             // 
@@ -665,7 +745,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(603, 384);
-            this.Controls.Add(this.panel_VerTYrabajadores);
+            this.Controls.Add(this.panel_EliminarTrabajador);
+            this.Controls.Add(this.panel_inicio);
+            this.Controls.Add(this.panel_VerT5ranajadores);
             this.Controls.Add(this.panel_Editar);
             this.Controls.Add(this.panel_NuevoTrabajadoir);
             this.Controls.Add(this.menuStrip1);
@@ -678,6 +760,11 @@
             this.panel_NuevoTrabajadoir.PerformLayout();
             this.panel_Editar.ResumeLayout(false);
             this.panel_Editar.PerformLayout();
+            this.panel_VerT5ranajadores.ResumeLayout(false);
+            this.panel_VerT5ranajadores.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_VerTrabajadores)).EndInit();
+            this.panel_EliminarTrabajador.ResumeLayout(false);
+            this.panel_EliminarTrabajador.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -741,6 +828,13 @@
         private System.Windows.Forms.TextBox textBox_EditarNombr0;
         private System.Windows.Forms.Label labeldir;
         private System.Windows.Forms.Label label_id;
-        private System.Windows.Forms.Panel panel_VerTYrabajadores;
+        private System.Windows.Forms.Panel panel_VerT5ranajadores;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.DataGridView dataGridView_VerTrabajadores;
+        private System.Windows.Forms.Panel panel_inicio;
+        private System.Windows.Forms.Panel panel_EliminarTrabajador;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.TextBox textBox_EliminarTrabajador;
+        private System.Windows.Forms.Button button_EliminarTrabajador;
     }
 }

@@ -35,6 +35,21 @@ namespace GYM
             return fecha;
         }
 
+        internal void MostrarTrabajadores(DataGridView aux)
+        {
+            con.Open();
+            try
+            {            
+                NpgsqlCommand cmd2 = new NpgsqlCommand(("select idtrabajador, nombre, apellido1, apellido2, sueldo, puesto  from trabajador "), con.Conn);
+                NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(cmd2);
+                DataSet datos = new DataSet();
+                adapter.Fill(datos);
+                aux.DataSource = datos.Tables[0];
+            }
+            catch (Exception ex) { MessageBox.Show("error de consulta en mostrar trabajadores: " + ex.Message); con.Close(); }
+            con.Close();
+        }
+
         internal void MostrarRutinaCliente(DataGridView aux , int id)
         {
             int rutina = -1;
@@ -126,6 +141,39 @@ namespace GYM
             return true;
         
     }
+
+        internal void EliminarTrabajador(string id)
+        {
+            con.Open();
+            NpgsqlTransaction trans = con.Conn.BeginTransaction(); ;
+            
+            try
+            {
+                
+                NpgsqlCommand cmd = new NpgsqlCommand(("select iddireccion from trabajador where idtrabajador = '"+id+"'"), con.Conn);
+                NpgsqlDataReader reader = cmd.ExecuteReader();
+                reader.Read();
+                int dir = reader.GetInt32(0);
+                reader.Close();
+
+                NpgsqlCommand cmd2 = new NpgsqlCommand(("delete from trabajador where idtrabajador = '" + id + "'"), con.Conn);
+                NpgsqlDataReader reader2 = cmd2.ExecuteReader();
+
+                NpgsqlCommand cmd3 = new NpgsqlCommand(("delete from direccion where iddireccion = '" + dir + "'"), con.Conn);
+                NpgsqlDataReader reader3 = cmd3.ExecuteReader();
+
+                MessageBox.Show("Trabajador eliminado exitosamente ", "Eliminación exitosa", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                trans.Commit();
+
+
+            }
+            catch (Exception ex) {
+                MessageBox.Show("No se pudo eliminar al trabajador "+ ex.Message, "Error de liminación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                trans.Rollback();
+                con.Close();
+            }
+            con.Close();
+        }
 
         internal void ActualizarTrabajador(string idt, string idd, List<TextBox> aux, String puesto)
         {
@@ -249,8 +297,8 @@ namespace GYM
         public Consultas()
         {
             //colocar su ruta
-            //con = new Conexion(datosCarlos);
-            con = new Conexion(datosKevin);
+            con = new Conexion(datosCarlos);
+            //con = new Conexion(datosKevin);
         }
 
         public void inserta()

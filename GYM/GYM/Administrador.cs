@@ -18,7 +18,7 @@ namespace GYM
         public Administrador()
         {
             InitializeComponent();
-
+            panel_inicio.BringToFront();
         }
 
         private void crearToolStripMenuItem_Click(object sender, EventArgs e)
@@ -28,7 +28,14 @@ namespace GYM
 
         private void verTodosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            panel_VerT5ranajadores.BringToFront();
+            con.MostrarTrabajadores(dataGridView_VerTrabajadores);
+            dataGridView_VerTrabajadores.Columns[0].HeaderCell.Value = "Clave de trabajador";
+            dataGridView_VerTrabajadores.Columns[1].HeaderCell.Value = "Nombre";
+            dataGridView_VerTrabajadores.Columns[2].HeaderCell.Value = "Apellido Paternon";
+            dataGridView_VerTrabajadores.Columns[3].HeaderCell.Value = "Apellido Materno";
+            dataGridView_VerTrabajadores.Columns[4].HeaderCell.Value = "Sueldo";
+            dataGridView_VerTrabajadores.Columns[5].HeaderCell.Value = "Puesto";
         }
 
         private void borrarDatos()
@@ -181,6 +188,26 @@ namespace GYM
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel_EliminarTrabajador_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button_EliminarTrabajador_Click(object sender, EventArgs e)
+        {
+            con.EliminarTrabajador(textBox_EliminarTrabajador.Text);
+        }
+
+        private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panel_EliminarTrabajador.BringToFront();
         }
     }
 }
