@@ -318,5 +318,20 @@ namespace GYM
                 con.updateRutinaCliente(textBox_cliente.Text, textBoxIdRutina.Text);
             }
         }
+
+        private void textBox_CrearHorasRutina_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                int a = Convert.ToInt32(textBox_CrearHorasRutina.Text.Split(':')[0]);
+                int b = Convert.ToInt32(textBox_CrearHorasRutina.Text.Split(':')[1]);
+                int c = Convert.ToInt32(textBox_CrearHorasRutina.Text.Split(':')[2]);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Formato correcto: \n hh:mm:ss"+"Error de formato");
+
+            }
+        }
     }
 }
