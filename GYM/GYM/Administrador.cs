@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -212,7 +213,12 @@ namespace GYM
 
         private void inscripcionesDelMesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            DateTime T = DateTime.Now;
+            String Aux = T.ToString().Split(' ')[0];
+            Aux = Aux.Split('/')[1] + Aux.Split('/')[2];
+            label24.Text += Aux;
+            panel_Reportes.BringToFront();
+            richTextBox_inform.LoadFile(Aux + ".txt");
         }
     }
 }

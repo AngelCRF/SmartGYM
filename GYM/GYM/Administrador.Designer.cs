@@ -28,12 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Administrador));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.trabajadoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.crearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verTodosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modificarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.inscripcionesDelMesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel_NuevoTrabajadoir = new System.Windows.Forms.Panel();
             this.comboBox_NuevoPuesto = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -93,10 +96,8 @@
             this.label23 = new System.Windows.Forms.Label();
             this.textBox_EliminarTrabajador = new System.Windows.Forms.TextBox();
             this.panel_Reportes = new System.Windows.Forms.Panel();
-            this.richTextBox_inform = new System.Windows.Forms.RichTextBox();
             this.label24 = new System.Windows.Forms.Label();
-            this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.inscripcionesDelMesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.richTextBox_inform = new System.Windows.Forms.RichTextBox();
             this.menuStrip1.SuspendLayout();
             this.panel_NuevoTrabajadoir.SuspendLayout();
             this.panel_Editar.SuspendLayout();
@@ -132,30 +133,45 @@
             // crearToolStripMenuItem
             // 
             this.crearToolStripMenuItem.Name = "crearToolStripMenuItem";
-            this.crearToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.crearToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.crearToolStripMenuItem.Text = "Nuevo";
             this.crearToolStripMenuItem.Click += new System.EventHandler(this.crearToolStripMenuItem_Click);
             // 
             // verTodosToolStripMenuItem
             // 
             this.verTodosToolStripMenuItem.Name = "verTodosToolStripMenuItem";
-            this.verTodosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.verTodosToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.verTodosToolStripMenuItem.Text = "Mostrar todos";
             this.verTodosToolStripMenuItem.Click += new System.EventHandler(this.verTodosToolStripMenuItem_Click);
             // 
             // modificarToolStripMenuItem
             // 
             this.modificarToolStripMenuItem.Name = "modificarToolStripMenuItem";
-            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.modificarToolStripMenuItem.Text = "Editar";
             this.modificarToolStripMenuItem.Click += new System.EventHandler(this.modificarToolStripMenuItem_Click);
             // 
             // eliminarToolStripMenuItem
             // 
             this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
-            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.eliminarToolStripMenuItem.Text = "Eliminar";
             this.eliminarToolStripMenuItem.Click += new System.EventHandler(this.eliminarToolStripMenuItem_Click);
+            // 
+            // reportesToolStripMenuItem
+            // 
+            this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.inscripcionesDelMesToolStripMenuItem});
+            this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
+            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.reportesToolStripMenuItem.Text = "Reportes";
+            // 
+            // inscripcionesDelMesToolStripMenuItem
+            // 
+            this.inscripcionesDelMesToolStripMenuItem.Name = "inscripcionesDelMesToolStripMenuItem";
+            this.inscripcionesDelMesToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.inscripcionesDelMesToolStripMenuItem.Text = "Inscripciones del mes";
+            this.inscripcionesDelMesToolStripMenuItem.Click += new System.EventHandler(this.inscripcionesDelMesToolStripMenuItem_Click);
             // 
             // panel_NuevoTrabajadoir
             // 
@@ -690,7 +706,6 @@
             this.dataGridView_VerTrabajadores.AllowUserToAddRows = false;
             this.dataGridView_VerTrabajadores.AllowUserToDeleteRows = false;
             this.dataGridView_VerTrabajadores.BackgroundColor = System.Drawing.Color.SteelBlue;
-            this.dataGridView_VerTrabajadores.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView_VerTrabajadores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_VerTrabajadores.Location = new System.Drawing.Point(15, 80);
             this.dataGridView_VerTrabajadores.Name = "dataGridView_VerTrabajadores";
@@ -758,15 +773,6 @@
             this.panel_Reportes.Size = new System.Drawing.Size(603, 357);
             this.panel_Reportes.TabIndex = 51;
             // 
-            // richTextBox_inform
-            // 
-            this.richTextBox_inform.Enabled = false;
-            this.richTextBox_inform.Location = new System.Drawing.Point(15, 40);
-            this.richTextBox_inform.Name = "richTextBox_inform";
-            this.richTextBox_inform.Size = new System.Drawing.Size(566, 305);
-            this.richTextBox_inform.TabIndex = 0;
-            this.richTextBox_inform.Text = "";
-            // 
             // label24
             // 
             this.label24.AutoSize = true;
@@ -777,20 +783,14 @@
             this.label24.TabIndex = 1;
             this.label24.Text = "Reporte del mes ";
             // 
-            // reportesToolStripMenuItem
+            // richTextBox_inform
             // 
-            this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.inscripcionesDelMesToolStripMenuItem});
-            this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
-            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
-            this.reportesToolStripMenuItem.Text = "Reportes";
-            // 
-            // inscripcionesDelMesToolStripMenuItem
-            // 
-            this.inscripcionesDelMesToolStripMenuItem.Name = "inscripcionesDelMesToolStripMenuItem";
-            this.inscripcionesDelMesToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.inscripcionesDelMesToolStripMenuItem.Text = "Inscripciones del mes";
-            this.inscripcionesDelMesToolStripMenuItem.Click += new System.EventHandler(this.inscripcionesDelMesToolStripMenuItem_Click);
+            this.richTextBox_inform.Enabled = false;
+            this.richTextBox_inform.Location = new System.Drawing.Point(15, 40);
+            this.richTextBox_inform.Name = "richTextBox_inform";
+            this.richTextBox_inform.Size = new System.Drawing.Size(566, 305);
+            this.richTextBox_inform.TabIndex = 0;
+            this.richTextBox_inform.Text = "";
             // 
             // Administrador
             // 
@@ -805,6 +805,7 @@
             this.Controls.Add(this.panel_VerT5ranajadores);
             this.Controls.Add(this.panel_Editar);
             this.Controls.Add(this.panel_NuevoTrabajadoir);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Administrador";
             this.Text = "Administrador";

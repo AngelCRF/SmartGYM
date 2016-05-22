@@ -46,6 +46,7 @@
             this.informesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pagosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aparatosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.cortesCercanosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel_client_new = new System.Windows.Forms.Panel();
             this.label18 = new System.Windows.Forms.Label();
             this.textBox_password = new System.Windows.Forms.TextBox();
@@ -183,7 +184,6 @@
             this.label36 = new System.Windows.Forms.Label();
             this.dataGridView_Pagos = new System.Windows.Forms.DataGridView();
             this.dataGridView_Mantenimiento = new System.Windows.Forms.DataGridView();
-            this.cortesCercanosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel_client_new.SuspendLayout();
             this.panel_client_edit.SuspendLayout();
@@ -232,14 +232,14 @@
             // nuevoToolStripMenuItem
             // 
             this.nuevoToolStripMenuItem.Name = "nuevoToolStripMenuItem";
-            this.nuevoToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.nuevoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.nuevoToolStripMenuItem.Text = "Nuevo";
             this.nuevoToolStripMenuItem.Click += new System.EventHandler(this.nuevoToolStripMenuItem_Click);
             // 
             // editarToolStripMenuItem
             // 
             this.editarToolStripMenuItem.Name = "editarToolStripMenuItem";
-            this.editarToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.editarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.editarToolStripMenuItem.Text = "Editar";
             this.editarToolStripMenuItem.Click += new System.EventHandler(this.editarToolStripMenuItem_Click);
             // 
@@ -249,7 +249,7 @@
             this.todosToolStripMenuItem,
             this.buscarToolStripMenuItem});
             this.mostrarToolStripMenuItem.Name = "mostrarToolStripMenuItem";
-            this.mostrarToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.mostrarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.mostrarToolStripMenuItem.Text = "Mostrar";
             // 
             // todosToolStripMenuItem
@@ -279,14 +279,14 @@
             // nuevoToolStripMenuItem1
             // 
             this.nuevoToolStripMenuItem1.Name = "nuevoToolStripMenuItem1";
-            this.nuevoToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.nuevoToolStripMenuItem1.Size = new System.Drawing.Size(115, 22);
             this.nuevoToolStripMenuItem1.Text = "Nuevo";
             this.nuevoToolStripMenuItem1.Click += new System.EventHandler(this.nuevoToolStripMenuItem1_Click);
             // 
             // editarToolStripMenuItem1
             // 
             this.editarToolStripMenuItem1.Name = "editarToolStripMenuItem1";
-            this.editarToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.editarToolStripMenuItem1.Size = new System.Drawing.Size(115, 22);
             this.editarToolStripMenuItem1.Text = "Editar";
             this.editarToolStripMenuItem1.Click += new System.EventHandler(this.editarToolStripMenuItem1_Click);
             // 
@@ -296,7 +296,7 @@
             this.todosToolStripMenuItem1,
             this.buscarToolStripMenuItem1});
             this.mostrarToolStripMenuItem1.Name = "mostrarToolStripMenuItem1";
-            this.mostrarToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.mostrarToolStripMenuItem1.Size = new System.Drawing.Size(115, 22);
             this.mostrarToolStripMenuItem1.Text = "Mostrar";
             // 
             // todosToolStripMenuItem1
@@ -336,6 +336,13 @@
             this.aparatosToolStripMenuItem1.Size = new System.Drawing.Size(159, 22);
             this.aparatosToolStripMenuItem1.Text = "Mantenimiento";
             this.aparatosToolStripMenuItem1.Click += new System.EventHandler(this.aparatosToolStripMenuItem1_Click);
+            // 
+            // cortesCercanosToolStripMenuItem
+            // 
+            this.cortesCercanosToolStripMenuItem.Name = "cortesCercanosToolStripMenuItem";
+            this.cortesCercanosToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.cortesCercanosToolStripMenuItem.Text = "Cortes cercanos";
+            this.cortesCercanosToolStripMenuItem.Click += new System.EventHandler(this.cortesCercanosToolStripMenuItem_Click);
             // 
             // panel_client_new
             // 
@@ -995,7 +1002,6 @@
             this.dataGridView_client.AllowUserToAddRows = false;
             this.dataGridView_client.AllowUserToDeleteRows = false;
             this.dataGridView_client.BackgroundColor = System.Drawing.Color.SteelBlue;
-            this.dataGridView_client.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView_client.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_client.Location = new System.Drawing.Point(12, 50);
             this.dataGridView_client.Name = "dataGridView_client";
@@ -1646,7 +1652,6 @@
             // dataGridView_equip
             // 
             this.dataGridView_equip.BackgroundColor = System.Drawing.Color.SteelBlue;
-            this.dataGridView_equip.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView_equip.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_equip.Location = new System.Drawing.Point(17, 50);
             this.dataGridView_equip.Name = "dataGridView_equip";
@@ -1819,7 +1824,6 @@
             this.dataGridView_Pagos.AllowUserToAddRows = false;
             this.dataGridView_Pagos.AllowUserToDeleteRows = false;
             this.dataGridView_Pagos.BackgroundColor = System.Drawing.Color.SteelBlue;
-            this.dataGridView_Pagos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView_Pagos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_Pagos.Location = new System.Drawing.Point(17, 50);
             this.dataGridView_Pagos.Name = "dataGridView_Pagos";
@@ -1831,20 +1835,12 @@
             // dataGridView_Mantenimiento
             // 
             this.dataGridView_Mantenimiento.BackgroundColor = System.Drawing.Color.SteelBlue;
-            this.dataGridView_Mantenimiento.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView_Mantenimiento.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_Mantenimiento.Location = new System.Drawing.Point(17, 50);
             this.dataGridView_Mantenimiento.Name = "dataGridView_Mantenimiento";
             this.dataGridView_Mantenimiento.Size = new System.Drawing.Size(475, 342);
             this.dataGridView_Mantenimiento.TabIndex = 0;
             this.dataGridView_Mantenimiento.Visible = false;
-            // 
-            // cortesCercanosToolStripMenuItem
-            // 
-            this.cortesCercanosToolStripMenuItem.Name = "cortesCercanosToolStripMenuItem";
-            this.cortesCercanosToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
-            this.cortesCercanosToolStripMenuItem.Text = "Cortes cercanos";
-            this.cortesCercanosToolStripMenuItem.Click += new System.EventHandler(this.cortesCercanosToolStripMenuItem_Click);
             // 
             // Personal_Recepcion
             // 
