@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -195,12 +196,11 @@ namespace GYM
             return false;
         }
 
-
         public Consultas()
         {
             //colocar su ruta
-            con = new Conexion(datosCarlos);
-            //con = new Conexion(datosKevin);
+            //con = new Conexion(datosCarlos);
+            con = new Conexion(datosKevin);
         }
 
         public void inserta()
@@ -563,6 +563,33 @@ namespace GYM
             aux.DataSource = datos.Tables[0];
             con.Close();
             return datos;
+       }
+
+        public DataSet consultacortes(DataGridView aux)
+        {
+            var culture = new CultureInfo("en-GB");
+            DateTime T = DateTime.Now;
+            string fecha = T.ToString(culture);
+            // 2016-05-20 00:00:00 19/06/2015 10:03:06
+            fecha = fecha.Split(' ')[0];
+            int num = Convert.ToInt32(fecha.Split('/')[0])/10;
+            con.Open();
+            fecha = "%" + fecha.Split('/')[2] + "-"+fecha.Split('/')[1] + "-" + num + "_" + "%";
+            String consulta = "select Nombres, Fecha_de_corte from cliente WHERE Fecha_de_corte::text LIKE '"+fecha+"' order by idcliente";
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(consulta, con.Conn);
+                NpgsqlDataAdapter adapter1 = new NpgsqlDataAdapter(cmd);
+                DataSet datos = new DataSet();
+                adapter1.Fill(datos);
+                aux.DataSource = datos.Tables[0];
+                con.Close();
+                return datos;
+            }catch(Exception ex)
+            {
+                MessageBox.Show("No se encuentran cortes cercanos al dia de hoy", "Error");
+                return null;
+            }
         }
 
         public DataSet consultamant(DataGridView aux)

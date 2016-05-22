@@ -23,14 +23,16 @@ namespace GYM
         //Funciones
         private void OcultaPaneles()
         {
-            try
-            {
-                foreach (Panel p in this.Controls)
+            Panel aux;
+                foreach (Control p in this.Controls)
                 {
-                    p.Visible = false;
+                    try
+                    {
+                    aux = (Panel)p;
+                    aux.Visible = false;
                 }
+                catch (Exception e) { }
             }
-            catch (Exception e){}
         }
 
         private void LimpiaDatos(Panel Actual)
@@ -247,6 +249,7 @@ namespace GYM
         private void todosToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             OcultaPaneles();
+            panel_equip_show_all.BringToFront();
             panel_equip_show_all .Visible = true;
             DataSet datos = C.dataGridView("Aparatos", "idaparato");
             dataGridView_equip.DataSource = datos.Tables[0];
@@ -350,6 +353,7 @@ namespace GYM
 
         private void pagosToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            OcultaPaneles();
             panel_inform.Visible = true;
             panel_inform.BringToFront();
             dataGridView_Pagos.Visible = true;
@@ -361,6 +365,7 @@ namespace GYM
 
         private void aparatosToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            OcultaPaneles();
             panel_inform.Visible = true;
             panel_inform.BringToFront();
             dataGridView_Pagos.Visible = false;
@@ -383,6 +388,17 @@ namespace GYM
             {
                 MessageBox.Show("Error", "Datos Incompletos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void cortesCercanosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OcultaPaneles();
+            panel_inform.Visible = true;
+            panel_inform.BringToFront();
+            dataGridView_Pagos.Visible = true;
+            dataGridView_Mantenimiento.Visible = false;
+            label36.Text = "Cortes cercanos: ";
+            DataSet datos = C.consultacortes(dataGridView_Pagos);
         }
     }
 }

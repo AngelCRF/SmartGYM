@@ -183,6 +183,7 @@
             this.label36 = new System.Windows.Forms.Label();
             this.dataGridView_Pagos = new System.Windows.Forms.DataGridView();
             this.dataGridView_Mantenimiento = new System.Windows.Forms.DataGridView();
+            this.cortesCercanosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel_client_new.SuspendLayout();
             this.panel_client_edit.SuspendLayout();
@@ -278,14 +279,14 @@
             // nuevoToolStripMenuItem1
             // 
             this.nuevoToolStripMenuItem1.Name = "nuevoToolStripMenuItem1";
-            this.nuevoToolStripMenuItem1.Size = new System.Drawing.Size(115, 22);
+            this.nuevoToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.nuevoToolStripMenuItem1.Text = "Nuevo";
             this.nuevoToolStripMenuItem1.Click += new System.EventHandler(this.nuevoToolStripMenuItem1_Click);
             // 
             // editarToolStripMenuItem1
             // 
             this.editarToolStripMenuItem1.Name = "editarToolStripMenuItem1";
-            this.editarToolStripMenuItem1.Size = new System.Drawing.Size(115, 22);
+            this.editarToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.editarToolStripMenuItem1.Text = "Editar";
             this.editarToolStripMenuItem1.Click += new System.EventHandler(this.editarToolStripMenuItem1_Click);
             // 
@@ -295,7 +296,7 @@
             this.todosToolStripMenuItem1,
             this.buscarToolStripMenuItem1});
             this.mostrarToolStripMenuItem1.Name = "mostrarToolStripMenuItem1";
-            this.mostrarToolStripMenuItem1.Size = new System.Drawing.Size(115, 22);
+            this.mostrarToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.mostrarToolStripMenuItem1.Text = "Mostrar";
             // 
             // todosToolStripMenuItem1
@@ -316,7 +317,8 @@
             // 
             this.informesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.pagosToolStripMenuItem,
-            this.aparatosToolStripMenuItem1});
+            this.aparatosToolStripMenuItem1,
+            this.cortesCercanosToolStripMenuItem});
             this.informesToolStripMenuItem.Name = "informesToolStripMenuItem";
             this.informesToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
             this.informesToolStripMenuItem.Text = "Informes";
@@ -324,14 +326,14 @@
             // pagosToolStripMenuItem
             // 
             this.pagosToolStripMenuItem.Name = "pagosToolStripMenuItem";
-            this.pagosToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.pagosToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.pagosToolStripMenuItem.Text = "Pagos";
             this.pagosToolStripMenuItem.Click += new System.EventHandler(this.pagosToolStripMenuItem_Click);
             // 
             // aparatosToolStripMenuItem1
             // 
             this.aparatosToolStripMenuItem1.Name = "aparatosToolStripMenuItem1";
-            this.aparatosToolStripMenuItem1.Size = new System.Drawing.Size(156, 22);
+            this.aparatosToolStripMenuItem1.Size = new System.Drawing.Size(159, 22);
             this.aparatosToolStripMenuItem1.Text = "Mantenimiento";
             this.aparatosToolStripMenuItem1.Click += new System.EventHandler(this.aparatosToolStripMenuItem1_Click);
             // 
@@ -1507,6 +1509,7 @@
             this.panel_equip_edit.Name = "panel_equip_edit";
             this.panel_equip_edit.Size = new System.Drawing.Size(509, 428);
             this.panel_equip_edit.TabIndex = 3;
+            this.panel_equip_edit.Visible = false;
             // 
             // label39
             // 
@@ -1832,6 +1835,13 @@
             this.dataGridView_Mantenimiento.TabIndex = 0;
             this.dataGridView_Mantenimiento.Visible = false;
             // 
+            // cortesCercanosToolStripMenuItem
+            // 
+            this.cortesCercanosToolStripMenuItem.Name = "cortesCercanosToolStripMenuItem";
+            this.cortesCercanosToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.cortesCercanosToolStripMenuItem.Text = "Cortes cercanos";
+            this.cortesCercanosToolStripMenuItem.Click += new System.EventHandler(this.cortesCercanosToolStripMenuItem_Click);
+            // 
             // Personal_Recepcion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2038,5 +2048,6 @@
         private System.Windows.Forms.ComboBox comboBoxME_T;
         private System.Windows.Forms.TextBox textBoxME_NS;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ToolStripMenuItem cortesCercanosToolStripMenuItem;
     }
 }
