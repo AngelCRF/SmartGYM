@@ -68,7 +68,7 @@
             this.label14 = new System.Windows.Forms.Label();
             this.textBox_7EditarCiudad = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.textBox_EditarColnia6 = new System.Windows.Forms.TextBox();
+            this.textBox_EditarColonia6 = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
@@ -77,11 +77,14 @@
             this.label21 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox_EditarInterior5 = new System.Windows.Forms.TextBox();
-            this.textBox_EditarNumero4 = new System.Windows.Forms.TextBox();
+            this.textBox_4EditarNumero = new System.Windows.Forms.TextBox();
             this.textBox_EditarCalle3 = new System.Windows.Forms.TextBox();
-            this.textBox_3EditarAp2 = new System.Windows.Forms.TextBox();
+            this.textBox_EditarAp2 = new System.Windows.Forms.TextBox();
             this.textBox_EditarApellido1 = new System.Windows.Forms.TextBox();
             this.textBox_EditarNombr0 = new System.Windows.Forms.TextBox();
+            this.label_id = new System.Windows.Forms.Label();
+            this.labeldir = new System.Windows.Forms.Label();
+            this.panel_VerTYrabajadores = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
             this.panel_NuevoTrabajadoir.SuspendLayout();
             this.panel_Editar.SuspendLayout();
@@ -96,6 +99,7 @@
             this.menuStrip1.Size = new System.Drawing.Size(603, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // trabajadoresToolStripMenuItem
             // 
@@ -111,14 +115,14 @@
             // crearToolStripMenuItem
             // 
             this.crearToolStripMenuItem.Name = "crearToolStripMenuItem";
-            this.crearToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.crearToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.crearToolStripMenuItem.Text = "Nuevo";
             this.crearToolStripMenuItem.Click += new System.EventHandler(this.crearToolStripMenuItem_Click);
             // 
             // verTodosToolStripMenuItem
             // 
             this.verTodosToolStripMenuItem.Name = "verTodosToolStripMenuItem";
-            this.verTodosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.verTodosToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.verTodosToolStripMenuItem.Text = "Mostrar todos";
             this.verTodosToolStripMenuItem.Visible = false;
             this.verTodosToolStripMenuItem.Click += new System.EventHandler(this.verTodosToolStripMenuItem_Click);
@@ -126,7 +130,7 @@
             // modificarToolStripMenuItem
             // 
             this.modificarToolStripMenuItem.Name = "modificarToolStripMenuItem";
-            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.modificarToolStripMenuItem.Text = "Editar";
             this.modificarToolStripMenuItem.Visible = false;
             this.modificarToolStripMenuItem.Click += new System.EventHandler(this.modificarToolStripMenuItem_Click);
@@ -134,7 +138,7 @@
             // eliminarToolStripMenuItem
             // 
             this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
-            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.eliminarToolStripMenuItem.Text = "Eliminar";
             this.eliminarToolStripMenuItem.Visible = false;
             // 
@@ -382,6 +386,8 @@
             // 
             // panel_Editar
             // 
+            this.panel_Editar.Controls.Add(this.labeldir);
+            this.panel_Editar.Controls.Add(this.label_id);
             this.panel_Editar.Controls.Add(this.comboBox_EditarPuesto);
             this.panel_Editar.Controls.Add(this.label11);
             this.panel_Editar.Controls.Add(this.textBox_8EditarContraseña);
@@ -391,7 +397,7 @@
             this.panel_Editar.Controls.Add(this.label14);
             this.panel_Editar.Controls.Add(this.textBox_7EditarCiudad);
             this.panel_Editar.Controls.Add(this.label15);
-            this.panel_Editar.Controls.Add(this.textBox_EditarColnia6);
+            this.panel_Editar.Controls.Add(this.textBox_EditarColonia6);
             this.panel_Editar.Controls.Add(this.label16);
             this.panel_Editar.Controls.Add(this.label17);
             this.panel_Editar.Controls.Add(this.label18);
@@ -400,9 +406,9 @@
             this.panel_Editar.Controls.Add(this.label21);
             this.panel_Editar.Controls.Add(this.button1);
             this.panel_Editar.Controls.Add(this.textBox_EditarInterior5);
-            this.panel_Editar.Controls.Add(this.textBox_EditarNumero4);
+            this.panel_Editar.Controls.Add(this.textBox_4EditarNumero);
             this.panel_Editar.Controls.Add(this.textBox_EditarCalle3);
-            this.panel_Editar.Controls.Add(this.textBox_3EditarAp2);
+            this.panel_Editar.Controls.Add(this.textBox_EditarAp2);
             this.panel_Editar.Controls.Add(this.textBox_EditarApellido1);
             this.panel_Editar.Controls.Add(this.textBox_EditarNombr0);
             this.panel_Editar.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -496,14 +502,14 @@
             this.label15.TabIndex = 38;
             this.label15.Text = "Colonia";
             // 
-            // textBox_EditarColnia6
+            // textBox_EditarColonia6
             // 
-            this.textBox_EditarColnia6.Location = new System.Drawing.Point(327, 116);
-            this.textBox_EditarColnia6.MaxLength = 199;
-            this.textBox_EditarColnia6.Name = "textBox_EditarColnia6";
-            this.textBox_EditarColnia6.Size = new System.Drawing.Size(120, 20);
-            this.textBox_EditarColnia6.TabIndex = 37;
-            this.textBox_EditarColnia6.Leave += new System.EventHandler(this.textboxCheck);
+            this.textBox_EditarColonia6.Location = new System.Drawing.Point(327, 116);
+            this.textBox_EditarColonia6.MaxLength = 199;
+            this.textBox_EditarColonia6.Name = "textBox_EditarColonia6";
+            this.textBox_EditarColonia6.Size = new System.Drawing.Size(120, 20);
+            this.textBox_EditarColonia6.TabIndex = 37;
+            this.textBox_EditarColonia6.Leave += new System.EventHandler(this.textboxCheck);
             // 
             // label16
             // 
@@ -565,7 +571,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 30;
-            this.button1.Text = "Agregar";
+            this.button1.Text = "Actualizar";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -580,14 +586,14 @@
             this.textBox_EditarInterior5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             this.textBox_EditarInterior5.Leave += new System.EventHandler(this.textBoxInt);
             // 
-            // textBox_EditarNumero4
+            // textBox_4EditarNumero
             // 
-            this.textBox_EditarNumero4.Location = new System.Drawing.Point(200, 116);
-            this.textBox_EditarNumero4.MaxLength = 8;
-            this.textBox_EditarNumero4.Name = "textBox_EditarNumero4";
-            this.textBox_EditarNumero4.Size = new System.Drawing.Size(51, 20);
-            this.textBox_EditarNumero4.TabIndex = 28;
-            this.textBox_EditarNumero4.Leave += new System.EventHandler(this.textBoxInt);
+            this.textBox_4EditarNumero.Location = new System.Drawing.Point(200, 116);
+            this.textBox_4EditarNumero.MaxLength = 8;
+            this.textBox_4EditarNumero.Name = "textBox_4EditarNumero";
+            this.textBox_4EditarNumero.Size = new System.Drawing.Size(51, 20);
+            this.textBox_4EditarNumero.TabIndex = 28;
+            this.textBox_4EditarNumero.Leave += new System.EventHandler(this.textBoxInt);
             // 
             // textBox_EditarCalle3
             // 
@@ -598,14 +604,14 @@
             this.textBox_EditarCalle3.TabIndex = 27;
             this.textBox_EditarCalle3.Leave += new System.EventHandler(this.textboxCheck);
             // 
-            // textBox_3EditarAp2
+            // textBox_EditarAp2
             // 
-            this.textBox_3EditarAp2.Location = new System.Drawing.Point(391, 54);
-            this.textBox_3EditarAp2.MaxLength = 199;
-            this.textBox_3EditarAp2.Name = "textBox_3EditarAp2";
-            this.textBox_3EditarAp2.Size = new System.Drawing.Size(171, 20);
-            this.textBox_3EditarAp2.TabIndex = 26;
-            this.textBox_3EditarAp2.Leave += new System.EventHandler(this.textboxCheck);
+            this.textBox_EditarAp2.Location = new System.Drawing.Point(391, 54);
+            this.textBox_EditarAp2.MaxLength = 199;
+            this.textBox_EditarAp2.Name = "textBox_EditarAp2";
+            this.textBox_EditarAp2.Size = new System.Drawing.Size(171, 20);
+            this.textBox_EditarAp2.TabIndex = 26;
+            this.textBox_EditarAp2.Leave += new System.EventHandler(this.textboxCheck);
             // 
             // textBox_EditarApellido1
             // 
@@ -625,12 +631,41 @@
             this.textBox_EditarNombr0.TabIndex = 24;
             this.textBox_EditarNombr0.Leave += new System.EventHandler(this.textboxCheck);
             // 
+            // label_id
+            // 
+            this.label_id.AutoSize = true;
+            this.label_id.Location = new System.Drawing.Point(266, 230);
+            this.label_id.Name = "label_id";
+            this.label_id.Size = new System.Drawing.Size(15, 13);
+            this.label_id.TabIndex = 47;
+            this.label_id.Text = "id";
+            this.label_id.Visible = false;
+            // 
+            // labeldir
+            // 
+            this.labeldir.AutoSize = true;
+            this.labeldir.Location = new System.Drawing.Point(292, 230);
+            this.labeldir.Name = "labeldir";
+            this.labeldir.Size = new System.Drawing.Size(18, 13);
+            this.labeldir.TabIndex = 48;
+            this.labeldir.Text = "dir";
+            this.labeldir.Visible = false;
+            // 
+            // panel_VerTYrabajadores
+            // 
+            this.panel_VerTYrabajadores.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_VerTYrabajadores.Location = new System.Drawing.Point(0, 24);
+            this.panel_VerTYrabajadores.Name = "panel_VerTYrabajadores";
+            this.panel_VerTYrabajadores.Size = new System.Drawing.Size(603, 360);
+            this.panel_VerTYrabajadores.TabIndex = 49;
+            // 
             // Administrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(603, 384);
+            this.Controls.Add(this.panel_VerTYrabajadores);
             this.Controls.Add(this.panel_Editar);
             this.Controls.Add(this.panel_NuevoTrabajadoir);
             this.Controls.Add(this.menuStrip1);
@@ -690,7 +725,7 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox textBox_7EditarCiudad;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox textBox_EditarColnia6;
+        private System.Windows.Forms.TextBox textBox_EditarColonia6;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
@@ -699,10 +734,13 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox_EditarInterior5;
-        private System.Windows.Forms.TextBox textBox_EditarNumero4;
+        private System.Windows.Forms.TextBox textBox_4EditarNumero;
         private System.Windows.Forms.TextBox textBox_EditarCalle3;
-        private System.Windows.Forms.TextBox textBox_3EditarAp2;
+        private System.Windows.Forms.TextBox textBox_EditarAp2;
         private System.Windows.Forms.TextBox textBox_EditarApellido1;
         private System.Windows.Forms.TextBox textBox_EditarNombr0;
+        private System.Windows.Forms.Label labeldir;
+        private System.Windows.Forms.Label label_id;
+        private System.Windows.Forms.Panel panel_VerTYrabajadores;
     }
 }

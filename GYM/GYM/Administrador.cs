@@ -18,6 +18,7 @@ namespace GYM
         public Administrador()
         {
             InitializeComponent();
+
         }
 
         private void crearToolStripMenuItem_Click(object sender, EventArgs e)
@@ -74,13 +75,21 @@ namespace GYM
 
         private void button_NuevoAgregar_Click(object sender, EventArgs e)
         {
-            if(
-            con.InsertTrabajador(textBox_NuevoNombre.Text, textBox_NuevoApellido1.Text, textBox_NuevoApellido2.Text, textBox_NuevaCalle.Text,
-                textBox_NuevoNumero.Text, textBox_NuevoInterior.Text, textBox_NuevaColonia.Text, textBox_NuevaCiudad.Text, textBox_NuevaContraseña.Text,
-                textBox_NuevoSueldo.Text, comboBox_NuevoPuesto.SelectedItem.ToString()))
+            if (comboBox_NuevoPuesto.SelectedItem == null)
             {
-                borrarDatos();
+                MessageBox.Show("Debe seleccionar un puesto");
             }
+            else
+            {
+                if (
+           con.InsertTrabajador(textBox_NuevoNombre.Text, textBox_NuevoApellido1.Text, textBox_NuevoApellido2.Text, textBox_NuevaCalle.Text,
+               textBox_NuevoNumero.Text, textBox_NuevoInterior.Text, textBox_NuevaColonia.Text, textBox_NuevaCiudad.Text, textBox_NuevaContraseña.Text,
+               textBox_NuevoSueldo.Text, comboBox_NuevoPuesto.SelectedItem.ToString()))
+                {
+                    borrarDatos();
+                }
+            }
+           
 
             
         }
@@ -100,14 +109,14 @@ namespace GYM
             }
             panel_Editar.BringToFront();
             List<TextBox> aux = new List<TextBox>();
-            for (int i = 0; i < panel_Editar.Controls.Count; i++)
+            for (int i = 0; i < 10; i++)
             {
                 foreach(Control x in panel_Editar.Controls)
                 {
                     try
                     {
                         TextBox y = (TextBox)x;
-                        if (y.Name.Contains(i + ""))
+                        if (y.Name.Contains(i + "") && y.Name.Contains("Editar"))
                         {
                             aux.Add(y);
                         }
@@ -125,6 +134,12 @@ namespace GYM
                 direccion = 0;
                 borrarDatos();
             }
+            else
+            {
+                con.ObtenerDirTrab(direccion, aux);
+                label_id.Text = trabajador+"";
+                labeldir.Text = "" + direccion;
+            }
 
 
         }
@@ -135,6 +150,35 @@ namespace GYM
         }
 
         private void button1_Click(object sender, EventArgs e)
+        {
+            if (comboBox_EditarPuesto.SelectedItem == null)
+            {
+                MessageBox.Show("Debe seleccionar un puesto");
+            }
+            else
+            {
+                List<TextBox> aux = new List<TextBox>();
+                for (int i = 0; i < 10; i++)
+                {
+                    foreach (Control x in panel_Editar.Controls)
+                    {
+                        try
+                        {
+                            TextBox y = (TextBox)x;
+                            if (y.Name.Contains(i + "") && y.Name.Contains("Editar"))
+                            {
+                                aux.Add(y);
+                            }
+                        }
+                        catch (Exception) { }
+
+                    }
+                }
+                con.ActualizarTrabajador(label_id.Text, labeldir.Text, aux, comboBox_EditarPuesto.SelectedItem.ToString());
+            }
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
         }
