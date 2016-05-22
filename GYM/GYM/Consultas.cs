@@ -126,6 +126,53 @@ namespace GYM
         
     }
 
+        internal void ActualizarTrabajador(string idt, string idd, List<TextBox> aux, String puesto)
+        {
+            con.Open();
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand("Update  trabajador  set nombre ='"+aux.ElementAt(0).Text+"', apellido1 = '"+aux.ElementAt(1).Text+
+                    "', apellido2 = '"+aux.ElementAt(2).Text+"', contraseña = '"+aux.ElementAt(8).Text+"', sueldo = '"+aux.ElementAt(9).Text+"', puesto = '"+ puesto + "' where idtrabajador = '"+idt+"' ;", con.Conn);
+                NpgsqlDataReader reader = cmd.ExecuteReader();
+                MessageBox.Show("Consulta realizada");
+                reader.Close();
+                NpgsqlCommand cmd2 = new NpgsqlCommand("update direccion set calle = '"+aux.ElementAt(3).Text+"', numero = '"+aux.ElementAt(4).Text+"', interior = '"+aux.ElementAt(5).Text+
+                    "', colonia= '"+aux.ElementAt(6).Text+"', ciudad = ' "+aux.ElementAt(7).Text+"'  where iddireccion = '"+idd+"'", con.Conn);
+                NpgsqlDataReader reader2 = cmd2.ExecuteReader();
+                reader2.Read();
+                MessageBox.Show("Consulta realizada");           
+                reader2.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al actualizar el trabajaro" + ex.Message);
+            }
+            con.Close();
+        }
+
+        internal void ObtenerDirTrab(int direccion, List<TextBox> aux)
+        {
+            con.Open();
+            try
+            {
+                NpgsqlCommand cmd2 = new NpgsqlCommand("select * from direccion where iddireccion = '" + direccion + "'", con.Conn);
+                NpgsqlDataReader reader2 = cmd2.ExecuteReader();
+                reader2.Read();
+                aux.ElementAt(3).Text = reader2.GetString(1);
+                aux.ElementAt(4).Text = reader2.GetInt32(2)+"";
+                aux.ElementAt(5).Text = reader2.GetInt32(3)+"";
+                aux.ElementAt(6).Text = reader2.GetString(4);
+                aux.ElementAt(7).Text = reader2.GetString(5);
+                reader2.Close();
+                con.Close();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ervror con la dirección");
+                con.Close();
+            }
+        }
+
         public int  obtenerTrabajador(int id, List<TextBox> aux)
         {
             int dir = -1;
@@ -137,17 +184,20 @@ namespace GYM
                 reader2.Read();
                 aux.ElementAt(0).Text = reader2.GetString(1);
                 aux.ElementAt(1).Text = reader2.GetString(2);
-                aux.ElementAt(1).Text = reader2.GetString(3);
+                aux.ElementAt(2).Text = reader2.GetString(3);
                 aux.ElementAt(8).Text = reader2.GetString(4);
-                aux.ElementAt(9).Text = reader2.GetString(6);
+                aux.ElementAt(9).Text = reader2.GetInt32(6)+ "";
                 int a = reader2.GetInt32(5);
                 reader2.Close();
+                con.Close();
                 return a;
             
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                MessageBox.Show("No se encontró al trabajador "+ ex.Message);
+                con.Close();
                 return -1;
             }
             }
@@ -245,7 +295,8 @@ namespace GYM
                     NpgsqlDataReader reader3 = cmdC.ExecuteReader();
                     reader3.Read();
                     reader3.Close();
-                    MessageBox.Show("Cliente guardado ", ("Id= " + IDC + "\n Contraseña= " + DatosC[8]), MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    //Agregar una variable para la hora sugerida
+                    MessageBox.Show(("Id= " + IDC + "\n Contraseña= " + DatosC[8]+ "\nHora Sugerida: "),"Cliente guardado ", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     con.Close();
                     return true;
                 }
