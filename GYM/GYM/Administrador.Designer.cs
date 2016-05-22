@@ -85,8 +85,6 @@
             this.textBox_EditarApellido1 = new System.Windows.Forms.TextBox();
             this.textBox_EditarNombr0 = new System.Windows.Forms.TextBox();
             this.panel_VerTYrabajadores = new System.Windows.Forms.Panel();
-            this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.inscripcionesDelMesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel_NuevoTrabajadoir.SuspendLayout();
             this.panel_Editar.SuspendLayout();
@@ -95,8 +93,7 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.trabajadoresToolStripMenuItem,
-            this.reportesToolStripMenuItem});
+            this.trabajadoresToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(603, 24);
@@ -662,20 +659,6 @@
             this.panel_VerTYrabajadores.Size = new System.Drawing.Size(603, 360);
             this.panel_VerTYrabajadores.TabIndex = 49;
             // 
-            // reportesToolStripMenuItem
-            // 
-            this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.inscripcionesDelMesToolStripMenuItem});
-            this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
-            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
-            this.reportesToolStripMenuItem.Text = "Reportes";
-            // 
-            // inscripcionesDelMesToolStripMenuItem
-            // 
-            this.inscripcionesDelMesToolStripMenuItem.Name = "inscripcionesDelMesToolStripMenuItem";
-            this.inscripcionesDelMesToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.inscripcionesDelMesToolStripMenuItem.Text = "Inscripciones del Mes";
-            // 
             // Administrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -759,7 +742,5 @@
         private System.Windows.Forms.Label labeldir;
         private System.Windows.Forms.Label label_id;
         private System.Windows.Forms.Panel panel_VerTYrabajadores;
-        private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem inscripcionesDelMesToolStripMenuItem;
     }
 }
