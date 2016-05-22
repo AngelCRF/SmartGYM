@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -263,7 +264,8 @@ namespace GYM
             con.Open();
             try
             {
-                int IDD, IDC;
+                String Aux;
+                int IDD, IDC,H;
                 NpgsqlDataReader reader;
                 
                 String consultaIDC = "SELECT * FROM cliente ORDER BY idcliente DESC LIMIT 1;";
@@ -295,8 +297,23 @@ namespace GYM
                     NpgsqlDataReader reader3 = cmdC.ExecuteReader();
                     reader3.Read();
                     reader3.Close();
-                    //Agregar una variable para la hora sugerida
-                    MessageBox.Show(("Id= " + IDC + "\n Contraseña= " + DatosC[8]+ "\nHora Sugerida: "),"Cliente guardado ", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    H = Hora();
+                    if (H != 0)
+                    {
+                        if (H <= 10)
+                        {
+                            Aux = H + ":00";
+                        }
+                        else
+                        {
+                            Aux = "0" + H + ":00";
+                        }
+                    }else
+                    {
+                        Aux = "No se encontro una hora";
+                    }
+                    MessageBox.Show(("Id= " + IDC + "\nContraseña= " + DatosC[8]+ "\nHora Sugerida: "+Aux),"Cliente guardado ", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    Mes(DatosC[0]);
                     con.Close();
                     return true;
                 }
@@ -317,6 +334,67 @@ namespace GYM
                 MessageBox.Show("Error "+ e.Message);
                 con.Close();
                 return false;
+            }
+        }
+
+        private void Mes(String Nom)
+        {
+            // 19/06/2015 10:03:06
+            DateTime T = DateTime.Now;
+            String Aux=T.ToString().Split(' ')[0];
+            Aux = Aux.Split('/')[1] + Aux.Split('/')[2];
+            StreamWriter sw = new StreamWriter(Aux, true);
+            StreamReader sr = new StreamReader(Aux+".txt");
+            int i = 0;
+            while (i != -1)
+            {
+                String Lin = sr.ReadLine();
+                if (Lin != null)
+                {
+                    i++;
+                }
+                else
+                {
+                    i = 0;
+                }
+            }
+            sr.Close();
+            sw.WriteLine((i+1)+".- "+Nom.ToUpper());
+            sw.Close();
+        }
+
+        private int Hora()
+        {
+            try
+            {
+                List<int> Hs = new List<int>();
+                int H = 0;
+                int[] Horas = new int[12];
+                String consulta = "SELECT hora_de_llegada FROM cliente;";
+                NpgsqlCommand cmd = new NpgsqlCommand(consulta, con.Conn);
+                NpgsqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Hs.Add(Convert.ToInt32(reader.NextResult().ToString().Split(':')[0]));
+                }
+                reader.Close();
+                foreach (int ep in Hs)
+                {
+                    for (int i = 0; i < 12; i++)
+                    {
+                        if (ep==i)
+                        {
+                            Horas[i]++;
+                        }
+                    }
+                }
+                H = Horas.Min();
+                return H;
+            }
+            catch (Exception ex)
+            {
+                con.Close();
+                return 0;
             }
         }
 
@@ -621,7 +699,6 @@ namespace GYM
             var culture = new CultureInfo("en-GB");
             DateTime T = DateTime.Now;
             string fecha = T.ToString(culture);
-            // 2016-05-20 00:00:00 19/06/2015 10:03:06
             fecha = fecha.Split(' ')[0];
             int num = Convert.ToInt32(fecha.Split('/')[0])/10;
             con.Open();

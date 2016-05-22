@@ -994,7 +994,8 @@
             // 
             this.dataGridView_client.AllowUserToAddRows = false;
             this.dataGridView_client.AllowUserToDeleteRows = false;
-            this.dataGridView_client.BackgroundColor = System.Drawing.Color.LightSlateGray;
+            this.dataGridView_client.BackgroundColor = System.Drawing.Color.SteelBlue;
+            this.dataGridView_client.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView_client.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_client.Location = new System.Drawing.Point(12, 50);
             this.dataGridView_client.Name = "dataGridView_client";
@@ -1644,7 +1645,8 @@
             // 
             // dataGridView_equip
             // 
-            this.dataGridView_equip.BackgroundColor = System.Drawing.Color.LightSlateGray;
+            this.dataGridView_equip.BackgroundColor = System.Drawing.Color.SteelBlue;
+            this.dataGridView_equip.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView_equip.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_equip.Location = new System.Drawing.Point(17, 50);
             this.dataGridView_equip.Name = "dataGridView_equip";
@@ -1816,7 +1818,8 @@
             // 
             this.dataGridView_Pagos.AllowUserToAddRows = false;
             this.dataGridView_Pagos.AllowUserToDeleteRows = false;
-            this.dataGridView_Pagos.BackgroundColor = System.Drawing.Color.LightSlateGray;
+            this.dataGridView_Pagos.BackgroundColor = System.Drawing.Color.SteelBlue;
+            this.dataGridView_Pagos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView_Pagos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_Pagos.Location = new System.Drawing.Point(17, 50);
             this.dataGridView_Pagos.Name = "dataGridView_Pagos";
@@ -1827,7 +1830,8 @@
             // 
             // dataGridView_Mantenimiento
             // 
-            this.dataGridView_Mantenimiento.BackgroundColor = System.Drawing.Color.LightSlateGray;
+            this.dataGridView_Mantenimiento.BackgroundColor = System.Drawing.Color.SteelBlue;
+            this.dataGridView_Mantenimiento.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView_Mantenimiento.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_Mantenimiento.Location = new System.Drawing.Point(17, 50);
             this.dataGridView_Mantenimiento.Name = "dataGridView_Mantenimiento";
