@@ -326,7 +326,7 @@ namespace GYM
                 reader.Close();
                 String consultaD = "INSERT INTO direccion (iddireccion, calle, numero, interior, colonia, ciudad) Values ('" +
                      IDD + "','" + DatosD[0] + "','" + DatosD[1] + "','" + DatosD[2]
-                     + "','" + DatosC[3] + "','" + DatosC[4] + "');";
+                     + "','" + DatosD[3] + "','" + DatosD[4] + "');";
                 NpgsqlCommand cmdD = new NpgsqlCommand(consultaD, con.Conn);
                 NpgsqlCommand cmdIDC = new NpgsqlCommand(consultaIDC, con.Conn);
                 NpgsqlDataReader reader2 = cmdD.ExecuteReader();
