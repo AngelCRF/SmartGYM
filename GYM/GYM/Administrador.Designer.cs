@@ -133,28 +133,28 @@
             // crearToolStripMenuItem
             // 
             this.crearToolStripMenuItem.Name = "crearToolStripMenuItem";
-            this.crearToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.crearToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.crearToolStripMenuItem.Text = "Nuevo";
             this.crearToolStripMenuItem.Click += new System.EventHandler(this.crearToolStripMenuItem_Click);
             // 
             // verTodosToolStripMenuItem
             // 
             this.verTodosToolStripMenuItem.Name = "verTodosToolStripMenuItem";
-            this.verTodosToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.verTodosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.verTodosToolStripMenuItem.Text = "Mostrar todos";
             this.verTodosToolStripMenuItem.Click += new System.EventHandler(this.verTodosToolStripMenuItem_Click);
             // 
             // modificarToolStripMenuItem
             // 
             this.modificarToolStripMenuItem.Name = "modificarToolStripMenuItem";
-            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.modificarToolStripMenuItem.Text = "Editar";
             this.modificarToolStripMenuItem.Click += new System.EventHandler(this.modificarToolStripMenuItem_Click);
             // 
             // eliminarToolStripMenuItem
             // 
             this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
-            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.eliminarToolStripMenuItem.Text = "Eliminar";
             this.eliminarToolStripMenuItem.Click += new System.EventHandler(this.eliminarToolStripMenuItem_Click);
             // 
@@ -206,12 +206,13 @@
             // 
             // comboBox_NuevoPuesto
             // 
+            this.comboBox_NuevoPuesto.Enabled = false;
             this.comboBox_NuevoPuesto.FormattingEnabled = true;
             this.comboBox_NuevoPuesto.Items.AddRange(new object[] {
-            "administrador",
-            "instructor",
-            "recepcionista",
-            "conserje"});
+            "Administrador",
+            "Instructor",
+            "Recepcionista",
+            "Intendente"});
             this.comboBox_NuevoPuesto.Location = new System.Drawing.Point(379, 175);
             this.comboBox_NuevoPuesto.Name = "comboBox_NuevoPuesto";
             this.comboBox_NuevoPuesto.Size = new System.Drawing.Size(121, 21);
@@ -470,12 +471,18 @@
             // 
             // comboBox_EditarPuesto
             // 
+            this.comboBox_EditarPuesto.AutoCompleteCustomSource.AddRange(new string[] {
+            "Administrador",
+            "Intendente",
+            "Recepcionista",
+            "Instructor"});
+            this.comboBox_EditarPuesto.Enabled = false;
             this.comboBox_EditarPuesto.FormattingEnabled = true;
             this.comboBox_EditarPuesto.Items.AddRange(new object[] {
-            "administrador",
-            "instructor",
-            "recepcionista",
-            "conserje"});
+            "Administrador",
+            "Instructor",
+            "Recepcionista",
+            "Intendente"});
             this.comboBox_EditarPuesto.Location = new System.Drawing.Point(379, 185);
             this.comboBox_EditarPuesto.Name = "comboBox_EditarPuesto";
             this.comboBox_EditarPuesto.Size = new System.Drawing.Size(121, 21);
@@ -809,6 +816,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Administrador";
             this.Text = "Administrador";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Administrador_FormClosing_1);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel_NuevoTrabajadoir.ResumeLayout(false);

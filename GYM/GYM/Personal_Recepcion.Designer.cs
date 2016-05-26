@@ -232,14 +232,14 @@
             // nuevoToolStripMenuItem
             // 
             this.nuevoToolStripMenuItem.Name = "nuevoToolStripMenuItem";
-            this.nuevoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.nuevoToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
             this.nuevoToolStripMenuItem.Text = "Nuevo";
             this.nuevoToolStripMenuItem.Click += new System.EventHandler(this.nuevoToolStripMenuItem_Click);
             // 
             // editarToolStripMenuItem
             // 
             this.editarToolStripMenuItem.Name = "editarToolStripMenuItem";
-            this.editarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.editarToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
             this.editarToolStripMenuItem.Text = "Editar";
             this.editarToolStripMenuItem.Click += new System.EventHandler(this.editarToolStripMenuItem_Click);
             // 
@@ -249,7 +249,7 @@
             this.todosToolStripMenuItem,
             this.buscarToolStripMenuItem});
             this.mostrarToolStripMenuItem.Name = "mostrarToolStripMenuItem";
-            this.mostrarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.mostrarToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
             this.mostrarToolStripMenuItem.Text = "Mostrar";
             // 
             // todosToolStripMenuItem
@@ -631,6 +631,7 @@
             // textBox_Telefono
             // 
             this.textBox_Telefono.Location = new System.Drawing.Point(56, 94);
+            this.textBox_Telefono.MaxLength = 10;
             this.textBox_Telefono.Name = "textBox_Telefono";
             this.textBox_Telefono.Size = new System.Drawing.Size(153, 22);
             this.textBox_Telefono.TabIndex = 3;
@@ -1042,9 +1043,9 @@
             this.panel_client_show_one.Controls.Add(this.button_eliminaclie);
             this.panel_client_show_one.Controls.Add(this.button_regpago);
             this.panel_client_show_one.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_client_show_one.Location = new System.Drawing.Point(0, 0);
+            this.panel_client_show_one.Location = new System.Drawing.Point(0, 24);
             this.panel_client_show_one.Name = "panel_client_show_one";
-            this.panel_client_show_one.Size = new System.Drawing.Size(509, 428);
+            this.panel_client_show_one.Size = new System.Drawing.Size(509, 404);
             this.panel_client_show_one.TabIndex = 2;
             // 
             // label37
@@ -1312,6 +1313,7 @@
             // 
             this.textBoxM_T.Enabled = false;
             this.textBoxM_T.Location = new System.Drawing.Point(56, 81);
+            this.textBoxM_T.MaxLength = 10;
             this.textBoxM_T.Name = "textBoxM_T";
             this.textBoxM_T.Size = new System.Drawing.Size(153, 22);
             this.textBoxM_T.TabIndex = 64;
@@ -1512,9 +1514,9 @@
             this.panel_equip_edit.Controls.Add(this.comboBoxee_tipo);
             this.panel_equip_edit.Controls.Add(this.textBoxee_numserie);
             this.panel_equip_edit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_equip_edit.Location = new System.Drawing.Point(0, 0);
+            this.panel_equip_edit.Location = new System.Drawing.Point(0, 24);
             this.panel_equip_edit.Name = "panel_equip_edit";
-            this.panel_equip_edit.Size = new System.Drawing.Size(509, 428);
+            this.panel_equip_edit.Size = new System.Drawing.Size(509, 404);
             this.panel_equip_edit.TabIndex = 3;
             this.panel_equip_edit.Visible = false;
             // 
@@ -1627,7 +1629,7 @@
             this.textBoxee_numserie.Name = "textBoxee_numserie";
             this.textBoxee_numserie.Size = new System.Drawing.Size(248, 22);
             this.textBoxee_numserie.TabIndex = 11;
-            this.textBoxee_numserie.Leave += new System.EventHandler(this.textboxCheck);
+            this.textBoxee_numserie.Leave += new System.EventHandler(this.IC);
             // 
             // panel_equip_show_all
             // 
@@ -1672,9 +1674,9 @@
             this.panel_equip_show_one.Controls.Add(this.comboBoxME_T);
             this.panel_equip_show_one.Controls.Add(this.textBoxME_NS);
             this.panel_equip_show_one.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_equip_show_one.Location = new System.Drawing.Point(0, 0);
+            this.panel_equip_show_one.Location = new System.Drawing.Point(0, 24);
             this.panel_equip_show_one.Name = "panel_equip_show_one";
-            this.panel_equip_show_one.Size = new System.Drawing.Size(509, 428);
+            this.panel_equip_show_one.Size = new System.Drawing.Size(509, 404);
             this.panel_equip_show_one.TabIndex = 5;
             // 
             // button1
@@ -1702,6 +1704,7 @@
             // 
             this.textBoxME_Nom.Enabled = false;
             this.textBoxME_Nom.Location = new System.Drawing.Point(29, 35);
+            this.textBoxME_Nom.MaxLength = 200;
             this.textBoxME_Nom.Name = "textBoxME_Nom";
             this.textBoxME_Nom.Size = new System.Drawing.Size(450, 22);
             this.textBoxME_Nom.TabIndex = 30;
@@ -1793,10 +1796,11 @@
             // 
             this.textBoxME_NS.Enabled = false;
             this.textBoxME_NS.Location = new System.Drawing.Point(29, 92);
+            this.textBoxME_NS.MaxLength = 16;
             this.textBoxME_NS.Name = "textBoxME_NS";
             this.textBoxME_NS.Size = new System.Drawing.Size(248, 22);
             this.textBoxME_NS.TabIndex = 22;
-            this.textBoxME_NS.Leave += new System.EventHandler(this.textboxCheck);
+            this.textBoxME_NS.Leave += new System.EventHandler(this.IC);
             // 
             // panel_inform
             // 
@@ -1848,10 +1852,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(509, 428);
-            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.panel_client_show_one);
             this.Controls.Add(this.panel_equip_edit);
             this.Controls.Add(this.panel_equip_show_one);
-            this.Controls.Add(this.panel_client_show_one);
+            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.panel_client_edit);
             this.Controls.Add(this.panel_equip_new);
             this.Controls.Add(this.panel_inform);
@@ -1863,6 +1867,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Personal_Recepcion";
             this.Text = "Smart GYM";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Personal_Recepcion_FormClosing);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel_client_new.ResumeLayout(false);

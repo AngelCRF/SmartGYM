@@ -31,5 +31,10 @@ namespace GYM
         {
             
         }
+
+        private void Cliente_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

@@ -176,37 +176,44 @@ namespace GYM
             String Linea;
             OcultaPaneles();
             LimpiaDatos(panel_client_show_one);
-            n = Microsoft.VisualBasic.Interaction.InputBox("Cliente a buscar: ");
-            if (Convert.ToInt32(n) > 0 || n != null)
+            try
             {
-                Linea = C.Selecciona("cliente", "idcliente", n);
-                if (Linea != null)
+                n = Microsoft.VisualBasic.Interaction.InputBox("Cliente a buscar: ");
+                if (Convert.ToInt32(n) > 0 || n != null)
                 {
-                    panel_client_show_one.Visible = true;
-                    textBoxM_Nom.Text = Linea.Split(',')[1];
-                    textBoxM_AP.Text = Linea.Split(',')[2];
-                    textBoxM_AM.Text = Linea.Split(',')[3];
-                    textBoxM_P.Text = Linea.Split(',')[4];
-                    textBoxM_T.Text = Linea.Split(',')[5];
-                    textBoxM_EM.Text = Linea.Split(',')[6];
-                    comboBoxM_TS.Text = Linea.Split(',')[7];
-                    dateTimePickerM_FP.Text = Linea.Split(',')[8];
-                    comboBoxM_TP.Text = Linea.Split(',')[9];
-                    idd = Convert.ToInt32(Linea.Split(',')[10]);
-                    textBoxM_C.Text = Linea.Split(',')[11];
-                    textBoxM_Num.Text = Linea.Split(',')[12];
-                    textBoxM_Int.Text = Linea.Split(',')[13];
-                    textBoxM_Col.Text = Linea.Split(',')[14];
-                    textBoxM_Ciu.Text = Linea.Split(',')[15];
+                    Linea = C.Selecciona("cliente", "idcliente", n);
+                    if (Linea != null)
+                    {
+                        panel_client_show_one.Visible = true;
+                        textBoxM_Nom.Text = Linea.Split(',')[1];
+                        textBoxM_AP.Text = Linea.Split(',')[2];
+                        textBoxM_AM.Text = Linea.Split(',')[3];
+                        textBoxM_P.Text = Linea.Split(',')[4];
+                        textBoxM_T.Text = Linea.Split(',')[5];
+                        textBoxM_EM.Text = Linea.Split(',')[6];
+                        comboBoxM_TS.Text = Linea.Split(',')[7];
+                        dateTimePickerM_FP.Text = Linea.Split(',')[8];
+                        comboBoxM_TP.Text = Linea.Split(',')[9];
+                        idd = Convert.ToInt32(Linea.Split(',')[10]);
+                        textBoxM_C.Text = Linea.Split(',')[11];
+                        textBoxM_Num.Text = Linea.Split(',')[12];
+                        textBoxM_Int.Text = Linea.Split(',')[13];
+                        textBoxM_Col.Text = Linea.Split(',')[14];
+                        textBoxM_Ciu.Text = Linea.Split(',')[15];
+                    }
+                    else
+                    {
+                        MessageBox.Show("No existe el cliente", "Error");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("No existe el cliente", "Error");
+                    MessageBox.Show("Ingresa un numero valido", "Error");
                 }
             }
-            else
+            catch(Exception ex)
             {
-                MessageBox.Show("Ingresa un numero valido", "Error");
+
             }
             }
 
@@ -266,27 +273,34 @@ namespace GYM
             String Linea;
             OcultaPaneles();
             LimpiaDatos(panel_equip_show_one);
-            n = Microsoft.VisualBasic.Interaction.InputBox("Aparato a buscar: ");
-            if (Convert.ToInt32(n) > 0 || n != null)
+            try
             {
-                Linea = C.Selecciona("aparatos", "idaparato", n);
-                if (Linea != null)
+                n = Microsoft.VisualBasic.Interaction.InputBox("Aparato a buscar: ");
+                if (Convert.ToInt32(n) > 0 || n != null)
                 {
-                    panel_equip_show_one.Visible = true;
-                    textBoxME_Nom.Text = Linea.Split(',')[1];
-                    textBoxME_NS.Text = Linea.Split(',')[2];
-                    comboBoxME_T.Text = Linea.Split(',')[3];
-                    dateTimePickerME_FC.Text = Linea.Split(',')[4];
-                    dateTimePickerME_FM.Text = Linea.Split(',')[5];
+                    Linea = C.Selecciona("aparatos", "idaparato", n);
+                    if (Linea != null)
+                    {
+                        panel_equip_show_one.Visible = true;
+                        textBoxME_Nom.Text = Linea.Split(',')[1];
+                        textBoxME_NS.Text = Linea.Split(',')[2];
+                        comboBoxME_T.Text = Linea.Split(',')[3];
+                        dateTimePickerME_FC.Text = Linea.Split(',')[4];
+                        dateTimePickerME_FM.Text = Linea.Split(',')[5];
+                    }
+                    else
+                    {
+                        MessageBox.Show("No existe el aparato", "Error");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("No existe el aparato", "Error");
+                    MessageBox.Show("Ingresa un numero valido", "Error");
                 }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Ingresa un numero valido", "Error");
+
             }
         }
 
@@ -399,6 +413,26 @@ namespace GYM
             dataGridView_Mantenimiento.Visible = false;
             label36.Text = "Cortes cercanos: ";
             DataSet datos = C.consultacortes(dataGridView_Pagos);
+        }
+
+        private void Personal_Recepcion_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+
+
+        private void IC(object sender, EventArgs e)
+        {
+            TextBox b = (TextBox)sender;
+            try
+            {
+                int a = Convert.ToInt32(b.Text);
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show("Ingrese un numero entero", "Numero invalido");
+                b.Focus();
+            }
         }
     }
 }

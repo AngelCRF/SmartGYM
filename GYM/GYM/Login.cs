@@ -40,6 +40,7 @@ namespace GYM
                 {
                     Cliente aux = new Cliente(Convert.ToInt32(textBox_user.Text));
                     aux.Show();
+                    this.Hide();
                 }
                 else
                 {
@@ -54,6 +55,7 @@ namespace GYM
                     {
                         Personal_Recepcion PR = new Personal_Recepcion();
                         PR.Show();
+                        this.Hide();
                     }
                     else
                     {
@@ -68,6 +70,7 @@ namespace GYM
                         {
                             Instructor tres = new Instructor();
                             tres.Show();
+                            this.Hide();
                         }
                         else
                         {
@@ -79,10 +82,11 @@ namespace GYM
                     {
                         if (radioButton_administrador.Checked)
                         {
-                            if (con.BuscarContraseña("trabajador", Convert.ToInt32(textBox_user.Text), textBox_password.Text))
+                            if (con.BuscarContraseña("administrador", Convert.ToInt32(textBox_user.Text), textBox_password.Text))
                             {
                                 Administrador aux = new Administrador();
                                 aux.Show();
+                                this.Hide();
                             }
                             else
                             {

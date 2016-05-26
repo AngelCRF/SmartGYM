@@ -333,5 +333,10 @@ namespace GYM
 
             }
         }
+
+        private void Instructor_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

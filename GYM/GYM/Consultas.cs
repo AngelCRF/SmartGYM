@@ -214,6 +214,8 @@ namespace GYM
                 aux.ElementAt(5).Text = reader2.GetInt32(3)+"";
                 aux.ElementAt(6).Text = reader2.GetString(4);
                 aux.ElementAt(7).Text = reader2.GetString(5);
+
+
                 reader2.Close();
                 con.Close();
             }
@@ -224,7 +226,7 @@ namespace GYM
             }
         }
 
-        public int  obtenerTrabajador(int id, List<TextBox> aux)
+        public int  obtenerTrabajador(int id, List<TextBox> aux, ComboBox cb)
         {
             int dir = -1;
             con.Open();
@@ -238,6 +240,7 @@ namespace GYM
                 aux.ElementAt(2).Text = reader2.GetString(3);
                 aux.ElementAt(8).Text = reader2.GetString(4);
                 aux.ElementAt(9).Text = reader2.GetInt32(6)+ "";
+                cb.Text = reader2.GetString(7);
                 int a = reader2.GetInt32(5);
                 reader2.Close();
                 con.Close();
@@ -264,13 +267,13 @@ namespace GYM
                     consulta = "select * from cliente where idcliente= '" + id + "' and contraseña = '" + password + "'";
                     break;
                 case "trabajador":
-                    consulta = "select * from trabajador where idtrabajador= '" + id + "' and contraseña = '" + password + "'";
+                    consulta = "select * from trabajador where idtrabajador= '" + id + "' and contraseña = '" + password + "'  and puesto= 'Recepcionista'";
                     break;
                 case "instructor":
-                    consulta = "select * from trabajador where idtrabajador= '" + id + "' and contraseña = '" + password + "' and puesto= 'instructor' ";
+                    consulta = "select * from trabajador where idtrabajador= '" + id + "' and contraseña = '" + password + "' and puesto= 'Instructor' ";
                     break;
                 case "administrador":
-                    consulta = "select * from trabajador where idtrabajador= '" + id + "' and contraseña = '" + password + "' and puesto= 'administrador' ";
+                    consulta = "select * from trabajador where idtrabajador= '" + id + "' and contraseña = '" + password + "' and puesto= 'Administrador' ";
                     break;
             }
             try
@@ -316,7 +319,7 @@ namespace GYM
                 String Aux;
                 int IDD, IDC,H;
                 NpgsqlDataReader reader;
-                
+                NpgsqlTransaction T;
                 String consultaIDC = "SELECT * FROM cliente ORDER BY idcliente DESC LIMIT 1;";
                 String consultaIDD = "SELECT * FROM direccion ORDER BY iddireccion DESC LIMIT 1;";
                 NpgsqlCommand cmdIDD = new NpgsqlCommand(consultaIDD, con.Conn);
@@ -326,7 +329,7 @@ namespace GYM
                 reader.Close();
                 String consultaD = "INSERT INTO direccion (iddireccion, calle, numero, interior, colonia, ciudad) Values ('" +
                      IDD + "','" + DatosD[0] + "','" + DatosD[1] + "','" + DatosD[2]
-                     + "','" + DatosC[3] + "','" + DatosC[4] + "');";
+                     + "','" + DatosD[3] + "','" + DatosD[4] + "');";
                 NpgsqlCommand cmdD = new NpgsqlCommand(consultaD, con.Conn);
                 NpgsqlCommand cmdIDC = new NpgsqlCommand(consultaIDC, con.Conn);
                 NpgsqlDataReader reader2 = cmdD.ExecuteReader();
