@@ -61,6 +61,8 @@ namespace GYM
             dataGridView_Eliminarejercicios.Visible = false;
             dataGridView_AgregarEjercicios.Visible = false;
             textBox_ModificarrutinaId.Visible = false;
+            label14.Visible = false;
+            label15.Visible = false;
             label6.Visible = false;
             button_CambiarHora.Visible = false;
             button_BuscarRutina.Visible = false;
@@ -117,6 +119,8 @@ namespace GYM
             dataGridView_Eliminarejercicios.Refresh();
             
             dataGridView_AgregarEjercicios.Refresh();
+            label14.Visible = true;
+            label15.Visible = true;
 
         }
 
@@ -126,6 +130,9 @@ namespace GYM
             textBox_ModificarrutinaId.Enabled = false;
             try
             {
+                textBox_CrearNombre.Text = con.obtenerNombreRutina(id);
+                textBox_CrearHorasRutina.Text = con.obtenerHorasRutina(id);
+
                 DataSet dato = con.consultaejerciciosContenidos(dataGridView_Eliminarejercicios, Convert.ToInt32(id));
                 dataGridView_Eliminarejercicios.Columns[0].HeaderCell.Value = "Clave de ejercicio";
                 dataGridView_Eliminarejercicios.Columns[1].HeaderCell.Value = "Clave de aparato";
@@ -140,6 +147,8 @@ namespace GYM
             }
             catch (Exception ex) { MessageBox.Show("Error de consulta en buscar id:" + ex.Message); }
         }
+
+
 
         private void button_AgrerarEjercicio2_Click(object sender, EventArgs e)
         {

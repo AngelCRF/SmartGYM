@@ -1662,10 +1662,13 @@
             // 
             // dataGridView_equip
             // 
+            this.dataGridView_equip.AllowUserToAddRows = false;
+            this.dataGridView_equip.AllowUserToDeleteRows = false;
             this.dataGridView_equip.BackgroundColor = System.Drawing.Color.SteelBlue;
             this.dataGridView_equip.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_equip.Location = new System.Drawing.Point(17, 50);
             this.dataGridView_equip.Name = "dataGridView_equip";
+            this.dataGridView_equip.ReadOnly = true;
             this.dataGridView_equip.Size = new System.Drawing.Size(475, 342);
             this.dataGridView_equip.TabIndex = 0;
             // 
@@ -1847,10 +1850,13 @@
             // 
             // dataGridView_Mantenimiento
             // 
+            this.dataGridView_Mantenimiento.AllowUserToAddRows = false;
+            this.dataGridView_Mantenimiento.AllowUserToDeleteRows = false;
             this.dataGridView_Mantenimiento.BackgroundColor = System.Drawing.Color.SteelBlue;
             this.dataGridView_Mantenimiento.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_Mantenimiento.Location = new System.Drawing.Point(17, 50);
             this.dataGridView_Mantenimiento.Name = "dataGridView_Mantenimiento";
+            this.dataGridView_Mantenimiento.ReadOnly = true;
             this.dataGridView_Mantenimiento.Size = new System.Drawing.Size(475, 342);
             this.dataGridView_Mantenimiento.TabIndex = 0;
             this.dataGridView_Mantenimiento.Visible = false;

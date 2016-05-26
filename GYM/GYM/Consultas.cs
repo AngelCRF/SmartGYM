@@ -143,6 +143,49 @@ namespace GYM
         
     }
 
+        internal string obtenerHorasRutina(string id)
+        {
+            con.Open();
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(("select hora from rutina where idrutina = '" + id + "'"), con.Conn);
+                NpgsqlDataReader reader = cmd.ExecuteReader();
+                reader.Read();
+                string hora = Convert.ToString(reader.GetTime(0));
+                reader.Close();
+                con.Close();
+                return hora;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error en la hora de la rutina " + ex.Message, "Error de consulta");
+                con.Close();
+                return "";
+            }
+        }
+
+        internal string obtenerNombreRutina(string id)
+        {
+            con.Open();
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(("select nombre from rutina where idrutina = '" + id + "'"), con.Conn);
+                NpgsqlDataReader reader = cmd.ExecuteReader();
+                reader.Read();
+                string nombre = reader.GetString(0);
+                reader.Close();
+                con.Close();
+                return nombre;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Error en el nombre de la rutina "+ ex.Message, "Error de consulta");
+                con.Close();
+                return "";
+            }
+            
+        }
+
         internal void EliminarTrabajador(string id)
         {
             con.Open();
@@ -267,13 +310,13 @@ namespace GYM
                     consulta = "select * from cliente where idcliente= '" + id + "' and contraseña = '" + password + "'";
                     break;
                 case "trabajador":
-                    consulta = "select * from trabajador where idtrabajador= '" + id + "' and contraseña = '" + password + "'  and puesto= 'Recepcionista'";
+                    consulta = "select * from trabajador where idtrabajador= '" + id + "' and contraseña = '" + password + "'  and puesto = 'Recepcionista'";
                     break;
                 case "instructor":
-                    consulta = "select * from trabajador where idtrabajador= '" + id + "' and contraseña = '" + password + "' and puesto= 'Instructor' ";
+                    consulta = "select * from trabajador where idtrabajador= '" + id + "' and contraseña = '" + password + "' and puesto = 'Instructor' ";
                     break;
                 case "administrador":
-                    consulta = "select * from trabajador where idtrabajador= '" + id + "' and contraseña = '" + password + "' and puesto= 'Administrador' ";
+                    consulta = "select * from trabajador where idtrabajador= '" + id + "' and contraseña = '" + password + "' and puesto = 'Administrador' ";
                     break;
             }
             try
@@ -302,8 +345,8 @@ namespace GYM
         public Consultas()
         {
             //colocar su ruta
-            //con = new Conexion(datosCarlos);
-            con = new Conexion(datosKevin);
+            con = new Conexion(datosCarlos);
+            //con = new Conexion(datosKevin);
         }
 
         public void inserta()
@@ -805,7 +848,7 @@ namespace GYM
             DataSet datos = new DataSet();
             try
             {
-                NpgsqlCommand cmd = new NpgsqlCommand(("select idaparato, repeticiones, descripcion from  Rut_Eje, ejercicio where idrut= '" + id + "' and "
+                NpgsqlCommand cmd = new NpgsqlCommand(("select ejercicio.idejercicio, ejercicio.idaparato, ejercicio.repeticiones, ejercicio.descripcion from  Rut_Eje, ejercicio where idrut= '" + id + "' and "
                 + " Rut_Eje.idejer = ejercicio.idejercicio"), con.Conn);
                 NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(cmd);
                 datos = new DataSet();
@@ -841,7 +884,7 @@ namespace GYM
 
         public void ActualizarRutina(string id, string nombre, string horas)
         {
-            String cmd= ("update rutina set nombre= '"+nombre+"', horas= '"+horas+"' where idrutina = '"+id+"'");
+            String cmd= ("update rutina set nombre= '"+nombre+"', hora= '"+horas+"' where idrutina = '"+id+"'");
             ejecutarConsulta(cmd);
         }
 
