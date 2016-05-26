@@ -81,6 +81,8 @@
             this.label9 = new System.Windows.Forms.Label();
             this.dataGridView_RutinaParaCliente = new System.Windows.Forms.DataGridView();
             this.dataGridView_Cliente = new System.Windows.Forms.DataGridView();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_logo)).BeginInit();
             this.panel_MostrarRutinas.SuspendLayout();
@@ -167,7 +169,7 @@
             // crearEjercicioToolStripMenuItem
             // 
             this.crearEjercicioToolStripMenuItem.Name = "crearEjercicioToolStripMenuItem";
-            this.crearEjercicioToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.crearEjercicioToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.crearEjercicioToolStripMenuItem.Text = "Crear ejercicio";
             this.crearEjercicioToolStripMenuItem.Click += new System.EventHandler(this.crearEjercicioToolStripMenuItem_Click);
             // 
@@ -225,26 +227,34 @@
             // 
             // dataGridViewEjercicio
             // 
+            this.dataGridViewEjercicio.AllowUserToAddRows = false;
+            this.dataGridViewEjercicio.AllowUserToDeleteRows = false;
             this.dataGridViewEjercicio.BackgroundColor = System.Drawing.Color.SteelBlue;
             this.dataGridViewEjercicio.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewEjercicio.Location = new System.Drawing.Point(389, 60);
             this.dataGridViewEjercicio.Name = "dataGridViewEjercicio";
+            this.dataGridViewEjercicio.ReadOnly = true;
             this.dataGridViewEjercicio.Size = new System.Drawing.Size(306, 349);
             this.dataGridViewEjercicio.TabIndex = 1;
             // 
             // dataGridViewRutina
             // 
+            this.dataGridViewRutina.AllowUserToAddRows = false;
+            this.dataGridViewRutina.AllowUserToDeleteRows = false;
             this.dataGridViewRutina.BackgroundColor = System.Drawing.Color.SteelBlue;
             this.dataGridViewRutina.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewRutina.Location = new System.Drawing.Point(24, 60);
             this.dataGridViewRutina.MultiSelect = false;
             this.dataGridViewRutina.Name = "dataGridViewRutina";
+            this.dataGridViewRutina.ReadOnly = true;
             this.dataGridViewRutina.Size = new System.Drawing.Size(306, 349);
             this.dataGridViewRutina.TabIndex = 0;
             this.dataGridViewRutina.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataGridViewRutina_MouseClick);
             // 
             // panel_CrearRutina
             // 
+            this.panel_CrearRutina.Controls.Add(this.label15);
+            this.panel_CrearRutina.Controls.Add(this.label14);
             this.panel_CrearRutina.Controls.Add(this.dataGridView_AgregarEjercicios);
             this.panel_CrearRutina.Controls.Add(this.dataGridView_Eliminarejercicios);
             this.panel_CrearRutina.Controls.Add(this.button_CambiarHora);
@@ -260,32 +270,38 @@
             this.panel_CrearRutina.Controls.Add(this.label4);
             this.panel_CrearRutina.Controls.Add(this.textBox_CrearNombre);
             this.panel_CrearRutina.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_CrearRutina.Location = new System.Drawing.Point(0, 0);
+            this.panel_CrearRutina.Location = new System.Drawing.Point(0, 24);
             this.panel_CrearRutina.Name = "panel_CrearRutina";
-            this.panel_CrearRutina.Size = new System.Drawing.Size(702, 456);
+            this.panel_CrearRutina.Size = new System.Drawing.Size(702, 432);
             this.panel_CrearRutina.TabIndex = 4;
             // 
             // dataGridView_AgregarEjercicios
             // 
+            this.dataGridView_AgregarEjercicios.AllowUserToAddRows = false;
+            this.dataGridView_AgregarEjercicios.AllowUserToDeleteRows = false;
             this.dataGridView_AgregarEjercicios.BackgroundColor = System.Drawing.Color.SteelBlue;
             this.dataGridView_AgregarEjercicios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_AgregarEjercicios.Location = new System.Drawing.Point(389, 137);
+            this.dataGridView_AgregarEjercicios.Location = new System.Drawing.Point(389, 147);
             this.dataGridView_AgregarEjercicios.Name = "dataGridView_AgregarEjercicios";
+            this.dataGridView_AgregarEjercicios.ReadOnly = true;
             this.dataGridView_AgregarEjercicios.Size = new System.Drawing.Size(301, 233);
             this.dataGridView_AgregarEjercicios.TabIndex = 13;
             // 
             // dataGridView_Eliminarejercicios
             // 
+            this.dataGridView_Eliminarejercicios.AllowUserToAddRows = false;
+            this.dataGridView_Eliminarejercicios.AllowUserToDeleteRows = false;
             this.dataGridView_Eliminarejercicios.BackgroundColor = System.Drawing.Color.SteelBlue;
             this.dataGridView_Eliminarejercicios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_Eliminarejercicios.Location = new System.Drawing.Point(19, 137);
+            this.dataGridView_Eliminarejercicios.Location = new System.Drawing.Point(24, 147);
             this.dataGridView_Eliminarejercicios.Name = "dataGridView_Eliminarejercicios";
+            this.dataGridView_Eliminarejercicios.ReadOnly = true;
             this.dataGridView_Eliminarejercicios.Size = new System.Drawing.Size(326, 233);
             this.dataGridView_Eliminarejercicios.TabIndex = 12;
             // 
             // button_CambiarHora
             // 
-            this.button_CambiarHora.Location = new System.Drawing.Point(389, 104);
+            this.button_CambiarHora.Location = new System.Drawing.Point(389, 99);
             this.button_CambiarHora.Name = "button_CambiarHora";
             this.button_CambiarHora.Size = new System.Drawing.Size(135, 23);
             this.button_CambiarHora.TabIndex = 11;
@@ -352,17 +368,20 @@
             // 
             // dataGridView_crearRutina
             // 
+            this.dataGridView_crearRutina.AllowUserToAddRows = false;
+            this.dataGridView_crearRutina.AllowUserToDeleteRows = false;
             this.dataGridView_crearRutina.BackgroundColor = System.Drawing.Color.SteelBlue;
             this.dataGridView_crearRutina.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_crearRutina.Location = new System.Drawing.Point(158, 137);
+            this.dataGridView_crearRutina.Location = new System.Drawing.Point(24, 147);
             this.dataGridView_crearRutina.Name = "dataGridView_crearRutina";
-            this.dataGridView_crearRutina.Size = new System.Drawing.Size(376, 233);
+            this.dataGridView_crearRutina.ReadOnly = true;
+            this.dataGridView_crearRutina.Size = new System.Drawing.Size(666, 233);
             this.dataGridView_crearRutina.TabIndex = 4;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(155, 114);
+            this.label5.Location = new System.Drawing.Point(155, 104);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(99, 13);
             this.label5.TabIndex = 3;
@@ -370,7 +389,7 @@
             // 
             // textBox_CrearHorasRutina
             // 
-            this.textBox_CrearHorasRutina.Location = new System.Drawing.Point(275, 107);
+            this.textBox_CrearHorasRutina.Location = new System.Drawing.Point(275, 101);
             this.textBox_CrearHorasRutina.Name = "textBox_CrearHorasRutina";
             this.textBox_CrearHorasRutina.Size = new System.Drawing.Size(108, 20);
             this.textBox_CrearHorasRutina.TabIndex = 2;
@@ -438,11 +457,14 @@
             // 
             // dataGridView_aparatos
             // 
+            this.dataGridView_aparatos.AllowUserToAddRows = false;
+            this.dataGridView_aparatos.AllowUserToDeleteRows = false;
             this.dataGridView_aparatos.BackgroundColor = System.Drawing.Color.SteelBlue;
             this.dataGridView_aparatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_aparatos.Location = new System.Drawing.Point(369, 89);
             this.dataGridView_aparatos.MultiSelect = false;
             this.dataGridView_aparatos.Name = "dataGridView_aparatos";
+            this.dataGridView_aparatos.ReadOnly = true;
             this.dataGridView_aparatos.Size = new System.Drawing.Size(311, 236);
             this.dataGridView_aparatos.TabIndex = 4;
             // 
@@ -606,20 +628,38 @@
             this.dataGridView_Cliente.Size = new System.Drawing.Size(240, 150);
             this.dataGridView_Cliente.TabIndex = 0;
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(108, 131);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(162, 13);
+            this.label14.TabIndex = 14;
+            this.label14.Text = "Ejercicios contenidos en la rutina";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(517, 131);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(100, 13);
+            this.label15.TabIndex = 15;
+            this.label15.Text = "Todos los ejercicios";
+            // 
             // Instructor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(702, 456);
-            this.Controls.Add(this.panel_AsignarRutinas);
             this.Controls.Add(this.panel_MostrarRutinas);
+            this.Controls.Add(this.panel_CrearRutina);
+            this.Controls.Add(this.panel_AsignarRutinas);
             this.Controls.Add(this.pictureBox_logo);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.panel_EliminarRutina);
             this.Controls.Add(this.panel_CrearEjercicio);
-            this.Controls.Add(this.panel_CrearRutina);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Instructor";
@@ -706,5 +746,7 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox textBoxIdRutina;
         private System.Windows.Forms.TextBox textBox_cliente;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label14;
     }
 }
