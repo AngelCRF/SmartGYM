@@ -299,8 +299,8 @@ namespace GYM
         public Consultas()
         {
             //colocar su ruta
-            //con = new Conexion(datosCarlos);
-            con = new Conexion(datosKevin);
+            con = new Conexion(datosCarlos);
+            //con = new Conexion(datosKevin);
         }
 
         public void inserta()
