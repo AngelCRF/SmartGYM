@@ -647,6 +647,7 @@ namespace GYM
                         consulta = ("delete from clientes where idcliente= '" + id + "';");
                         con.Open();
                         NpgsqlCommand cmd = new NpgsqlCommand(consulta, con.Conn);
+
                         con.Close();
                         MessageBox.Show("Cliente eliminado ", "Se elimino con exito", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
