@@ -163,7 +163,6 @@
             this.buttonee_save = new System.Windows.Forms.Button();
             this.dateTimePickeree_fmant = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickeree_fcompra = new System.Windows.Forms.DateTimePicker();
-            this.comboBoxee_tipo = new System.Windows.Forms.ComboBox();
             this.textBoxee_numserie = new System.Windows.Forms.TextBox();
             this.panel_equip_show_all = new System.Windows.Forms.Panel();
             this.label35 = new System.Windows.Forms.Label();
@@ -184,6 +183,7 @@
             this.label36 = new System.Windows.Forms.Label();
             this.dataGridView_Pagos = new System.Windows.Forms.DataGridView();
             this.dataGridView_Mantenimiento = new System.Windows.Forms.DataGridView();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
             this.panel_client_new.SuspendLayout();
             this.panel_client_edit.SuspendLayout();
@@ -376,9 +376,9 @@
             this.panel_client_new.Controls.Add(this.textBox_ApellidoP);
             this.panel_client_new.Controls.Add(this.textBox_Nombre);
             this.panel_client_new.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_client_new.Location = new System.Drawing.Point(0, 0);
+            this.panel_client_new.Location = new System.Drawing.Point(0, 24);
             this.panel_client_new.Name = "panel_client_new";
-            this.panel_client_new.Size = new System.Drawing.Size(509, 428);
+            this.panel_client_new.Size = new System.Drawing.Size(509, 404);
             this.panel_client_new.TabIndex = 1;
             // 
             // label18
@@ -394,6 +394,7 @@
             // textBox_password
             // 
             this.textBox_password.Location = new System.Drawing.Point(56, 329);
+            this.textBox_password.MaxLength = 20;
             this.textBox_password.Name = "textBox_password";
             this.textBox_password.Size = new System.Drawing.Size(274, 22);
             this.textBox_password.TabIndex = 29;
@@ -420,6 +421,7 @@
             // 
             // comboBox_TPago
             // 
+            this.comboBox_TPago.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_TPago.FormattingEnabled = true;
             this.comboBox_TPago.Items.AddRange(new object[] {
             "Efectivo",
@@ -428,7 +430,6 @@
             this.comboBox_TPago.Name = "comboBox_TPago";
             this.comboBox_TPago.Size = new System.Drawing.Size(132, 21);
             this.comboBox_TPago.TabIndex = 26;
-            this.comboBox_TPago.Text = "Efectivo";
             // 
             // label12
             // 
@@ -562,6 +563,7 @@
             // 
             // comboBox_TSangre
             // 
+            this.comboBox_TSangre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_TSangre.FormattingEnabled = true;
             this.comboBox_TSangre.Items.AddRange(new object[] {
             "O+",
@@ -576,11 +578,11 @@
             this.comboBox_TSangre.Name = "comboBox_TSangre";
             this.comboBox_TSangre.Size = new System.Drawing.Size(100, 21);
             this.comboBox_TSangre.TabIndex = 12;
-            this.comboBox_TSangre.Text = "O+";
             // 
             // textBox_Ciudad
             // 
             this.textBox_Ciudad.Location = new System.Drawing.Point(291, 211);
+            this.textBox_Ciudad.MaxLength = 200;
             this.textBox_Ciudad.Name = "textBox_Ciudad";
             this.textBox_Ciudad.Size = new System.Drawing.Size(161, 22);
             this.textBox_Ciudad.TabIndex = 9;
@@ -589,6 +591,7 @@
             // textBox_Colonia
             // 
             this.textBox_Colonia.Location = new System.Drawing.Point(56, 211);
+            this.textBox_Colonia.MaxLength = 200;
             this.textBox_Colonia.Name = "textBox_Colonia";
             this.textBox_Colonia.Size = new System.Drawing.Size(216, 22);
             this.textBox_Colonia.TabIndex = 8;
@@ -602,7 +605,7 @@
             this.textBox_Interior.TabIndex = 7;
             this.textBox_Interior.Text = "Opcional";
             this.textBox_Interior.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox_Interior.Leave += new System.EventHandler(this.textboxCheck);
+            this.textBox_Interior.Leave += new System.EventHandler(this.IC);
             // 
             // textBox_Numero
             // 
@@ -610,11 +613,12 @@
             this.textBox_Numero.Name = "textBox_Numero";
             this.textBox_Numero.Size = new System.Drawing.Size(77, 22);
             this.textBox_Numero.TabIndex = 6;
-            this.textBox_Numero.Leave += new System.EventHandler(this.textboxCheck);
+            this.textBox_Numero.Leave += new System.EventHandler(this.IC);
             // 
             // textBox_Calle
             // 
             this.textBox_Calle.Location = new System.Drawing.Point(56, 152);
+            this.textBox_Calle.MaxLength = 200;
             this.textBox_Calle.Name = "textBox_Calle";
             this.textBox_Calle.Size = new System.Drawing.Size(216, 22);
             this.textBox_Calle.TabIndex = 5;
@@ -623,6 +627,7 @@
             // textBox_Email
             // 
             this.textBox_Email.Location = new System.Drawing.Point(230, 94);
+            this.textBox_Email.MaxLength = 200;
             this.textBox_Email.Name = "textBox_Email";
             this.textBox_Email.Size = new System.Drawing.Size(222, 22);
             this.textBox_Email.TabIndex = 4;
@@ -640,6 +645,7 @@
             // textBox_ApellidoM
             // 
             this.textBox_ApellidoM.Location = new System.Drawing.Point(352, 35);
+            this.textBox_ApellidoM.MaxLength = 200;
             this.textBox_ApellidoM.Name = "textBox_ApellidoM";
             this.textBox_ApellidoM.Size = new System.Drawing.Size(100, 22);
             this.textBox_ApellidoM.TabIndex = 2;
@@ -648,6 +654,7 @@
             // textBox_ApellidoP
             // 
             this.textBox_ApellidoP.Location = new System.Drawing.Point(230, 35);
+            this.textBox_ApellidoP.MaxLength = 200;
             this.textBox_ApellidoP.Name = "textBox_ApellidoP";
             this.textBox_ApellidoP.Size = new System.Drawing.Size(100, 22);
             this.textBox_ApellidoP.TabIndex = 1;
@@ -656,6 +663,7 @@
             // textBox_Nombre
             // 
             this.textBox_Nombre.Location = new System.Drawing.Point(56, 35);
+            this.textBox_Nombre.MaxLength = 200;
             this.textBox_Nombre.Name = "textBox_Nombre";
             this.textBox_Nombre.Size = new System.Drawing.Size(153, 22);
             this.textBox_Nombre.TabIndex = 0;
@@ -693,9 +701,9 @@
             this.panel_client_edit.Controls.Add(this.textBoxE_ApellidoP);
             this.panel_client_edit.Controls.Add(this.textBoxE_Nombre);
             this.panel_client_edit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_client_edit.Location = new System.Drawing.Point(0, 0);
+            this.panel_client_edit.Location = new System.Drawing.Point(0, 24);
             this.panel_client_edit.Name = "panel_client_edit";
-            this.panel_client_edit.Size = new System.Drawing.Size(509, 428);
+            this.panel_client_edit.Size = new System.Drawing.Size(509, 404);
             this.panel_client_edit.TabIndex = 2;
             // 
             // label20
@@ -711,6 +719,7 @@
             // textBoxE_Pass
             // 
             this.textBoxE_Pass.Location = new System.Drawing.Point(55, 327);
+            this.textBoxE_Pass.MaxLength = 20;
             this.textBoxE_Pass.Name = "textBoxE_Pass";
             this.textBoxE_Pass.PasswordChar = '*';
             this.textBoxE_Pass.Size = new System.Drawing.Size(274, 22);
@@ -738,6 +747,7 @@
             // 
             // comboBoxE_TPago
             // 
+            this.comboBoxE_TPago.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxE_TPago.FormattingEnabled = true;
             this.comboBoxE_TPago.Items.AddRange(new object[] {
             "Efectivo",
@@ -746,7 +756,6 @@
             this.comboBoxE_TPago.Name = "comboBoxE_TPago";
             this.comboBoxE_TPago.Size = new System.Drawing.Size(132, 21);
             this.comboBoxE_TPago.TabIndex = 55;
-            this.comboBoxE_TPago.Text = "Efectivo";
             // 
             // label21
             // 
@@ -880,6 +889,7 @@
             // 
             // comboBoxE_TSangre
             // 
+            this.comboBoxE_TSangre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxE_TSangre.FormattingEnabled = true;
             this.comboBoxE_TSangre.Items.AddRange(new object[] {
             "O+",
@@ -894,11 +904,11 @@
             this.comboBoxE_TSangre.Name = "comboBoxE_TSangre";
             this.comboBoxE_TSangre.Size = new System.Drawing.Size(100, 21);
             this.comboBoxE_TSangre.TabIndex = 41;
-            this.comboBoxE_TSangre.Text = "O+";
             // 
             // textBoxE_Ciudad
             // 
             this.textBoxE_Ciudad.Location = new System.Drawing.Point(290, 209);
+            this.textBoxE_Ciudad.MaxLength = 200;
             this.textBoxE_Ciudad.Name = "textBoxE_Ciudad";
             this.textBoxE_Ciudad.Size = new System.Drawing.Size(161, 22);
             this.textBoxE_Ciudad.TabIndex = 40;
@@ -907,6 +917,7 @@
             // textBoxE_Col
             // 
             this.textBoxE_Col.Location = new System.Drawing.Point(55, 209);
+            this.textBoxE_Col.MaxLength = 200;
             this.textBoxE_Col.Name = "textBoxE_Col";
             this.textBoxE_Col.Size = new System.Drawing.Size(216, 22);
             this.textBoxE_Col.TabIndex = 39;
@@ -920,7 +931,7 @@
             this.textBoxE_Int.TabIndex = 38;
             this.textBoxE_Int.Text = "Opcional";
             this.textBoxE_Int.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBoxE_Int.Leave += new System.EventHandler(this.textboxCheck);
+            this.textBoxE_Int.Leave += new System.EventHandler(this.IC);
             // 
             // textBoxE_Num
             // 
@@ -928,11 +939,12 @@
             this.textBoxE_Num.Name = "textBoxE_Num";
             this.textBoxE_Num.Size = new System.Drawing.Size(77, 22);
             this.textBoxE_Num.TabIndex = 37;
-            this.textBoxE_Num.Leave += new System.EventHandler(this.textboxCheck);
+            this.textBoxE_Num.Leave += new System.EventHandler(this.IC);
             // 
             // textBoxE_Calle
             // 
             this.textBoxE_Calle.Location = new System.Drawing.Point(55, 150);
+            this.textBoxE_Calle.MaxLength = 200;
             this.textBoxE_Calle.Name = "textBoxE_Calle";
             this.textBoxE_Calle.Size = new System.Drawing.Size(216, 22);
             this.textBoxE_Calle.TabIndex = 36;
@@ -941,6 +953,7 @@
             // textBoxE_mail
             // 
             this.textBoxE_mail.Location = new System.Drawing.Point(229, 92);
+            this.textBoxE_mail.MaxLength = 200;
             this.textBoxE_mail.Name = "textBoxE_mail";
             this.textBoxE_mail.Size = new System.Drawing.Size(222, 22);
             this.textBoxE_mail.TabIndex = 35;
@@ -949,6 +962,7 @@
             // textBoxE_Tel
             // 
             this.textBoxE_Tel.Location = new System.Drawing.Point(55, 92);
+            this.textBoxE_Tel.MaxLength = 10;
             this.textBoxE_Tel.Name = "textBoxE_Tel";
             this.textBoxE_Tel.Size = new System.Drawing.Size(153, 22);
             this.textBoxE_Tel.TabIndex = 34;
@@ -957,6 +971,7 @@
             // textBoxE_ApellidoM
             // 
             this.textBoxE_ApellidoM.Location = new System.Drawing.Point(351, 33);
+            this.textBoxE_ApellidoM.MaxLength = 200;
             this.textBoxE_ApellidoM.Name = "textBoxE_ApellidoM";
             this.textBoxE_ApellidoM.Size = new System.Drawing.Size(100, 22);
             this.textBoxE_ApellidoM.TabIndex = 33;
@@ -965,6 +980,7 @@
             // textBoxE_ApellidoP
             // 
             this.textBoxE_ApellidoP.Location = new System.Drawing.Point(229, 33);
+            this.textBoxE_ApellidoP.MaxLength = 200;
             this.textBoxE_ApellidoP.Name = "textBoxE_ApellidoP";
             this.textBoxE_ApellidoP.Size = new System.Drawing.Size(100, 22);
             this.textBoxE_ApellidoP.TabIndex = 32;
@@ -973,6 +989,7 @@
             // textBoxE_Nombre
             // 
             this.textBoxE_Nombre.Location = new System.Drawing.Point(55, 33);
+            this.textBoxE_Nombre.MaxLength = 200;
             this.textBoxE_Nombre.Name = "textBoxE_Nombre";
             this.textBoxE_Nombre.Size = new System.Drawing.Size(153, 22);
             this.textBoxE_Nombre.TabIndex = 31;
@@ -983,9 +1000,9 @@
             this.panel_client_show_all.Controls.Add(this.label19);
             this.panel_client_show_all.Controls.Add(this.dataGridView_client);
             this.panel_client_show_all.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_client_show_all.Location = new System.Drawing.Point(0, 0);
+            this.panel_client_show_all.Location = new System.Drawing.Point(0, 24);
             this.panel_client_show_all.Name = "panel_client_show_all";
-            this.panel_client_show_all.Size = new System.Drawing.Size(509, 428);
+            this.panel_client_show_all.Size = new System.Drawing.Size(509, 404);
             this.panel_client_show_all.TabIndex = 2;
             // 
             // label19
@@ -1062,6 +1079,7 @@
             // textBoxM_P
             // 
             this.textBoxM_P.Location = new System.Drawing.Point(56, 316);
+            this.textBoxM_P.MaxLength = 20;
             this.textBoxM_P.Name = "textBoxM_P";
             this.textBoxM_P.PasswordChar = '*';
             this.textBoxM_P.Size = new System.Drawing.Size(274, 22);
@@ -1080,6 +1098,7 @@
             // 
             // comboBoxM_TP
             // 
+            this.comboBoxM_TP.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxM_TP.Enabled = false;
             this.comboBoxM_TP.FormattingEnabled = true;
             this.comboBoxM_TP.Items.AddRange(new object[] {
@@ -1089,7 +1108,6 @@
             this.comboBoxM_TP.Name = "comboBoxM_TP";
             this.comboBoxM_TP.Size = new System.Drawing.Size(132, 21);
             this.comboBoxM_TP.TabIndex = 85;
-            this.comboBoxM_TP.Text = "Efectivo";
             // 
             // label38
             // 
@@ -1236,6 +1254,7 @@
             // 
             // comboBoxM_TS
             // 
+            this.comboBoxM_TS.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxM_TS.Enabled = false;
             this.comboBoxM_TS.FormattingEnabled = true;
             this.comboBoxM_TS.Items.AddRange(new object[] {
@@ -1251,12 +1270,12 @@
             this.comboBoxM_TS.Name = "comboBoxM_TS";
             this.comboBoxM_TS.Size = new System.Drawing.Size(100, 21);
             this.comboBoxM_TS.TabIndex = 71;
-            this.comboBoxM_TS.Text = "O+";
             // 
             // textBoxM_Ciu
             // 
             this.textBoxM_Ciu.Enabled = false;
             this.textBoxM_Ciu.Location = new System.Drawing.Point(291, 198);
+            this.textBoxM_Ciu.MaxLength = 200;
             this.textBoxM_Ciu.Name = "textBoxM_Ciu";
             this.textBoxM_Ciu.Size = new System.Drawing.Size(161, 22);
             this.textBoxM_Ciu.TabIndex = 70;
@@ -1266,6 +1285,7 @@
             // 
             this.textBoxM_Col.Enabled = false;
             this.textBoxM_Col.Location = new System.Drawing.Point(56, 198);
+            this.textBoxM_Col.MaxLength = 200;
             this.textBoxM_Col.Name = "textBoxM_Col";
             this.textBoxM_Col.Size = new System.Drawing.Size(216, 22);
             this.textBoxM_Col.TabIndex = 69;
@@ -1280,7 +1300,7 @@
             this.textBoxM_Int.TabIndex = 68;
             this.textBoxM_Int.Text = "Opcional";
             this.textBoxM_Int.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBoxM_Int.Leave += new System.EventHandler(this.textboxCheck);
+            this.textBoxM_Int.Leave += new System.EventHandler(this.IC);
             // 
             // textBoxM_Num
             // 
@@ -1289,7 +1309,7 @@
             this.textBoxM_Num.Name = "textBoxM_Num";
             this.textBoxM_Num.Size = new System.Drawing.Size(77, 22);
             this.textBoxM_Num.TabIndex = 67;
-            this.textBoxM_Num.Leave += new System.EventHandler(this.textboxCheck);
+            this.textBoxM_Num.Leave += new System.EventHandler(this.IC);
             // 
             // textBoxM_C
             // 
@@ -1304,6 +1324,7 @@
             // 
             this.textBoxM_EM.Enabled = false;
             this.textBoxM_EM.Location = new System.Drawing.Point(230, 81);
+            this.textBoxM_EM.MaxLength = 200;
             this.textBoxM_EM.Name = "textBoxM_EM";
             this.textBoxM_EM.Size = new System.Drawing.Size(222, 22);
             this.textBoxM_EM.TabIndex = 65;
@@ -1323,6 +1344,7 @@
             // 
             this.textBoxM_AM.Enabled = false;
             this.textBoxM_AM.Location = new System.Drawing.Point(352, 22);
+            this.textBoxM_AM.MaxLength = 200;
             this.textBoxM_AM.Name = "textBoxM_AM";
             this.textBoxM_AM.Size = new System.Drawing.Size(100, 22);
             this.textBoxM_AM.TabIndex = 63;
@@ -1332,6 +1354,7 @@
             // 
             this.textBoxM_AP.Enabled = false;
             this.textBoxM_AP.Location = new System.Drawing.Point(230, 22);
+            this.textBoxM_AP.MaxLength = 200;
             this.textBoxM_AP.Name = "textBoxM_AP";
             this.textBoxM_AP.Size = new System.Drawing.Size(100, 22);
             this.textBoxM_AP.TabIndex = 62;
@@ -1341,6 +1364,7 @@
             // 
             this.textBoxM_Nom.Enabled = false;
             this.textBoxM_Nom.Location = new System.Drawing.Point(56, 22);
+            this.textBoxM_Nom.MaxLength = 200;
             this.textBoxM_Nom.Name = "textBoxM_Nom";
             this.textBoxM_Nom.Size = new System.Drawing.Size(153, 22);
             this.textBoxM_Nom.TabIndex = 61;
@@ -1384,9 +1408,9 @@
             this.panel_equip_new.Controls.Add(this.comboBox_Tipo);
             this.panel_equip_new.Controls.Add(this.textBox_NSerie);
             this.panel_equip_new.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_equip_new.Location = new System.Drawing.Point(0, 0);
+            this.panel_equip_new.Location = new System.Drawing.Point(0, 24);
             this.panel_equip_new.Name = "panel_equip_new";
-            this.panel_equip_new.Size = new System.Drawing.Size(509, 428);
+            this.panel_equip_new.Size = new System.Drawing.Size(509, 404);
             this.panel_equip_new.TabIndex = 3;
             // 
             // label34
@@ -1402,6 +1426,7 @@
             // textBox_NombreE
             // 
             this.textBox_NombreE.Location = new System.Drawing.Point(24, 33);
+            this.textBox_NombreE.MaxLength = 200;
             this.textBox_NombreE.Name = "textBox_NombreE";
             this.textBox_NombreE.Size = new System.Drawing.Size(450, 22);
             this.textBox_NombreE.TabIndex = 9;
@@ -1475,6 +1500,7 @@
             // 
             // comboBox_Tipo
             // 
+            this.comboBox_Tipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_Tipo.FormattingEnabled = true;
             this.comboBox_Tipo.Items.AddRange(new object[] {
             "Cardio",
@@ -1490,18 +1516,19 @@
             this.comboBox_Tipo.Name = "comboBox_Tipo";
             this.comboBox_Tipo.Size = new System.Drawing.Size(183, 21);
             this.comboBox_Tipo.TabIndex = 1;
-            this.comboBox_Tipo.Leave += new System.EventHandler(this.textboxCheck);
             // 
             // textBox_NSerie
             // 
             this.textBox_NSerie.Location = new System.Drawing.Point(24, 90);
+            this.textBox_NSerie.MaxLength = 16;
             this.textBox_NSerie.Name = "textBox_NSerie";
             this.textBox_NSerie.Size = new System.Drawing.Size(248, 22);
             this.textBox_NSerie.TabIndex = 0;
-            this.textBox_NSerie.Leave += new System.EventHandler(this.textboxCheck);
+            this.textBox_NSerie.Leave += new System.EventHandler(this.IC);
             // 
             // panel_equip_edit
             // 
+            this.panel_equip_edit.Controls.Add(this.comboBox1);
             this.panel_equip_edit.Controls.Add(this.label39);
             this.panel_equip_edit.Controls.Add(this.textBoxee_nombre);
             this.panel_equip_edit.Controls.Add(this.label41);
@@ -1511,7 +1538,6 @@
             this.panel_equip_edit.Controls.Add(this.buttonee_save);
             this.panel_equip_edit.Controls.Add(this.dateTimePickeree_fmant);
             this.panel_equip_edit.Controls.Add(this.dateTimePickeree_fcompra);
-            this.panel_equip_edit.Controls.Add(this.comboBoxee_tipo);
             this.panel_equip_edit.Controls.Add(this.textBoxee_numserie);
             this.panel_equip_edit.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_equip_edit.Location = new System.Drawing.Point(0, 24);
@@ -1533,6 +1559,7 @@
             // textBoxee_nombre
             // 
             this.textBoxee_nombre.Location = new System.Drawing.Point(29, 60);
+            this.textBoxee_nombre.MaxLength = 200;
             this.textBoxee_nombre.Name = "textBoxee_nombre";
             this.textBoxee_nombre.Size = new System.Drawing.Size(450, 22);
             this.textBoxee_nombre.TabIndex = 20;
@@ -1604,28 +1631,10 @@
             this.dateTimePickeree_fcompra.Size = new System.Drawing.Size(108, 22);
             this.dateTimePickeree_fcompra.TabIndex = 13;
             // 
-            // comboBoxee_tipo
-            // 
-            this.comboBoxee_tipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
-            this.comboBoxee_tipo.FormattingEnabled = true;
-            this.comboBoxee_tipo.Items.AddRange(new object[] {
-            "Cardio",
-            "Pecho",
-            "Tricep",
-            "Bicep",
-            "Pierna",
-            "Espalda",
-            "Abdomen",
-            "Multi",
-            "Otro"});
-            this.comboBoxee_tipo.Location = new System.Drawing.Point(296, 117);
-            this.comboBoxee_tipo.Name = "comboBoxee_tipo";
-            this.comboBoxee_tipo.Size = new System.Drawing.Size(183, 21);
-            this.comboBoxee_tipo.TabIndex = 12;
-            // 
             // textBoxee_numserie
             // 
             this.textBoxee_numserie.Location = new System.Drawing.Point(29, 117);
+            this.textBoxee_numserie.MaxLength = 16;
             this.textBoxee_numserie.Name = "textBoxee_numserie";
             this.textBoxee_numserie.Size = new System.Drawing.Size(248, 22);
             this.textBoxee_numserie.TabIndex = 11;
@@ -1636,9 +1645,9 @@
             this.panel_equip_show_all.Controls.Add(this.label35);
             this.panel_equip_show_all.Controls.Add(this.dataGridView_equip);
             this.panel_equip_show_all.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_equip_show_all.Location = new System.Drawing.Point(0, 0);
+            this.panel_equip_show_all.Location = new System.Drawing.Point(0, 24);
             this.panel_equip_show_all.Name = "panel_equip_show_all";
-            this.panel_equip_show_all.Size = new System.Drawing.Size(509, 428);
+            this.panel_equip_show_all.Size = new System.Drawing.Size(509, 404);
             this.panel_equip_show_all.TabIndex = 4;
             // 
             // label35
@@ -1808,9 +1817,9 @@
             this.panel_inform.Controls.Add(this.dataGridView_Pagos);
             this.panel_inform.Controls.Add(this.dataGridView_Mantenimiento);
             this.panel_inform.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_inform.Location = new System.Drawing.Point(0, 0);
+            this.panel_inform.Location = new System.Drawing.Point(0, 24);
             this.panel_inform.Name = "panel_inform";
-            this.panel_inform.Size = new System.Drawing.Size(509, 428);
+            this.panel_inform.Size = new System.Drawing.Size(509, 404);
             this.panel_inform.TabIndex = 6;
             // 
             // label36
@@ -1846,22 +1855,42 @@
             this.dataGridView_Mantenimiento.TabIndex = 0;
             this.dataGridView_Mantenimiento.Visible = false;
             // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.Enabled = false;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Cardio",
+            "Pecho",
+            "Tricep",
+            "Bicep",
+            "Pierna",
+            "Espalda",
+            "Abdomen",
+            "Multi",
+            "Otro"});
+            this.comboBox1.Location = new System.Drawing.Point(296, 118);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(183, 21);
+            this.comboBox1.TabIndex = 24;
+            // 
             // Personal_Recepcion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(509, 428);
-            this.Controls.Add(this.panel_client_show_one);
+            this.Controls.Add(this.panel_client_edit);
+            this.Controls.Add(this.panel_client_new);
+            this.Controls.Add(this.panel_client_show_all);
+            this.Controls.Add(this.panel_equip_show_all);
+            this.Controls.Add(this.panel_inform);
+            this.Controls.Add(this.panel_equip_new);
             this.Controls.Add(this.panel_equip_edit);
+            this.Controls.Add(this.panel_client_show_one);
             this.Controls.Add(this.panel_equip_show_one);
             this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.panel_client_edit);
-            this.Controls.Add(this.panel_equip_new);
-            this.Controls.Add(this.panel_inform);
-            this.Controls.Add(this.panel_client_new);
-            this.Controls.Add(this.panel_equip_show_all);
-            this.Controls.Add(this.panel_client_show_all);
             this.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
@@ -2012,7 +2041,6 @@
         private System.Windows.Forms.Button buttonee_save;
         private System.Windows.Forms.DateTimePicker dateTimePickeree_fmant;
         private System.Windows.Forms.DateTimePicker dateTimePickeree_fcompra;
-        private System.Windows.Forms.ComboBox comboBoxee_tipo;
         private System.Windows.Forms.TextBox textBoxee_numserie;
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.TextBox textBoxM_P;
@@ -2054,5 +2082,6 @@
         private System.Windows.Forms.TextBox textBoxME_NS;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ToolStripMenuItem cortesCercanosToolStripMenuItem;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

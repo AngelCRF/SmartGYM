@@ -238,7 +238,7 @@ namespace GYM
                     panel_equip_edit.Visible = true;
                     textBoxee_nombre.Text = Linea.Split(',')[1];
                     textBoxee_numserie.Text = Linea.Split(',')[2];
-                    comboBoxee_tipo.Text = Linea.Split(',')[3];
+                    comboBox1.Text = Linea.Split(',')[3];
                     dateTimePickeree_fcompra.Text = Linea.Split(',')[4];
                     dateTimePickeree_fmant.Text = Linea.Split(',')[5];
                 }
@@ -394,7 +394,7 @@ namespace GYM
             RevisaDatos(panel_equip_new);
             if (Completo)
             {
-                string[] DatosA = { textBoxee_nombre.Text, textBoxee_numserie.Text, comboBoxee_tipo.Text, dateTimePickeree_fcompra.Text, dateTimePickeree_fmant.Text };
+                string[] DatosA = { textBoxee_nombre.Text, textBoxee_numserie.Text, comboBox1.Text, dateTimePickeree_fcompra.Text, dateTimePickeree_fmant.Text };
                 C.updateA(DatosA , Convert.ToInt32(n));
                 OcultaPaneles();
             }

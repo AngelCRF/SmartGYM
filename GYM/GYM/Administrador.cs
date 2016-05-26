@@ -242,10 +242,7 @@ namespace GYM
                     try
                     {
                         t = (TextBox)o;
-                       
-                        
                             t.Text = "";
-                        
                     }
                     catch (Exception e)
                     {
