@@ -414,5 +414,25 @@ namespace GYM
             label36.Text = "Cortes cercanos: ";
             DataSet datos = C.consultacortes(dataGridView_Pagos);
         }
+
+        private void Personal_Recepcion_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+
+
+        private void IC(object sender, EventArgs e)
+        {
+            TextBox b = (TextBox)sender;
+            try
+            {
+                int a = Convert.ToInt32(b.Text);
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show("Ingrese un numero entero", "Numero invalido");
+                b.Focus();
+            }
+        }
     }
 }

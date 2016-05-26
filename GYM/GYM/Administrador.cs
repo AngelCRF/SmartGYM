@@ -133,7 +133,7 @@ namespace GYM
                     
                 }
             }
-            direccion= con.obtenerTrabajador(a,aux);
+            direccion= con.obtenerTrabajador(a,aux, comboBox_EditarPuesto);
             trabajador = a;
       
             if (direccion == -1)
@@ -219,6 +219,40 @@ namespace GYM
             label24.Text += Aux;
             panel_Reportes.BringToFront();
             richTextBox_inform.LoadFile(Aux + ".txt");
+        }
+
+        private void Administrador_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
+            Application.Exit();
+        }
+
+        private void Administrador_FormClosing_1(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void LimpiaDatos(Panel Actual)
+        {
+            TextBox t = new TextBox();
+            foreach (Object o in Actual.Controls)
+            {
+                try
+                {
+                    try
+                    {
+                        t = (TextBox)o;
+                       
+                        
+                            t.Text = "";
+                        
+                    }
+                    catch (Exception e)
+                    {
+                    }
+                }
+                catch (Exception e) { }
+            }
         }
     }
 }
