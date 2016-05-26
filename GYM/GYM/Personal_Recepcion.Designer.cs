@@ -1384,9 +1384,9 @@
             this.panel_equip_new.Controls.Add(this.comboBox_Tipo);
             this.panel_equip_new.Controls.Add(this.textBox_NSerie);
             this.panel_equip_new.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_equip_new.Location = new System.Drawing.Point(0, 0);
+            this.panel_equip_new.Location = new System.Drawing.Point(0, 24);
             this.panel_equip_new.Name = "panel_equip_new";
-            this.panel_equip_new.Size = new System.Drawing.Size(509, 428);
+            this.panel_equip_new.Size = new System.Drawing.Size(509, 404);
             this.panel_equip_new.TabIndex = 3;
             // 
             // label34
@@ -1475,6 +1475,7 @@
             // 
             // comboBox_Tipo
             // 
+            this.comboBox_Tipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_Tipo.FormattingEnabled = true;
             this.comboBox_Tipo.Items.AddRange(new object[] {
             "Cardio",
@@ -1490,7 +1491,6 @@
             this.comboBox_Tipo.Name = "comboBox_Tipo";
             this.comboBox_Tipo.Size = new System.Drawing.Size(183, 21);
             this.comboBox_Tipo.TabIndex = 1;
-            this.comboBox_Tipo.Leave += new System.EventHandler(this.textboxCheck);
             // 
             // textBox_NSerie
             // 
@@ -1653,10 +1653,13 @@
             // 
             // dataGridView_equip
             // 
+            this.dataGridView_equip.AllowUserToAddRows = false;
+            this.dataGridView_equip.AllowUserToDeleteRows = false;
             this.dataGridView_equip.BackgroundColor = System.Drawing.Color.SteelBlue;
             this.dataGridView_equip.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_equip.Location = new System.Drawing.Point(17, 50);
             this.dataGridView_equip.Name = "dataGridView_equip";
+            this.dataGridView_equip.ReadOnly = true;
             this.dataGridView_equip.Size = new System.Drawing.Size(475, 342);
             this.dataGridView_equip.TabIndex = 0;
             // 
@@ -1838,10 +1841,13 @@
             // 
             // dataGridView_Mantenimiento
             // 
+            this.dataGridView_Mantenimiento.AllowUserToAddRows = false;
+            this.dataGridView_Mantenimiento.AllowUserToDeleteRows = false;
             this.dataGridView_Mantenimiento.BackgroundColor = System.Drawing.Color.SteelBlue;
             this.dataGridView_Mantenimiento.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_Mantenimiento.Location = new System.Drawing.Point(17, 50);
             this.dataGridView_Mantenimiento.Name = "dataGridView_Mantenimiento";
+            this.dataGridView_Mantenimiento.ReadOnly = true;
             this.dataGridView_Mantenimiento.Size = new System.Drawing.Size(475, 342);
             this.dataGridView_Mantenimiento.TabIndex = 0;
             this.dataGridView_Mantenimiento.Visible = false;
@@ -1852,12 +1858,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(509, 428);
+            this.Controls.Add(this.panel_equip_new);
             this.Controls.Add(this.panel_client_show_one);
             this.Controls.Add(this.panel_equip_edit);
             this.Controls.Add(this.panel_equip_show_one);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.panel_client_edit);
-            this.Controls.Add(this.panel_equip_new);
             this.Controls.Add(this.panel_inform);
             this.Controls.Add(this.panel_client_new);
             this.Controls.Add(this.panel_equip_show_all);

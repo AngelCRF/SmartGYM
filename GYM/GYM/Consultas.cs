@@ -267,13 +267,13 @@ namespace GYM
                     consulta = "select * from cliente where idcliente= '" + id + "' and contraseña = '" + password + "'";
                     break;
                 case "trabajador":
-                    consulta = "select * from trabajador where idtrabajador= '" + id + "' and contraseña = '" + password + "'  and puesto= 'Recepcionista'";
+                    consulta = "select * from trabajador where idtrabajador= '" + id + "' and contraseña = '" + password + "'  and puesto = 'Recepcionista'";
                     break;
                 case "instructor":
-                    consulta = "select * from trabajador where idtrabajador= '" + id + "' and contraseña = '" + password + "' and puesto= 'Instructor' ";
+                    consulta = "select * from trabajador where idtrabajador= '" + id + "' and contraseña = '" + password + "' and puesto = 'Instructor' ";
                     break;
                 case "administrador":
-                    consulta = "select * from trabajador where idtrabajador= '" + id + "' and contraseña = '" + password + "' and puesto= 'Administrador' ";
+                    consulta = "select * from trabajador where idtrabajador= '" + id + "' and contraseña = '" + password + "' and puesto = 'Administrador' ";
                     break;
             }
             try
